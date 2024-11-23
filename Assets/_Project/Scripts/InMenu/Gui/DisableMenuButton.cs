@@ -1,16 +1,17 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DisableMenuButton : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject _objectToDisable;
+    private Button _button;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        _button = GetComponent<Button>();
+
+        if (_button != null)
+            _button.onClick.AddListener(() => _objectToDisable.SetActive(false));
+
     }
 }
