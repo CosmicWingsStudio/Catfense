@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level1Config
   m_EditorClassIdentifier: 
   <BackGround>k__BackingField: {fileID: -6695950386315148514, guid: 55fd59f8d0eb1414aaba935ebc82a05f, type: 3}
-  <EnvironmentPrefabName>k__BackingField: 
+  <EnvironmentPrefabName>k__BackingField: Default
   <WavesList>k__BackingField:
   - EnemiesOnWaveList: []
   - EnemiesOnWaveList:

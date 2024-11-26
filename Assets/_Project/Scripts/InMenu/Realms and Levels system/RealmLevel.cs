@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(RealmLevelFiller))]
 public class RealmLevel : MonoBehaviour
@@ -26,6 +27,13 @@ public class RealmLevel : MonoBehaviour
 
     private void StartGame()
     {
-        Debug.Log("Sending" + levelConfig + " as a callback");
+        if (LevelDataProviderFromMenuScene.Instance != null)
+        {
+            LevelDataProviderFromMenuScene.Instance.LevelDataConfig = levelConfig;
+            SceneManager.LoadScene(1);
+        }
+        else
+            Debug.LogError("LevelDataProvider is missing, can't start a level");
+        
     }
 }

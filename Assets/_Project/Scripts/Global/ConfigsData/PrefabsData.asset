@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd03812be18ce574491bcc2f00693add, type: 3}
   m_Name: PrefabsData
   m_EditorClassIdentifier: 
-  <PlayerUnitsPrefabsPath>k__BackingField: Assets/_Project/Resources/InGamePrefabs/Units/Players
-    Units
-  <EnemyUnitsPrefabsPath>k__BackingField: Assets/_Project/Resources/InGamePrefabs/Units/Enemy
-    Units
-  <BackgroundPrefabsPath>k__BackingField: Assets/_Project/Resources/InGamePrefabs/Backgrounds
-  <EnvironmentPrefabsPath>k__BackingField: Assets/_Project/Resources/InGamePrefabs/Environment
+  <PlayerUnitsPrefabsPath>k__BackingField: InGamePrefabs/Units/Players Units/
+  <EnemyUnitsPrefabsPath>k__BackingField: InGamePrefabs/Units/Enemy Units/
+  <BackgroundPrefabsPath>k__BackingField: InGamePrefabs/Backgrounds/
+  <EnvironmentPrefabsPath>k__BackingField: InGamePrefabs/Environment/
