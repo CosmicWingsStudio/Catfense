@@ -4,7 +4,7 @@ using Zenject;
 public class InGameSceneInstaller : MonoInstaller
 {
     [SerializeField] private SpriteRenderer _backGroundRenderer;
-    [SerializeField] private PrefabsData _prefabsDataConfig;
+    [SerializeField] private PrefabsPathsToFoldersProvider _prefabsDataConfig;
 
     public override void InstallBindings()
     {
@@ -12,7 +12,7 @@ public class InGameSceneInstaller : MonoInstaller
         BindConfigs();
         BindSceneSetupServices();
         //BindFactories();
-        BindHandlers();
+        BindHandlers(); 
     }
 
     private void BindSignals()
@@ -27,7 +27,7 @@ public class InGameSceneInstaller : MonoInstaller
 
     private void BindConfigs()
     {
-        Container.Bind<PrefabsData>().FromInstance(_prefabsDataConfig).AsSingle();
+        Container.Bind<PrefabsPathsToFoldersProvider>().FromInstance(_prefabsDataConfig).AsSingle();
     }
 
     private void BindSceneSetupServices()
@@ -36,7 +36,7 @@ public class InGameSceneInstaller : MonoInstaller
 
         Container.Bind<BackGroundHandler>().FromInstance(bgHandler).AsSingle();
         Container.Bind<EnvironmentHandler>().FromComponentInHierarchy().AsSingle();
-        Container.Bind<SceneEnemyFabric>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<SceneEnemyFactory>().FromComponentInHierarchy().AsSingle();
 
         Container.BindInterfacesTo<GameSceneSetuper>().AsSingle();
     }
@@ -44,6 +44,8 @@ public class InGameSceneInstaller : MonoInstaller
     private void BindHandlers()
     {
         Container.Bind<GameModeSwitcher>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<PreparationPhaseGUIHandler>().FromComponentInHierarchy().AsSingle();
+        
     }
 
     //private void BindFactories()

@@ -2,12 +2,12 @@
 
 public class PrefabsDataProvider
 {
-    public PrefabsDataProvider(PrefabsData prefabsData)
+    public PrefabsDataProvider(PrefabsPathsToFoldersProvider prefabsData)
     {
         _prefabsData = prefabsData;
     }
 
-    private PrefabsData _prefabsData;
+    private PrefabsPathsToFoldersProvider _prefabsData;
 
     public string GetPlayerUnitsPrefabsPath() => _prefabsData.PlayerUnitsPrefabsPath;
 

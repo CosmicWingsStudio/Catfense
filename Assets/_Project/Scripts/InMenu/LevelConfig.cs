@@ -30,7 +30,7 @@ public struct LevelWave
 }
 
 [Serializable]
-public struct LevelWaveEnemyInfo
+public class LevelWaveEnemyInfo
 {
     public LevelWaveEnemyInfo(string prefabName, int amount)
     {

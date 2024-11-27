@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PrefabsData", menuName = "Scriptable Objects/PrefabsData")]
-public class PrefabsData : ScriptableObject
+public class PrefabsPathsToFoldersProvider : ScriptableObject
 {
 
     #region InGamePaths

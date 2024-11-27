@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GlobalInstaller : MonoInstaller
 {
-    [SerializeField] private PrefabsData _prefabsData;
+    [SerializeField] private PrefabsPathsToFoldersProvider _prefabsData;
 
     public override void InstallBindings()
     {

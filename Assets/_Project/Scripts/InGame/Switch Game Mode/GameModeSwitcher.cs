@@ -4,33 +4,49 @@ using Zenject;
 public class GameModeSwitcher : MonoBehaviour
 {
     private SignalBus _signalBus;
-    private SceneEnemyFabric _sceneEnemyFabric; //ÕÇ ÍÀÄÎ ËÈ ÌÍÅ ÁÓÄÅÒ ÎÁĞÀÙÀÒÜÑß ÒÈÏÀ ËÀÑÒ İÍÈÌÈ ÇÄÎÕ È ÒÈÏ ÏÅĞÅÊËŞ×ÈÒÜ ÌÎÄ ÈËÈ ÊÀÊ?
+    private SceneEnemyFactory _sceneEnemyFabric; //ÕÇ ÍÀÄÎ ËÈ ÌÍÅ ÁÓÄÅÒ ÎÁĞÀÙÀÒÜÑß ÒÈÏÀ ËÀÑÒ İÍÈÌÈ ÇÄÎÕ È ÒÈÏ ÏÅĞÅÊËŞ×ÈÒÜ ÌÎÄ ÈËÈ ÊÀÊ?
 
     [SerializeField, Min(1)] private float _prepareTime = 25;
 
     private bool IsPrepareMode;
-    private float _remainingTime = 0;
+
+    private float _checkEnemyListTimer = 0f;
+    public float RemainingTime { get; private set; }
 
     [Inject]
-    private void Initialize(SignalBus signalBus, SceneEnemyFabric sceneEnemyFabric)
+    private void Initialize(SignalBus signalBus, SceneEnemyFactory sceneEnemyFabric)
     {
         _signalBus = signalBus;
         _sceneEnemyFabric = sceneEnemyFabric;
 
         IsPrepareMode = true;
+        RemainingTime = _prepareTime;
     }
 
     private void Update()
     {
         if(IsPrepareMode)
         {
-            if(_remainingTime + Time.deltaTime >= _prepareTime)
+            if (RemainingTime - Time.deltaTime <= 0)
             {
-
+                SwitchMode(GameMode.WaveMode);
             }
             else
+                RemainingTime -= Time.deltaTime;
+        }
+        else
+        {
+            if(_sceneEnemyFabric.AllEnemyOnTheWaveIsSpawned)
             {
-
+                if (_checkEnemyListTimer >= 1f) //íåáîëüøîé êóëäàóí, ÷òîá ñîêğàòèòü êîë-âî ïğîâåğîê ìàññèâà ñ âğàãàìè
+                {
+                    _checkEnemyListTimer = 0;
+                    if(_sceneEnemyFabric.CheckCurrentWaveEnemyListIsEmptylOrNot())
+                        SwitchMode(GameMode.PrepareMode);
+                }
+                else
+                    _checkEnemyListTimer += Time.deltaTime;
+                
             }
         }
     }
@@ -44,7 +60,7 @@ public class GameModeSwitcher : MonoBehaviour
                 _signalBus.Fire<WaveEndedSignal>();
                 break;
             case GameMode.WaveMode:
-                _remainingTime = 0;
+                RemainingTime = _prepareTime;
                 IsPrepareMode = false;
                 _signalBus.Fire<WaveStartedSignal>();
                 break;

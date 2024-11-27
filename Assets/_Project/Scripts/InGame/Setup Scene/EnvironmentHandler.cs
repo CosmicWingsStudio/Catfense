@@ -4,7 +4,7 @@ using Zenject;
 
 public class EnvironmentHandler : MonoBehaviour
 {
-    [Inject] PrefabsData _prefabsData;
+    [Inject] PrefabsPathsToFoldersProvider _prefabsData;
 
     public void SetEnvironment(string PrefabName)
     {    

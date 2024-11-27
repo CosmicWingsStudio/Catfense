@@ -5,16 +5,16 @@ public class GameSceneSetuper : IInitializable
 {
     private BackGroundHandler _backGroundHandler;
     private EnvironmentHandler _environmentHandler;
-    private SceneEnemyFabric _fabricPlaner;
+    private SceneEnemyFactory _sceneEnemyFactory;
 
-    public GameSceneSetuper(BackGroundHandler bgh, EnvironmentHandler eh, SceneEnemyFabric fp)
+    public GameSceneSetuper(BackGroundHandler bgh, EnvironmentHandler eh, SceneEnemyFactory fp)
     {
         _backGroundHandler = bgh;
         _environmentHandler = eh;
-        _fabricPlaner = fp;
+        _sceneEnemyFactory = fp;
     }
 
-    private LevelConfig CurrentLevelDataConfig;
+    private LevelConfig LevelDataConfig;
 
     public void Initialize() => SetupScene();
     
@@ -29,7 +29,7 @@ public class GameSceneSetuper : IInitializable
     {
         if (LevelDataProviderFromMenuScene.Instance != null)
         {
-            CurrentLevelDataConfig = LevelDataProviderFromMenuScene.Instance.LevelDataConfig;
+            LevelDataConfig = LevelDataProviderFromMenuScene.Instance.LevelDataConfig;
         }
         else
             Debug.LogError("LevelDataProvider is missing on the scene");
@@ -38,7 +38,7 @@ public class GameSceneSetuper : IInitializable
 
     private void SetParamsFromLevelConfig()
     {
-        if (CurrentLevelDataConfig != null )
+        if (LevelDataConfig != null )
         {
             SetBackGroundImage();
             SetEnvironment();
@@ -50,7 +50,7 @@ public class GameSceneSetuper : IInitializable
 
     private void SetBackGroundImage()
     {
-        if(CurrentLevelDataConfig.BackGround == null)
+        if(LevelDataConfig.BackGround == null)
         {
             Debug.LogError("Background image is not set");
             Application.Quit();
@@ -59,7 +59,7 @@ public class GameSceneSetuper : IInitializable
         {
             try
             {
-                _backGroundHandler.SetBackGround(CurrentLevelDataConfig.BackGround);
+                _backGroundHandler.SetBackGround(LevelDataConfig.BackGround);
                 Debug.Log("CONCRETE BG HAS BEEN INSTALLED");
             }
             catch (System.Exception)
@@ -74,7 +74,7 @@ public class GameSceneSetuper : IInitializable
 
     private void SetEnvironment()
     {
-        if (CurrentLevelDataConfig.BackGround == null)
+        if (LevelDataConfig.BackGround == null)
         {
             Debug.LogError("Environment Prefab Name is not set");
             Application.Quit();
@@ -83,7 +83,7 @@ public class GameSceneSetuper : IInitializable
         {
             try
             {
-                _environmentHandler.SetEnvironment(CurrentLevelDataConfig.EnvironmentPrefabName);
+                _environmentHandler.SetEnvironment(LevelDataConfig.EnvironmentPrefabName);
                 Debug.Log("CONCRETE ENV HAS BEEN INSTALLED");
             }
             catch (System.Exception)
@@ -97,7 +97,25 @@ public class GameSceneSetuper : IInitializable
 
     private void SetFabricPlan()
     {
-        Debug.Log("FABRIC PLAN IS ADDED");
+        if(LevelDataConfig.WavesList.Count == 0)
+        {
+            Debug.LogError("EnemyWaves is not set");
+            Application.Quit();
+        }
+        else
+        {
+            try
+            {
+                _sceneEnemyFactory.SetConfigData(LevelDataConfig.WavesList, LevelDataConfig.WavesAmount);
+                Debug.Log("WavesCfg is installed");
+            }
+            catch (System.Exception)
+            {
+                Debug.LogError("Can't set config data to SceneEnemyFactory");
+                Application.Quit();
+            }
+        }
+     
     }
   
 }
