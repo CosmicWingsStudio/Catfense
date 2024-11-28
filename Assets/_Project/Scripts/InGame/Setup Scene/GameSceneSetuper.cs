@@ -29,7 +29,10 @@ public class GameSceneSetuper : IInitializable
     {
         if (LevelDataProviderFromMenuScene.Instance != null)
         {
-            LevelDataConfig = LevelDataProviderFromMenuScene.Instance.LevelDataConfig;
+            if(LevelDataProviderFromMenuScene.Instance.LevelDataConfig != null)
+                LevelDataConfig = LevelDataProviderFromMenuScene.Instance.LevelDataConfig;
+            else if(LevelDataProviderFromMenuScene.Instance.DeveloperToolsConfig != null)
+                LevelDataConfig = LevelDataProviderFromMenuScene.Instance.DeveloperToolsConfig;
         }
         else
             Debug.LogError("LevelDataProvider is missing on the scene");

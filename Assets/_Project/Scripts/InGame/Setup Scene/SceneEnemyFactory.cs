@@ -18,7 +18,10 @@ public class SceneEnemyFactory : MonoBehaviour
     private float _enemySpawnDelayTimer = 0f;
 
     private bool IsReadyToProduceUnits = false;
+    private bool IsPaused = false;
     public bool AllEnemyOnTheWaveIsSpawned { get; private set; } = false;
+    public bool IsLastWave { get; private set; } = false;
+    public bool IsSpawnDisabledByDevTools { get; set; } = false;
 
     [Inject]
     private void Initialize(SignalBus signalBus, PrefabsPathsToFoldersProvider prefabsPathsProvider)
@@ -26,8 +29,10 @@ public class SceneEnemyFactory : MonoBehaviour
         _signalBus = signalBus;
         _prefabsPathsToFoldersProvider = prefabsPathsProvider;
 
-        _signalBus.Subscribe<WaveStartedSignal>(TurnOnProduceMode);
-        _signalBus.Subscribe<WaveEndedSignal>(TurnOffProduceMode);
+        _signalBus.Subscribe<WaveStartedSignal>(HandleWaveStartsSignal);
+        _signalBus.Subscribe<WaveEndedSignal>(HandleWaveEndsSignal);
+        _signalBus.Subscribe<PausedSignal>(() => IsPaused = true);
+        _signalBus.Subscribe<UnpausedSignal>(() => IsPaused = false);
     }
 
     public void SetConfigData(List<LevelWave> wavesList, int wavesAmount)
@@ -40,9 +45,11 @@ public class SceneEnemyFactory : MonoBehaviour
 
     private void Update()
     {
+        if (IsPaused || IsSpawnDisabledByDevTools)
+            return;
         if (IsReadyToProduceUnits)
         {
-            if(_enemySpawnDelayTimer >= _enemySpawnDelay)
+            if (_enemySpawnDelayTimer >= _enemySpawnDelay)
             {
                 if (_currentWaveData.Count != 0)
                 {
@@ -63,23 +70,23 @@ public class SceneEnemyFactory : MonoBehaviour
                             }
 
                         }
-                        else if(i+1 == _currentWaveData.Count) //если ласт заказ на противника амаунт = 0, то выходит что больше некого продюсить
+                        else if (i + 1 == _currentWaveData.Count)
                         {
                             AllEnemyOnTheWaveIsSpawned = true;
                             IsReadyToProduceUnits = false;
-                            Debug.Log("AllEnemyOnTheWaveIsSpawned = " + AllEnemyOnTheWaveIsSpawned);
                         }
 
                     }
                 }
                 else
                     Debug.LogError("No Enemy on the wave");
-                //взять текущую волну мб в отделньое поле и из нее вычитать, а также какой-то отдельное поле-итератор для волн
             }
             else
                 _enemySpawnDelayTimer += Time.deltaTime;
-            
+
         }
+
+
     }
 
     private Enemy Produce(string PathToPrefab)
@@ -116,19 +123,21 @@ public class SceneEnemyFactory : MonoBehaviour
         return _prefabsPathsToFoldersProvider.EnemyUnitsPrefabsPath + NameOfPrefab;
     }
 
-    private void TurnOffProduceMode()
+    private void HandleWaveEndsSignal()
     {
         IsReadyToProduceUnits = false;
+        AllEnemyOnTheWaveIsSpawned = false;
         _enemyOnTheWave.Clear();
         if (_currentWave + 1 <= _wavesAmount)
-            _currentWave++;
+            _currentWave++;    
     }
 
-    private void TurnOnProduceMode()
+    private void HandleWaveStartsSignal()
     {
         IsReadyToProduceUnits = true;
-        AllEnemyOnTheWaveIsSpawned = false;
         _enemySpawnDelayTimer = _enemySpawnDelay;
         _currentWaveData = _wavesList[_currentWave - 1].EnemiesOnWaveList;
+        if (_currentWave == _wavesAmount)
+            IsLastWave = true;
     }
 }

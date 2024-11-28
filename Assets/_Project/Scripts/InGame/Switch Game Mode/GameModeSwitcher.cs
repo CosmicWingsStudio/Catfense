@@ -9,9 +9,12 @@ public class GameModeSwitcher : MonoBehaviour
     [SerializeField, Min(1)] private float _prepareTime = 25;
 
     private bool IsPrepareMode;
+    private bool IsPaused = false;
+    private bool IsLevelEnded = false;
 
     private float _checkEnemyListTimer = 0f;
     public float RemainingTime { get; private set; }
+    public bool IsEverlastingPreparationTimeByDevTools { get; set; }
 
     [Inject]
     private void Initialize(SignalBus signalBus, SceneEnemyFactory sceneEnemyFabric)
@@ -21,34 +24,26 @@ public class GameModeSwitcher : MonoBehaviour
 
         IsPrepareMode = true;
         RemainingTime = _prepareTime;
+
+        _signalBus.Subscribe<PausedSignal>(() => IsPaused = true);
+        _signalBus.Subscribe<UnpausedSignal>(() => IsPaused = false);
     }
 
     private void Update()
     {
-        if(IsPrepareMode)
+        if (IsPaused || IsLevelEnded || IsEverlastingPreparationTimeByDevTools)
+            return;
+
+        if (IsPrepareMode)
         {
             if (RemainingTime - Time.deltaTime <= 0)
-            {
                 SwitchMode(GameMode.WaveMode);
-            }
             else
                 RemainingTime -= Time.deltaTime;
         }
         else
-        {
-            if(_sceneEnemyFabric.AllEnemyOnTheWaveIsSpawned)
-            {
-                if (_checkEnemyListTimer >= 1f) //небольшой кулдаун, чтоб сократить кол-во проверок массива с врагами
-                {
-                    _checkEnemyListTimer = 0;
-                    if(_sceneEnemyFabric.CheckCurrentWaveEnemyListIsEmptylOrNot())
-                        SwitchMode(GameMode.PrepareMode);
-                }
-                else
-                    _checkEnemyListTimer += Time.deltaTime;
-                
-            }
-        }
+            CheckLastEnemyOnTheCurrentWave();
+
     }
 
     private void SwitchMode(GameMode Mode)
@@ -64,6 +59,29 @@ public class GameModeSwitcher : MonoBehaviour
                 IsPrepareMode = false;
                 _signalBus.Fire<WaveStartedSignal>();
                 break;
+
+        }
+    }
+
+    private void CheckLastEnemyOnTheCurrentWave()
+    {
+        if (_sceneEnemyFabric.AllEnemyOnTheWaveIsSpawned)
+        {
+            if (_checkEnemyListTimer >= 1f) //небольшой кулдаун, чтоб сократить кол-во проверок массива с врагами
+            {
+                _checkEnemyListTimer = 0;
+                bool checkResult = _sceneEnemyFabric.CheckCurrentWaveEnemyListIsEmptylOrNot();
+
+                if (checkResult && _sceneEnemyFabric.IsLastWave)
+                {
+                    IsLevelEnded = true;
+                    _signalBus.Fire(new LevelEndedSignal(ResultType.Win));
+                }
+                else if (checkResult)
+                    SwitchMode(GameMode.PrepareMode);
+            }
+            else
+                _checkEnemyListTimer += Time.deltaTime;
 
         }
     }

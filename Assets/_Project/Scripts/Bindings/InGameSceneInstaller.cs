@@ -12,7 +12,9 @@ public class InGameSceneInstaller : MonoInstaller
         BindConfigs();
         BindSceneSetupServices();
         //BindFactories();
-        BindHandlers(); 
+        BindHandlers();
+        //BindModules();
+        //BindDeveloperTools();
     }
 
     private void BindSignals()
@@ -23,6 +25,7 @@ public class InGameSceneInstaller : MonoInstaller
         Container.DeclareSignal<UnpausedSignal>();
         Container.DeclareSignal<WaveStartedSignal>();
         Container.DeclareSignal<WaveEndedSignal>();
+        Container.DeclareSignal<LevelEndedSignal>();
     }
 
     private void BindConfigs()
@@ -38,15 +41,36 @@ public class InGameSceneInstaller : MonoInstaller
         Container.Bind<EnvironmentHandler>().FromComponentInHierarchy().AsSingle();
         Container.Bind<SceneEnemyFactory>().FromComponentInHierarchy().AsSingle();
 
-        Container.BindInterfacesTo<GameSceneSetuper>().AsSingle();
+        Container.BindInterfacesTo<GameSceneSetuper>().AsSingle();   
     }
 
     private void BindHandlers()
     {
         Container.Bind<GameModeSwitcher>().FromComponentInHierarchy().AsSingle();
         Container.Bind<PreparationPhaseGUIHandler>().FromComponentInHierarchy().AsSingle();
-        
+        Container.Bind<ResultScreenGUIHandler>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<PauseGUIHandler>().FromComponentInHierarchy().AsSingle();
+
     }
+
+    //private void BindDeveloperTools()
+    //{
+    //    Debug.LogWarning("YOU ARE IN DEV MODE. DO NOT FORGET TO DISABLE _DEVTOOLS BEFORE REALESE");
+    //    try
+    //    {
+    //        Container.Bind<DeveloperHandler>().FromComponentInHierarchy().AsSingle();
+    //    }
+    //    catch (System.Exception)
+    //    {
+    //        Debug.LogError("DEV TOOLS AVALIEBLE ONLY WHEN STARTS FROM GAME SCENE, NOT FROM MENU");
+    //    }
+        
+    //}
+
+    //private void BindModules()
+    //{
+        
+    //}
 
     //private void BindFactories()
     //{
