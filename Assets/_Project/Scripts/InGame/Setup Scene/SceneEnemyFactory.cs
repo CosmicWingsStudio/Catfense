@@ -4,9 +4,9 @@ using Zenject;
 
 public class SceneEnemyFactory : MonoBehaviour
 {
-    [SerializeField] private Transform EnemyFolder;
     [SerializeField, Min(0.5f)] private float _enemySpawnDelay = 1.5f; 
 
+    private Transform _enemySpawnPoint;
     private SignalBus _signalBus;
     private PrefabsPathsToFoldersProvider _prefabsPathsToFoldersProvider;
     private List<Enemy> _enemyOnTheWave = new();
@@ -35,10 +35,11 @@ public class SceneEnemyFactory : MonoBehaviour
         _signalBus.Subscribe<UnpausedSignal>(() => IsPaused = false);
     }
 
-    public void SetConfigData(List<LevelWave> wavesList, int wavesAmount)
+    public void SetConfigData(List<LevelWave> wavesList, int wavesAmount, Transform enemySpawnPoint)
     {
         _wavesList = wavesList;
         _wavesAmount = wavesAmount;
+        _enemySpawnPoint = enemySpawnPoint;
 
         _currentWaveData = _wavesList[0].EnemiesOnWaveList;
     }
@@ -91,7 +92,7 @@ public class SceneEnemyFactory : MonoBehaviour
 
     private Enemy Produce(string PathToPrefab)
     {
-        Enemy enemy = Instantiate(Resources.Load<Enemy>(PathToPrefab), EnemyFolder);
+        Enemy enemy = Instantiate(Resources.Load<Enemy>(PathToPrefab), _enemySpawnPoint);
         return enemy;
     }
 

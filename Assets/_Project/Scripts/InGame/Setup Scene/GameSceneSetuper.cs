@@ -45,7 +45,7 @@ public class GameSceneSetuper : IInitializable
         {
             SetBackGroundImage();
             SetEnvironment();
-            SetFabricPlan();
+            FillFactoryWithData();
         }  
         else
             Debug.LogError("LevelConfig is missing");
@@ -98,7 +98,7 @@ public class GameSceneSetuper : IInitializable
         }      
     }
 
-    private void SetFabricPlan()
+    private void FillFactoryWithData()
     {
         if(LevelDataConfig.WavesList.Count == 0)
         {
@@ -109,7 +109,8 @@ public class GameSceneSetuper : IInitializable
         {
             try
             {
-                _sceneEnemyFactory.SetConfigData(LevelDataConfig.WavesList, LevelDataConfig.WavesAmount);
+                Transform enemySpawnPoint = _environmentHandler.GetEnemySpawnPoint();
+                _sceneEnemyFactory.SetConfigData(LevelDataConfig.WavesList, LevelDataConfig.WavesAmount, enemySpawnPoint);
                 Debug.Log("WavesCfg is installed");
             }
             catch (System.Exception)
