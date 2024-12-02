@@ -16,4 +16,6 @@ public class PrefabsDataProvider
     public string GetBackgroundPrefabsPath() => _prefabsData.BackgroundPrefabsPath;
 
     public string GetEnvironmentPrefabsPath() => _prefabsData.EnvironmentPrefabsPath;
+
+    public string GetCardsPrefabsPath() => _prefabsData.CardsPrefabsPath;
 }

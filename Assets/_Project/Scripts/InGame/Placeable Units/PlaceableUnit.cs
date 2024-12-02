@@ -37,13 +37,16 @@ public class PlaceableUnit : MonoBehaviour
         }
     }
 
-    //[Inject] private EnvironmentHandler _environmentHandler;
-    [SerializeField] private EnvironmentContainerHandler _environmentHandler;
+    [Inject] private EnvironmentHandler _environmentHandler;
 
     private int _clickNumber = 0;
     private float _clickTime = 0f;
     private float _clickDelay = 0.5f;
-    private bool OnDoubleClick = false;
+
+    private float _dragStateTreshold = 0.1f;
+    private float _holdingTimer;
+    private bool IsDragging = false;
+    private bool IsOnDoubleClickFrame = false;
 
     private Vector2 _originalPosition;
 
@@ -56,75 +59,63 @@ public class PlaceableUnit : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        transform.Translate(mousePosition);
+        if (_holdingTimer < _dragStateTreshold)
+            _holdingTimer += Time.deltaTime;
+        else
+        {
+            if (IsOnDoubleClickFrame)
+                return;
+
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            transform.Translate(mousePosition);          
+            IsDragging = true;
+        }
+        
     }
 
     private void OnMouseUp()
     {
-        if (OnDoubleClick)
-        {
-            OnDoubleClick = false;
-            Debug.Log("cap worked");
+        _holdingTimer = 0f;
+        if (IsOnDoubleClickFrame)
+            IsOnDoubleClickFrame = false;
+
+        if (!IsDragging)
             return;
-        }
-            
+
+        if(IsDragging)
+            IsDragging = false;
 
         var typeofslot = ParentSlot;
 
         if (typeofslot == null)
             Debug.LogError("Slot is missing");
 
-        if (typeofslot is BenchSlot)
-        {
-            if(TryToSetIntoPlaceSlot() == false)
-                BackToOriginalSlot();
-        }
-        else if(typeofslot is PlaceSlot)
-        {
-            if (TryToSetIntoBenchSlot() == false)
-                BackToOriginalSlot();
-        }
-
-
+        if (TryToSetIntoDefinedSlot() == false)
+            BackToOriginalSlot();
     }
 
     private void BackToOriginalSlot()
     {
         transform.localPosition = _originalPosition;
-        Debug.Log("Backt to orig");
+        Debug.Log("orig slot");
     }
 
-    private bool TryToSetIntoPlaceSlot()
+    private bool TryToSetIntoDefinedSlot()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         var hit = Physics2D.RaycastAll(mousePosition, Vector2.right);
 
         foreach (var collider in hit)
         {
-            if(collider.transform.TryGetComponent(out PlaceSlot placeSlot))
+            if (collider.transform.TryGetComponent(out Slot2D Slot))
             {
-                ParentSlot.InformOfTakingItemFromSlot();
-                placeSlot.PlaceItemInSlot(transform);
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    private bool TryToSetIntoBenchSlot()
-    {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        var hit = Physics2D.RaycastAll(mousePosition, Vector2.right);
-
-        foreach (var collider in hit)
-        {
-            if (collider.transform.TryGetComponent(out BenchSlot benchSlot))
-            {
-                ParentSlot.InformOfTakingItemFromSlot();
-                benchSlot.PlaceItemInSlot(transform);
-                return true;
+                if (Slot != ParentSlot)
+                {
+                    ParentSlot.InformOfTakingItemFromSlot();
+                    Slot.PlaceItemInSlot(transform);
+                    return true;
+                }
+                
             }
         }
 
@@ -134,29 +125,27 @@ public class PlaceableUnit : MonoBehaviour
     private void DoubleClickChecker()
     {
         _clickNumber++;
+
         if (_clickNumber == 1)
             _clickTime = Time.time;
 
-        if (_clickNumber > 1 && Time.time - _clickTime < _clickDelay)
+        if (_clickNumber > 1 && Time.time - _clickTime <= _clickDelay)
         {
             _clickNumber = 0;
             _clickTime = 0;
-            OnDoubleClick = true;
             DoubleClickAction();
         }
-        else if (_clickNumber > 2 || Time.time - _clickTime > 1)
+        else if (Time.time - _clickTime > 1)
             _clickNumber = 0;
     }
 
     private void DoubleClickAction()
-    {
-        //if(ParentSlot is PlaceSlot)
-        //    _environmentHandler.GetEnvironmentContainer().TrySetItemInBenchSlot(transform);
+    {  
+        IsOnDoubleClickFrame = true;
         if (ParentSlot is PlaceSlot)
         {
             var oldParentSlot = ParentSlot;
-            Debug.Log(ParentSlot);
-            if (_environmentHandler.TrySetItemInBenchSlot(transform))
+            if (_environmentHandler.GetEnvironmentContainer().TrySetItemInBenchSlot(transform))
                 oldParentSlot.InformOfTakingItemFromSlot();
         }
     }

@@ -11,7 +11,7 @@ public class InGameSceneInstaller : MonoInstaller
         BindSignals();
         BindConfigs();
         BindSceneSetupServices();
-        //BindFactories();
+        BindFactories();
         BindHandlers();
         //BindModules();
         //BindDeveloperTools();
@@ -50,6 +50,8 @@ public class InGameSceneInstaller : MonoInstaller
         Container.Bind<PreparationPhaseGUIHandler>().FromComponentInHierarchy().AsSingle();
         Container.Bind<ResultScreenGUIHandler>().FromComponentInHierarchy().AsSingle();
         Container.Bind<PauseGUIHandler>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<WalletHandler>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<ShopHandler>().FromComponentInHierarchy().AsSingle();
 
     }
 
@@ -64,16 +66,17 @@ public class InGameSceneInstaller : MonoInstaller
     //    {
     //        Debug.LogError("DEV TOOLS AVALIEBLE ONLY WHEN STARTS FROM GAME SCENE, NOT FROM MENU");
     //    }
-        
+
     //}
 
     //private void BindModules()
     //{
-        
+
     //}
 
-    //private void BindFactories()
-    //{
-    //    Container.BindFactory<Enemy, EnemyFactory>();
-    //}
+    private void BindFactories()
+    {
+        Container.Bind<PlaceableUnitsFactory>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<CardsFactory>().FromComponentInHierarchy().AsSingle();
+    }
 }

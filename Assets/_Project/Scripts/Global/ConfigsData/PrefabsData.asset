@@ -16,3 +16,4 @@ MonoBehaviour:
   <EnemyUnitsPrefabsPath>k__BackingField: InGamePrefabs/Units/Enemy Units/
   <BackgroundPrefabsPath>k__BackingField: InGamePrefabs/Backgrounds/
   <EnvironmentPrefabsPath>k__BackingField: InGamePrefabs/Environment/
+  <CardsPrefabsPath>k__BackingField: InGamePrefabs/Cards/

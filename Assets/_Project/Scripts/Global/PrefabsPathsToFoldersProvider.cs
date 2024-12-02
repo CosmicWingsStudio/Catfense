@@ -17,6 +17,9 @@ public class PrefabsPathsToFoldersProvider : ScriptableObject
     [field: SerializeField]
     public string EnvironmentPrefabsPath { get; private set; }
 
+    [field: SerializeField]
+    public string CardsPrefabsPath { get; private set; }
+
     #endregion
 
     #region InMenuPaths

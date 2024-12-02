@@ -1,6 +1,7 @@
 
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class EnvironmentContainerHandler : MonoBehaviour
 {
@@ -30,6 +31,20 @@ public class EnvironmentContainerHandler : MonoBehaviour
             }
         }
 
+        Debug.Log("#NOTIFY TABLE# | мер ябнандмшу якнрнб мю кюбе ");
+        return false;
+    }
+
+    public bool CanSetItemInBenchSlotOrNot()
+    {
+        foreach (var slot in BenchSlots)
+        {
+            if (slot.Item == null)
+            { 
+                return true;
+            }
+        }
+ 
         return false;
     }
 }
