@@ -51,8 +51,10 @@ public class InGameSceneInstaller : MonoInstaller
         Container.Bind<ResultScreenGUIHandler>().FromComponentInHierarchy().AsSingle();
         Container.Bind<PauseGUIHandler>().FromComponentInHierarchy().AsSingle();
         Container.Bind<WalletHandler>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<SellUnitGUIHandler>().FromComponentInHierarchy().AsSingle();
         Container.Bind<ShopHandler>().FromComponentInHierarchy().AsSingle();
-
+        Container.Bind<UnitDragPlacer>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<GUIWarningHandler>().FromComponentInHierarchy().AsSingle();
     }
 
     //private void BindDeveloperTools()

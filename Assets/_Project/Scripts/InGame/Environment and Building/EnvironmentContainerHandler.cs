@@ -1,15 +1,16 @@
 
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class EnvironmentContainerHandler : MonoBehaviour
 {
     [SerializeField] private Transform BenchSlotsFolder;
+    [SerializeField] private Transform BuyableTowerPartsFolder;
+
     [field: SerializeField] public Transform EnemySpawnPoint { get; private set; }
 
-
     [HideInInspector] public List<BenchSlot> BenchSlots = new();
+    [HideInInspector] public List<AdditionalTowerPart> BuyableTowerParts = new();
 
     private void Start()
     {
@@ -17,6 +18,12 @@ public class EnvironmentContainerHandler : MonoBehaviour
             for (int i = 0; i < BenchSlotsFolder.childCount; i++)
             {
                 BenchSlots.Add(BenchSlotsFolder.GetChild(i).GetComponent<BenchSlot>());
+            }
+
+        if(BuyableTowerPartsFolder != null)
+            for (int i = 0; i < BuyableTowerPartsFolder.childCount; i++)
+            {
+                BuyableTowerParts.Add(BuyableTowerPartsFolder.GetChild(i).GetComponent<AdditionalTowerPart>());
             }
     }
 
@@ -29,6 +36,7 @@ public class EnvironmentContainerHandler : MonoBehaviour
                 slot.PlaceItemInSlot(item);
                 return true;
             }
+           
         }
 
         Debug.Log("#NOTIFY TABLE# | мер ябнандмшу якнрнб мю кюбе ");

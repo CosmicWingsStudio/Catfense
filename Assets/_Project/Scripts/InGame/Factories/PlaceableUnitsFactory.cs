@@ -13,8 +13,11 @@ public class PlaceableUnitsFactory : MonoBehaviour
         _container = container;
     }
 
-    public PlaceableUnit ProducePlaceableUnit(string prefabName)
+    public PlaceableUnit ProducePlaceableUnit(string prefabName, int originalPrice)
     {
-        return _container.InstantiatePrefabResource(_prefabsDataProvider.GetPlayerUnitsPrefabsPath() + prefabName).GetComponent<PlaceableUnit>();
+        //return _container.InstantiatePrefabResource(_prefabsDataProvider.GetPlayerUnitsPrefabsPath() + prefabName).GetComponent<PlaceableUnit>();
+        PlaceableUnit pUnit = Instantiate(Resources.Load<PlaceableUnit>(_prefabsDataProvider.GetPlayerUnitsPrefabsPath() + prefabName));
+        pUnit.Initialize(originalPrice);
+        return pUnit;
     }
 }

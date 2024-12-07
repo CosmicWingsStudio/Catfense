@@ -6,6 +6,8 @@ public class EnvironmentHandler : MonoBehaviour
 {
     [Inject] PrefabsPathsToFoldersProvider _prefabsData;
 
+    [SerializeField] private Transform _unitsFolder;
+
     private EnvironmentContainerHandler _eContainerHandler;
 
     public void SetEnvironment(string PrefabName)
@@ -16,6 +18,5 @@ public class EnvironmentHandler : MonoBehaviour
     public Transform GetEnemySpawnPoint() => _eContainerHandler.EnemySpawnPoint;
 
     public EnvironmentContainerHandler GetEnvironmentContainer() => _eContainerHandler;
-
 
 }

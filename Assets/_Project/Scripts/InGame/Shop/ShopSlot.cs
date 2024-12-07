@@ -2,15 +2,25 @@ using UnityEngine;
 
 public class ShopSlot : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public GameObject Item
     {
-        
+        get
+        {
+            if (transform.childCount > 0)
+                return transform.GetChild(0).gameObject;
+            else
+                return null;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PlaceCardIntoSlot(Transform cardTransform)
     {
-        
+        cardTransform.SetParent(transform);
+        cardTransform.localPosition = Vector3.zero;
+    }
+    public void DestroyItem()
+    {
+        if(Item != null)
+            Destroy(Item.gameObject);
     }
 }
