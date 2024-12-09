@@ -107,17 +107,22 @@ public class GameSceneSetuper : IInitializable
         }
         else
         {
-            try
-            {
-                Transform enemySpawnPoint = _environmentHandler.GetEnemySpawnPoint();
-                _sceneEnemyFactory.SetConfigData(LevelDataConfig.WavesList, LevelDataConfig.WavesAmount, enemySpawnPoint);
-                Debug.Log("WavesCfg is installed");
-            }
-            catch (System.Exception)
-            {
-                Debug.LogError("Can't set config data to SceneEnemyFactory");
-                Application.Quit();
-            }
+            //try
+            //{
+            //    Transform enemySpawnPoint = _environmentHandler.GetEnemySpawnPoint();
+            //    _sceneEnemyFactory.SetConfigData(LevelDataConfig.WavesList, LevelDataConfig.WavesAmount, enemySpawnPoint);
+            //    Debug.Log("WavesCfg is installed");
+            //}
+            //catch (System.Exception)
+            //{
+            //    Debug.LogError("Can't set config data to SceneEnemyFactory");
+            //    Application.Quit();
+            //}
+
+
+            Transform enemySpawnPoint = _environmentHandler.GetEnemySpawnPoint();
+            _sceneEnemyFactory.SetConfigData(LevelDataConfig.WavesList, LevelDataConfig.WavesAmount, enemySpawnPoint);
+            Debug.Log("WavesCfg is installed");
         }
      
     }

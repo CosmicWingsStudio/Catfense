@@ -37,7 +37,20 @@ public class SceneEnemyFactory : MonoBehaviour
 
     public void SetConfigData(List<LevelWave> wavesList, int wavesAmount, Transform enemySpawnPoint)
     {
-        _wavesList = wavesList;
+        _wavesList = new();
+        List<LevelWaveEnemyInfo> lwei = new();
+
+        for (int i = 0; i < wavesList.Count; i++)
+        {
+            for (int j = 0; j < wavesList[i].EnemiesOnWaveList.Count; j++)
+            {
+                lwei.Add(new LevelWaveEnemyInfo(wavesList[i].EnemiesOnWaveList[j].PrefabName, wavesList[i].EnemiesOnWaveList[j].Amount));
+            }
+        }
+
+        LevelWave lw = new LevelWave(lwei);
+        _wavesList.Add(lw);
+
         _wavesAmount = wavesAmount;
         _enemySpawnPoint = enemySpawnPoint;
 

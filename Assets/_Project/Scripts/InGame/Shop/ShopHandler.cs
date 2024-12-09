@@ -68,24 +68,24 @@ public class ShopHandler : MonoBehaviour
         OpenSellGUIForSelectedUnit();
     }
 
-    public void Purchase(int price, string prefabName, GameObject Requester)
+    public void Purchase(int price, string prefabName, GameObject Requester, string unitName)
     {
         if (_environmentHandler.GetEnvironmentContainer().CanSetItemInBenchSlotOrNot() == false)
         {
-            Debug.Log("#NOTIFY TABLE# | НЕТ СВОБОДНЫХ СЛОТОВ НА ЛАВКЕ ");
             _guiWarningHandler.ShowWarningScreen("Нет свободного места");
             return;
         }
         if (_walletHandler.CurrentMoney < price)
         {
-            Debug.Log("#NOTIFY TABLE# | НЕТ ДЕНЯХ ");
             _guiWarningHandler.ShowWarningScreen("Недостаточно золота");
             return;
         }
         
 
         _walletHandler.SpendMoney(price);
-        _environmentHandler.GetEnvironmentContainer().TrySetItemInBenchSlot(_shopUnitsFactory.ProducePlaceableUnit(prefabName, price).transform);
+        if(_environmentHandler.GetEnvironmentContainer().TryToUpgradeUnitsFromShop(unitName) == false)
+            _environmentHandler.GetEnvironmentContainer().SetItemInBenchSlotFromShop(_shopUnitsFactory.ProducePlaceableUnit(prefabName, price, unitName));
+
         Destroy(Requester);
     }
 

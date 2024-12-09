@@ -39,7 +39,7 @@ public class UnitDragPlacer : MonoBehaviour
     {    
         if (Input.GetMouseButtonDown(0))
         {
-            if (!IsDragSystemAvailable)
+            if (!IsDragSystemAvailable && VerifyUnit())
             {
                 _guiWarningHandler.ShowWarningScreen("Нельзя перемещать юниты во время боя");
                 return;
@@ -49,7 +49,15 @@ public class UnitDragPlacer : MonoBehaviour
         }
 
         if (!IsDragSystemAvailable)
+        {
+            if (_currentDraggableUnit != null)
+            {
+                BackToOriginalSlot();
+                _currentDraggableUnit.DataDisplayer.TurnOnDisplayOnTheEndOfDragging();
+                _currentDraggableUnit = null;
+            }
             return;
+        }
 
         if (_currentDraggableUnit != null)
         {
@@ -65,24 +73,14 @@ public class UnitDragPlacer : MonoBehaviour
         }
     }
 
-    private PlaceableUnit VerifyUnit()
-    {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        var hit = Physics2D.RaycastAll(mousePos, Vector2.right);
-        foreach (var collider in hit)
-        {
-            if (collider.transform.TryGetComponent(out PlaceableUnit pUnit))
-                return pUnit;
-        }
-
-        return null;
-    }
+   
+    #region Click Handlers
 
     private void DownClickHandler()
     {
-        if (VerifyUnit() != null)
+        if (GetUnit() != null)
         {
-            _currentDraggableUnit = VerifyUnit();
+            _currentDraggableUnit = GetUnit();
             IsOnDoubleClickFrame = false;
             DoubleClickChecker();
 
@@ -101,7 +99,11 @@ public class UnitDragPlacer : MonoBehaviour
         }
 
         if (IsDragging)
+        {
+            _currentDraggableUnit.DataDisplayer.TurnOnDisplayOnTheEndOfDragging();
+            _currentDraggableUnit.spriteRenderer.sortingOrder = _currentDraggableUnit.DefaultSortingOrder;
             IsDragging = false;
+        }
 
         if (IsOnDoubleClickFrame)
         {
@@ -129,6 +131,8 @@ public class UnitDragPlacer : MonoBehaviour
 
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - _currentDraggableUnit.transform.position;
             _currentDraggableUnit.transform.Translate(mousePosition);
+            _currentDraggableUnit.DataDisplayer.TurnOffDisplayWhileDragging();
+            _currentDraggableUnit.spriteRenderer.sortingOrder = _currentDraggableUnit.DefaultSortingOrder + 1;
             IsDragging = true;
         }
     }
@@ -164,6 +168,34 @@ public class UnitDragPlacer : MonoBehaviour
         }
     }
 
+    #endregion
+
+    private PlaceableUnit GetUnit()
+    {
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        var hit = Physics2D.RaycastAll(mousePos, Vector2.right);
+        foreach (var collider in hit)
+        {
+            if (collider.transform.TryGetComponent(out PlaceableUnit pUnit))
+                return pUnit;
+        }
+
+        return null;
+    }
+
+    private bool VerifyUnit()
+    {
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        var hit = Physics2D.RaycastAll(mousePos, Vector2.right);
+        foreach (var collider in hit)
+        {
+            if (collider.transform.TryGetComponent(out PlaceableUnit pUnit))
+                return true;
+        }
+
+        return false;
+    }
+
     private void BackToOriginalSlot()
     {
         _currentDraggableUnit.transform.localPosition = _originalPosition;
@@ -173,8 +205,7 @@ public class UnitDragPlacer : MonoBehaviour
     private bool TryToSetIntoDefinedSlot()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) /*- _currentDraggableUnit.transform.position*/;
-        var hit = Physics2D.RaycastAll(mousePosition, Vector2.right);
-        Debug.Log(DefineParentSlot(_currentDraggableUnit.transform) + "TRY TO SET parent slot");
+        var hit = Physics2D.RaycastAll(mousePosition, Vector2.right, 0f);
         foreach (var collider in hit)
         {
             if (collider.transform.TryGetComponent(out Slot2D Slot))
@@ -191,9 +222,23 @@ public class UnitDragPlacer : MonoBehaviour
                 }
 
             }
+            else if(collider.transform.TryGetComponent(out PlaceableUnit pUnit))
+            {
+                if(pUnit != _currentDraggableUnit)
+                    SwapUnitsPosition(pUnit);
+            }
         }
 
         return false;
+    }
+
+    private void SwapUnitsPosition(PlaceableUnit pUnit)
+    {
+        Slot2D Slot1 = _currentDraggableUnit.ParentSlot;
+        Slot2D Slot2 = pUnit.ParentSlot;
+
+        Slot1.SwapItemWithAnotherItem(pUnit.transform);
+        Slot2.SwapItemWithAnotherItem(_currentDraggableUnit.transform);
     }
 
     private Slot2D DefineParentSlot(Transform obj)

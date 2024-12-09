@@ -1,4 +1,5 @@
 
+using TMPro;
 using UnityEngine;
 using Zenject;
 
@@ -26,7 +27,6 @@ public class PlaceableUnit : MonoBehaviour
         }
         set {}
     }
-
     public Slot2D ParentSlot
     {
         get
@@ -37,14 +37,45 @@ public class PlaceableUnit : MonoBehaviour
 
     public int SellPrice { get; private set; }
 
+    public UnitDataDisplayer DataDisplayer {get; private set;}
+
+    public SpriteRenderer spriteRenderer { get; private set; }
+
+    public int DefaultSortingOrder { get; private set; }
+
+    public string Name { get; private set; }
+
+
+    private UnitUpgrader _unitUpgrader;
+
     private bool IsIntialised = false;
 
-    public void Initialize(int originalPrice)
+    public void Initialize(int originalPrice, string unitName)
     {
         if(IsIntialised == false)
         {
             SellPrice = originalPrice / 2; 
+            Name = unitName;
+
+            DataDisplayer = GetComponent<UnitDataDisplayer>();
+            _unitUpgrader = GetComponent<UnitUpgrader>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
+
+            DefaultSortingOrder = spriteRenderer.sortingOrder;
+
+            DataDisplayer.UnitName = Name;
+            DataDisplayer.SetDisplayInformation();
+
             IsIntialised = true;
         }
     } 
+
+    public void SendRequestForUpgrade()
+    {
+        _unitUpgrader.UpgradeUnit();
+    }
+
+    public int GetCurrentUnitLevel() => _unitUpgrader.GetCurrentUpgradeLevel();
+    public int GetMaxUpgradeLevel() => _unitUpgrader.MaxUpgradeLevel;
+
 }

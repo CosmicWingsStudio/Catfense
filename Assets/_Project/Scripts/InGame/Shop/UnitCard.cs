@@ -42,5 +42,5 @@ public class UnitCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         _purchasePanel.SetActive(false);
         _descriptionPanel.SetActive(true);
     }
-    private void SendPurchaseRequest() => _shopHandler.Purchase(_price, Config.PrefabName, gameObject);
+    private void SendPurchaseRequest() => _shopHandler.Purchase(_price, Config.PrefabName, gameObject, Config.Name);
 }

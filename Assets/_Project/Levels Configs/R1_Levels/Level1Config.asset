@@ -16,10 +16,27 @@ MonoBehaviour:
   <EnvironmentPrefabName>k__BackingField: Env_01
   <WavesList>k__BackingField:
   - EnemiesOnWaveList:
-    - PrefabName: Enemy_01
-      Amount: 2
-    - PrefabName: Enemy_02
-      Amount: 3
+    - <PrefabName>k__BackingField: Enemy_01
+      <Amount>k__BackingField: 0
+    - <PrefabName>k__BackingField: Enemy_02
+      <Amount>k__BackingField: 0
   - EnemiesOnWaveList:
-    - PrefabName: Enemy_01
-      Amount: 5
+    - <PrefabName>k__BackingField: Enemy_01
+      <Amount>k__BackingField: 0
+    - <PrefabName>k__BackingField: Enemy_01
+      <Amount>k__BackingField: 0
+  - EnemiesOnWaveList:
+    - <PrefabName>k__BackingField: Enemy_01
+      <Amount>k__BackingField: 0
+    - <PrefabName>k__BackingField: Enemy_01
+      <Amount>k__BackingField: 0
+  - EnemiesOnWaveList:
+    - <PrefabName>k__BackingField: Enemy_01
+      <Amount>k__BackingField: 0
+    - <PrefabName>k__BackingField: Enemy_01
+      <Amount>k__BackingField: 0
+  - EnemiesOnWaveList:
+    - <PrefabName>k__BackingField: Enemy_01
+      <Amount>k__BackingField: 0
+    - <PrefabName>k__BackingField: Enemy_01
+      <Amount>k__BackingField: 0

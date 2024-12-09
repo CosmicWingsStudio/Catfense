@@ -37,6 +37,6 @@ public class LevelWaveEnemyInfo
         this.PrefabName = prefabName;
         this.Amount = amount;  
     }
-    public string PrefabName;
-    [Min(1)] public int Amount;
+    [field: SerializeField] public string PrefabName { get; private set; }
+    [field: SerializeField] public int Amount { get; set; }
 }

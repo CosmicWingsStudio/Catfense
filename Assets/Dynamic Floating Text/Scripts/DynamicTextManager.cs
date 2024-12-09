@@ -12,12 +12,11 @@ public class DynamicTextManager : MonoBehaviour
 
     [SerializeField] private DynamicTextData _defaultData;
     [SerializeField] private GameObject _canvasPrefab;
-    [SerializeField] private Transform _mainCamera;
 
     private void Awake()
     {
         defaultData = _defaultData;
-        mainCamera = _mainCamera;
+        mainCamera = Camera.main.transform;
         canvasPrefab = _canvasPrefab;
     }
 
