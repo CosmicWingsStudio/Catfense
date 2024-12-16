@@ -5,12 +5,14 @@ public class UnitUpgrader : MonoBehaviour
 {
     private int _currentUpgradeLevel = 0;
     private UnitDataDisplayer _displayer;
+    private PlaceableUnit _placeableUnit;
 
     public readonly int MaxUpgradeLevel = 3;
 
     private void Start()
     {
         _displayer = GetComponent<UnitDataDisplayer>();
+        _placeableUnit = GetComponent<PlaceableUnit>();
     }
 
     public bool CheckIfPossibleToUpgrade()
@@ -25,6 +27,8 @@ public class UnitUpgrader : MonoBehaviour
     {
         _currentUpgradeLevel++;
         _displayer.ShowUnitUpgrade();
+        _placeableUnit.unitAttackHandler.UpgradeStats(_currentUpgradeLevel);
+        _placeableUnit.Health.UpgradeStats(_currentUpgradeLevel);
     }
 
     public int GetCurrentUpgradeLevel() => _currentUpgradeLevel;

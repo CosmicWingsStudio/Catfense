@@ -1,11 +1,14 @@
 
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class EnvironmentContainerHandler : MonoBehaviour
 {
     [SerializeField] private Transform BenchSlotsFolder;
     [SerializeField] private Transform PlaceSlotsFolder;
+    [SerializeField] protected TowerHealthHandler _towerHealthHandler;
+    private SignalBus _signalBus;
 
     [SerializeField] private Transform BuyableTowerPartsFolder;
 
@@ -45,10 +48,18 @@ public class EnvironmentContainerHandler : MonoBehaviour
         {
             AllSlots.Add(PlaceSlots[i]);
         }
+
         for (int i = 0; i < BenchSlots.Count; i++)
         {
             AllSlots.Add(BenchSlots[i]);
         }
+    }
+
+    public void SetZenjectData(SignalBus signalBus)
+    {
+        _signalBus = signalBus;
+
+        _towerHealthHandler.SetSignalBus(signalBus);
     }
 
     public bool TrySetItemInBenchSlot(Transform item)

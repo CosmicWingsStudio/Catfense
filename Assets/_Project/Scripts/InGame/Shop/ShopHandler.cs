@@ -68,7 +68,7 @@ public class ShopHandler : MonoBehaviour
         OpenSellGUIForSelectedUnit();
     }
 
-    public void Purchase(int price, string prefabName, GameObject Requester, string unitName)
+    public void Purchase(UnitConfig config, GameObject Requester, int price)
     {
         if (_environmentHandler.GetEnvironmentContainer().CanSetItemInBenchSlotOrNot() == false)
         {
@@ -83,8 +83,8 @@ public class ShopHandler : MonoBehaviour
         
 
         _walletHandler.SpendMoney(price);
-        if(_environmentHandler.GetEnvironmentContainer().TryToUpgradeUnitsFromShop(unitName) == false)
-            _environmentHandler.GetEnvironmentContainer().SetItemInBenchSlotFromShop(_shopUnitsFactory.ProducePlaceableUnit(prefabName, price, unitName));
+        if(_environmentHandler.GetEnvironmentContainer().TryToUpgradeUnitsFromShop(config.Name) == false)
+            _environmentHandler.GetEnvironmentContainer().SetItemInBenchSlotFromShop(_shopUnitsFactory.ProducePlaceableUnit(config, price));
 
         Destroy(Requester);
     }
@@ -95,16 +95,19 @@ public class ShopHandler : MonoBehaviour
 
         for (int i = 0; i < _slotsList.Count; i++)
         {
-            try
-            {
-                var newCard = _cardsFactory.CreateUnitCard(RandomizeCardType());
-                _slotsList[i].PlaceCardIntoSlot(newCard.transform);
-            }
-            catch (System.Exception)
-            {
-                Debug.LogError("Creation of unit card goes wrong");
+            //try
+            //{
+            //    var newCard = _cardsFactory.CreateUnitCard(RandomizeCardType());
+            //    _slotsList[i].PlaceCardIntoSlot(newCard.transform);
+            //}
+            //catch (System.Exception)
+            //{
+            //    Debug.LogError("Creation of unit card goes wrong");
                 
-            }
+            //}
+
+            var newCard = _cardsFactory.CreateUnitCard(RandomizeCardType());
+            _slotsList[i].PlaceCardIntoSlot(newCard.transform);
 
         }
     }
@@ -157,7 +160,7 @@ public class ShopHandler : MonoBehaviour
 
         if (listRef.Count > 0)
         {
-            for (int i = 0; i < listRef.Count; i++)
+            for (int i = 0; i < listRef.Count;)
             {
                 if(_walletHandler.CurrentMoney >= _additionalPartPrice)
                 {

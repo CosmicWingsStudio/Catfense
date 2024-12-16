@@ -7,6 +7,7 @@ public class GameModeSwitcher : MonoBehaviour
     private SceneEnemyFactory _sceneEnemyFabric; //уг мюдн кх лме асдер напюыюрэяъ рхою кюяр щмхлх гдну х рхо оепейкчвхрэ лнд хкх йюй?
 
     [SerializeField, Min(1)] private float _prepareTime = 25;
+    [SerializeField, Min(1)] private float _firstRoundAdditionalPrepareTime = 10;
 
     private bool IsPrepareMode;
     private bool IsPaused = false;
@@ -23,7 +24,7 @@ public class GameModeSwitcher : MonoBehaviour
         _sceneEnemyFabric = sceneEnemyFabric;
 
         IsPrepareMode = true;
-        RemainingTime = _prepareTime;
+        RemainingTime = _prepareTime + _firstRoundAdditionalPrepareTime;
 
         _signalBus.Subscribe<PausedSignal>(() => IsPaused = true);
         _signalBus.Subscribe<UnpausedSignal>(() => IsPaused = false);

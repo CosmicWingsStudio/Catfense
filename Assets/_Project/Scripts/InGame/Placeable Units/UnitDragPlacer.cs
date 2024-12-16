@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+
 using UnityEngine;
 using Zenject;
 
@@ -10,7 +10,7 @@ public class UnitDragPlacer : MonoBehaviour
 
     private bool IsDragSystemAvailable = true;
     private bool IsDragging = false;
-    private PlaceableUnit _currentDraggableUnit;
+    private PlaceableUnit _currentDraggableUnit; 
 
     private int _clickNumber = 0;
     private float _clickTime = 0f;
@@ -54,6 +54,7 @@ public class UnitDragPlacer : MonoBehaviour
             {
                 BackToOriginalSlot();
                 _currentDraggableUnit.DataDisplayer.TurnOnDisplayOnTheEndOfDragging();
+                _currentDraggableUnit.TurnOnAttackMode();
                 _currentDraggableUnit = null;
             }
             return;
@@ -102,6 +103,8 @@ public class UnitDragPlacer : MonoBehaviour
         {
             _currentDraggableUnit.DataDisplayer.TurnOnDisplayOnTheEndOfDragging();
             _currentDraggableUnit.spriteRenderer.sortingOrder = _currentDraggableUnit.DefaultSortingOrder;
+            if(_currentDraggableUnit.ParentSlot.GetComponent<PlaceSlot>())
+                _currentDraggableUnit.TurnOnAttackMode();
             IsDragging = false;
         }
 
@@ -132,6 +135,7 @@ public class UnitDragPlacer : MonoBehaviour
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - _currentDraggableUnit.transform.position;
             _currentDraggableUnit.transform.Translate(mousePosition);
             _currentDraggableUnit.DataDisplayer.TurnOffDisplayWhileDragging();
+            _currentDraggableUnit.TurnOffAttackMode();
             _currentDraggableUnit.spriteRenderer.sortingOrder = _currentDraggableUnit.DefaultSortingOrder + 1;
             IsDragging = true;
         }

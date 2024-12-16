@@ -25,10 +25,12 @@ public class ResultScreenGUIHandler : MonoBehaviour
             case ResultType.Win:
                 _resultScreenObject.SetActive(true);
                 _resultText.text = _winResultInscription;
+                Time.timeScale = 0f;
                 break;
             case ResultType.Lose:
                 _resultScreenObject.SetActive(true);
                 _resultText.text = _loseResultInscription;
+                Time.timeScale = 0f;
                 break;
 
         }

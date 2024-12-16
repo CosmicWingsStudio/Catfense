@@ -32,7 +32,7 @@ public abstract class Slot2D : MonoBehaviour
         ChangeColliderState(false);
     }
 
-    public void SwapItemWithAnotherItem(Transform item)
+    public virtual void SwapItemWithAnotherItem(Transform item)
     {
         item.SetParent(transform);
         item.localPosition = Vector2.zero;

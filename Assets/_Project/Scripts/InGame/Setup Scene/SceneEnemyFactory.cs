@@ -9,7 +9,7 @@ public class SceneEnemyFactory : MonoBehaviour
     private Transform _enemySpawnPoint;
     private SignalBus _signalBus;
     private PrefabsPathsToFoldersProvider _prefabsPathsToFoldersProvider;
-    private List<Enemy> _enemyOnTheWave = new();
+    private List<EnemyUnit> _enemyOnTheWave = new();
     private List<LevelWave> _wavesList;
     private List<LevelWaveEnemyInfo> _currentWaveData;
 
@@ -38,18 +38,18 @@ public class SceneEnemyFactory : MonoBehaviour
     public void SetConfigData(List<LevelWave> wavesList, int wavesAmount, Transform enemySpawnPoint)
     {
         _wavesList = new();
-        List<LevelWaveEnemyInfo> lwei = new();
 
         for (int i = 0; i < wavesList.Count; i++)
         {
+            List<LevelWaveEnemyInfo> lwei = new();
+
             for (int j = 0; j < wavesList[i].EnemiesOnWaveList.Count; j++)
             {
                 lwei.Add(new LevelWaveEnemyInfo(wavesList[i].EnemiesOnWaveList[j].PrefabName, wavesList[i].EnemiesOnWaveList[j].Amount));
             }
-        }
 
-        LevelWave lw = new LevelWave(lwei);
-        _wavesList.Add(lw);
+            _wavesList.Add(new LevelWave(lwei));
+        }
 
         _wavesAmount = wavesAmount;
         _enemySpawnPoint = enemySpawnPoint;
@@ -103,9 +103,9 @@ public class SceneEnemyFactory : MonoBehaviour
 
     }
 
-    private Enemy Produce(string PathToPrefab)
+    private EnemyUnit Produce(string PathToPrefab)
     {
-        Enemy enemy = Instantiate(Resources.Load<Enemy>(PathToPrefab), _enemySpawnPoint);
+        EnemyUnit enemy = Instantiate(Resources.Load<EnemyUnit>(PathToPrefab), _enemySpawnPoint);
         return enemy;
     }
 
@@ -142,7 +142,7 @@ public class SceneEnemyFactory : MonoBehaviour
         IsReadyToProduceUnits = false;
         AllEnemyOnTheWaveIsSpawned = false;
         _enemyOnTheWave.Clear();
-        if (_currentWave + 1 <= _wavesAmount)
+        if (_currentWave + 1 <= _wavesAmount) 
             _currentWave++;    
     }
 

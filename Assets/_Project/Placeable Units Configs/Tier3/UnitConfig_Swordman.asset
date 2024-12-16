@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f741e306ad3bd6247b3a6c2719b44561, type: 3}
-  m_Name: UnitConfig_Archer
+  m_Name: UnitConfig_Swordman
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Archer
-  <HealthPoints>k__BackingField: 25
-  <Damage>k__BackingField: 15
+  <Name>k__BackingField: Swordman
+  <HealthPoints>k__BackingField: 80
+  <Damage>k__BackingField: 10
   <Firerate>k__BackingField: 3
-  <PrefabName>k__BackingField: Default Range
-  <ProjectailPrefabPath>k__BackingField: InGamePrefabs/Projectails/Default
-  <ProjectailSpeed>k__BackingField: 2
+  <PrefabName>k__BackingField: Default Melee
+  <ProjectailPrefabPath>k__BackingField: 
+  <ProjectailSpeed>k__BackingField: 0

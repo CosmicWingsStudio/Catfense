@@ -20,4 +20,5 @@ MonoBehaviour:
   T2Cards:
   - Card
   T3Cards:
-  - Card
+  - CardM
+  - CardR

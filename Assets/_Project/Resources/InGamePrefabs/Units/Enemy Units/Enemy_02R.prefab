@@ -166,12 +166,12 @@ GameObject:
   - component: {fileID: 431994654291852466}
   - component: {fileID: 4362502864143183576}
   - component: {fileID: 3773777196114944251}
-  - component: {fileID: 2623005933468730517}
-  - component: {fileID: 833945734461136880}
-  - component: {fileID: 2797560704519461935}
-  - component: {fileID: 8030478060486363038}
+  - component: {fileID: 6652526849576716549}
+  - component: {fileID: 8214873678716123500}
+  - component: {fileID: 8308388836949595847}
+  - component: {fileID: 252451287967768291}
   m_Layer: 0
-  m_Name: Enemy_01
+  m_Name: Enemy_02R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -336,9 +336,9 @@ MonoBehaviour:
   _healthPoints: 50
   _damage: 5
   _firerate: 2
-  IsRange: 0
-  _projectailPrefabPath: 
-  _projectailSpeed: 0
+  IsRange: 1
+  _projectailPrefabPath: InGamePrefabs/Projectails/Default
+  _projectailSpeed: 3
 --- !u!114 &4362502864143183576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,7 +364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3da9c6d2c3a33c49aab6691c050ec8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2623005933468730517
+--- !u!114 &6652526849576716549
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3d7fe521d095b14f8a4859e58eacc66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &833945734461136880
+--- !u!114 &8214873678716123500
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -385,10 +385,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3731669516543164898}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5c0ad69846691640ab80332288c9645, type: 3}
+  m_Script: {fileID: 11500000, guid: b359645d7105f3f45851a69815c3f845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2797560704519461935
+--- !u!114 &8308388836949595847
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -401,8 +401,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSizeX: 3
-  _detectionSizeY: 2
---- !u!114 &8030478060486363038
+  _detectionSizeY: 8
+--- !u!114 &252451287967768291
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

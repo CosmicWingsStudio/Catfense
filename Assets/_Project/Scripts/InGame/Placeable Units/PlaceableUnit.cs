@@ -1,8 +1,9 @@
 
-using TMPro;
 using UnityEngine;
-using Zenject;
 
+[RequireComponent(typeof(HealthHandler))]
+[RequireComponent(typeof(UnitDataDisplayer))]
+[RequireComponent(typeof(UnitUpgrader))]
 public class PlaceableUnit : MonoBehaviour
 {
     public bool IsBenched
@@ -37,9 +38,13 @@ public class PlaceableUnit : MonoBehaviour
 
     public int SellPrice { get; private set; }
 
+    public UnitAttack unitAttackHandler { get; private set; }
+
     public UnitDataDisplayer DataDisplayer {get; private set;}
 
     public SpriteRenderer spriteRenderer { get; private set; }
+
+    public HealthHandler Health { get; private set; }
 
     public int DefaultSortingOrder { get; private set; }
 
@@ -47,24 +52,30 @@ public class PlaceableUnit : MonoBehaviour
 
 
     private UnitUpgrader _unitUpgrader;
-
     private bool IsIntialised = false;
 
-    public void Initialize(int originalPrice, string unitName)
+    public void Initialize(int originalPrice, UnitConfig config)
     {
         if(IsIntialised == false)
         {
             SellPrice = originalPrice / 2; 
-            Name = unitName;
+            Name = config.Name;
 
             DataDisplayer = GetComponent<UnitDataDisplayer>();
             _unitUpgrader = GetComponent<UnitUpgrader>();
             spriteRenderer = GetComponent<SpriteRenderer>();
+            Health = GetComponent<HealthHandler>();
+            unitAttackHandler = GetComponent<UnitAttack>();
 
             DefaultSortingOrder = spriteRenderer.sortingOrder;
 
             DataDisplayer.UnitName = Name;
             DataDisplayer.SetDisplayInformation();
+
+            Health.SetHealthParams(config.HealthPoints, DataDisplayer._hpSlider);
+
+            unitAttackHandler.SetData(config);
+            TurnOffAttackMode();
 
             IsIntialised = true;
         }
@@ -75,7 +86,18 @@ public class PlaceableUnit : MonoBehaviour
         _unitUpgrader.UpgradeUnit();
     }
 
+    public void TurnOffAttackMode()
+    {
+        unitAttackHandler.TurnOffAttackMode();
+    }
+
+    public void TurnOnAttackMode()
+    {
+        unitAttackHandler.TurnOnAttackMode();
+    }
+
     public int GetCurrentUnitLevel() => _unitUpgrader.GetCurrentUpgradeLevel();
+
     public int GetMaxUpgradeLevel() => _unitUpgrader.MaxUpgradeLevel;
 
 }
