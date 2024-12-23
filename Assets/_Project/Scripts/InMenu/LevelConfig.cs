@@ -12,6 +12,12 @@ public class LevelConfig : ScriptableObject
     [field: SerializeField]
     public string EnvironmentPrefabName { get; private set; }
 
+    [field: SerializeField]
+    public int RealmIndex { get; private set; }
+
+    [field: SerializeField]
+    public int LevelIndex { get; private set; }
+
     public int WavesAmount { get => WavesList.Count; }
 
     [field: SerializeField]

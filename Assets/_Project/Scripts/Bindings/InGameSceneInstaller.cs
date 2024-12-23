@@ -13,7 +13,7 @@ public class InGameSceneInstaller : MonoInstaller
         BindSceneSetupServices();
         BindFactories();
         BindHandlers();
-        //BindModules();
+        BindSaveServices();
         //BindDeveloperTools();
     }
 
@@ -71,10 +71,10 @@ public class InGameSceneInstaller : MonoInstaller
 
     //}
 
-    //private void BindModules()
-    //{
-
-    //}
+    private void BindSaveServices()
+    {
+        Container.BindInterfacesAndSelfTo<DesktopSaveService>().AsSingle();
+    }
 
     private void BindFactories()
     {

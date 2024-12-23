@@ -7,7 +7,18 @@ public class GameSceneSetuper : IInitializable
     private EnvironmentHandler _environmentHandler;
     private SceneEnemyFactory _sceneEnemyFactory;
 
-    public GameSceneSetuper(BackGroundHandler bgh, EnvironmentHandler eh, SceneEnemyFactory fp)
+    //public GameSceneSetuper(BackGroundHandler bgh, EnvironmentHandler eh,
+    //    SceneEnemyFactory fp, ResultScreenGUIHandler rsgh)
+    //{
+    //    _backGroundHandler = bgh;
+    //    _environmentHandler = eh;
+    //    _sceneEnemyFactory = fp;
+
+    //    rsgh.SetLevelData(LevelDataConfig.RealmIndex, LevelDataConfig.LevelIndex);
+    //}
+
+    public GameSceneSetuper(BackGroundHandler bgh, EnvironmentHandler eh,
+        SceneEnemyFactory fp)
     {
         _backGroundHandler = bgh;
         _environmentHandler = eh;

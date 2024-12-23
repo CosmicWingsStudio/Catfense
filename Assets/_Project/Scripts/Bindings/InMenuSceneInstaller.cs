@@ -6,6 +6,8 @@ public class InMenuSceneInstaller : MonoInstaller
     public override void InstallBindings()
     {
         BindSignals();
+        BindHandlers();
+        BindSaveServices();
     }
 
     private void BindSignals()
@@ -15,4 +17,16 @@ public class InMenuSceneInstaller : MonoInstaller
         Container.DeclareSignal<PausedSignal>();
         Container.DeclareSignal<UnpausedSignal>();
     }
+
+    private void BindHandlers()
+    {
+        Container.Bind<RealmsDataHandler>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<MenuSceneSetuper>().FromComponentInHierarchy().AsSingle();
+    }
+
+    private void BindSaveServices()
+    {
+        Container.BindInterfacesAndSelfTo<DesktopSaveService>().AsSingle();
+    }
+
 }

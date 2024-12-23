@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <BackGround>k__BackingField: {fileID: -6695950386315148514, guid: 55fd59f8d0eb1414aaba935ebc82a05f, type: 3}
   <EnvironmentPrefabName>k__BackingField: 
+  <RealmIndex>k__BackingField: 1
+  <LevelIndex>k__BackingField: 2
   <WavesList>k__BackingField:
   - EnemiesOnWaveList: []
   - EnemiesOnWaveList: []

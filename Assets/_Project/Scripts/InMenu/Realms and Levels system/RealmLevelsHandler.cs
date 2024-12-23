@@ -4,17 +4,53 @@ using UnityEngine;
 
 public class RealmLevelsHandler : MonoBehaviour
 {
+    private bool IsInitialized = false;
+
     [SerializeField, Tooltip("Put here folder Content in ScrollView")]
     private Transform LevelsFolderForExtraction;
 
     [Header("Autofills with levels. Do not touch")]
     [SerializeField] private List<RealmLevel> RealmLevels;
 
-    private void Start()
+    public void Initialize(RealmSavedData realmData)
     {
-        FillWithLevelsSlots();
-        ProcessSavedLevelsData();
-        ChangeAvailableStatusToPlayForLevels();
+        if(IsInitialized == false)
+        {
+            IsInitialized = true;
+            FillWithLevelsSlots();
+            SetSavedData(realmData);
+            ChangeAvailableStatusToPlayForLevels();
+        } 
+    }
+
+    public void InitializeWithDefaultData()
+    {
+        if (IsInitialized == false)
+        {
+            IsInitialized = true;
+            FillWithLevelsSlots();
+            ChangeAvailableStatusToPlayForLevels();
+        }
+    }
+
+    private void SetSavedData(RealmSavedData realmData)
+    {
+        for (int i = 0; i < RealmLevels.Count; i++)
+        {
+            RealmLevels[i].IsCompleted = realmData.LevelsData[i];
+        }
+    }
+
+    public RealmSavedData GetSavedData()
+    {
+        bool[] levelData = new bool[RealmLevels.Count];
+
+        for (int i = 0; i < RealmLevels.Count; i++)
+        {        
+            levelData[i] = RealmLevels[i].IsCompleted;
+        }
+
+        return new RealmSavedData(levelData);
     }
 
     private void FillWithLevelsSlots()
@@ -35,12 +71,6 @@ public class RealmLevelsHandler : MonoBehaviour
         }
         else
             Debug.LogError("No LevelsFolder given");
-    }
-
-    private void ProcessSavedLevelsData()
-    {
-        //LevelsData
-        //делаем тут какие уровни у нас Комплитед, а какие нет на основе сэйв дэйты
     }
 
     private void ChangeAvailableStatusToPlayForLevels()

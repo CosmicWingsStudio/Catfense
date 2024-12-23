@@ -35,7 +35,7 @@ public class HealthHandler : MonoBehaviour
         {
             CurrentHealthPoint -= dmg;
 
-            //чернение спрайта
+            //чернение спрайта 
             if(_damageText != null)
                 _damageText.ShowDamage(dmg);
             //звук
@@ -45,6 +45,7 @@ public class HealthHandler : MonoBehaviour
         {
             _healthPointSlider.value = 0f;
             Death();
+            
         }
     }
 
