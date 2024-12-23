@@ -5,10 +5,15 @@ using Zenject;
 public class WalletHandler : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _moneyText;
+    [SerializeField] private int _startMoney = 50;
 
     public int CurrentMoney { get; private set; }
 
-    private void Start() => _moneyText.text = CurrentMoney.ToString();
+    private void Start()
+    {
+        CurrentMoney = _startMoney;
+        _moneyText.text = CurrentMoney.ToString();
+    }
 
     public void SpendMoney(int amount)
     {

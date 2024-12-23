@@ -3387,7 +3387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb0b5e5b3acbfb41b068b80c64b3d36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <DeveloperToolsConfig>k__BackingField: {fileID: 0}
+  <DeveloperToolsConfig>k__BackingField: {fileID: 11400000, guid: 7eb04e7c6b240d348b5abf1a75c1765c, type: 2}
 --- !u!114 &1349917514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3666,6 +3666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moneyText: {fileID: 1772208907}
+  _startMoney: 50
 --- !u!1 &1503184005
 GameObject:
   m_ObjectHideFlags: 0

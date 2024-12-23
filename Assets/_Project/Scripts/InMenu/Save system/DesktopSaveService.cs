@@ -59,6 +59,17 @@ public class DesktopSaveService : ISaveService
         }
     }
 
+    public void SaveData(SavedData savedData)
+    {
+        string path = GetSaveDataPath();
+        string json = JsonConvert.SerializeObject(savedData);
+
+        using (StreamWriter streamWriter = new StreamWriter(path))
+        {
+            streamWriter.Write(json);
+        }
+    }
+
     public void SetData(SavedData savedData)
     {
         //типа готовый объект его поля суем куда надо

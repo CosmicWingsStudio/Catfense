@@ -46,13 +46,10 @@ public class ShopHandler : MonoBehaviour
         _guiWarningHandler = guiWarningHandler;
 
         _signalBus.Subscribe<WaveEndedSignal>(FillShopSlotsWithCards);
-    }
 
-    private void Start()
-    {
         for (int i = 0; i < _shopSlotsFolder.childCount; i++)
         {
-            if(_shopSlotsFolder.GetChild(i).TryGetComponent(out ShopSlot shopSlot))
+            if (_shopSlotsFolder.GetChild(i).TryGetComponent(out ShopSlot shopSlot))
                 _slotsList.Add(shopSlot);
         }
 
