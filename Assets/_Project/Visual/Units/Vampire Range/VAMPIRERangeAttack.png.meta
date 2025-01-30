@@ -1,0 +1,404 @@
+fileFormatVersion: 2
+guid: b087beee239274641986121a663c74fe
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6784908682098429958
+    second: VAMPIRERangeAttack_0
+  - first:
+      213: -7127362275771789650
+    second: VAMPIRERangeAttack_1
+  - first:
+      213: 7832947350873051488
+    second: VAMPIRERangeAttack_2
+  - first:
+      213: -1775343363711559706
+    second: VAMPIRERangeAttack_3
+  - first:
+      213: 1017115750537262470
+    second: VAMPIRERangeAttack_4
+  - first:
+      213: -778379393097501426
+    second: VAMPIRERangeAttack_5
+  - first:
+      213: -5639640630633433450
+    second: VAMPIRERangeAttack_6
+  - first:
+      213: 3846680653058795131
+    second: VAMPIRERangeAttack_7
+  - first:
+      213: 8241441262704046572
+    second: VAMPIRERangeAttack_8
+  - first:
+      213: 3582095016015287776
+    second: VAMPIRERangeAttack_9
+  - first:
+      213: -7938359774793216027
+    second: VAMPIRERangeAttack_10
+  - first:
+      213: -4394904152029282083
+    second: VAMPIRERangeAttack_11
+  - first:
+      213: -1281524509438693304
+    second: VAMPIRERangeAttack_12
+  - first:
+      213: 4582000086000235672
+    second: VAMPIRERangeAttack_13
+  - first:
+      213: 1042259520482094727
+    second: VAMPIRERangeAttack_14
+  - first:
+      213: -3006024351955320055
+    second: VAMPIRERangeAttack_15
+  - first:
+      213: 6652767639087612358
+    second: VAMPIRERangeAttack_16
+  - first:
+      213: -1211066066020404710
+    second: VAMPIRERangeAttack_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VAMPIRERangeAttack_0
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 1063
+        width: 301
+        height: 456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 600d0f59f76d82e50800000000000000
+      internalID: 6784908682098429958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VAMPIRERangeAttack_2
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 1063
+        width: 299
+        height: 465
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06110296d1834bc60800000000000000
+      internalID: 7832947350873051488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VAMPIRERangeAttack_4
+      rect:
+        serializedVersion: 2
+        x: 1060
+        y: 1063
+        width: 327
+        height: 465
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6857a3ed2658d1e00800000000000000
+      internalID: 1017115750537262470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VAMPIRERangeAttack_8
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 517
+        width: 430
+        height: 477
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce1b8b4d92b7f5270800000000000000
+      internalID: 8241441262704046572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VAMPIRERangeAttack_9
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 518
+        width: 430
+        height: 476
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e5d945307826b130800000000000000
+      internalID: 3582095016015287776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VAMPIRERangeAttack_10
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 539
+        width: 327
+        height: 465
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ef433418d745d190800000000000000
+      internalID: -7938359774793216027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VAMPIRERangeAttack_12
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 51
+        width: 301
+        height: 456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84033fb9f3c173ee0800000000000000
+      internalID: -1281524509438693304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VAMPIRERangeAttack_14
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 49
+        width: 299
+        height: 465
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78eaa120389d67e00800000000000000
+      internalID: 1042259520482094727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: a663a46cd670d4f48b8a91c599bbba05
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VAMPIRERangeAttack_0: 6784908682098429958
+      VAMPIRERangeAttack_1: -7127362275771789650
+      VAMPIRERangeAttack_10: -7938359774793216027
+      VAMPIRERangeAttack_11: -4394904152029282083
+      VAMPIRERangeAttack_12: -1281524509438693304
+      VAMPIRERangeAttack_13: 4582000086000235672
+      VAMPIRERangeAttack_14: 1042259520482094727
+      VAMPIRERangeAttack_15: -3006024351955320055
+      VAMPIRERangeAttack_16: 6652767639087612358
+      VAMPIRERangeAttack_17: -1211066066020404710
+      VAMPIRERangeAttack_2: 7832947350873051488
+      VAMPIRERangeAttack_3: -1775343363711559706
+      VAMPIRERangeAttack_4: 1017115750537262470
+      VAMPIRERangeAttack_5: -778379393097501426
+      VAMPIRERangeAttack_6: -5639640630633433450
+      VAMPIRERangeAttack_7: 3846680653058795131
+      VAMPIRERangeAttack_8: 8241441262704046572
+      VAMPIRERangeAttack_9: 3582095016015287776
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

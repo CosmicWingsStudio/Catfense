@@ -1,8 +1,11 @@
 using UnityEngine;
 
-public class EnemyRangeUnitAttack : RangeUnitAttack
+public class EnemyRangeUnitAttack : EnemyAttack
 {
     private EnemyMovement _enemyMovement;
+    [SerializeField] private string _projectailPrefabPath;
+    [SerializeField] private float _projectailSpeed;
+
     private void Start()
     {
         _enemyMovement = GetComponent<EnemyMovement>();
@@ -17,5 +20,12 @@ public class EnemyRangeUnitAttack : RangeUnitAttack
     {
         base.SetCurrentTarget(target);
         _enemyMovement.CanMove = false;
+    }
+
+    public override void AttackAnimationPoint()
+    {
+        InAnimation = false;
+        Projectail projectail = Instantiate(Resources.Load<Projectail>(_projectailPrefabPath), transform);
+        projectail.Initialize(_damage, _projectailSpeed, CurrentTarget.transform);
     }
 }

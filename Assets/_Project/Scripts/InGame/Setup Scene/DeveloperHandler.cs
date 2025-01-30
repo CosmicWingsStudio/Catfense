@@ -13,8 +13,16 @@ public class DeveloperHandler : MonoBehaviour
     [field:SerializeField] public bool EverlastingPreparationTime { get; private set; }
     [field:SerializeField] public int StartMoney { get; private set; }
 
-    private void Start() => ApplyDevSettings();
-    
+    private bool Initialized = false;
+    private void LateUpdate()
+    {
+        if(Initialized == false)
+        {
+            ApplyDevSettings();
+            Initialized = true;
+        }
+    }
+
     private void ApplyDevSettings()
     {
         _enemyFactory.IsSpawnDisabledByDevTools = DisableEnemySpawn;

@@ -10,11 +10,11 @@ public class CardsData : ScriptableObject
     [field:SerializeField, Range(1, 99)] public int T2Weight { get; private set; }
     [field:SerializeField, Range(1, 99)] public int T3Weight { get; private set; }
 
-    [Header("Populate these lists with prefab names relate to exact Card tier")]
+    [Header("Populate these lists with cfgs")]
 
-    public List<string> T1Cards = new();
-    public List<string> T2Cards = new();
-    public List<string> T3Cards = new();
+    public List<UnitConfig> T1Cards = new();
+    public List<UnitConfig> T2Cards = new();
+    public List<UnitConfig> T3Cards = new();
 
     private void OnValidate()
     {

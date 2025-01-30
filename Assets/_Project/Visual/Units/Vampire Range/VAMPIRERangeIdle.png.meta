@@ -1,0 +1,394 @@
+fileFormatVersion: 2
+guid: 5aaaac4be2366824b8ce105fcf758eb4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3489961361601648851
+    second: VAMPIRERangeIdle_0
+  - first:
+      213: 8585914886355512832
+    second: VAMPIRERangeIdle_1
+  - first:
+      213: -2468093396942447830
+    second: VAMPIRERangeIdle_2
+  - first:
+      213: -8389499792134350251
+    second: VAMPIRERangeIdle_3
+  - first:
+      213: 6720571510281990116
+    second: VAMPIRERangeIdle_4
+  - first:
+      213: -6038109797945266173
+    second: VAMPIRERangeIdle_5
+  - first:
+      213: -9076174605054779029
+    second: VAMPIRERangeIdle_6
+  - first:
+      213: -904075465110440503
+    second: VAMPIRERangeIdle_7
+  - first:
+      213: -5106522168812781319
+    second: VAMPIRERangeIdle_8
+  - first:
+      213: 1997409597728362403
+    second: VAMPIRERangeIdle_9
+  - first:
+      213: 1842371496735005633
+    second: VAMPIRERangeIdle_10
+  - first:
+      213: 3473060514102188680
+    second: VAMPIRERangeIdle_11
+  - first:
+      213: -9130985172778116861
+    second: VAMPIRERangeIdle_12
+  - first:
+      213: -1749536104943143851
+    second: VAMPIRERangeIdle_13
+  - first:
+      213: -4280103446291752251
+    second: VAMPIRERangeIdle_14
+  - first:
+      213: -3959024508093185928
+    second: VAMPIRERangeIdle_15
+  - first:
+      213: 75306812928219793
+    second: VAMPIRERangeIdle_16
+  - first:
+      213: -565063847689998940
+    second: VAMPIRERangeIdle_17
+  - first:
+      213: -3097383058776828828
+    second: VAMPIRERangeIdle_18
+  - first:
+      213: 7318251230173739983
+    second: VAMPIRERangeIdle_19
+  - first:
+      213: -6666690196880848330
+    second: VAMPIRERangeIdle_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VAMPIRERangeIdle_0
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 1056
+        width: 301
+        height: 456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d8da162e55de6030800000000000000
+      internalID: 3489961361601648851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VAMPIRERangeIdle_2
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 1056
+        width: 301
+        height: 456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2b12cac1229fbdd0800000000000000
+      internalID: -2468093396942447830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VAMPIRERangeIdle_4
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 1056
+        width: 301
+        height: 456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4efe7f57e24444d50800000000000000
+      internalID: 6720571510281990116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VAMPIRERangeIdle_9
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 506
+        width: 301
+        height: 456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3af0e87427938bb10800000000000000
+      internalID: 1997409597728362403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VAMPIRERangeIdle_11
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 486
+        width: 301
+        height: 456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88a1f72f22ac23030800000000000000
+      internalID: 3473060514102188680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VAMPIRERangeIdle_12
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 471
+        width: 301
+        height: 456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30993370d59384180800000000000000
+      internalID: -9130985172778116861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VAMPIRERangeIdle_18
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 22
+        width: 301
+        height: 456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4645b48c482e305d0800000000000000
+      internalID: -3097383058776828828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 291838a09ce204044824090e8ecbd3bc
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VAMPIRERangeIdle_0: 3489961361601648851
+      VAMPIRERangeIdle_1: 8585914886355512832
+      VAMPIRERangeIdle_10: 1842371496735005633
+      VAMPIRERangeIdle_11: 3473060514102188680
+      VAMPIRERangeIdle_12: -9130985172778116861
+      VAMPIRERangeIdle_13: -1749536104943143851
+      VAMPIRERangeIdle_14: -4280103446291752251
+      VAMPIRERangeIdle_15: -3959024508093185928
+      VAMPIRERangeIdle_16: 75306812928219793
+      VAMPIRERangeIdle_17: -565063847689998940
+      VAMPIRERangeIdle_18: -3097383058776828828
+      VAMPIRERangeIdle_19: 7318251230173739983
+      VAMPIRERangeIdle_2: -2468093396942447830
+      VAMPIRERangeIdle_20: -6666690196880848330
+      VAMPIRERangeIdle_3: -8389499792134350251
+      VAMPIRERangeIdle_4: 6720571510281990116
+      VAMPIRERangeIdle_5: -6038109797945266173
+      VAMPIRERangeIdle_6: -9076174605054779029
+      VAMPIRERangeIdle_7: -904075465110440503
+      VAMPIRERangeIdle_8: -5106522168812781319
+      VAMPIRERangeIdle_9: 1997409597728362403
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

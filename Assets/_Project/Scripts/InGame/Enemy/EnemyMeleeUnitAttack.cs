@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyMeleeUnitAttack : MeleeUnitAttack
+public class EnemyMeleeUnitAttack : EnemyAttack
 {
     private EnemyMovement _enemyMovement;
     private void Start()
@@ -11,6 +11,12 @@ public class EnemyMeleeUnitAttack : MeleeUnitAttack
     {
         base.NullifyCurrentTarget();
         _enemyMovement.CanMove = true;
+    }
+
+    public override void AttackAnimationPoint()
+    {
+        InAnimation = false;
+        CurrentTarget.GetComponent<HealthHandler>().TakeDamage(_damage);
     }
 
     public override void SetCurrentTarget(Transform target)

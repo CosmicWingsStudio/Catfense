@@ -924,7 +924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f18e470b051e45d4e812941ce01e92a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Config>k__BackingField: {fileID: 11400000, guid: fedbf845a29dc4a409902aa6e7f3fc78, type: 2}
+  <Config>k__BackingField: {fileID: 0}
   _price: 15
   _constantPurchaseText: "\u0417\u043E\u043B\u043E\u0442\u0430"
   _purchasePanel: {fileID: 8002485907301398570}

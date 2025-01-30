@@ -1,0 +1,412 @@
+fileFormatVersion: 2
+guid: 874fe520a7f667f498377d66f2353dfd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7437006230065027592
+    second: VAMPIREMeleeAttack_0
+  - first:
+      213: -4341554783288173874
+    second: VAMPIREMeleeAttack_1
+  - first:
+      213: 1654970773905752887
+    second: VAMPIREMeleeAttack_2
+  - first:
+      213: 5001639451373650834
+    second: VAMPIREMeleeAttack_3
+  - first:
+      213: 6402922564170513719
+    second: VAMPIREMeleeAttack_4
+  - first:
+      213: 3121640410710633500
+    second: VAMPIREMeleeAttack_5
+  - first:
+      213: -2064907232568823854
+    second: VAMPIREMeleeAttack_6
+  - first:
+      213: 8968573824805242887
+    second: VAMPIREMeleeAttack_7
+  - first:
+      213: -1998051847777750926
+    second: VAMPIREMeleeAttack_8
+  - first:
+      213: -6201082490282452015
+    second: VAMPIREMeleeAttack_9
+  - first:
+      213: 4708515544634182641
+    second: VAMPIREMeleeAttack_10
+  - first:
+      213: -4426552238105214524
+    second: VAMPIREMeleeAttack_11
+  - first:
+      213: -8463120673070775577
+    second: VAMPIREMeleeAttack_12
+  - first:
+      213: -6997724126550127905
+    second: VAMPIREMeleeAttack_13
+  - first:
+      213: 4460876823359343044
+    second: VAMPIREMeleeAttack_14
+  - first:
+      213: 4137361976407286887
+    second: VAMPIREMeleeAttack_15
+  - first:
+      213: 404829337513616836
+    second: VAMPIREMeleeAttack_16
+  - first:
+      213: 956377270138783283
+    second: VAMPIREMeleeAttack_17
+  - first:
+      213: 1557040294470379823
+    second: VAMPIREMeleeAttack_18
+  - first:
+      213: -6772582264504999516
+    second: VAMPIREMeleeAttack_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VAMPIREMeleeAttack_0
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 1080
+        width: 301
+        height: 456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f56b989c327ac890800000000000000
+      internalID: -7437006230065027592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VAMPIREMeleeAttack_2
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1079
+        width: 306
+        height: 468
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7334e448623a7f610800000000000000
+      internalID: 1654970773905752887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VAMPIREMeleeAttack_4
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 1079
+        width: 321
+        height: 474
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73d77b1e520cbd850800000000000000
+      internalID: 6402922564170513719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VAMPIREMeleeAttack_8
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 531
+        width: 322
+        height: 474
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 270f46a3e6e7544e0800000000000000
+      internalID: -1998051847777750926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VAMPIREMeleeAttack_10
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 531
+        width: 398
+        height: 478
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fb4359e0f1085140800000000000000
+      internalID: 4708515544634182641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VAMPIREMeleeAttack_11
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 531
+        width: 396
+        height: 474
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c1470c313ab192c0800000000000000
+      internalID: -4426552238105214524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VAMPIREMeleeAttack_15
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 37
+        width: 306
+        height: 468
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 764e6fefbccda6930800000000000000
+      internalID: 4137361976407286887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VAMPIREMeleeAttack_17
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 39
+        width: 301
+        height: 456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33641e16f0cb54d00800000000000000
+      internalID: 956377270138783283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: dc34ada735e65ee43ad91e9fafea6123
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VAMPIREMeleeAttack_0: -7437006230065027592
+      VAMPIREMeleeAttack_1: -4341554783288173874
+      VAMPIREMeleeAttack_10: 4708515544634182641
+      VAMPIREMeleeAttack_11: -4426552238105214524
+      VAMPIREMeleeAttack_12: -8463120673070775577
+      VAMPIREMeleeAttack_13: -6997724126550127905
+      VAMPIREMeleeAttack_14: 4460876823359343044
+      VAMPIREMeleeAttack_15: 4137361976407286887
+      VAMPIREMeleeAttack_16: 404829337513616836
+      VAMPIREMeleeAttack_17: 956377270138783283
+      VAMPIREMeleeAttack_18: 1557040294470379823
+      VAMPIREMeleeAttack_19: -6772582264504999516
+      VAMPIREMeleeAttack_2: 1654970773905752887
+      VAMPIREMeleeAttack_3: 5001639451373650834
+      VAMPIREMeleeAttack_4: 6402922564170513719
+      VAMPIREMeleeAttack_5: 3121640410710633500
+      VAMPIREMeleeAttack_6: -2064907232568823854
+      VAMPIREMeleeAttack_7: 8968573824805242887
+      VAMPIREMeleeAttack_8: -1998051847777750926
+      VAMPIREMeleeAttack_9: -6201082490282452015
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

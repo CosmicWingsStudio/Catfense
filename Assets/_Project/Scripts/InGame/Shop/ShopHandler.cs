@@ -100,10 +100,11 @@ public class ShopHandler : MonoBehaviour
             //catch (System.Exception)
             //{
             //    Debug.LogError("Creation of unit card goes wrong");
-                
-            //}
 
-            var newCard = _cardsFactory.CreateUnitCard(RandomizeCardType());
+            //}
+            int tier = RandomizeCardTier();
+            var newCard = _cardsFactory.CreateUnitCard(tier);
+            newCard.SetConfig(GetRandomizedCardOutOfTier(tier));
             _slotsList[i].PlaceCardIntoSlot(newCard.transform);
 
         }
@@ -117,12 +118,11 @@ public class ShopHandler : MonoBehaviour
         }
     }
 
-    private string RandomizeCardType()
+    private int RandomizeCardTier()
     {
         int randomValue = Random.Range(0, 100);
         
         int tier = 0;
-        string cardPrefabName = string.Empty;
 
         if (randomValue > 100 - _cardsData.T3Weight)
             tier = 3;
@@ -133,22 +133,30 @@ public class ShopHandler : MonoBehaviour
         else if (randomValue <= _cardsData.T1Weight)
             tier = 1;
 
-        switch (tier)
+        return tier;
+
+    }
+
+    private UnitConfig GetRandomizedCardOutOfTier(int cardtier)
+    {
+        int randomValue;
+
+        switch (cardtier)
         {
             case 1:
-                cardPrefabName = _cardsData.T1Cards[Random.Range(0, _cardsData.T1Cards.Count)];
-                return "T1/" + cardPrefabName;
+                randomValue = Random.Range(0, _cardsData.T1Cards.Count - 1);
+                return _cardsData.T1Cards[randomValue];
             case 2:
-                cardPrefabName = _cardsData.T2Cards[Random.Range(0, _cardsData.T2Cards.Count)];
-                return "T2/" + cardPrefabName;
+                randomValue = Random.Range(0, _cardsData.T2Cards.Count - 1);
+                return _cardsData.T2Cards[randomValue]; 
             case 3:
-                cardPrefabName = _cardsData.T3Cards[Random.Range(0, _cardsData.T3Cards.Count)];
-                return "T3/" + cardPrefabName;
-            default:
-                Debug.LogError("Randomize goes wrong"); 
-                return cardPrefabName;
-        }
+                randomValue = Random.Range(0, _cardsData.T3Cards.Count - 1);
+                return _cardsData.T3Cards[randomValue];
 
+            default: return null;
+
+        }
+        
     }
 
     private void PurchaseAdditionalParts()

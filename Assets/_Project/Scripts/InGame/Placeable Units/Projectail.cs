@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class Projectail : MonoBehaviour
 {
@@ -37,6 +38,7 @@ public class Projectail : MonoBehaviour
             if (OnNullTarget)
             {
                 transform.position = Vector2.MoveTowards(transform.position, _lastPosition, _projectailSpeed * Time.deltaTime);
+                transform.rotation = Quaternion.LookRotation( Vector3.forward, _lastPosition);
 
                 if ((int)transform.position.y * 100 == (int)_lastPosition.y * 100 && (int)transform.position.x * 100 == (int)_lastPosition.x * 100)
                 {
@@ -48,13 +50,17 @@ public class Projectail : MonoBehaviour
 
             transform.position = Vector2.MoveTowards(transform.position, _target.position, _projectailSpeed * Time.deltaTime);
             _lastPosition = _target.position;
+            transform.rotation = Quaternion.LookRotation(-Vector3.forward, _target.position);
+
+            if (OnNullTarget) return;
+
+            if ((int)transform.position.y * 100 == (int)_target.position.y * 100 && (int)transform.position.x * 100 == (int)_target.position.x * 100)
+            {
+                _target.GetComponent<HealthHandler>().TakeDamage(_damage);
+                hit = true;
+                Destroy(gameObject);
+            }
         }
-        
-        if ((int)transform.position.y * 100 == (int)_target.position.y * 100 && (int)transform.position.x * 100 == (int) _target.position.x * 100)
-        {
-            _target.GetComponent<HealthHandler>().TakeDamage(_damage);
-            hit = true;
-            Destroy(gameObject);
-        }
+                
     }
 }

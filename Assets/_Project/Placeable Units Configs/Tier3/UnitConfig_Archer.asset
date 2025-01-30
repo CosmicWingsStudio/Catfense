@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f741e306ad3bd6247b3a6c2719b44561, type: 3}
   m_Name: UnitConfig_Archer
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Archer
-  <HealthPoints>k__BackingField: 25
-  <Damage>k__BackingField: 15
-  <Firerate>k__BackingField: 3
-  <PrefabName>k__BackingField: Default Range
-  <ProjectailPrefabPath>k__BackingField: InGamePrefabs/Projectails/Default
-  <ProjectailSpeed>k__BackingField: 2
+  <Name>k__BackingField: "\u041B\u0443\u0447\u043D\u0438\u043A"
+  <HealthPoints>k__BackingField: 50
+  <Damage>k__BackingField: 20
+  <Firerate>k__BackingField: 4
+  <Price>k__BackingField: 22
+  <PrefabName>k__BackingField: PUnit_Archer
+  <ProjectailPrefabPath>k__BackingField: InGamePrefabs/Projectails/Arrow
+  <ProjectailSpeed>k__BackingField: 4

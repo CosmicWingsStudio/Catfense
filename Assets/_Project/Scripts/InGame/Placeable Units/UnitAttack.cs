@@ -5,8 +5,10 @@ public abstract class UnitAttack : MonoBehaviour
     private TargetDetector _targetDetector;
 
     public Transform CurrentTarget { get; set; }
+    public Animator Animator { protected get; set; }
 
     protected bool IsAttacking = false;
+    protected bool InAnimation = false;
     protected float _firerate;
     protected float _originalFirerate;
     protected float _fireRateCounter = 0f;
@@ -38,9 +40,8 @@ public abstract class UnitAttack : MonoBehaviour
 
     private void Update()
     {
-        if (!IsAttacking)
+        if (!IsAttacking && !InAnimation)
             return;
-
         if (_fireRateCounter >= _firerate)
         {
             if (CurrentTarget == null)
@@ -60,20 +61,20 @@ public abstract class UnitAttack : MonoBehaviour
     {
         //анимации ну типа перенести в јтакјниматионѕоинт спавн снар€да наверн потом
         //звуки
-
-        //¬ременно
-        AttackAnimationPoint();
-        //
+        InAnimation = true;
+        Animator.SetTrigger("Shoot");
     }
 
-    protected virtual void AttackAnimationPoint()
+    public virtual void AttackAnimationPoint()
     {
-
+        //InAnimation = false;
     }
 
     public virtual void SetCurrentTarget(Transform target)
     {
+        Animator.SetBool("IdleActive", false);
         CurrentTarget = target;
+        _fireRateCounter = _firerate;
         IsAttacking = true;
     }
 
@@ -81,6 +82,7 @@ public abstract class UnitAttack : MonoBehaviour
     {
         CurrentTarget = null;
         IsAttacking = false;
+        Animator.SetBool("IdleActive", true);
     }
 
     public void UpgradeStats(int multiplier)

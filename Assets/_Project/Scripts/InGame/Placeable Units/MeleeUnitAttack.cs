@@ -10,8 +10,9 @@ public class MeleeUnitAttack : UnitAttack
         _originalDamage = _damage;
     }
 
-    protected override void AttackAnimationPoint()
+    public override void AttackAnimationPoint()
     {
+        InAnimation = false;
         CurrentTarget.GetComponent<HealthHandler>().TakeDamage(_damage);
     }
 }

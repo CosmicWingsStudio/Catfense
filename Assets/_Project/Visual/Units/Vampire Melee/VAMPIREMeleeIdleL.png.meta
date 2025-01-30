@@ -1,0 +1,462 @@
+fileFormatVersion: 2
+guid: 568a45ca2ee8e24499630e256c0e6d8c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2124255271923385536
+    second: VAMPIREMeleeIdleL_0
+  - first:
+      213: 7045797774488004135
+    second: VAMPIREMeleeIdleL_1
+  - first:
+      213: 811237937735229908
+    second: VAMPIREMeleeIdleL_2
+  - first:
+      213: 7000632826960656163
+    second: VAMPIREMeleeIdleL_3
+  - first:
+      213: -5037102811004908630
+    second: VAMPIREMeleeIdleL_4
+  - first:
+      213: -7294406453189264291
+    second: VAMPIREMeleeIdleL_5
+  - first:
+      213: 7123567642879798062
+    second: VAMPIREMeleeIdleL_6
+  - first:
+      213: -6210040968990698250
+    second: VAMPIREMeleeIdleL_7
+  - first:
+      213: -8306603736017667394
+    second: VAMPIREMeleeIdleL_8
+  - first:
+      213: 336454641290393000
+    second: VAMPIREMeleeIdleL_9
+  - first:
+      213: -461298743019727002
+    second: VAMPIREMeleeIdleL_10
+  - first:
+      213: -4370541784920218532
+    second: VAMPIREMeleeIdleL_11
+  - first:
+      213: -5172996323700732958
+    second: VAMPIREMeleeIdleL_12
+  - first:
+      213: 53057485166105245
+    second: VAMPIREMeleeIdleL_13
+  - first:
+      213: 8086982414207855290
+    second: VAMPIREMeleeIdleL_14
+  - first:
+      213: -1018274675054524481
+    second: VAMPIREMeleeIdleL_15
+  - first:
+      213: -2469096956974872027
+    second: VAMPIREMeleeIdleL_16
+  - first:
+      213: -7305179677860598991
+    second: VAMPIREMeleeIdleL_17
+  - first:
+      213: 47001207986719177
+    second: VAMPIREMeleeIdleL_18
+  - first:
+      213: -100901263164904111
+    second: VAMPIREMeleeIdleL_19
+  - first:
+      213: 3251821737360163523
+    second: VAMPIREMeleeIdleL_20
+  - first:
+      213: 2195991536571065983
+    second: VAMPIREMeleeIdleL_21
+  - first:
+      213: 2588543730919348313
+    second: VAMPIREMeleeIdleL_22
+  - first:
+      213: -7612575748732533789
+    second: VAMPIREMeleeIdleL_23
+  - first:
+      213: 6522410194395261723
+    second: VAMPIREMeleeIdleL_24
+  - first:
+      213: 1383779682717542027
+    second: VAMPIREMeleeIdleL_25
+  - first:
+      213: 7837668110554347522
+    second: VAMPIREMeleeIdleL_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VAMPIREMeleeIdleL_0
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 1076
+        width: 301
+        height: 456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04b71c0c5112582e0800000000000000
+      internalID: -2124255271923385536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VAMPIREMeleeIdleL_2
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 1076
+        width: 289
+        height: 456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d167033b98124b00800000000000000
+      internalID: 811237937735229908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VAMPIREMeleeIdleL_4
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 1076
+        width: 289
+        height: 456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aab4eec5ead981ab0800000000000000
+      internalID: -5037102811004908630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VAMPIREMeleeIdleL_9
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 538
+        width: 289
+        height: 456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a53521b6b35ba400800000000000000
+      internalID: 336454641290393000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VAMPIREMeleeIdleL_11
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 538
+        width: 289
+        height: 456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5424d91767b853c0800000000000000
+      internalID: -4370541784920218532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VAMPIREMeleeIdleL_13
+      rect:
+        serializedVersion: 2
+        x: 973
+        y: 524
+        width: 289
+        height: 456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d92500c608f7cb000800000000000000
+      internalID: 53057485166105245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VAMPIREMeleeIdleL_18
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 36
+        width: 289
+        height: 456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c90012895bf6a000800000000000000
+      internalID: 47001207986719177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VAMPIREMeleeIdleL_20
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 36
+        width: 289
+        height: 456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c20f3824aac02d20800000000000000
+      internalID: 3251821737360163523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VAMPIREMeleeIdleL_22
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 33
+        width: 301
+        height: 456
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 958130ffeca5ce320800000000000000
+      internalID: 2588543730919348313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: cd9847bd9f72a5e4e8855b29f8187e20
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VAMPIREMeleeIdleL_0: -2124255271923385536
+      VAMPIREMeleeIdleL_1: 7045797774488004135
+      VAMPIREMeleeIdleL_10: -461298743019727002
+      VAMPIREMeleeIdleL_11: -4370541784920218532
+      VAMPIREMeleeIdleL_12: -5172996323700732958
+      VAMPIREMeleeIdleL_13: 53057485166105245
+      VAMPIREMeleeIdleL_14: 8086982414207855290
+      VAMPIREMeleeIdleL_15: -1018274675054524481
+      VAMPIREMeleeIdleL_16: -2469096956974872027
+      VAMPIREMeleeIdleL_17: -7305179677860598991
+      VAMPIREMeleeIdleL_18: 47001207986719177
+      VAMPIREMeleeIdleL_19: -100901263164904111
+      VAMPIREMeleeIdleL_2: 811237937735229908
+      VAMPIREMeleeIdleL_20: 3251821737360163523
+      VAMPIREMeleeIdleL_21: 2195991536571065983
+      VAMPIREMeleeIdleL_22: 2588543730919348313
+      VAMPIREMeleeIdleL_23: -7612575748732533789
+      VAMPIREMeleeIdleL_24: 6522410194395261723
+      VAMPIREMeleeIdleL_25: 1383779682717542027
+      VAMPIREMeleeIdleL_26: 7837668110554347522
+      VAMPIREMeleeIdleL_3: 7000632826960656163
+      VAMPIREMeleeIdleL_4: -5037102811004908630
+      VAMPIREMeleeIdleL_5: -7294406453189264291
+      VAMPIREMeleeIdleL_6: 7123567642879798062
+      VAMPIREMeleeIdleL_7: -6210040968990698250
+      VAMPIREMeleeIdleL_8: -8306603736017667394
+      VAMPIREMeleeIdleL_9: 336454641290393000
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

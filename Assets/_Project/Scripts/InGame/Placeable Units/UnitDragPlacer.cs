@@ -54,7 +54,7 @@ public class UnitDragPlacer : MonoBehaviour
             {
                 BackToOriginalSlot();
                 _currentDraggableUnit.DataDisplayer.TurnOnDisplayOnTheEndOfDragging();
-                _currentDraggableUnit.TurnOnAttackMode();
+                _currentDraggableUnit.TurnOnActiveMode();
                 _currentDraggableUnit = null;
             }
             return;
@@ -104,7 +104,7 @@ public class UnitDragPlacer : MonoBehaviour
             _currentDraggableUnit.DataDisplayer.TurnOnDisplayOnTheEndOfDragging();
             _currentDraggableUnit.spriteRenderer.sortingOrder = _currentDraggableUnit.DefaultSortingOrder;
             if(_currentDraggableUnit.ParentSlot.GetComponent<PlaceSlot>())
-                _currentDraggableUnit.TurnOnAttackMode();
+                _currentDraggableUnit.TurnOnActiveMode();
             IsDragging = false;
         }
 
@@ -135,7 +135,7 @@ public class UnitDragPlacer : MonoBehaviour
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - _currentDraggableUnit.transform.position;
             _currentDraggableUnit.transform.Translate(mousePosition);
             _currentDraggableUnit.DataDisplayer.TurnOffDisplayWhileDragging();
-            _currentDraggableUnit.TurnOffAttackMode();
+            _currentDraggableUnit.TurnOffActiveMode();
             _currentDraggableUnit.spriteRenderer.sortingOrder = _currentDraggableUnit.DefaultSortingOrder + 1;
             IsDragging = true;
         }

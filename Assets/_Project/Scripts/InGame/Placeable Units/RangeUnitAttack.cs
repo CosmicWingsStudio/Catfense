@@ -27,8 +27,9 @@ public class RangeUnitAttack : UnitAttack
         _projectailPrefabPath = projectailPrefabPath;
     }
 
-    protected override void AttackAnimationPoint()
+    public override void AttackAnimationPoint()
     {
+        InAnimation = false;
         Projectail projectail = Instantiate(Resources.Load<Projectail>(_projectailPrefabPath), transform);
         projectail.Initialize(_damage, _projectailSpeed, CurrentTarget.transform);
     }

@@ -1,0 +1,356 @@
+fileFormatVersion: 2
+guid: 64fa5600aff77dc4ea441a8dde38f4cd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2603521698839077237
+    second: AlchimistAttack_0
+  - first:
+      213: -3349449934283461881
+    second: AlchimistAttack_1
+  - first:
+      213: -319993990691901615
+    second: AlchimistAttack_2
+  - first:
+      213: 5391904635389100643
+    second: AlchimistAttack_3
+  - first:
+      213: 4608556879723205195
+    second: AlchimistAttack_4
+  - first:
+      213: 3330380156859901500
+    second: AlchimistAttack_5
+  - first:
+      213: -99591211192531028
+    second: AlchimistAttack_6
+  - first:
+      213: -3163689406918363080
+    second: AlchimistAttack_7
+  - first:
+      213: -1767304816835466842
+    second: AlchimistAttack_8
+  - first:
+      213: 3999529602033604239
+    second: AlchimistAttack_9
+  - first:
+      213: -8442156772108944370
+    second: AlchimistAttack_10
+  - first:
+      213: 8916316425174103488
+    second: AlchimistAttack_11
+  - first:
+      213: 6864352920700112850
+    second: AlchimistAttack_12
+  - first:
+      213: 7238225233085872415
+    second: AlchimistAttack_13
+  - first:
+      213: -8604193924619271392
+    second: AlchimistAttack_14
+  - first:
+      213: 3339944392654026369
+    second: AlchimistAttack_15
+  - first:
+      213: -6033044437108905678
+    second: AlchimistAttack_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: AlchimistAttack_0
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 690
+        width: 299
+        height: 454
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8edca71fce6edbd0800000000000000
+      internalID: -2603521698839077237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AlchimistAttack_2
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 676
+        width: 291
+        height: 461
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15fac8e29272f8bf0800000000000000
+      internalID: -319993990691901615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AlchimistAttack_3
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 676
+        width: 310
+        height: 461
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3624627c2b4e3da40800000000000000
+      internalID: 5391904635389100643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AlchimistAttack_8
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 172
+        width: 291
+        height: 461
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a96fa6f1a54977e0800000000000000
+      internalID: -1767304816835466842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AlchimistAttack_10
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 172
+        width: 291
+        height: 461
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0cb94ce42f67da80800000000000000
+      internalID: -8442156772108944370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AlchimistAttack_12
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 172
+        width: 291
+        height: 461
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dfce3bcc94134f50800000000000000
+      internalID: 6864352920700112850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 06e6a29a02337104791d1c26e098f2ea
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      AlchimistAttack_0: -2603521698839077237
+      AlchimistAttack_1: -3349449934283461881
+      AlchimistAttack_10: -8442156772108944370
+      AlchimistAttack_11: 8916316425174103488
+      AlchimistAttack_12: 6864352920700112850
+      AlchimistAttack_13: 7238225233085872415
+      AlchimistAttack_14: -8604193924619271392
+      AlchimistAttack_15: 3339944392654026369
+      AlchimistAttack_16: -6033044437108905678
+      AlchimistAttack_2: -319993990691901615
+      AlchimistAttack_3: 5391904635389100643
+      AlchimistAttack_4: 4608556879723205195
+      AlchimistAttack_5: 3330380156859901500
+      AlchimistAttack_6: -99591211192531028
+      AlchimistAttack_7: -3163689406918363080
+      AlchimistAttack_8: -1767304816835466842
+      AlchimistAttack_9: 3999529602033604239
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

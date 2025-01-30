@@ -16,9 +16,20 @@ MonoBehaviour:
   <T2Weight>k__BackingField: 25
   <T3Weight>k__BackingField: 65
   T1Cards:
-  - Card
+  - {fileID: 11400000, guid: f2dc95eecac96ba44b811719ec3a29a2, type: 2}
+  - {fileID: 11400000, guid: b96494679972e7947b2584b6566150fb, type: 2}
+  - {fileID: 11400000, guid: a5d4fb26dc1a89d4598320e4cec80dc4, type: 2}
   T2Cards:
-  - Card
+  - {fileID: 11400000, guid: 766c6dc2fc1479849b6b83eabeacfba7, type: 2}
+  - {fileID: 11400000, guid: 0d50cdacf906ccf48a488bef08414d22, type: 2}
+  - {fileID: 11400000, guid: fedbf845a29dc4a409902aa6e7f3fc78, type: 2}
+  - {fileID: 11400000, guid: 4315e599f8e2b514e83698341a445288, type: 2}
+  - {fileID: 11400000, guid: 37df44d03986a144897827cb65fd02af, type: 2}
   T3Cards:
-  - CardM
-  - CardR
+  - {fileID: 11400000, guid: e679ab2d3f1ce6a43986a05e16990b6f, type: 2}
+  - {fileID: 11400000, guid: bc49c8adda0d7ef45847e33756bbd624, type: 2}
+  - {fileID: 11400000, guid: e1080fdeab26ddf4cafbb6294e790289, type: 2}
+  - {fileID: 11400000, guid: bc8dfca7348699644a409e2de9c9b654, type: 2}
+  - {fileID: 11400000, guid: 757ad369c78dcee44b215552af2399a9, type: 2}
+  - {fileID: 11400000, guid: 98cde02ee00d8b24f8961ea921aa977e, type: 2}
+  - {fileID: 11400000, guid: 4f03bb0bc2b7bc048aafe03c6a4d6e0f, type: 2}

@@ -6,9 +6,8 @@ using Zenject;
 
 public class UnitCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler    
 {
-    [field:SerializeField] public UnitConfig Config { get; private set; }
+    private UnitConfig _config;
 
-    [SerializeField] private int _price;
     [SerializeField] private string _constantPurchaseText;
     [SerializeField] private GameObject _purchasePanel;
     [SerializeField] private GameObject _descriptionPanel;
@@ -17,16 +16,20 @@ public class UnitCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField] private TextMeshProUGUI _health;
     [SerializeField] private TextMeshProUGUI _name;
 
+    private int _price;
+
     [Inject] private ShopHandler _shopHandler;
 
     private TextMeshProUGUI _purchaseText;
 
-    private void Start()
+    public void SetConfig(UnitConfig config)
     {
+        _config = config;
+        _price = _config.Price;
         _buyButton.onClick.AddListener(SendPurchaseRequest);
-        _damage.text = Config.Damage.ToString();
-        _health.text = Config.HealthPoints.ToString();
-        _name.text = Config.Name.ToString();
+        _damage.text = _config.Damage.ToString();
+        _health.text = _config.HealthPoints.ToString();
+        _name.text = _config.Name.ToString();
         _purchaseText = _buyButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
     }
 
@@ -42,5 +45,6 @@ public class UnitCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         _purchasePanel.SetActive(false);
         _descriptionPanel.SetActive(true);
     }
-    private void SendPurchaseRequest() => _shopHandler.Purchase(Config, gameObject, _price);
+
+    private void SendPurchaseRequest() => _shopHandler.Purchase(_config, gameObject, _price);
 }

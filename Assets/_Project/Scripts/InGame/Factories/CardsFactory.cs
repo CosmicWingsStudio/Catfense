@@ -14,8 +14,19 @@ public class CardsFactory : MonoBehaviour
         _container = container;
     }
 
-    public UnitCard CreateUnitCard(string prefabName)
+    public UnitCard CreateUnitCard(int cardtier)
     {
-        return _container.InstantiatePrefabResource(_prefabsDataProvider.GetCardsPrefabsPath() + prefabName).GetComponent<UnitCard>();
+        switch (cardtier)
+        {
+            case 1:
+                return _container.InstantiatePrefabResource(_prefabsDataProvider.GetCardsPrefabsPath() + "T1/Card").GetComponent<UnitCard>();
+            case 2:
+                return _container.InstantiatePrefabResource(_prefabsDataProvider.GetCardsPrefabsPath() + "T2/Card").GetComponent<UnitCard>();
+            case 3:
+                return _container.InstantiatePrefabResource(_prefabsDataProvider.GetCardsPrefabsPath() + "T3/Card").GetComponent<UnitCard>();
+            default:
+                Debug.LogError("Wrong card tier been given");
+                return null;
+        }
     }
 }

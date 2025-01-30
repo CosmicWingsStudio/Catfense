@@ -52,6 +52,7 @@ public class PlaceableUnit : MonoBehaviour
 
 
     private UnitUpgrader _unitUpgrader;
+    private Animator _animator;
     private bool IsIntialised = false;
 
     public void Initialize(int originalPrice, UnitConfig config)
@@ -63,9 +64,24 @@ public class PlaceableUnit : MonoBehaviour
 
             DataDisplayer = GetComponent<UnitDataDisplayer>();
             _unitUpgrader = GetComponent<UnitUpgrader>();
-            spriteRenderer = GetComponent<SpriteRenderer>();
             Health = GetComponent<HealthHandler>();
             unitAttackHandler = GetComponent<UnitAttack>();
+
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                if(transform.GetChild(i).TryGetComponent(out SpriteRenderer sr))
+                {
+                    spriteRenderer = sr;
+
+                    if (transform.GetChild(i).TryGetComponent(out Animator anim))
+                    {
+                        _animator = anim;
+                        break;
+                    }
+                }
+                
+                
+            }
 
             DefaultSortingOrder = spriteRenderer.sortingOrder;
 
@@ -75,7 +91,8 @@ public class PlaceableUnit : MonoBehaviour
             Health.SetHealthParams(config.HealthPoints, DataDisplayer._hpSlider);
 
             unitAttackHandler.SetData(config);
-            TurnOffAttackMode();
+            unitAttackHandler.Animator = _animator;
+            TurnOffActiveMode();
 
             IsIntialised = true;
         }
@@ -86,14 +103,16 @@ public class PlaceableUnit : MonoBehaviour
         _unitUpgrader.UpgradeUnit();
     }
 
-    public void TurnOffAttackMode()
+    public void TurnOffActiveMode()
     {
         unitAttackHandler.TurnOffAttackMode();
+        _animator.enabled = false;
     }
 
-    public void TurnOnAttackMode()
+    public void TurnOnActiveMode()
     {
         unitAttackHandler.TurnOnAttackMode();
+        _animator.enabled = true;
     }
 
     public int GetCurrentUnitLevel() => _unitUpgrader.GetCurrentUpgradeLevel();
