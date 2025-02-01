@@ -18,5 +18,7 @@ MonoBehaviour:
   <Firerate>k__BackingField: 4
   <Price>k__BackingField: 20
   <PrefabName>k__BackingField: PUnit_VikingRange
+  <UnitSprite>k__BackingField: {fileID: 21300000, guid: ae2008f658cbfd445ba0a4ce956a313a, type: 2}
+  <UnitAttackType>k__BackingField: "\u0414\u0430\u043B\u044C\u043D\u0438\u0439"
   <ProjectailPrefabPath>k__BackingField: InGamePrefabs/Projectails/Axe
   <ProjectailSpeed>k__BackingField: 2.2

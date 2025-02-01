@@ -15,6 +15,8 @@ public class UnitCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField] private TextMeshProUGUI _damage;
     [SerializeField] private TextMeshProUGUI _health;
     [SerializeField] private TextMeshProUGUI _name;
+    [SerializeField] private TextMeshProUGUI _typeOfAttack;
+    [SerializeField] private Image _unitSpriteImage;
 
     private int _price;
 
@@ -25,7 +27,10 @@ public class UnitCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void SetConfig(UnitConfig config)
     {
         _config = config;
+
+        _unitSpriteImage.sprite = _config.UnitSprite;
         _price = _config.Price;
+        _typeOfAttack.text = "Тип атаки: " + _config.UnitAttackType;
         _buyButton.onClick.AddListener(SendPurchaseRequest);
         _damage.text = _config.Damage.ToString();
         _health.text = _config.HealthPoints.ToString();

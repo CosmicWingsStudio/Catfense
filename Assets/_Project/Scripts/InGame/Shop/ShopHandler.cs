@@ -18,12 +18,15 @@ public class ShopHandler : MonoBehaviour
     [SerializeField] private CardsData _cardsData;
     [SerializeField] private Transform _shopSlotsFolder;
     [SerializeField] private Button _buyAdditionalPartsButton;
+    [SerializeField] private Button _buyRerollButton;
 
     [Header("In-Game Params")]
     [SerializeField] private int _additionalPartPrice;
+    [SerializeField] private int _rerollPrice;
     [SerializeField] private string _constantAdditionalPartsPurchaseText;
 
     private TextMeshProUGUI _additionalPartsText;
+    private TextMeshProUGUI _rerollText;
     private List<ShopSlot> _slotsList = new();
 
     [Inject]
@@ -57,6 +60,10 @@ public class ShopHandler : MonoBehaviour
         _additionalPartsText = _buyAdditionalPartsButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         _additionalPartsText.text = _additionalPartPrice.ToString() + " " + _constantAdditionalPartsPurchaseText;
 
+        _buyRerollButton.onClick.AddListener(PurchaseReroll);
+        _rerollText = _buyRerollButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        _rerollText.text = _rerollPrice.ToString() + " " + _constantAdditionalPartsPurchaseText;
+
         FillShopSlotsWithCards();
     }
 
@@ -88,7 +95,7 @@ public class ShopHandler : MonoBehaviour
 
     private void FillShopSlotsWithCards()
     {
-        ClearItemsInSlots();
+        ClearCardsInSlots();
 
         for (int i = 0; i < _slotsList.Count; i++)
         {
@@ -109,8 +116,7 @@ public class ShopHandler : MonoBehaviour
 
         }
     }
-
-    private void ClearItemsInSlots()
+    private void ClearCardsInSlots()
     {
         for (int i = 0; i < _slotsList.Count; i++)
         {
@@ -183,6 +189,23 @@ public class ShopHandler : MonoBehaviour
                     return;
                 }
             }
+        }
+    }
+
+    private void PurchaseReroll()
+    {
+        if (_walletHandler.CurrentMoney >= _rerollPrice)
+        {
+            _walletHandler.SpendMoney(_rerollPrice);
+            ClearCardsInSlots();
+            FillShopSlotsWithCards();
+            //Õ¿ƒŒ —Ã≈Õ”  ¿–“ —ƒ≈À¿“‹ » »’ –ŒÀÀ»–Œ¬¿Õ»≈
+            return;
+        }
+        else
+        {
+            _guiWarningHandler.ShowWarningScreen("ÕÂ‰ÓÒÚ‡ÚÓ˜ÌÓ ÁÓÎÓÚ‡");
+            return;
         }
     }
 

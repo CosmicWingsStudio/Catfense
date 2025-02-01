@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f741e306ad3bd6247b3a6c2719b44561, type: 3}
   m_Name: UnitConfig_WizardMaster
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: "\u0412\u043E\u043B\u0448\u0435\u0431\u043D\u0438\u043A
-    \u043C\u0430\u0441\u0442\u0435\u0440"
+  <Name>k__BackingField: "\u0412\u043E\u043B\u0448\u0435\u0431\u043D\u0438\u043A"
   <HealthPoints>k__BackingField: 100
   <Damage>k__BackingField: 42
   <Firerate>k__BackingField: 4
   <Price>k__BackingField: 100
   <PrefabName>k__BackingField: PUnit_WizardMaster
+  <UnitSprite>k__BackingField: {fileID: 21300000, guid: 5ba68e84ccb0aef47aeeae70e08537ba, type: 2}
+  <UnitAttackType>k__BackingField: "\u0414\u0430\u043B\u044C\u043D\u0438\u0439"
   <ProjectailPrefabPath>k__BackingField: InGamePrefabs/Projectails/Purple bullet
   <ProjectailSpeed>k__BackingField: 5

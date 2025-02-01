@@ -18,5 +18,7 @@ MonoBehaviour:
   <Firerate>k__BackingField: 3
   <Price>k__BackingField: 50
   <PrefabName>k__BackingField: PUnit_PirateMelee
+  <UnitSprite>k__BackingField: {fileID: 21300000, guid: 2b9c1b5c546f7f44986682cf4a810e8c, type: 2}
+  <UnitAttackType>k__BackingField: "\u0411\u043B\u0438\u0436\u043D\u0438\u0439"
   <ProjectailPrefabPath>k__BackingField: 
   <ProjectailSpeed>k__BackingField: 0

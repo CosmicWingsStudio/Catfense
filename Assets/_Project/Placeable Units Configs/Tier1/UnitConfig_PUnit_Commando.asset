@@ -18,5 +18,7 @@ MonoBehaviour:
   <Firerate>k__BackingField: 2.5
   <Price>k__BackingField: 100
   <PrefabName>k__BackingField: PUnit_Commando
+  <UnitSprite>k__BackingField: {fileID: 21300000, guid: 286e1602ea2f0a6488f1fd9d8ae0517e, type: 2}
+  <UnitAttackType>k__BackingField: "\u0414\u0430\u043B\u044C\u043D\u0438\u0439"
   <ProjectailPrefabPath>k__BackingField: InGamePrefabs/Projectails/Steel bullet
   <ProjectailSpeed>k__BackingField: 7

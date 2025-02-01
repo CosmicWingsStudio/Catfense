@@ -1,4 +1,6 @@
 
+using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using Zenject;
 
@@ -106,6 +108,12 @@ public class UnitDragPlacer : MonoBehaviour
             if(_currentDraggableUnit.ParentSlot.GetComponent<PlaceSlot>())
                 _currentDraggableUnit.TurnOnActiveMode();
             IsDragging = false;
+
+            List<PlaceSlot> slots = _environmentHandler.GetEnvironmentContainer().GetAllPlaceableSlots();
+            for (int i = 0; i < slots.Count; i++)
+            {
+                slots[i].HideDropZone();
+            }
         }
 
         if (IsOnDoubleClickFrame)
@@ -138,6 +146,13 @@ public class UnitDragPlacer : MonoBehaviour
             _currentDraggableUnit.TurnOffActiveMode();
             _currentDraggableUnit.spriteRenderer.sortingOrder = _currentDraggableUnit.DefaultSortingOrder + 1;
             IsDragging = true;
+            //всем слотам над включить.. мб как-то прокинуть у нас есть енвайрмент хендлер и там типа
+            List<PlaceSlot> slots = _environmentHandler.GetEnvironmentContainer().GetAllPlaceableSlots();
+
+            for (int i = 0; i < slots.Count; i++)
+            {
+                slots[i].ShowDropZone();
+            }
         }
     }
 

@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f741e306ad3bd6247b3a6c2719b44561, type: 3}
   m_Name: UnitConfig_WizardLearner
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: "\u0412\u043E\u043B\u0448\u0435\u0431\u043D\u0438\u043A
-    \u0443\u0447\u0435\u043D\u0438\u043A"
+  <Name>k__BackingField: "\u0412\u043E\u043B\u0448\u0435\u0431\u043D\u0438\u043A"
   <HealthPoints>k__BackingField: 50
   <Damage>k__BackingField: 25
   <Firerate>k__BackingField: 4
   <Price>k__BackingField: 28
   <PrefabName>k__BackingField: PUnit_WizardLearner
+  <UnitSprite>k__BackingField: {fileID: 21300000, guid: d00d86b8ddecbd143900824b7a1e6cb7, type: 2}
+  <UnitAttackType>k__BackingField: "\u0414\u0430\u043B\u044C\u043D\u0438\u0439"
   <ProjectailPrefabPath>k__BackingField: InGamePrefabs/Projectails/Green bullet
   <ProjectailSpeed>k__BackingField: 4

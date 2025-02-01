@@ -8,6 +8,7 @@ public class EnvironmentContainerHandler : MonoBehaviour
     [SerializeField] private Transform BenchSlotsFolder;
     [SerializeField] private Transform PlaceSlotsFolder;
     [SerializeField] protected TowerHealthHandler _towerHealthHandler;
+    private List<PlaceSlot> AllPlaceSlots = new();
     private SignalBus _signalBus;
 
     [SerializeField] private Transform BuyableTowerPartsFolder;
@@ -52,6 +53,12 @@ public class EnvironmentContainerHandler : MonoBehaviour
         for (int i = 0; i < BenchSlots.Count; i++)
         {
             AllSlots.Add(BenchSlots[i]);
+        }
+
+        for (int i = 0; i < AllSlots.Count; i++)
+        {
+            if (AllSlots[i].GetComponent<PlaceSlot>())
+                AllPlaceSlots.Add((PlaceSlot)AllSlots[i]);
         }
     }
 
@@ -165,5 +172,10 @@ public class EnvironmentContainerHandler : MonoBehaviour
         }
  
         return false;
+    }
+
+    public List<PlaceSlot> GetAllPlaceableSlots()
+    {   
+        return AllPlaceSlots;
     }
 }

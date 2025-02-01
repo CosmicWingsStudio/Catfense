@@ -2,7 +2,9 @@ using UnityEngine;
 
 public abstract class Slot2D : MonoBehaviour
 {
+    [SerializeField] private float _defaultOffsetY;
     protected BoxCollider2D _collider;
+
     public virtual GameObject Item
     {
         get
@@ -28,7 +30,9 @@ public abstract class Slot2D : MonoBehaviour
     public virtual void PlaceItemInSlot(Transform item)
     {
         item.SetParent(transform);
-        item.localPosition = Vector2.zero;
+        //item.localPosition = Vector2.zero;
+        Vector2 newpos = new(0, _defaultOffsetY);
+        item.localPosition = newpos;
         ChangeColliderState(false);
     }
 
