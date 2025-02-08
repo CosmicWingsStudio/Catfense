@@ -3,7 +3,7 @@ using Zenject;
 
 public class InGameSceneInstaller : MonoInstaller
 {
-    [SerializeField] private SpriteRenderer _backGroundRenderer;
+    [SerializeField] private UnityEngine.UI.Image _backGroundImage;
     [SerializeField] private PrefabsPathsToFoldersProvider _prefabsDataConfig;
 
     public override void InstallBindings()
@@ -35,7 +35,7 @@ public class InGameSceneInstaller : MonoInstaller
 
     private void BindSceneSetupServices()
     {
-        BackGroundHandler bgHandler = new(_backGroundRenderer);
+        BackGroundHandler bgHandler = new(_backGroundImage);
 
         Container.Bind<BackGroundHandler>().FromInstance(bgHandler).AsSingle();
         Container.Bind<EnvironmentHandler>().FromComponentInHierarchy().AsSingle();

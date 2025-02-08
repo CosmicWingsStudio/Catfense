@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f741e306ad3bd6247b3a6c2719b44561, type: 3}
   m_Name: UnitConfig_Cowboy
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Cowboy
+  <Name>k__BackingField: "\u041A\u043E\u0432\u0431\u043E\u0439"
   <HealthPoints>k__BackingField: 75
   <Damage>k__BackingField: 32
   <Firerate>k__BackingField: 4.5

@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class BackGroundHandler
 {
-    private SpriteRenderer _backGroundImage;
+    private UnityEngine.UI.Image _backGroundImage;
 
-    public BackGroundHandler(SpriteRenderer bgImage)
+    public BackGroundHandler(UnityEngine.UI.Image bgImage)
     {
         _backGroundImage = bgImage;
     }
