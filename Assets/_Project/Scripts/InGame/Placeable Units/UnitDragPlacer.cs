@@ -22,8 +22,6 @@ public class UnitDragPlacer : MonoBehaviour
     private float _holdingTimer;
     private bool IsOnDoubleClickFrame = false;
 
-    private Vector2 _originalPosition = Vector2.zero;
-
     [Inject]
     private void Initialize(EnvironmentHandler environmentHandler, SignalBus signalBus, GUIWarningHandler gUIWarningHandler)
     {
@@ -217,7 +215,7 @@ public class UnitDragPlacer : MonoBehaviour
 
     private void BackToOriginalSlot()
     {
-        _currentDraggableUnit.transform.localPosition = _originalPosition;
+        _currentDraggableUnit.transform.localPosition = _currentDraggableUnit.ParentSlot.TakeOriginalPosition();
         Debug.Log(IsOnDoubleClickFrame);
     }
 

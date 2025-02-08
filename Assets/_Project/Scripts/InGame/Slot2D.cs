@@ -27,6 +27,11 @@ public abstract class Slot2D : MonoBehaviour
             _collider.enabled = true;
     }
 
+    public Vector2 TakeOriginalPosition()
+    {
+        return new Vector2(0, _defaultOffsetY);
+    }
+
     public virtual void PlaceItemInSlot(Transform item)
     {
         item.SetParent(transform);

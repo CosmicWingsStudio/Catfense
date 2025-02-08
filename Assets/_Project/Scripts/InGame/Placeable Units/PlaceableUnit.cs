@@ -36,7 +36,26 @@ public class PlaceableUnit : MonoBehaviour
         }
     }
 
-    public int SellPrice { get; private set; }
+    private int _defaultSellPrice;
+    public int SellPrice
+    {
+        get
+        {
+            switch (GetCurrentUnitLevel())
+            {
+                case 0:
+                    return _defaultSellPrice;
+                case 1:
+                    return _defaultSellPrice * 3;
+                case 2:
+                    return _defaultSellPrice * 6;
+                case 3:
+                    return _defaultSellPrice * 9;
+                default:
+                    return _defaultSellPrice;
+            }
+        }
+    }
 
     public UnitAttack unitAttackHandler { get; private set; }
 
@@ -59,7 +78,8 @@ public class PlaceableUnit : MonoBehaviour
     {
         if(IsIntialised == false)
         {
-            SellPrice = originalPrice / 2; 
+            _defaultSellPrice = originalPrice / 2;
+
             Name = config.Name;
 
             DataDisplayer = GetComponent<UnitDataDisplayer>();

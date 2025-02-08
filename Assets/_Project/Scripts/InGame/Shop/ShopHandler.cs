@@ -74,21 +74,34 @@ public class ShopHandler : MonoBehaviour
 
     public void Purchase(UnitConfig config, GameObject Requester, int price)
     {
-        if (_environmentHandler.GetEnvironmentContainer().CanSetItemInBenchSlotOrNot() == false)
-        {
-            _guiWarningHandler.ShowWarningScreen("Нет свободного места");
-            return;
-        }
+        bool IsUpgraded = false;
+
         if (_walletHandler.CurrentMoney < price)
         {
             _guiWarningHandler.ShowWarningScreen("Недостаточно золота");
             return;
         }
-        
 
-        _walletHandler.SpendMoney(price);
-        if(_environmentHandler.GetEnvironmentContainer().TryToUpgradeUnitsFromShop(config.Name) == false)
-            _environmentHandler.GetEnvironmentContainer().SetItemInBenchSlotFromShop(_shopUnitsFactory.ProducePlaceableUnit(config, price));
+        if (_environmentHandler.GetEnvironmentContainer().CanSetItemInBenchSlotOrNot() == false)
+        {
+            if (_environmentHandler.GetEnvironmentContainer().TryToUpgradeUnitsFromShop(config.Name) == true)
+            {
+                _walletHandler.SpendMoney(price);
+                IsUpgraded = true;
+            }
+            else
+            {
+                _guiWarningHandler.ShowWarningScreen("Нет свободного места");
+                return;
+            }
+        } 
+
+        if(IsUpgraded == false)
+        {
+            _walletHandler.SpendMoney(price);
+            if (_environmentHandler.GetEnvironmentContainer().TryToUpgradeUnitsFromShop(config.Name) == false)
+                _environmentHandler.GetEnvironmentContainer().SetItemInBenchSlotFromShop(_shopUnitsFactory.ProducePlaceableUnit(config, price));
+        } 
 
         Destroy(Requester);
     }
@@ -116,6 +129,7 @@ public class ShopHandler : MonoBehaviour
 
         }
     }
+
     private void ClearCardsInSlots()
     {
         for (int i = 0; i < _slotsList.Count; i++)
@@ -235,7 +249,6 @@ public class ShopHandler : MonoBehaviour
         _walletHandler.AddMoney(pUnit.SellPrice);
         pUnit.ParentSlot.InformOfTakingItemFromSlot();
         Destroy(pUnit.gameObject);
-        //close sell screen
     }
 }
 
