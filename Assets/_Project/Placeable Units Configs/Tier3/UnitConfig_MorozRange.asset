@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f741e306ad3bd6247b3a6c2719b44561, type: 3}
   m_Name: UnitConfig_MorozRange
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: "\u041C\u043E\u0440\u043E\u0437"
+  <Name>k__BackingField: "\u041C\u043E\u0440\u043E\u0437 "
+  <PresentiveName>k__BackingField: "\u041C\u043E\u0440\u043E\u0437"
   <HealthPoints>k__BackingField: 50
   <Damage>k__BackingField: 15
   <Firerate>k__BackingField: 3

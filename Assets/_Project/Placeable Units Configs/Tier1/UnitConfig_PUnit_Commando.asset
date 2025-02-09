@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: UnitConfig_PUnit_Commando
   m_EditorClassIdentifier: 
   <Name>k__BackingField: "\u041A\u043E\u043C\u043C\u0430\u043D\u0434\u043E"
+  <PresentiveName>k__BackingField: "\u041A\u043E\u043C\u043C\u0430\u043D\u0434\u043E"
   <HealthPoints>k__BackingField: 100
   <Damage>k__BackingField: 30
   <Firerate>k__BackingField: 2.5

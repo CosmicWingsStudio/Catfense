@@ -34,7 +34,7 @@ public class UnitCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         _buyButton.onClick.AddListener(SendPurchaseRequest);
         _damage.text = _config.Damage.ToString();
         _health.text = _config.HealthPoints.ToString();
-        _name.text = _config.Name.ToString();
+        _name.text = _config.PresentiveName.ToString();
         _purchaseText = _buyButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
     }
 

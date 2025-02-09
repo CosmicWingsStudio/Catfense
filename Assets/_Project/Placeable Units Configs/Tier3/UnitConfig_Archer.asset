@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: UnitConfig_Archer
   m_EditorClassIdentifier: 
   <Name>k__BackingField: "\u041B\u0443\u0447\u043D\u0438\u043A"
+  <PresentiveName>k__BackingField: "\u041B\u0443\u0447\u043D\u0438\u043A"
   <HealthPoints>k__BackingField: 50
   <Damage>k__BackingField: 20
   <Firerate>k__BackingField: 4

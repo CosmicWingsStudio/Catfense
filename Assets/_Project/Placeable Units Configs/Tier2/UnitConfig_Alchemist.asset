@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: UnitConfig_Alchemist
   m_EditorClassIdentifier: 
   <Name>k__BackingField: "\u0410\u043B\u0445\u0438\u043C\u0438\u043A"
+  <PresentiveName>k__BackingField: "\u0410\u043B\u0445\u0438\u043C\u0438\u043A"
   <HealthPoints>k__BackingField: 75
   <Damage>k__BackingField: 40
   <Firerate>k__BackingField: 5

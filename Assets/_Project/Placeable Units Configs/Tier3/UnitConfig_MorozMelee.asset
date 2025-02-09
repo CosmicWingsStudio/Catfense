@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: UnitConfig_MorozMelee
   m_EditorClassIdentifier: 
   <Name>k__BackingField: "\u042D\u043B\u044C\u0444"
+  <PresentiveName>k__BackingField: "\u042D\u043B\u044C\u0444"
   <HealthPoints>k__BackingField: 100
   <Damage>k__BackingField: 15
   <Firerate>k__BackingField: 3

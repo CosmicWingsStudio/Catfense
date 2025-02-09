@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level1Config
   m_EditorClassIdentifier: 
   <BackGround>k__BackingField: {fileID: 4002053644459655249, guid: 4ca4094eabb2d994c8d1dbf5e4779408, type: 3}
-  <EnvironmentPrefabName>k__BackingField: Env_01
+  <EnvironmentPrefabName>k__BackingField: Env_02
   <RealmIndex>k__BackingField: 1
   <LevelIndex>k__BackingField: 1
   <WavesList>k__BackingField:

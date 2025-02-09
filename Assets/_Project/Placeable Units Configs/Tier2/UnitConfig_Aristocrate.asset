@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: UnitConfig_Aristocrate
   m_EditorClassIdentifier: 
   <Name>k__BackingField: "\u0410\u0440\u0438\u0441\u0442\u043E\u043A\u0440\u0430\u0442"
+  <PresentiveName>k__BackingField: "\u0410\u0440\u0438\u0441\u0442\u043E\u043A\u0440\u0430\u0442"
   <HealthPoints>k__BackingField: 77
   <Damage>k__BackingField: 35
   <Firerate>k__BackingField: 4.5

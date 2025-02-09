@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f741e306ad3bd6247b3a6c2719b44561, type: 3}
   m_Name: UnitConfig_PirateMelee
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: "\u041F\u0438\u0440\u0430\u0442"
+  <Name>k__BackingField: "\u041F\u0438\u0440\u0430\u0442 \u0431\u043B\u0438\u0436\u043D\u0438\u0439
+    \u0431\u043E\u0439"
+  <PresentiveName>k__BackingField: "\u041F\u0438\u0440\u0430\u0442"
   <HealthPoints>k__BackingField: 150
   <Damage>k__BackingField: 25
   <Firerate>k__BackingField: 3

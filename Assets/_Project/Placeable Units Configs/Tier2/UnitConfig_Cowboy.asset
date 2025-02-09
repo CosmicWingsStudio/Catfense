@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: UnitConfig_Cowboy
   m_EditorClassIdentifier: 
   <Name>k__BackingField: "\u041A\u043E\u0432\u0431\u043E\u0439"
+  <PresentiveName>k__BackingField: "\u041A\u043E\u0432\u0431\u043E\u0439"
   <HealthPoints>k__BackingField: 75
   <Damage>k__BackingField: 32
   <Firerate>k__BackingField: 4.5

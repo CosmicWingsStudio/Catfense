@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f741e306ad3bd6247b3a6c2719b44561, type: 3}
   m_Name: UnitConfig_WizardMaster
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: "\u0412\u043E\u043B\u0448\u0435\u0431\u043D\u0438\u043A"
+  <Name>k__BackingField: "\u0412\u043E\u043B\u0448\u0435\u0431\u043D\u0438\u043A
+    \u043C\u0430\u0441\u0442\u0435\u0440"
+  <PresentiveName>k__BackingField: "\u0412\u043E\u043B\u0448\u0435\u0431\u043D\u0438\u043A"
   <HealthPoints>k__BackingField: 100
   <Damage>k__BackingField: 42
   <Firerate>k__BackingField: 4
