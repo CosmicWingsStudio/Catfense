@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cf7bc810468e444bb6cd64f18eba1e, type: 3}
   m_Name: Level1Config
   m_EditorClassIdentifier: 
-  <BackGround>k__BackingField: {fileID: 4002053644459655249, guid: 4ca4094eabb2d994c8d1dbf5e4779408, type: 3}
-  <EnvironmentPrefabName>k__BackingField: Env_02
+  <BackGround>k__BackingField: {fileID: -8106530212574287963, guid: 33c715ff2830e6d4488038a87e192a11, type: 3}
+  <EnvironmentPrefabName>k__BackingField: Env_01
   <RealmIndex>k__BackingField: 1
   <LevelIndex>k__BackingField: 1
   <WavesList>k__BackingField:

@@ -26,8 +26,8 @@ public class GameModeSwitcher : MonoBehaviour
         IsPrepareMode = true;
         RemainingTime = _prepareTime + _firstRoundAdditionalPrepareTime;
 
-        _signalBus.Subscribe<PausedSignal>(() => IsPaused = true);
-        _signalBus.Subscribe<UnpausedSignal>(() => IsPaused = false);
+        _signalBus.Subscribe<PausedSignal>(() => ProcessPause(true));
+        _signalBus.Subscribe<UnpausedSignal>(() => ProcessPause(false));
     }
 
     private void Update()
@@ -45,6 +45,15 @@ public class GameModeSwitcher : MonoBehaviour
         else
             CheckLastEnemyOnTheCurrentWave();
 
+    }
+
+    private void ProcessPause(bool pauseStatus)
+    {
+        IsPaused = pauseStatus;
+        if (pauseStatus == true)
+            Time.timeScale = 0f;
+        else
+            Time.timeScale = 1f;
     }
 
     private void SwitchMode(GameMode Mode)

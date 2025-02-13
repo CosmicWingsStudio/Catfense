@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 33c715ff2830e6d4488038a87e192a11
+guid: ddfff4a05a118e34fa48c1f544ea8cfe
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8106530212574287963
-    second: art-pavpoint-bg2_0
+      213: -8501630775346639133
+    second: TowerWall2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: art-pavpoint-bg2_0
+      name: TowerWall2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1600
-        height: 900
+        x: 223
+        y: 223
+        width: 66
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5a7a98ec8b1df7f80800000000000000
-      internalID: -8106530212574287963
+      spriteID: 3ee4fe77ad3240a80800000000000000
+      internalID: -8501630775346639133
       vertices: []
       indices: 
       edges: []

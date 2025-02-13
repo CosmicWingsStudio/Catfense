@@ -11,6 +11,7 @@ public class UnitDragPlacer : MonoBehaviour
     private GUIWarningHandler _guiWarningHandler;
 
     private bool IsDragSystemAvailable = true;
+    private bool IsPaused = false;
     private bool IsDragging = false;
     private PlaceableUnit _currentDraggableUnit; 
 
@@ -31,12 +32,15 @@ public class UnitDragPlacer : MonoBehaviour
 
         _signalBus.Subscribe<WaveStartedSignal>(HandleUnitsDraggableState);
         _signalBus.Subscribe<WaveEndedSignal>(HandleUnitsDraggableState);
-        _signalBus.Subscribe<PausedSignal>(() => IsDragSystemAvailable = false);
-        _signalBus.Subscribe<UnpausedSignal>(() => IsDragSystemAvailable = true);
+        _signalBus.Subscribe<PausedSignal>(() => IsPaused = true);
+        _signalBus.Subscribe<UnpausedSignal>(() => IsPaused = false);
     }
 
     private void Update()
-    {    
+    {
+        if (IsPaused)
+            return;
+
         if (Input.GetMouseButtonDown(0))
         {
             if (!IsDragSystemAvailable && VerifyUnit())
@@ -54,7 +58,18 @@ public class UnitDragPlacer : MonoBehaviour
             {
                 BackToOriginalSlot();
                 _currentDraggableUnit.DataDisplayer.TurnOnDisplayOnTheEndOfDragging();
-                _currentDraggableUnit.TurnOnActiveMode();
+
+                if(_currentDraggableUnit.IsBenched)
+                    _currentDraggableUnit.TurnOffActiveMode();
+                else
+                    _currentDraggableUnit.TurnOnActiveMode();
+
+                List<PlaceSlot> slots = _environmentHandler.GetEnvironmentContainer().GetAllPlaceableSlots();
+                for (int i = 0; i < slots.Count; i++)
+                {
+                    slots[i].HideDropZone();
+                }
+
                 _currentDraggableUnit = null;
             }
             return;
@@ -142,7 +157,7 @@ public class UnitDragPlacer : MonoBehaviour
             _currentDraggableUnit.transform.Translate(mousePosition);
             _currentDraggableUnit.DataDisplayer.TurnOffDisplayWhileDragging();
             _currentDraggableUnit.TurnOffActiveMode();
-            _currentDraggableUnit.spriteRenderer.sortingOrder = _currentDraggableUnit.DefaultSortingOrder + 1;
+            _currentDraggableUnit.spriteRenderer.sortingOrder = _currentDraggableUnit.DefaultSortingOrder + 5;
             IsDragging = true;
             //всем слотам над включить.. мб как-то прокинуть у нас есть енвайрмент хендлер и там типа
             List<PlaceSlot> slots = _environmentHandler.GetEnvironmentContainer().GetAllPlaceableSlots();

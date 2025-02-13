@@ -39,6 +39,7 @@ public class EnvironmentContainerHandler : MonoBehaviour
             {
                 AdditionalTowerPart twp = BuyableTowerPartsFolder.GetChild(i).GetComponent<AdditionalTowerPart>();
                 BuyableTowerParts.Add(twp);
+                
                 for (int j = 0; j < twp.BuyableSlotsFolder.childCount; j++)
                 {
                     PlaceSlots.Add(twp.BuyableSlotsFolder.GetChild(j).GetComponent<PlaceSlot>());

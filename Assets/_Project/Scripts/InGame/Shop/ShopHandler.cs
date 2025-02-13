@@ -190,9 +190,14 @@ public class ShopHandler : MonoBehaviour
                 if(_walletHandler.CurrentMoney >= _additionalPartPrice)
                 {
                     _walletHandler.SpendMoney(_additionalPartPrice);
-                    Debug.Log(listRef[i].gameObject.activeSelf + " ACTIVE?");
                     listRef[i].gameObject.SetActive(true);
-                    Debug.Log(listRef[i].gameObject.activeSelf + " ACTIVE?");
+
+                    if (i + 1 >= listRef.Count)
+                    {
+                        _buyAdditionalPartsButton.enabled = false;
+                        _buyAdditionalPartsButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Не доступно";
+                    }
+
                     listRef.RemoveAt(i);
                     return;
                 }
