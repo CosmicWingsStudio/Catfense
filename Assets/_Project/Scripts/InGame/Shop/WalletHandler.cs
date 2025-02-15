@@ -15,10 +15,23 @@ public class WalletHandler : MonoBehaviour
         _moneyText.text = CurrentMoney.ToString();
     }
 
-    public void SpendMoney(int amount)
+    public void SpendMoney(int amount, int actionSound = 1)
     {
         CurrentMoney -= amount;
         _moneyText.text = CurrentMoney.ToString();
+        switch (actionSound)
+        {
+            case 1:
+                SoundMakerGUI.Instance.PlaySound(SoundMakerGUI.Instance.PurchaseButtonClick);
+                break;
+            case 2:
+                SoundMakerGUI.Instance.PlaySound(SoundMakerGUI.Instance.BuildButtonClick);
+                break;
+            default:
+                SoundMakerGUI.Instance.PlaySound(SoundMakerGUI.Instance.PurchaseButtonClick);
+                break;
+        }
+       
     }
 
     public void AddMoney(int amount)

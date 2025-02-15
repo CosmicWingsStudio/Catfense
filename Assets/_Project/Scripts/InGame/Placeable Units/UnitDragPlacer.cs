@@ -1,27 +1,40 @@
 
 using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using Zenject;
 
 public class UnitDragPlacer : MonoBehaviour
 {
+    public bool IsDragging
+    {
+        get
+        {
+            if (_currentDraggableUnit != null)
+                return true;
+            else
+                return false;
+        }   
+    }
+
+
     private EnvironmentHandler _environmentHandler;
     private SignalBus _signalBus;
     private GUIWarningHandler _guiWarningHandler;
 
     private bool IsDragSystemAvailable = true;
     private bool IsPaused = false;
-    private bool IsDragging = false;
+    private bool _isDragging = false;
     private PlaceableUnit _currentDraggableUnit; 
 
     private int _clickNumber = 0;
     private float _clickTime = 0f;
-    private float _clickDelay = 0.5f; 
+    private float _clickDelay = 0.5f;
 
     [SerializeField] private float _dragStateTreshold = 0.05f; //0.1 stable option, but a delay is seen a little bit
     private float _holdingTimer;
     private bool IsOnDoubleClickFrame = false;
+
+    private bool IsStartDraggingSoundReady = false;
 
     [Inject]
     private void Initialize(EnvironmentHandler environmentHandler, SignalBus signalBus, GUIWarningHandler gUIWarningHandler)
@@ -58,6 +71,7 @@ public class UnitDragPlacer : MonoBehaviour
             {
                 BackToOriginalSlot();
                 _currentDraggableUnit.DataDisplayer.TurnOnDisplayOnTheEndOfDragging();
+                //SoundMakerGUI.Instance.PlaySound(SoundMakerGUI.Instance.SoundUnitPickedUp);
 
                 if(_currentDraggableUnit.IsBenched)
                     _currentDraggableUnit.TurnOffActiveMode();
@@ -77,7 +91,7 @@ public class UnitDragPlacer : MonoBehaviour
 
         if (_currentDraggableUnit != null)
         {
-            DragClickHandler();
+            DragClickHandler();  
         }
 
         if(Input.GetMouseButtonUp(0))
@@ -100,6 +114,7 @@ public class UnitDragPlacer : MonoBehaviour
             IsOnDoubleClickFrame = false;
             DoubleClickChecker();
 
+            IsStartDraggingSoundReady = true;
         }
     }
 
@@ -107,20 +122,20 @@ public class UnitDragPlacer : MonoBehaviour
     {
         _holdingTimer = 0f;
 
-        if (!IsDragging)
+        if (!_isDragging)
         {
             _currentDraggableUnit = null;
             IsOnDoubleClickFrame = false;
             return;
         }
 
-        if (IsDragging)
+        if (_isDragging)
         {
             _currentDraggableUnit.DataDisplayer.TurnOnDisplayOnTheEndOfDragging();
             _currentDraggableUnit.spriteRenderer.sortingOrder = _currentDraggableUnit.DefaultSortingOrder;
             if(_currentDraggableUnit.ParentSlot.GetComponent<PlaceSlot>())
                 _currentDraggableUnit.TurnOnActiveMode();
-            IsDragging = false;
+            _isDragging = false;
 
             List<PlaceSlot> slots = _environmentHandler.GetEnvironmentContainer().GetAllPlaceableSlots();
             for (int i = 0; i < slots.Count; i++)
@@ -141,6 +156,8 @@ public class UnitDragPlacer : MonoBehaviour
 
         if (TryToSetIntoDefinedSlot() == false)
             BackToOriginalSlot();
+        else
+            SoundMakerGUI.Instance.PlaySound(SoundMakerGUI.Instance.SoundUnitPlacement);
 
         _currentDraggableUnit = null;
     }
@@ -148,17 +165,19 @@ public class UnitDragPlacer : MonoBehaviour
     private void DragClickHandler()
     {
         if (_holdingTimer < _dragStateTreshold)
+        {
             _holdingTimer += Time.deltaTime;
+            
+        }
         else
         {
             if (IsOnDoubleClickFrame) return;
-
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - _currentDraggableUnit.transform.position;
             _currentDraggableUnit.transform.Translate(mousePosition);
             _currentDraggableUnit.DataDisplayer.TurnOffDisplayWhileDragging();
             _currentDraggableUnit.TurnOffActiveMode();
             _currentDraggableUnit.spriteRenderer.sortingOrder = _currentDraggableUnit.DefaultSortingOrder + 5;
-            IsDragging = true;
+            _isDragging = true;
             //всем слотам над включить.. мб как-то прокинуть у нас есть енвайрмент хендлер и там типа
             List<PlaceSlot> slots = _environmentHandler.GetEnvironmentContainer().GetAllPlaceableSlots();
 
@@ -193,10 +212,12 @@ public class UnitDragPlacer : MonoBehaviour
         IsOnDoubleClickFrame = true;
         if (DefineParentSlot(_currentDraggableUnit.transform).GetComponent<PlaceSlot>())
         {
-            Debug.Log(DefineParentSlot(_currentDraggableUnit.transform) + " parent slot");
             var oldParentSlot = DefineParentSlot(_currentDraggableUnit.transform);
             if (_environmentHandler.GetEnvironmentContainer().TrySetItemInBenchSlot(_currentDraggableUnit.transform))
+            {
                 oldParentSlot.InformOfTakingItemFromSlot();
+                SoundMakerGUI.Instance.PlaySound(SoundMakerGUI.Instance.SoundUnitPlacement);
+            }
         }
     }
 
@@ -209,7 +230,12 @@ public class UnitDragPlacer : MonoBehaviour
         foreach (var collider in hit)
         {
             if (collider.transform.TryGetComponent(out PlaceableUnit pUnit))
-                return pUnit;
+            {
+                if (pUnit.OnSaleScreen)
+                    return null;
+                else
+                    return pUnit;
+            }
         }
 
         return null;
@@ -221,7 +247,7 @@ public class UnitDragPlacer : MonoBehaviour
         var hit = Physics2D.RaycastAll(mousePos, Vector2.right);
         foreach (var collider in hit)
         {
-            if (collider.transform.TryGetComponent(out PlaceableUnit pUnit))
+            if (collider.transform.GetComponent<PlaceableUnit>())
                 return true;
         }
 
@@ -231,7 +257,6 @@ public class UnitDragPlacer : MonoBehaviour
     private void BackToOriginalSlot()
     {
         _currentDraggableUnit.transform.localPosition = _currentDraggableUnit.ParentSlot.TakeOriginalPosition();
-        Debug.Log(IsOnDoubleClickFrame);
     }
 
     private bool TryToSetIntoDefinedSlot()

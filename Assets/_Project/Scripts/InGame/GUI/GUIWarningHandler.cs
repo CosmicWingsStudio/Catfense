@@ -34,6 +34,12 @@ public class GUIWarningHandler : MonoBehaviour
     {
         _object.SetActive(true);
         _object.transform.position = Input.mousePosition;
+
+        if(_object.TryGetComponent(out MakerSoundOnPopUp soundComp))
+        {
+            soundComp.PlayCurrentPopUpSound();
+        }
+
         IsActive = true;
         _causeText.text = causeText;
     }

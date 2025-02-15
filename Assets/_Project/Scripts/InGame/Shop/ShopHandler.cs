@@ -14,6 +14,7 @@ public class ShopHandler : MonoBehaviour
     private SignalBus _signalBus;
     private SellUnitGUIHandler _sellUnitGUIHandler;
     private GUIWarningHandler _guiWarningHandler;
+    private UnitDragPlacer _unitDragPlacer;
 
     [SerializeField] private CardsData _cardsData;
     [SerializeField] private Transform _shopSlotsFolder;
@@ -37,7 +38,8 @@ public class ShopHandler : MonoBehaviour
         EnvironmentHandler environmentHandler,
         SignalBus signalBus,
         SellUnitGUIHandler sellUnitGUIHandler,
-        GUIWarningHandler guiWarningHandler
+        GUIWarningHandler guiWarningHandler,
+        UnitDragPlacer unitDragPlacer
         )
     {
         _cardsFactory = cardsFactory;
@@ -47,6 +49,7 @@ public class ShopHandler : MonoBehaviour
         _signalBus = signalBus;
         _sellUnitGUIHandler = sellUnitGUIHandler;
         _guiWarningHandler = guiWarningHandler;
+        _unitDragPlacer = unitDragPlacer;
 
         _signalBus.Subscribe<WaveEndedSignal>(FillShopSlotsWithCards);
 
@@ -189,7 +192,7 @@ public class ShopHandler : MonoBehaviour
             {
                 if(_walletHandler.CurrentMoney >= _additionalPartPrice)
                 {
-                    _walletHandler.SpendMoney(_additionalPartPrice);
+                    _walletHandler.SpendMoney(_additionalPartPrice, 2);
                     listRef[i].gameObject.SetActive(true);
 
                     if (i + 1 >= listRef.Count)
@@ -230,9 +233,6 @@ public class ShopHandler : MonoBehaviour
 
     private void OpenSellGUIForSelectedUnit()
     {
-        //if raycast is true
-        //open interface vec2 = gameobject to workpoint gui PRODAT FOR X GOLD
-        //and method for the purchase button that gives gold to wallet
         if(Input.GetMouseButtonDown(1))
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -241,7 +241,11 @@ public class ShopHandler : MonoBehaviour
             {
                 if (collider.transform.TryGetComponent(out PlaceableUnit pUnit))
                 {
+                    if (_unitDragPlacer.IsDragging)
+                        return;
+                    
                     _sellUnitGUIHandler.ShowSellUnitScreen(pUnit);
+                    pUnit.OnSaleScreen = true;
                     return;
                 }
                     

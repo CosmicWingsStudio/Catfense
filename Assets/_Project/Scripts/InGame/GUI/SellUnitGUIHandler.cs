@@ -1,5 +1,4 @@
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -10,7 +9,8 @@ public class SellUnitGUIHandler : MonoBehaviour, IPointerExitHandler, IPointerEn
 {
     [Inject] private ShopHandler _shopHandler;
     [SerializeField] private Button _sellButton;
-    [SerializeField] private string _constantSellText;    
+    [SerializeField] private string _constantSellText;
+    [SerializeField] private float _offset;
     private GameObject _object;
     private TextMeshProUGUI _sellPriceText;
     private PlaceableUnit _currentUnit;
@@ -25,13 +25,15 @@ public class SellUnitGUIHandler : MonoBehaviour, IPointerExitHandler, IPointerEn
     {
         _object.SetActive(true);
         _currentUnit = currentUnit;
-        _object.transform.position = Camera.main.WorldToScreenPoint(_currentUnit.transform.position);
-        //_object.transform.localPosition = Input.mousePosition;
+        Vector3 pos = Camera.main.WorldToScreenPoint(_currentUnit.transform.position);
+        pos.y += _offset;
+        _object.transform.position = pos;
         _sellPriceText.text = _currentUnit.SellPrice.ToString() + " " + _constantSellText;
     }
     
     public void CloseSellUnitScreen()
     {
+        _currentUnit.OnSaleScreen = false;
         _object.SetActive(false);
     }
 
