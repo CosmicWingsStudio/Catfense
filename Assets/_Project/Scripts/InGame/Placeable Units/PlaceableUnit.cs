@@ -129,6 +129,7 @@ public class PlaceableUnit : MonoBehaviour
     {
         unitAttackHandler.TurnOffAttackMode();
         _animator.enabled = false;
+        _animator.keepAnimatorControllerStateOnDisable = false;
     }
 
     public void TurnOnActiveMode()

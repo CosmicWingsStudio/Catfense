@@ -115,6 +115,20 @@ public class UnitDragPlacer : MonoBehaviour
             DoubleClickChecker();
 
             IsStartDraggingSoundReady = true;
+
+            _currentDraggableUnit.DataDisplayer.TurnOffDisplayWhileDragging();
+            _currentDraggableUnit.TurnOffActiveMode();
+            _currentDraggableUnit.spriteRenderer.sortingOrder = _currentDraggableUnit.DefaultSortingOrder + 5;
+            _isDragging = true;
+
+            SoundMakerGUI.Instance.PlaySound(SoundMakerGUI.Instance.SoundUnitPickedUp);
+
+            List<PlaceSlot> slots = _environmentHandler.GetEnvironmentContainer().GetAllPlaceableSlots();
+
+            for (int i = 0; i < slots.Count; i++)
+            {
+                slots[i].ShowDropZone();
+            }
         }
     }
 
@@ -172,19 +186,10 @@ public class UnitDragPlacer : MonoBehaviour
         else
         {
             if (IsOnDoubleClickFrame) return;
+
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) - _currentDraggableUnit.transform.position;
             _currentDraggableUnit.transform.Translate(mousePosition);
-            _currentDraggableUnit.DataDisplayer.TurnOffDisplayWhileDragging();
-            _currentDraggableUnit.TurnOffActiveMode();
-            _currentDraggableUnit.spriteRenderer.sortingOrder = _currentDraggableUnit.DefaultSortingOrder + 5;
-            _isDragging = true;
-            //всем слотам над включить.. мб как-то прокинуть у нас есть енвайрмент хендлер и там типа
-            List<PlaceSlot> slots = _environmentHandler.GetEnvironmentContainer().GetAllPlaceableSlots();
-
-            for (int i = 0; i < slots.Count; i++)
-            {
-                slots[i].ShowDropZone();
-            }
+            
         }
     }
 
