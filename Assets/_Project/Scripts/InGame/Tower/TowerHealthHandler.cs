@@ -1,4 +1,4 @@
-using UnityEngine;
+
 using Zenject;
 
 public class TowerHealthHandler : HealthHandler
@@ -16,6 +16,23 @@ public class TowerHealthHandler : HealthHandler
         _tower = GetComponent<Tower>();
 
         SetHealthParams(_tower.Health, _tower.HealthPointsSlider);
+    }
+
+    public override void TakeDamage(float dmg)
+    {
+        if (IsDead)
+            return;
+
+        if (CurrentHealthPoint - dmg <= 0 == false)
+        {
+            CurrentHealthPoint -= dmg;
+            UpdateHealthPointsSlider();
+        }
+        else
+        {
+            _healthPointSlider.value = 0f;
+            Death();
+        }
     }
 
     protected override void Death()

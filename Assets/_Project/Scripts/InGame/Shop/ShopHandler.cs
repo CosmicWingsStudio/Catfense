@@ -167,13 +167,13 @@ public class ShopHandler : MonoBehaviour
         switch (cardtier)
         {
             case 1:
-                randomValue = Random.Range(0, _cardsData.T1Cards.Count - 1);
+                randomValue = Random.Range(0, _cardsData.T1Cards.Count);
                 return _cardsData.T1Cards[randomValue];
             case 2:
-                randomValue = Random.Range(0, _cardsData.T2Cards.Count - 1);
+                randomValue = Random.Range(0, _cardsData.T2Cards.Count);
                 return _cardsData.T2Cards[randomValue]; 
             case 3:
-                randomValue = Random.Range(0, _cardsData.T3Cards.Count - 1);
+                randomValue = Random.Range(0, _cardsData.T3Cards.Count);
                 return _cardsData.T3Cards[randomValue];
 
             default: return null;

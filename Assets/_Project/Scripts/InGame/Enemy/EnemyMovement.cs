@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (!CanMove)
             return;
-
+        
         Vector2 vec2 = transform.position;
         vec2.x += -Time.deltaTime;
         transform.position = vec2;

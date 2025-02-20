@@ -1,4 +1,5 @@
 
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,11 +7,15 @@ public class HealthHandler : MonoBehaviour
 {
     private float MaxHealth;
     private float _originalMaxHealth;
-    public float CurrentHealthPoint { get; private set; }
+    public float CurrentHealthPoint { get; protected set; }
 
     protected bool IsDead = false;
     protected Slider _healthPointSlider;
     protected ShowDamageText _damageText;
+
+    private float _damageTimeDelay = 0.25f;
+    private SpriteRenderer _spriteRenderer;
+    private Color _defaultColor;
 
     public void SetHealthParams(int maxHealth, Slider hpSlider)
     {
@@ -24,9 +29,26 @@ public class HealthHandler : MonoBehaviour
         }
 
         hpSlider.value = 1f;
+
+        if(GetComponent<EnemyUnit>())
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+        else if(GetComponent<PlaceableUnit>())
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                if(transform.GetChild(i).TryGetComponent(out SpriteRenderer sr))
+                {
+                    _spriteRenderer = sr;
+                    break;
+                }
+            }
+        }
+         
+        if(_spriteRenderer != null)
+            _defaultColor = _spriteRenderer.color;
     }
 
-    public void TakeDamage(float dmg)
+    public virtual void TakeDamage(float dmg)
     {
         if (IsDead)
             return;
@@ -34,9 +56,8 @@ public class HealthHandler : MonoBehaviour
         if(CurrentHealthPoint - dmg <= 0 == false)
         {
             CurrentHealthPoint -= dmg;
-
-            //чернение спрайта 
-            if(_damageText != null)
+            StartCoroutine(DamageEffect());
+            if (_damageText != null)
                 _damageText.ShowDamage(dmg);
             //звук
             UpdateHealthPointsSlider();
@@ -84,7 +105,7 @@ public class HealthHandler : MonoBehaviour
         }
     }
 
-    private void UpdateHealthPointsSlider()
+    protected void UpdateHealthPointsSlider()
     {
         float newValue = (100 / (MaxHealth / CurrentHealthPoint)) / 100;
         if (newValue <= 0 == false)
@@ -98,5 +119,19 @@ public class HealthHandler : MonoBehaviour
         MaxHealth += multiplier * (_originalMaxHealth / 10);
         CurrentHealthPoint = MaxHealth;
         UpdateHealthPointsSlider();
+    }
+
+    private IEnumerator DamageEffect()
+    {
+        float time = 0;
+        float step = 1f / _damageTimeDelay;
+        _spriteRenderer.color = Color.black;
+        while (time < _damageTimeDelay)
+        {
+            time += Time.deltaTime;
+            _spriteRenderer.color = Color.Lerp(_spriteRenderer.color, _defaultColor, step * time);
+            yield return null;
+        }
+
     }
 }

@@ -1,4 +1,4 @@
-using UnityEngine;
+
 
 public class MeleeUnitAttack : UnitAttack
 {
@@ -13,6 +13,9 @@ public class MeleeUnitAttack : UnitAttack
     public override void AttackAnimationPoint()
     {
         InAnimation = false;
-        CurrentTarget.GetComponent<HealthHandler>().TakeDamage(_damage);
+        _audioSource.clip = _attackSoundClip;
+        _audioSource.Play();
+        if(CurrentTarget != null)
+            CurrentTarget.GetComponent<HealthHandler>().TakeDamage(_damage);
     }
 }

@@ -12,8 +12,7 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] protected float _firerate;
     protected float _originalFirerate;
     protected float _fireRateCounter = 0f;
-    [SerializeField] protected float _damage;
-    protected float _originalDamage;
+    public float Damage;
 
     private void Awake()
     {
@@ -66,22 +65,5 @@ public class EnemyAttack : MonoBehaviour
         CurrentTarget = null;
         IsAttacking = false;
     }
-
-    public void UpgradeStats(int multiplier)
-    {
-        _damage += multiplier * (_originalDamage / 10);
-        _firerate -= multiplier * (_originalFirerate / 10);
-    }
-
-    public void TurnOffAttackMode()
-    {
-        _targetDetector.IsStoped = true;
-        IsAttacking = false;
-        CurrentTarget = null;
-    }
-
-    public void TurnOnAttackMode()
-    {
-        _targetDetector.IsStoped = false;
-    }
+  
 }

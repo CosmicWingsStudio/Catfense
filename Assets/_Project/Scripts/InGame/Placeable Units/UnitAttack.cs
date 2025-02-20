@@ -3,7 +3,9 @@ using UnityEngine;
 public abstract class UnitAttack : MonoBehaviour
 {
     private TargetDetector _targetDetector;
+    protected AudioSource _audioSource;
 
+    [SerializeField] protected AudioClip _attackSoundClip;
     public Transform CurrentTarget { get; set; }
     public Animator Animator { protected get; set; }
 
@@ -14,10 +16,11 @@ public abstract class UnitAttack : MonoBehaviour
     protected float _fireRateCounter = 0f;
     protected float _damage;
     protected float _originalDamage;
-
+    
     private void Awake()
     {
         _targetDetector = GetComponent<TargetDetector>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     public virtual void SetData(UnitConfig config)
@@ -68,6 +71,7 @@ public abstract class UnitAttack : MonoBehaviour
     public virtual void AttackAnimationPoint()
     {
         //InAnimation = false;
+        //_attackSoundClip
     }
 
     public virtual void SetCurrentTarget(Transform target)

@@ -16,6 +16,8 @@ public class SceneEnemyFactory : MonoBehaviour
     private int _wavesAmount;
     private int _currentWave = 1;
     private float _enemySpawnDelayTimer = 0f;
+    private float _difficultyLevel = 1f;
+    private float _enemySpawnDelayRandomised;
 
     private bool IsReadyToProduceUnits = false;
     private bool IsPaused = false;
@@ -35,9 +37,10 @@ public class SceneEnemyFactory : MonoBehaviour
         _signalBus.Subscribe<UnpausedSignal>(() => IsPaused = false);
     }
 
-    public void SetConfigData(List<LevelWave> wavesList, int wavesAmount, Transform enemySpawnPoint)
+    public void SetConfigData(List<LevelWave> wavesList, int wavesAmount, Transform enemySpawnPoint, float difficultyLevel)
     {
         _wavesList = new();
+        _difficultyLevel = difficultyLevel;
 
         for (int i = 0; i < wavesList.Count; i++)
         {
@@ -63,7 +66,7 @@ public class SceneEnemyFactory : MonoBehaviour
             return;
         if (IsReadyToProduceUnits)
         {
-            if (_enemySpawnDelayTimer >= _enemySpawnDelay)
+            if (_enemySpawnDelayTimer >= _enemySpawnDelayRandomised)
             {
                 if (_currentWaveData.Count != 0)
                 {
@@ -74,6 +77,7 @@ public class SceneEnemyFactory : MonoBehaviour
                             try
                             {
                                 _enemyOnTheWave.Add(Produce(BuildPathToEnemyPrefabsFolder(_currentWaveData[i].PrefabName)));
+                                RandomizeSpawnDelay();
                                 _currentWaveData[i].Amount -= 1;
                                 _enemySpawnDelayTimer = 0f;
                                 break;
@@ -106,6 +110,7 @@ public class SceneEnemyFactory : MonoBehaviour
     private EnemyUnit Produce(string PathToPrefab)
     {
         EnemyUnit enemy = Instantiate(Resources.Load<EnemyUnit>(PathToPrefab), _enemySpawnPoint);
+        enemy.Initialize(_difficultyLevel);
         return enemy;
     }
 
@@ -153,5 +158,10 @@ public class SceneEnemyFactory : MonoBehaviour
         _currentWaveData = _wavesList[_currentWave - 1].EnemiesOnWaveList;
         if (_currentWave == _wavesAmount)
             IsLastWave = true;
+    }
+
+    private void RandomizeSpawnDelay()
+    {
+        _enemySpawnDelayRandomised = Random.Range(_enemySpawnDelay, _enemySpawnDelay + 0.25f);
     }
 }

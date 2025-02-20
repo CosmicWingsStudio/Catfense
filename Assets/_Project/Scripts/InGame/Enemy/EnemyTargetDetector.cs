@@ -1,12 +1,14 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyTargetDetector : MonoBehaviour
 {
 
-    [SerializeField] private float _detectionSizeX;
-    [SerializeField] private float _detectionSizeY;
+    [SerializeField, Tooltip("Height")] private float _detectionSizeX;
+    [SerializeField, Tooltip("Width")] private float _detectionSizeY;
 
-    protected EnemyAttack _attackHandler;
+    private EnemyAttack _attackHandler;
+
     public bool IsStoped { get; set; } = false;
 
     private void Start()
@@ -23,6 +25,7 @@ public class EnemyTargetDetector : MonoBehaviour
         {
             AnalyzeDetectedCollider(colliders[i]);
         }
+
     }
     protected void AnalyzeDetectedCollider(Collider2D collider)
     {
@@ -41,4 +44,6 @@ public class EnemyTargetDetector : MonoBehaviour
             }
         }   
     }
+
+
 }

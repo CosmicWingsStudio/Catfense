@@ -117,7 +117,7 @@ public class UnitDragPlacer : MonoBehaviour
             IsStartDraggingSoundReady = true;
 
             _currentDraggableUnit.DataDisplayer.TurnOffDisplayWhileDragging();
-            _currentDraggableUnit.TurnOffActiveMode();
+            _currentDraggableUnit.TurnOffActiveMode(true);
             _currentDraggableUnit.spriteRenderer.sortingOrder = _currentDraggableUnit.DefaultSortingOrder + 5;
             _isDragging = true;
 

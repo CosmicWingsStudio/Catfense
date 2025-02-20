@@ -55,6 +55,7 @@ public class InGameSceneInstaller : MonoInstaller
         Container.Bind<ShopHandler>().FromComponentInHierarchy().AsSingle();
         Container.Bind<UnitDragPlacer>().FromComponentInHierarchy().AsSingle();
         Container.Bind<GUIWarningHandler>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<MusicController>().FromComponentInHierarchy().AsSingle();
     }
 
     //private void BindDeveloperTools()

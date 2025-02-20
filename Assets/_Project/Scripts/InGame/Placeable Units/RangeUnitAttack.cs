@@ -32,6 +32,12 @@ public class RangeUnitAttack : UnitAttack
         InAnimation = false;
         if(CurrentTarget != null)
         {
+            if(_attackSoundClip != null)
+            {
+                _audioSource.clip = _attackSoundClip;
+                _audioSource.Play();
+            }
+            
             Projectail projectail = Instantiate(Resources.Load<Projectail>(_projectailPrefabPath), transform);
             projectail.Initialize(_damage, _projectailSpeed, CurrentTarget.transform);
         }

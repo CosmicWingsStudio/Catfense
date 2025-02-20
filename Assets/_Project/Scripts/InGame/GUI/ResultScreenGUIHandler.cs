@@ -33,14 +33,17 @@ public class ResultScreenGUIHandler : MonoBehaviour
         switch (levelEndedSignal.ResultType)
         {
             case ResultType.Win:
-                SaveResult();
+                Debug.Log("SAVE RESULT IS OFF");
+                //SaveResult();
                 _resultScreenObject.SetActive(true);
                 _resultText.text = _winResultInscription;
+                SoundMakerGUI.Instance.PlaySound(SoundMakerGUI.Instance.SoundWinResult);
                 Time.timeScale = 0f;
                 break;
             case ResultType.Lose:
                 _resultScreenObject.SetActive(true);
                 _resultText.text = _loseResultInscription;
+                SoundMakerGUI.Instance.PlaySound(SoundMakerGUI.Instance.SoundLoseResult);
                 Time.timeScale = 0f;
                 break;
 

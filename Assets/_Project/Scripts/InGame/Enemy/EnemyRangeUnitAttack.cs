@@ -26,6 +26,6 @@ public class EnemyRangeUnitAttack : EnemyAttack
     {
         InAnimation = false;
         Projectail projectail = Instantiate(Resources.Load<Projectail>(_projectailPrefabPath), transform);
-        projectail.Initialize(_damage, _projectailSpeed, CurrentTarget.transform);
+        projectail.Initialize(Damage, _projectailSpeed, CurrentTarget.transform);
     }
 }

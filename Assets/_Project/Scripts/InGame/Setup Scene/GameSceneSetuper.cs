@@ -6,23 +6,15 @@ public class GameSceneSetuper : IInitializable
     private BackGroundHandler _backGroundHandler;
     private EnvironmentHandler _environmentHandler;
     private SceneEnemyFactory _sceneEnemyFactory;
-
-    //public GameSceneSetuper(BackGroundHandler bgh, EnvironmentHandler eh,
-    //    SceneEnemyFactory fp, ResultScreenGUIHandler rsgh)
-    //{
-    //    _backGroundHandler = bgh;
-    //    _environmentHandler = eh;
-    //    _sceneEnemyFactory = fp;
-
-    //    rsgh.SetLevelData(LevelDataConfig.RealmIndex, LevelDataConfig.LevelIndex);
-    //}
+    private MusicController _musicController;
 
     public GameSceneSetuper(BackGroundHandler bgh, EnvironmentHandler eh,
-        SceneEnemyFactory fp)
+        SceneEnemyFactory fp, MusicController mc)
     {
         _backGroundHandler = bgh;
         _environmentHandler = eh;
         _sceneEnemyFactory = fp;
+        _musicController = mc;
     }
 
     private LevelConfig LevelDataConfig;
@@ -57,6 +49,7 @@ public class GameSceneSetuper : IInitializable
             SetBackGroundImage();
             SetEnvironment();
             FillFactoryWithData();
+            SetAudioClips();
         }  
         else
             Debug.LogError("LevelConfig is missing");
@@ -109,6 +102,27 @@ public class GameSceneSetuper : IInitializable
         }      
     }
 
+    private void SetAudioClips()
+    {
+        if (LevelDataConfig.BackGround == null)
+        {
+            Debug.LogError("Audio Clips failed");
+            Application.Quit();
+        }
+        else
+        {
+            try
+            {
+                _musicController.SetData(LevelDataConfig.MusicClips);
+            }
+            catch (System.Exception)
+            {
+                Application.Quit();
+            }
+
+        }
+    }
+
     private void FillFactoryWithData()
     {
         if(LevelDataConfig.WavesList.Count == 0)
@@ -117,22 +131,11 @@ public class GameSceneSetuper : IInitializable
             Application.Quit();
         }
         else
-        {
-            //try
-            //{
-            //    Transform enemySpawnPoint = _environmentHandler.GetEnemySpawnPoint();
-            //    _sceneEnemyFactory.SetConfigData(LevelDataConfig.WavesList, LevelDataConfig.WavesAmount, enemySpawnPoint);
-            //    Debug.Log("WavesCfg is installed");
-            //}
-            //catch (System.Exception)
-            //{
-            //    Debug.LogError("Can't set config data to SceneEnemyFactory");
-            //    Application.Quit();
-            //}
-
+        {     
 
             Transform enemySpawnPoint = _environmentHandler.GetEnemySpawnPoint();
-            _sceneEnemyFactory.SetConfigData(LevelDataConfig.WavesList, LevelDataConfig.WavesAmount, enemySpawnPoint);
+            _sceneEnemyFactory.SetConfigData(LevelDataConfig.WavesList, LevelDataConfig.WavesAmount,
+                enemySpawnPoint, LevelDataConfig.DifficultyLevel);
             Debug.Log("WavesCfg is installed");
         }
      

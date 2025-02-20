@@ -1440,7 +1440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defaultOffsetY: -0.07
-  DropZone: {fileID: 0}
+  DropZone: {fileID: 1283471006055264302}
 --- !u!1 &2090543086757126770
 GameObject:
   m_ObjectHideFlags: 0
@@ -4413,7 +4413,7 @@ Transform:
   m_GameObject: {fileID: 6395153799076828408}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.58, y: -1.08, z: 0}
+  m_LocalPosition: {x: 0, y: -0.24, z: 0}
   m_LocalScale: {x: 1.5523143, y: 0.122557536, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4586,7 +4586,7 @@ Transform:
   m_GameObject: {fileID: 6878031319666123477}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.25, y: -3.199, z: 0}
+  m_LocalPosition: {x: 13.91, y: -4.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

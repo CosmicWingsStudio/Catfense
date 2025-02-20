@@ -16,6 +16,8 @@ MonoBehaviour:
   <EnvironmentPrefabName>k__BackingField: 
   <RealmIndex>k__BackingField: 1
   <LevelIndex>k__BackingField: 2
+  <DifficultyLevel>k__BackingField: 1.1
   <WavesList>k__BackingField:
   - EnemiesOnWaveList: []
   - EnemiesOnWaveList: []
+  <MusicClips>k__BackingField: []

@@ -125,11 +125,14 @@ public class PlaceableUnit : MonoBehaviour
         _unitUpgrader.UpgradeUnit();
     }
 
-    public void TurnOffActiveMode()
+    public void TurnOffActiveMode(bool turnOffBecauseDragging = false)
     {
         unitAttackHandler.TurnOffAttackMode();
+
+        if (!turnOffBecauseDragging)
+            _animator.Rebind();
+
         _animator.enabled = false;
-        _animator.keepAnimatorControllerStateOnDisable = false;
     }
 
     public void TurnOnActiveMode()

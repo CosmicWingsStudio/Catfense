@@ -16,7 +16,7 @@ public class EnemyMeleeUnitAttack : EnemyAttack
     public override void AttackAnimationPoint()
     {
         InAnimation = false;
-        CurrentTarget.GetComponent<HealthHandler>().TakeDamage(_damage);
+        CurrentTarget.GetComponent<HealthHandler>().TakeDamage(Damage);
     }
 
     public override void SetCurrentTarget(Transform target)
