@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 57e5de6c070db604fb07fa2ddbcfa468
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 202781
+  packageName: Caterpillar World Sprite Bundle
+  packageVersion: 1.0
+  assetPath: Assets/CatepillarWorld/AnimationExamples/Projectile/Boom/Hit.anim
+  uploadId: 452383

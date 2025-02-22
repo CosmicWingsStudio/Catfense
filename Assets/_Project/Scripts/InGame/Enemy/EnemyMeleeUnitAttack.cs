@@ -11,17 +11,20 @@ public class EnemyMeleeUnitAttack : EnemyAttack
     {
         base.NullifyCurrentTarget();
         _enemyMovement.CanMove = true;
+        _animator.SetBool("CanMove", true);
     }
 
     public override void AttackAnimationPoint()
     {
         InAnimation = false;
-        CurrentTarget.GetComponent<HealthHandler>().TakeDamage(Damage);
+        if(CurrentTarget != null)
+            CurrentTarget.GetComponent<HealthHandler>().TakeDamage(Damage);
     }
 
     public override void SetCurrentTarget(Transform target)
     {
         base.SetCurrentTarget(target);
         _enemyMovement.CanMove = false;
+        _animator.SetBool("CanMove", false);
     }
 }

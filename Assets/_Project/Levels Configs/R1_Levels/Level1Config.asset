@@ -19,11 +19,9 @@ MonoBehaviour:
   <DifficultyLevel>k__BackingField: 1
   <WavesList>k__BackingField:
   - EnemiesOnWaveList:
-    - <PrefabName>k__BackingField: Enemy_01M
+    - <PrefabName>k__BackingField: Melee_02
       <Amount>k__BackingField: 1
-    - <PrefabName>k__BackingField: Enemy_01R
-      <Amount>k__BackingField: 1
-    - <PrefabName>k__BackingField: Enemy_01M
+    - <PrefabName>k__BackingField: Range_02
       <Amount>k__BackingField: 1
   <MusicClips>k__BackingField:
   - {fileID: 8300000, guid: c1b5ef22f5159374b87924c41f75e149, type: 3}

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: bcb70100a5a61f04c9c7877f7ef9dad4
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 202781
+  packageName: Caterpillar World Sprite Bundle
+  packageVersion: 1.0
+  assetPath: Assets/CatepillarWorld/AnimationExamples/Caterpillar/EndJump.anim
+  uploadId: 452383

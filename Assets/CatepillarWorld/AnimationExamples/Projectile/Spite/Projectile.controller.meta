@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: cdd16d6b69809994c9c5abf7305503e3
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 202781
+  packageName: Caterpillar World Sprite Bundle
+  packageVersion: 1.0
+  assetPath: Assets/CatepillarWorld/AnimationExamples/Projectile/Spite/Projectile.controller
+  uploadId: 452383

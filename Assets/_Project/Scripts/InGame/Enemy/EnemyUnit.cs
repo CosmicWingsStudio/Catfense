@@ -2,6 +2,8 @@ using UnityEngine;
 
 [RequireComponent(typeof(HealthHandler))]
 [RequireComponent(typeof(EnemyDataDisplayer))]
+[RequireComponent(typeof(EnemyMovement))]
+[RequireComponent(typeof(EnemyTargetDetector))]
 public class EnemyUnit : MonoBehaviour
 {
     [Header("Unit parameters")]
@@ -11,26 +13,13 @@ public class EnemyUnit : MonoBehaviour
     public EnemyAttack unitAttack { get; private set; }
     public EnemyDataDisplayer DataDisplayer { get; private set; }
 
-    public bool IsInitialised = false;
+    [HideInInspector] public bool IsInitialised = false;
 
+    private Animator _animator;
     private EnemyMovement _enemyMovement;
     private GameObject _moveBlocker;
     private bool isRangeUnit;
-
-    //private void Start()
-    //{
-    //    unitHealth = GetComponent<HealthHandler>();
-    //    unitAttack = GetComponent<EnemyAttack>();
-    //    DataDisplayer = GetComponent<EnemyDataDisplayer>();
-    //    _enemyMovement = GetComponent<EnemyMovement>();
-
-    //    if (GetComponent<EnemyRangeUnitAttack>())
-    //        isRangeUnit = true;
-
-    //    unitHealth.SetHealthParams(_healthPoints, DataDisplayer._hpSlider);
-
-    //}
-
+ 
     public void Initialize(float difficulty)
     {
         if (!IsInitialised)
@@ -39,6 +28,7 @@ public class EnemyUnit : MonoBehaviour
             unitAttack = GetComponent<EnemyAttack>();
             DataDisplayer = GetComponent<EnemyDataDisplayer>();
             _enemyMovement = GetComponent<EnemyMovement>();
+            _animator = GetComponent<Animator>();
 
             if (GetComponent<EnemyRangeUnitAttack>())
                 isRangeUnit = true;
@@ -58,6 +48,7 @@ public class EnemyUnit : MonoBehaviour
 
                 _moveBlocker = eu.gameObject;
                 _enemyMovement.CanMove = false;
+                _animator.SetBool("CanMove", false);
             }
 
         }
@@ -70,13 +61,19 @@ public class EnemyUnit : MonoBehaviour
             if(collision.gameObject == _moveBlocker)
             {
                 if (unitAttack.CurrentTarget == null)
+                {
                     _enemyMovement.CanMove = true;
+                    _animator.SetBool("CanMove", true);
+                }
             }   
         }
         else if(_moveBlocker == null)
         {
             if (unitAttack.CurrentTarget == null)
+            {
                 _enemyMovement.CanMove = true;
+                _animator.SetBool("CanMove", true);
+            }
         }
     }
 

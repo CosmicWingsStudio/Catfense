@@ -6,7 +6,8 @@ public class Projectail : MonoBehaviour
 {
     private float _damage;
     private float _projectailSpeed;
-    private Transform _target;
+    private Transform _targetObject;
+    private Transform _targetPosition;
     private Vector3 _lastPosition;
     private bool IsIntialized = false;
     private bool hit = false;
@@ -15,7 +16,13 @@ public class Projectail : MonoBehaviour
     public void Initialize(float damage, float projectailSpeed, Transform target)
     {
         _damage = damage;
-        _target = target;
+        _targetObject = target;
+
+        if (target.childCount > 0)
+            _targetPosition = target.GetChild(0);
+        else
+            _targetPosition = _targetObject;
+
         _projectailSpeed = projectailSpeed;
         _lastPosition = target.position;
 
@@ -29,7 +36,7 @@ public class Projectail : MonoBehaviour
 
         if(IsIntialized)
         {
-            if(_target == null && OnNullTarget == false)
+            if(_targetObject == null && OnNullTarget == false)
             {
                 OnNullTarget = true;
                 return;
@@ -48,15 +55,15 @@ public class Projectail : MonoBehaviour
                 return;
             }
 
-            transform.position = Vector2.MoveTowards(transform.position, _target.position, _projectailSpeed * Time.deltaTime);
-            _lastPosition = _target.position;
-            transform.rotation = Quaternion.LookRotation(-Vector3.forward, _target.position);
+            transform.position = Vector2.MoveTowards(transform.position, _targetPosition.position, _projectailSpeed * Time.deltaTime);
+            _lastPosition = _targetPosition.position;
+            transform.rotation = Quaternion.LookRotation(-Vector3.forward, _targetPosition.position);
 
             if (OnNullTarget) return;
 
-            if ((int)transform.position.y * 100 == (int)_target.position.y * 100 && (int)transform.position.x * 100 == (int)_target.position.x * 100)
+            if ((int)transform.position.y * 100 == (int)_targetPosition.position.y * 100 && (int)transform.position.x * 100 == (int)_targetPosition.position.x * 100)
             {
-                _target.GetComponent<HealthHandler>().TakeDamage(_damage);
+                _targetObject.GetComponent<HealthHandler>().TakeDamage(_damage);
                 hit = true;
                 Destroy(gameObject);
             }

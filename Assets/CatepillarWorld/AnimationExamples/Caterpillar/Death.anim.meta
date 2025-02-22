@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d88f9f3c6370a6348a9b29a2e1db70e2
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 202781
+  packageName: Caterpillar World Sprite Bundle
+  packageVersion: 1.0
+  assetPath: Assets/CatepillarWorld/AnimationExamples/Caterpillar/Death.anim
+  uploadId: 452383

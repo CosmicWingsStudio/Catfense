@@ -19,7 +19,7 @@ public class MusicController : MonoBehaviour
     private bool IsInitialized = false;
     private float _cooldownTime = 1f;
     private float _cooldownTimer = 0f;
-
+    
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
@@ -38,6 +38,7 @@ public class MusicController : MonoBehaviour
 
         _signalBus.Subscribe<PausedSignal>(Pause);
         _signalBus.Subscribe<UnpausedSignal>(UnPause);
+        _signalBus.Subscribe<LevelEndedSignal>(Pause);
 
         _audioSource = GetComponent<AudioSource>();
 
@@ -61,7 +62,7 @@ public class MusicController : MonoBehaviour
             _cooldownTimer += Time.deltaTime;
             return;
         }
-        if(!IsPaused && !_audioSource.isPlaying && IsInitialized)
+        if(!IsPaused && !_audioSource.isPlaying && IsInitialized && Application.isFocused)
         {
             PlayMusic();
             _cooldownTimer = 0f;
@@ -72,9 +73,8 @@ public class MusicController : MonoBehaviour
     {
         if (_currentMusicPlaylist.Count < 1)
             FillCurrentPlaylist();
-
+        
         int randomisedIter = RandomizeMusic();
-       
         _currentAudioClip = _currentMusicPlaylist[randomisedIter];
         _audioSource.clip = _currentAudioClip;
         _audioSource.Play();

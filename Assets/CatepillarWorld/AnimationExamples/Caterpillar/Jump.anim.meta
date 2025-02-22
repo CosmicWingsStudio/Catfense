@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 81eecbbb77612ad45a247bc8b890100f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 202781
+  packageName: Caterpillar World Sprite Bundle
+  packageVersion: 1.0
+  assetPath: Assets/CatepillarWorld/AnimationExamples/Caterpillar/Jump.anim
+  uploadId: 452383

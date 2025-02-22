@@ -6,6 +6,7 @@ public class EnemyAttack : MonoBehaviour
 
     public Transform CurrentTarget { get; set; }
     //public Animator Animator { protected get; set; }
+    protected Animator _animator;
 
     protected bool IsAttacking = false;
     protected bool InAnimation = false;
@@ -17,6 +18,7 @@ public class EnemyAttack : MonoBehaviour
     private void Awake()
     {
         _targetDetector = GetComponent<TargetDetector>();
+        _animator = GetComponent<Animator>();
     } 
 
     private void Update()
@@ -41,11 +43,8 @@ public class EnemyAttack : MonoBehaviour
 
     protected void Attack()
     {
-        //анимации ну типа перенести в јтакјниматионѕоинт спавн снар€да наверн потом
-        //звуки
-        //InAnimation = true;
-        //Animator.SetTrigger("Shoot");
-        AttackAnimationPoint();
+        InAnimation = true;
+        _animator.SetTrigger("Attack");
     }
 
     public virtual void AttackAnimationPoint()
