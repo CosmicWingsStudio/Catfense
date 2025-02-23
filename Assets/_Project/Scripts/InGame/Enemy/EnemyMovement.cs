@@ -10,7 +10,7 @@ public class EnemyMovement : MonoBehaviour
             return;
         
         Vector2 vec2 = transform.position;
-        vec2.x += -Time.deltaTime;
+        vec2.x += -Time.deltaTime * 0.60f;
         transform.position = vec2;
     }
 }

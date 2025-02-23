@@ -997,7 +997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSizeX: 15
-  _detectionSizeY: 14
+  _detectionSizeY: 16
 --- !u!114 &2249428726452111981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1011,6 +1011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TextData: {fileID: 11400000, guid: 641ce88d26ca5a845a76328eb7934339, type: 2}
+  _offsetY: 0
 --- !u!82 &1579105642795173885
 AudioSource:
   m_ObjectHideFlags: 0

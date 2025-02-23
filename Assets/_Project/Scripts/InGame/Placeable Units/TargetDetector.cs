@@ -64,7 +64,7 @@ public class TargetDetector : MonoBehaviour
         {
             if (_attackHandler.CurrentTarget == null)
             {
-                Debug.Log(collider + " new target");
+                
                 _attackHandler.SetCurrentTarget(enemy.transform);
 
             }

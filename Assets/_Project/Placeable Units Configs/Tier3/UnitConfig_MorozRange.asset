@@ -22,4 +22,4 @@ MonoBehaviour:
   <UnitSprite>k__BackingField: {fileID: 21300000, guid: 84f578fa134d7dc4cb6159d4a354c9e0, type: 2}
   <UnitAttackType>k__BackingField: "\u0414\u0430\u043B\u044C\u043D\u0438\u0439"
   <ProjectailPrefabPath>k__BackingField: InGamePrefabs/Projectails/Snowball
-  <ProjectailSpeed>k__BackingField: 1.5
+  <ProjectailSpeed>k__BackingField: 3.75
