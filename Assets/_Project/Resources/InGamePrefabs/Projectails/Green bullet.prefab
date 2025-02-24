@@ -100,3 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 028dee5f67871eb4682f6986bc940f5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NoRotation: 0
+  AOEDamage: 0
+  AOEDamageX: 1
+  AOEDamageY: 1
+  OnHitEffect: {fileID: 8475112975870957045, guid: 7439dc81524a5bc43968d865611bf050, type: 3}

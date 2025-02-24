@@ -92,6 +92,7 @@ public class EnvironmentContainerHandler : MonoBehaviour
             if (slot.Item == null)
             {
                 slot.PlaceItemInSlot(pUnit.transform);
+                FxSpawner.Instance.SpawnPurchaseEffect(pUnit.transform.position);
                 return;
             }
 

@@ -39,6 +39,7 @@ public abstract class Slot2D : MonoBehaviour
         Vector2 newpos = new(0, _defaultOffsetY);
         item.localPosition = newpos;
         ChangeColliderState(false);
+        FxSpawner.Instance.SpawnPlaceSlotEffect(transform.position);
     }
 
     public virtual void SwapItemWithAnotherItem(Transform item)

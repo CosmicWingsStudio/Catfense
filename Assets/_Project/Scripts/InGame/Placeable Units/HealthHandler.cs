@@ -39,7 +39,6 @@ public class HealthHandler : MonoBehaviour
             CurrentHealthPoint -= dmg;
             if (_damageText != null)
                 _damageText.ShowDamage(dmg);
-            //звук
             UpdateHealthPointsSlider();
         }
         else
@@ -77,7 +76,12 @@ public class HealthHandler : MonoBehaviour
             _animator.SetTrigger("Death");
         }
         else
+        {
             DeathAnimationPoint();
+            Vector3 efxPos = transform.position;
+            //efxPos.y += 1.5f;
+            FxSpawner.Instance.SpawnDeathEffect(efxPos);
+        }
     }
 
     public virtual void DeathAnimationPoint()

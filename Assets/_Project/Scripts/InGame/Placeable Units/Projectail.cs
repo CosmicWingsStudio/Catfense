@@ -3,6 +3,10 @@ using UnityEngine;
 public class Projectail : MonoBehaviour
 {
     [SerializeField] private bool NoRotation = false;
+    [SerializeField] private bool AOEDamage = false;
+    [SerializeField, Min(0)] private float AOEDamageX = 1f;
+    [SerializeField, Min(0)] private float AOEDamageY = 1f;
+    [SerializeField, Tooltip("Can be null")] private GameObject OnHitEffect;
     private float _damage;
     private float _projectailSpeed;
     private Transform _targetObject;
@@ -67,8 +71,15 @@ public class Projectail : MonoBehaviour
                         if (colliders[i].transform.TryGetComponent(out EnemyUnit eu))
                         {
                             eu.GetComponent<HealthHandler>().TakeDamage(_damage);
+                            if (OnHitEffect != null)
+                            {
+                                GameObject onHitEffect = Instantiate(OnHitEffect);
+                                onHitEffect.transform.position = transform.position;
+                            }
                             hit = true;
-                            break;
+
+                            if (AOEDamage == false)
+                                break;
                         }
                     }
 
@@ -92,13 +103,51 @@ public class Projectail : MonoBehaviour
 
             if ((int)transform.position.y * 100 == (int)_targetPosition.position.y * 100 && (int)transform.position.x * 100 == (int)_targetPosition.position.x * 100)
             {
-                _targetObject.GetComponent<HealthHandler>().TakeDamage(_damage);
-                hit = true;
+                if (AOEDamage)
+                {
+                    var colliders = Physics2D.OverlapBoxAll(transform.position, new Vector2(AOEDamageY, AOEDamageX), 90);
+                    for (int i = 0; i < colliders.Length; i++)
+                    {
+                        if (colliders[i].transform.TryGetComponent(out EnemyUnit eu))
+                        {
+                            eu.GetComponent<HealthHandler>().TakeDamage(_damage);
+                            if (OnHitEffect != null)
+                            {
+                                GameObject onHitEffect = Instantiate(OnHitEffect);
+                                onHitEffect.transform.position = transform.position;
+                            }
+                            hit = true;  
+                        }
+                    }
+                }
+                else
+                {
+                    _targetObject.GetComponent<HealthHandler>().TakeDamage(_damage);
+                    hit = true;
+
+                    if (OnHitEffect != null)
+                    {
+                        GameObject onHitEffect = Instantiate(OnHitEffect);
+                        onHitEffect.transform.position = new Vector2(
+                            Random.Range(transform.position.x - 0.5f, transform.position.x + 0.5f),
+                            Random.Range(transform.position.y - 0.5f, transform.position.y + 0.5f));
+                    }
+                }
+
                 Destroy(gameObject);
             }
 
            
         }
                 
+    }
+
+    private void OnValidate()
+    {
+        if(AOEDamage == false)
+        {
+            AOEDamageX = 1;
+            AOEDamageY = 1;
+        }
     }
 }

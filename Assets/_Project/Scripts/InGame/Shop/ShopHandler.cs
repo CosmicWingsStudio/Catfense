@@ -90,7 +90,7 @@ public class ShopHandler : MonoBehaviour
             if (_environmentHandler.GetEnvironmentContainer().TryToUpgradeUnitsFromShop(config.Name) == true)
             {
                 _walletHandler.SpendMoney(price);
-                IsUpgraded = true;
+                IsUpgraded = true; 
             }
             else
             {
@@ -194,6 +194,7 @@ public class ShopHandler : MonoBehaviour
                 {
                     _walletHandler.SpendMoney(_additionalPartPrice, 2);
                     listRef[i].gameObject.SetActive(true);
+                    FxSpawner.Instance.SpawnBuildingEffect(listRef[i].transform.position);
 
                     if (i + 1 >= listRef.Count)
                     {

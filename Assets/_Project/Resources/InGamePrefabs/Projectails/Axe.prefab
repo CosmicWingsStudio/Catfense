@@ -102,6 +102,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NoRotation: 1
+  AOEDamage: 0
+  AOEDamageX: 1
+  AOEDamageY: 1
+  OnHitEffect: {fileID: 8475112975870957045, guid: 2444604bac721e04481aeb7dc933437f, type: 3}
 --- !u!95 &4496958692034976037
 Animator:
   serializedVersion: 7

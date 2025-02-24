@@ -1,4 +1,5 @@
 
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(HealthHandler))]
@@ -116,9 +117,17 @@ public class PlaceableUnit : MonoBehaviour
             unitAttackHandler.Animator = _animator;
             TurnOffActiveMode();
 
+            StartCoroutine(SpriteVisibilityDelay());
             IsIntialised = true;
         }
     } 
+
+    private IEnumerator SpriteVisibilityDelay()
+    {
+        spriteRenderer.enabled = false;
+        yield return new WaitForSeconds(0.25f);
+        spriteRenderer.enabled = true;
+    }
 
     public void SendRequestForUpgrade()
     {
@@ -140,6 +149,7 @@ public class PlaceableUnit : MonoBehaviour
         unitAttackHandler.TurnOnAttackMode();
         _animator.enabled = true;
     }
+
 
     public int GetCurrentUnitLevel() => _unitUpgrader.GetCurrentUpgradeLevel();
 

@@ -3,6 +3,7 @@ using Zenject;
 
 public class PlaceableUnitsFactory : MonoBehaviour
 {
+    [SerializeField] private GameObject UnitSpawnEffect;
     private PrefabsDataProvider _prefabsDataProvider;
     private DiContainer _container;
 
@@ -14,10 +15,9 @@ public class PlaceableUnitsFactory : MonoBehaviour
     }
 
     public PlaceableUnit ProducePlaceableUnit(UnitConfig config, int originalPrice)
-    {
-        //return _container.InstantiatePrefabResource(_prefabsDataProvider.GetPlayerUnitsPrefabsPath() + prefabName).GetComponent<PlaceableUnit>();
+    {   
         PlaceableUnit pUnit = Instantiate(Resources.Load<PlaceableUnit>(_prefabsDataProvider.GetPlayerUnitsPrefabsPath() + config.PrefabName));
-        pUnit.Initialize(originalPrice, config);
+        pUnit.Initialize(originalPrice, config);   
         return pUnit;
     }
 }

@@ -29,6 +29,8 @@ public class UnitUpgrader : MonoBehaviour
         _displayer.ShowUnitUpgrade();
         _placeableUnit.unitAttackHandler.UpgradeStats(_currentUpgradeLevel);
         _placeableUnit.Health.UpgradeStats(_currentUpgradeLevel);
+        FxSpawner.Instance.SpawnUpgradeEffect(transform.position);
+        SoundMakerGUI.Instance.PlaySoundInSubAudioSource(SoundMakerGUI.Instance.SoundUpgradeUnit);
     }
 
     public int GetCurrentUpgradeLevel() => _currentUpgradeLevel;

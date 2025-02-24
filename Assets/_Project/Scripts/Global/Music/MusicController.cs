@@ -84,7 +84,7 @@ public class MusicController : MonoBehaviour
 
     private int RandomizeMusic()
     {
-        return Random.Range(0, _musicClips.Length);
+        return Random.Range(0, _currentMusicPlaylist.Count);
     }
 
     private void FillCurrentPlaylist()

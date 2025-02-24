@@ -5,7 +5,7 @@ public class RangeUnitAttack : UnitAttack
 {
     protected string _projectailPrefabPath;
     protected float _projectailSpeed;
-
+    
     public override void SetData(UnitConfig config)
     {
         _firerate = config.Firerate;

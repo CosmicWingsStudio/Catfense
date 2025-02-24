@@ -17,7 +17,10 @@ public class SoundMakerGUI : MonoBehaviour
     }
 
     private AudioSource _audioSource;
+    [Header("IF More than 1 audiosource")]
+    [SerializeField] private AudioSource _subAudioSource;
 
+    [Header("Audio clips")]
     #region AudioSource Fields
     public AudioClip SoundButtonClick;
     public AudioClip PurchaseButtonClick;
@@ -28,6 +31,7 @@ public class SoundMakerGUI : MonoBehaviour
     public AudioClip SoundUnitPlacement;
     public AudioClip SoundWinResult;
     public AudioClip SoundLoseResult;
+    public AudioClip SoundUpgradeUnit;
     #endregion
 
     private void Awake()
@@ -54,5 +58,13 @@ public class SoundMakerGUI : MonoBehaviour
     {
         _audioSource.clip = sound;
         _audioSource.Play();
+    }
+    public void PlaySoundInSubAudioSource(AudioClip sound)
+    {
+        if (_subAudioSource != null)
+        {
+            _subAudioSource.clip = sound;
+            _subAudioSource.Play();
+        }
     }
 }
