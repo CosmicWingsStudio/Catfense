@@ -9,6 +9,7 @@ public class SceneEnemyFactory : MonoBehaviour
     private Transform _enemySpawnPoint;
     private SignalBus _signalBus;
     private PrefabsPathsToFoldersProvider _prefabsPathsToFoldersProvider;
+    private RewardSpawner _rewardSpawner;
     private List<EnemyUnit> _enemyOnTheWave = new();
     private List<LevelWave> _wavesList;
     private List<LevelWaveEnemyInfo> _currentWaveData;
@@ -26,10 +27,11 @@ public class SceneEnemyFactory : MonoBehaviour
     public bool IsSpawnDisabledByDevTools { get; set; } = false;
 
     [Inject]
-    private void Initialize(SignalBus signalBus, PrefabsPathsToFoldersProvider prefabsPathsProvider)
+    private void Initialize(SignalBus signalBus, PrefabsPathsToFoldersProvider prefabsPathsProvider, RewardSpawner rewardSpawner)
     {
         _signalBus = signalBus;
         _prefabsPathsToFoldersProvider = prefabsPathsProvider;
+        _rewardSpawner = rewardSpawner;
 
         _signalBus.Subscribe<WaveStartedSignal>(HandleWaveStartsSignal);
         _signalBus.Subscribe<WaveEndedSignal>(HandleWaveEndsSignal);
@@ -110,7 +112,7 @@ public class SceneEnemyFactory : MonoBehaviour
     private EnemyUnit Produce(string PathToPrefab)
     {
         EnemyUnit enemy = Instantiate(Resources.Load<EnemyUnit>(PathToPrefab), _enemySpawnPoint);
-        enemy.Initialize(_difficultyLevel);
+        enemy.Initialize(_difficultyLevel, _rewardSpawner);
         return enemy;
     }
 

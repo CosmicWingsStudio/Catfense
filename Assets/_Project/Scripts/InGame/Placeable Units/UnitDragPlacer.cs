@@ -16,6 +16,7 @@ public class UnitDragPlacer : MonoBehaviour
         }   
     }
 
+    public bool IsDisabledBySellScreen = false;
 
     private EnvironmentHandler _environmentHandler;
     private SignalBus _signalBus;
@@ -51,7 +52,7 @@ public class UnitDragPlacer : MonoBehaviour
 
     private void Update()
     {
-        if (IsPaused)
+        if (IsPaused || IsDisabledBySellScreen)
             return;
 
         if (Input.GetMouseButtonDown(0))

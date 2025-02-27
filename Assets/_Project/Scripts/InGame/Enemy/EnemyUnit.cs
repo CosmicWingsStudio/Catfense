@@ -13,6 +13,8 @@ public class EnemyUnit : MonoBehaviour
     public EnemyAttack unitAttack { get; private set; }
     public EnemyDataDisplayer DataDisplayer { get; private set; }
 
+    public RewardSpawner RewardSpawner { get; private set; }
+
     [HideInInspector] public bool IsInitialised = false;
 
     private Animator _animator;
@@ -20,7 +22,7 @@ public class EnemyUnit : MonoBehaviour
     private GameObject _moveBlocker;
     private bool isRangeUnit;
  
-    public void Initialize(float difficulty)
+    public void Initialize(float difficulty, RewardSpawner rs)
     {
         if (!IsInitialised)
         {
@@ -29,6 +31,7 @@ public class EnemyUnit : MonoBehaviour
             DataDisplayer = GetComponent<EnemyDataDisplayer>();
             _enemyMovement = GetComponent<EnemyMovement>();
             _animator = GetComponent<Animator>();
+            RewardSpawner = rs;
 
             if (GetComponent<EnemyRangeUnitAttack>())
                 isRangeUnit = true;
@@ -85,4 +88,5 @@ public class EnemyUnit : MonoBehaviour
         unitAttack.Damage *= difficulty;
         unitHealth.SetHealthParams(_healthPoints, DataDisplayer._hpSlider);
     }
+
 }

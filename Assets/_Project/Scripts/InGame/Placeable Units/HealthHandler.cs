@@ -74,6 +74,12 @@ public class HealthHandler : MonoBehaviour
         {
             _animator.SetBool("IsDying", true);
             _animator.SetTrigger("Death");
+            float randomValue = Random.Range(0, 100);
+            if (randomValue <= 10)
+            {
+                GetComponent<EnemyUnit>().RewardSpawner.SpawnReward(Camera.main.WorldToScreenPoint(transform.position));
+            }
+            
         }
         else
         {

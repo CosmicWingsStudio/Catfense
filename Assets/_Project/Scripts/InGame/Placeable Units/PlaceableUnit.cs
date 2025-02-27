@@ -74,7 +74,6 @@ public class PlaceableUnit : MonoBehaviour
     private UnitUpgrader _unitUpgrader;
     private Animator _animator;
     private bool IsIntialised = false;
-
     public bool OnSaleScreen = false;
 
     public void Initialize(int originalPrice, UnitConfig config)

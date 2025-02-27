@@ -5,6 +5,11 @@ public class InGameSceneInstaller : MonoInstaller
 {
     [SerializeField] private UnityEngine.UI.Image _backGroundImage;
     [SerializeField] private PrefabsPathsToFoldersProvider _prefabsDataConfig;
+    [SerializeField] private Transform _mainCanvas;
+
+    [Header("Reward Orbs")]
+    [SerializeField] private Reward _rewardObject;
+    [SerializeField] private Transform _moneyTextPosition;
 
     public override void InstallBindings()
     {
@@ -83,5 +88,9 @@ public class InGameSceneInstaller : MonoInstaller
     {
         Container.Bind<PlaceableUnitsFactory>().FromComponentInHierarchy().AsSingle();
         Container.Bind<CardsFactory>().FromComponentInHierarchy().AsSingle();
+        RewardSpawner rs = new(_moneyTextPosition.position, _rewardObject, _mainCanvas);
+        Container.Bind<RewardSpawner>().FromInstance(rs).AsSingle();
+        Container.QueueForInject(rs);
+        //Container.BindInstance(rs).AsSingle();
     }
 }

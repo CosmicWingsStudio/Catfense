@@ -8,6 +8,7 @@ public class SellUnitGUIHandler : MonoBehaviour, IPointerExitHandler, IPointerEn
 
 {
     [Inject] private ShopHandler _shopHandler;
+    [Inject] private UnitDragPlacer _unitDragPlacer;
     [SerializeField] private Button _sellButton;
     [SerializeField] private string _constantSellText;
     [SerializeField] private float _offset;
@@ -45,11 +46,12 @@ public class SellUnitGUIHandler : MonoBehaviour, IPointerExitHandler, IPointerEn
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        _unitDragPlacer.IsDisabledBySellScreen = false;
         CloseSellUnitScreen();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-
+        _unitDragPlacer.IsDisabledBySellScreen = true;
     }
 }
