@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moneyValueText: {fileID: 1656945308451601139}
-  _fadeAwayTime: 1.25
+  _fadeAwayTime: 1.5
 --- !u!95 &4109575612068547886
 Animator:
   serializedVersion: 7

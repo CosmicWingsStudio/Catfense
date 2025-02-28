@@ -66,6 +66,7 @@ public class EnvironmentContainerHandler : MonoBehaviour
     public void SetZenjectData(SignalBus signalBus)
     {
         _signalBus = signalBus;
+        _signalBus.Subscribe<WaveEndedSignal>(AfterWaveActions);
 
         _towerHealthHandler.SetSignalBus(signalBus);
     }
@@ -179,5 +180,27 @@ public class EnvironmentContainerHandler : MonoBehaviour
     public List<PlaceSlot> GetAllPlaceableSlots()
     {   
         return AllPlaceSlots;
+    }
+
+    private void AfterWaveActions()
+    {
+        HealUnits();
+    }
+
+    private void HealUnits()
+    {
+        List<PlaceableUnit> unitsList = new();
+        for (int i = 0; i < AllSlots.Count; i++)
+        {
+            if (AllSlots[i].Item != null)
+            {
+                unitsList.Add(AllSlots[i].Item.GetComponent<PlaceableUnit>());
+            }
+        }
+
+        for (int i = 0; i < unitsList.Count; i++)
+        {
+            unitsList[i].Health.Heal(unitsList[i].Health.MaxHealth * 0.5f);
+        }
     }
 }

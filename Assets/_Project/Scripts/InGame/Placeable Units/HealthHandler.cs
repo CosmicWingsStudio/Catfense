@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class HealthHandler : MonoBehaviour
 {
-    private float MaxHealth;
+    public float MaxHealth { get; private set; }
+
     private float _originalMaxHealth;
     public float CurrentHealthPoint { get; protected set; }
 
@@ -49,9 +50,11 @@ public class HealthHandler : MonoBehaviour
         }
     }
 
-    public void Heal(int healAmount)
+    public void Heal(float healAmount)
     {
         if (IsDead)
+            return;
+        if(CurrentHealthPoint == MaxHealth)
             return;
 
         if (CurrentHealthPoint + healAmount > MaxHealth == false)

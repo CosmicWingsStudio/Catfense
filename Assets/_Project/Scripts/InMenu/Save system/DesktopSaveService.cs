@@ -36,7 +36,7 @@ public class DesktopSaveService : ISaveService
     {
         //типа дата поток хуёк тут в файл преобразуется
         SavedData savedData;
-
+        
         if (RealmsDataHandler.IsInitialized == true)
             savedData = new(RealmsDataHandler.GetDataFromRealmHandlers());
         else
