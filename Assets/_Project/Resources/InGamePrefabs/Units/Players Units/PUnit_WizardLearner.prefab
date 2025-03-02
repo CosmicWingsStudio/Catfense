@@ -324,6 +324,96 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &2603734649266115607
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5616947104787454478}
+  - component: {fileID: 8179052124690785305}
+  - component: {fileID: 9043668563546334896}
+  - component: {fileID: 6580203220596608360}
+  m_Layer: 5
+  m_Name: Ult Icon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5616947104787454478
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2603734649266115607}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1934600732710394965}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 35.51, y: 6.973199}
+  m_SizeDelta: {x: 14.953, y: 4.74}
+  m_Pivot: {x: 0.79241925, y: 0.5}
+--- !u!222 &8179052124690785305
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2603734649266115607}
+  m_CullTransparentMesh: 1
+--- !u!114 &9043668563546334896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2603734649266115607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -6479275740629677673, guid: 71722740a8cd9f74283b3683d6a19864, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6580203220596608360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2603734649266115607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6df52d75db758a24581a3a4ad70c3626, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unitUltmate: {fileID: -850122610368351533}
+  _livingTime: 2
 --- !u!1 &3656163795149772859
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,6 +811,7 @@ RectTransform:
   - {fileID: 5371059487913576568}
   - {fileID: 997508803703533323}
   - {fileID: 7045846081895816826}
+  - {fileID: 5616947104787454478}
   m_Father: {fileID: 4177096450233506969}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -821,6 +912,7 @@ GameObject:
   - component: {fileID: 2789637093930833404}
   - component: {fileID: 5731059271757524440}
   - component: {fileID: 2249428726452111981}
+  - component: {fileID: -850122610368351533}
   - component: {fileID: 7979980519878750600}
   m_Layer: 0
   m_Name: PUnit_WizardLearner
@@ -1012,6 +1104,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TextData: {fileID: 11400000, guid: 641ce88d26ca5a845a76328eb7934339, type: 2}
   _offsetY: 0
+--- !u!114 &-850122610368351533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8073585024566229169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af7c6325b20efde4bb8e7fd7d760b2d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _icon: {fileID: 6580203220596608360}
+  _ultmateCooldown: 25
+  EmpoweredDamage: 1
+  _empoweredDamage: 0.53
+  Healing: 0
+  DoubleShot: 0
 --- !u!82 &7979980519878750600
 AudioSource:
   m_ObjectHideFlags: 0

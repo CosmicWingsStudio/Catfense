@@ -16,13 +16,17 @@ public class PlaceSlot : Slot2D
     public override void PlaceItemInSlot(Transform item)
     {
         base.PlaceItemInSlot(item);
-        item.GetComponent<PlaceableUnit>().TurnOnActiveMode();
+        PlaceableUnit unit = item.GetComponent<PlaceableUnit>();
+        unit.TurnOnActiveMode();
+        unit.IsPlaced = true;
     }
 
     public override void SwapItemWithAnotherItem(Transform item)
     {
         base.SwapItemWithAnotherItem(item);
-        item.GetComponent<PlaceableUnit>().TurnOnActiveMode();
+        PlaceableUnit unit = item.GetComponent<PlaceableUnit>();
+        unit.TurnOnActiveMode();
+        unit.IsPlaced = true;
     }
 
     public void ShowDropZone()

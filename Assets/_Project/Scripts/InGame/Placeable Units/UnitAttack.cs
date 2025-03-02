@@ -3,14 +3,18 @@ using UnityEngine;
 public abstract class UnitAttack : MonoBehaviour
 {
     private TargetDetector _targetDetector;
+    protected UnitUltimate _unitUltimate;
     protected AudioSource _audioSource;
 
     [SerializeField] protected AudioClip _attackSoundClip;
     public Transform CurrentTarget { get; set; }
     public Animator Animator { protected get; set; }
 
+    protected bool OnEmpoweredShot = false;
+    protected bool OnDoubleShot = false;
     protected bool IsAttacking = false;
     protected bool InAnimation = false;
+    protected float _empoweredDamage = 0f;
     protected float _firerate;
     protected float _originalFirerate;
     protected float _fireRateCounter = 0f;
@@ -21,6 +25,7 @@ public abstract class UnitAttack : MonoBehaviour
     {
         _targetDetector = GetComponent<TargetDetector>();
         _audioSource = GetComponent<AudioSource>();
+        _unitUltimate = GetComponent<UnitUltimate>();
     }
 
     public virtual void SetData(UnitConfig config)
@@ -105,5 +110,16 @@ public abstract class UnitAttack : MonoBehaviour
     public void TurnOnAttackMode()
     {
         _targetDetector.IsStoped = false;
+    }
+
+    public void EmpowerDamageNextShot(float coeffValue)
+    {
+        OnEmpoweredShot = true;
+        _empoweredDamage = _damage * coeffValue;
+    }
+
+    public void EmpowerDoubleShotNextShot()
+    {
+        OnDoubleShot = true;
     }
 }

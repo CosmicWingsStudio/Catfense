@@ -16,6 +16,16 @@ public class MeleeUnitAttack : UnitAttack
         _audioSource.clip = _attackSoundClip;
         _audioSource.Play();
         if(CurrentTarget != null)
-            CurrentTarget.GetComponent<HealthHandler>().TakeDamage(_damage);
+        {
+            HealthHandler enemy = CurrentTarget.GetComponent<HealthHandler>();
+            if (OnEmpoweredShot)
+            {
+                enemy.TakeDamage(_damage + _empoweredDamage);
+                OnEmpoweredShot = false;
+                _unitUltimate.UnitPerformedUltimate();
+            }
+            else
+                enemy.TakeDamage(_damage + _empoweredDamage);
+        }
     }
 }

@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -18,6 +19,7 @@ public class PlaceableUnit : MonoBehaviour
         }
         set{}
     }
+
     public bool IsPlaced
     {
         get
@@ -27,8 +29,14 @@ public class PlaceableUnit : MonoBehaviour
             else
                 return false;
         }
-        set {}
+        set { OnPlacedStatusChanged?.Invoke(value); }
     }
+
+    public bool OnWave
+    {
+        set { OnWaveStatusChanged?.Invoke(value); }
+    }
+
     public Slot2D ParentSlot
     {
         get
@@ -36,8 +44,6 @@ public class PlaceableUnit : MonoBehaviour
             return transform.parent.GetComponent<Slot2D>();
         }
     }
-
-    private int _defaultSellPrice;
 
     public int SellPrice
     {
@@ -73,8 +79,13 @@ public class PlaceableUnit : MonoBehaviour
 
     private UnitUpgrader _unitUpgrader;
     private Animator _animator;
+
+    public event Action<bool> OnPlacedStatusChanged;
+    public event Action<bool> OnWaveStatusChanged;
+    private int _defaultSellPrice;
     private bool IsIntialised = false;
-    public bool OnSaleScreen = false;
+
+    [HideInInspector] public bool OnSaleScreen = false;  
 
     public void Initialize(int originalPrice, UnitConfig config)
     {
@@ -116,6 +127,7 @@ public class PlaceableUnit : MonoBehaviour
             unitAttackHandler.Animator = _animator;
             TurnOffActiveMode();
 
+            StartCoroutine(SetCanvasPriorityDelay(transform.GetChild(1).GetComponent<Canvas>()));
             StartCoroutine(SpriteVisibilityDelay());
             IsIntialised = true;
         }
@@ -124,8 +136,16 @@ public class PlaceableUnit : MonoBehaviour
     private IEnumerator SpriteVisibilityDelay()
     {
         spriteRenderer.enabled = false;
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.6f);
         spriteRenderer.enabled = true;
+    }
+
+    private IEnumerator SetCanvasPriorityDelay(Canvas canvas)
+    {
+        canvas.enabled = false;
+        yield return new WaitForSeconds(0.9f);
+        canvas.enabled = true;
+        canvas.sortingOrder = 22;
     }
 
     public void SendRequestForUpgrade()

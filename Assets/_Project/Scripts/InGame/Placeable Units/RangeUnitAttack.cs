@@ -1,4 +1,5 @@
 
+using System.Collections;
 using UnityEngine;
 
 public class RangeUnitAttack : UnitAttack
@@ -39,8 +40,35 @@ public class RangeUnitAttack : UnitAttack
             }
             
             Projectail projectail = Instantiate(Resources.Load<Projectail>(_projectailPrefabPath), transform);
-            projectail.Initialize(_damage, _projectailSpeed, CurrentTarget.transform);
+            if (OnEmpoweredShot)
+            {
+                projectail.Initialize(_damage + _empoweredDamage, _projectailSpeed, CurrentTarget.transform);
+                Vector2 newScale = new(projectail.transform.localScale.x + 0.1f, projectail.transform.localScale.y + 0.1f);
+                projectail.transform.localScale = newScale;
+                OnEmpoweredShot = false;
+                _unitUltimate.UnitPerformedUltimate();
+            }
+            else
+            {
+                projectail.Initialize(_damage, _projectailSpeed, CurrentTarget.transform);
+            }
+
+            if(OnDoubleShot)
+            {
+                StartCoroutine(DoubleShotDelay());
+                OnDoubleShot = false;
+                _unitUltimate.UnitPerformedUltimate();
+            }
+            
         }
         
     }
+
+    private IEnumerator DoubleShotDelay()
+    {
+        yield return new WaitForSeconds(0.25f);
+        Projectail nextprojectail = Instantiate(Resources.Load<Projectail>(_projectailPrefabPath), transform);
+        nextprojectail.Initialize(_damage * 0.5f, _projectailSpeed, CurrentTarget.transform);
+    }
+ 
 }

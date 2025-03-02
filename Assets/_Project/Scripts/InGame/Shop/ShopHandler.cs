@@ -114,17 +114,7 @@ public class ShopHandler : MonoBehaviour
         ClearCardsInSlots();
 
         for (int i = 0; i < _slotsList.Count; i++)
-        {
-            //try
-            //{
-            //    var newCard = _cardsFactory.CreateUnitCard(RandomizeCardType());
-            //    _slotsList[i].PlaceCardIntoSlot(newCard.transform);
-            //}
-            //catch (System.Exception)
-            //{
-            //    Debug.LogError("Creation of unit card goes wrong");
-
-            //}
+        { 
             int tier = RandomizeCardTier();
             var newCard = _cardsFactory.CreateUnitCard(tier);
             newCard.SetConfig(GetRandomizedCardOutOfTier(tier));

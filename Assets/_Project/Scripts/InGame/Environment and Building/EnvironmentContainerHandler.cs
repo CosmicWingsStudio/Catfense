@@ -67,6 +67,7 @@ public class EnvironmentContainerHandler : MonoBehaviour
     {
         _signalBus = signalBus;
         _signalBus.Subscribe<WaveEndedSignal>(AfterWaveActions);
+        _signalBus.Subscribe<WaveStartedSignal>(AfterWaveStartedActions);
 
         _towerHealthHandler.SetSignalBus(signalBus);
     }
@@ -185,6 +186,13 @@ public class EnvironmentContainerHandler : MonoBehaviour
     private void AfterWaveActions()
     {
         HealUnits();
+        ChangeStatusToPlacedUnits(false);
+    }
+
+    private void AfterWaveStartedActions()
+    {
+        HealUnits();
+        ChangeStatusToPlacedUnits(true);
     }
 
     private void HealUnits()
@@ -201,6 +209,18 @@ public class EnvironmentContainerHandler : MonoBehaviour
         for (int i = 0; i < unitsList.Count; i++)
         {
             unitsList[i].Health.Heal(unitsList[i].Health.MaxHealth * 0.5f);
+        }
+    }
+
+    private void ChangeStatusToPlacedUnits(bool OnWaveStatus)
+    {
+        for (int i = 0; i < PlaceSlots.Count; i++)
+        {
+            GameObject item = PlaceSlots[i].Item;
+            if(item != null && item.TryGetComponent(out PlaceableUnit punit))
+            {
+                punit.OnWave = OnWaveStatus;
+            }
         }
     }
 }
