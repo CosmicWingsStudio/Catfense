@@ -4,20 +4,24 @@ using UnityEngine.UI;
 
 public class SpellButton : MonoBehaviour
 {
-    [SerializeField] private GameObject _spellPrefab;
+    [SerializeField] private SpellObject _spellPrefab;
+    [SerializeField] private EnvironmentHandler _envHandler;
     [SerializeField] private Transform _castPosition;
-    [SerializeField, Min(1f)] private float _spellCooldown; 
+    [SerializeField, Min(1f)] private float _spellCooldown;
 
+    private Transform _enemyFolder;
     private TextMeshProUGUI _cooldownText;
     private Button _button;
     private float _cooldownTimer = 0f;
-    private bool IsReady = false;
+    private bool IsReady = true;
 
     private void Start()
     {
         _cooldownText = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         _cooldownText.text = string.Empty;
         _button = GetComponent<Button>();
+        _cooldownTimer = _spellCooldown;
+        _enemyFolder = _envHandler.GetEnemySpawnPoint();
 
         _button.onClick.AddListener(SpellAction);
     }
@@ -27,9 +31,9 @@ public class SpellButton : MonoBehaviour
         if (IsReady)
             return;
 
-        if(_cooldownTimer < _spellCooldown)
+        if(_cooldownTimer > 0)
         {
-            _cooldownTimer += Time.deltaTime;
+            _cooldownTimer -= Time.deltaTime;
             int timer = (int)_cooldownTimer;
             _cooldownText.text = timer.ToString();
         }
@@ -37,7 +41,8 @@ public class SpellButton : MonoBehaviour
         {
             IsReady = true;
             _button.interactable = true;
-            _cooldownTimer = 0F;
+            _cooldownTimer = _spellCooldown;
+            _cooldownText.text = string.Empty;
         }
     }
 
@@ -45,7 +50,8 @@ public class SpellButton : MonoBehaviour
     {
         IsReady = false;
         _button.interactable = false;
-        GameObject spellObject = Instantiate(_spellPrefab);
-        spellObject.transform.position = _castPosition.position; 
+        SpellObject spellObject = Instantiate(_spellPrefab);
+        spellObject.transform.position = _castPosition.position;
+        spellObject.Initialize(_enemyFolder);
     }
 }
