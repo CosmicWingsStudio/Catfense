@@ -3,7 +3,6 @@ using Zenject;
 
 public class PlaceableUnitsFactory : MonoBehaviour
 {
-    [SerializeField] private GameObject UnitSpawnEffect;
     private PrefabsDataProvider _prefabsDataProvider;
     private DiContainer _container;
 

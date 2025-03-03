@@ -67,8 +67,6 @@ public abstract class UnitAttack : MonoBehaviour
 
     protected void Attack()
     {
-        //анимации ну типа перенести в јтакјниматионѕоинт спавн снар€да наверн потом
-        //звуки
         InAnimation = true;
         Animator.SetTrigger("Shoot");
     }
@@ -87,7 +85,7 @@ public abstract class UnitAttack : MonoBehaviour
         IsAttacking = true;
     }
 
-    protected virtual void NullifyCurrentTarget()
+    protected void NullifyCurrentTarget()
     {
         CurrentTarget = null;
         IsAttacking = false;

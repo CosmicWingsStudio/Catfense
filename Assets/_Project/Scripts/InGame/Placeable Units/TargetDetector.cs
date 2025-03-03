@@ -13,50 +13,18 @@ public class TargetDetector : MonoBehaviour
         _attackHandler = GetComponent<UnitAttack>();
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    AnalyzeDetectedCollider(collision);
-    //}
-
-    //private void OnTriggerStay2D(Collider2D collision)
-    //{
-    //    AnalyzeDetectedCollider(collision);
-    //}
-
-    //private void OnTriggerExit2D(Collider2D collision)
-    //{
-    //    if(_attackHandler.CurrentTarget != null && collision.gameObject == _attackHandler.CurrentTarget.gameObject)
-    //    {
-    //        Debug.Log("target exit");
-    //        Debug.Log(collision + " exit");
-    //        _attackHandler.CurrentTarget = null;
-    //    }
-    //}
-
-    //protected virtual void AnalyzeDetectedCollider(Collider2D collider)
-    //{
-    //    if(collider.TryGetComponent(out EnemyUnit enemy))
-    //    {
-    //        if(_attackHandler.CurrentTarget == null)
-    //        {
-    //            Debug.Log(collider + " new target");
-    //            _attackHandler.SetCurrentTarget(enemy.transform);
-
-    //        }
-    //    }
-    //}
-
-
     private void FixedUpdate()
     {
         if (IsStoped)
             return;
 
-        var colliders = Physics2D.OverlapBoxAll(transform.position, new Vector2(_detectionSizeX, _detectionSizeY), 90);
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            AnalyzeDetectedCollider(colliders[i]);
-        }
+        //var colliders = Physics2D.OverlapBoxAll(transform.position, new Vector2(_detectionSizeX, _detectionSizeY), 90);
+        //for (int i = 0; i < colliders.Length; i++)
+        //{
+        //    AnalyzeDetectedCollider(colliders[i]);
+        //}
+        if(_attackHandler.CurrentTarget == null)
+            FindClosestTarget();
     }
     protected virtual void AnalyzeDetectedCollider(Collider2D collider)
     {
@@ -69,5 +37,35 @@ public class TargetDetector : MonoBehaviour
 
             }
         }
+    }
+
+    public void FindClosestTarget()
+    {
+        var colliders = Physics2D.OverlapBoxAll(transform.position, new Vector2(_detectionSizeX, _detectionSizeY), 90);
+        EnemyUnit closestEnemy = null;
+        Vector2 closestEnemyVector = Vector2.zero;
+
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            if (colliders[i].TryGetComponent(out EnemyUnit enemy))
+            {
+                if (closestEnemy != null)
+                {
+                    Vector2 newVec = enemy.transform.position - transform.position;
+                    if (newVec.sqrMagnitude < closestEnemyVector.sqrMagnitude)
+                    {
+                        closestEnemy = enemy;
+                        closestEnemyVector = newVec;
+                    }
+                }
+                else
+                {
+                    closestEnemy = enemy;
+                    closestEnemyVector = enemy.transform.position - transform.position;
+                }
+            }
+        }
+        if (closestEnemy != null)
+            _attackHandler.SetCurrentTarget(closestEnemy.transform);
     }
 }

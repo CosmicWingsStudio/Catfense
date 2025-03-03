@@ -17,7 +17,7 @@ public class RewardObject : MonoBehaviour, IPointerDownHandler
     private bool OnDestroy = false;
     private float _moneyValue;
 
-    [SerializeField] private float _fadeAwayTime = 1.25f;
+    [SerializeField] private float _fadeAwayTime = 1.75f;
     private float _fadeAwayTimer = 0f;
 
     public void Initialize(WalletHandler wallet, Vector2 moneyTextPos, float moneyValue)

@@ -6,11 +6,13 @@ using UnityEngine.UI;
 public class HealthHandler : MonoBehaviour
 {
     public float MaxHealth { get; private set; }
-
-    private float _originalMaxHealth;
     public float CurrentHealthPoint { get; protected set; }
 
+    [SerializeField] private HealingText _healingText;
+
+    private float _originalMaxHealth;
     protected bool IsDead = false;
+
     protected Slider _healthPointSlider;
     protected ShowDamageText _damageText;
     private Animator _animator;
@@ -60,11 +62,14 @@ public class HealthHandler : MonoBehaviour
         if (CurrentHealthPoint + healAmount > MaxHealth == false)
         {
             CurrentHealthPoint += healAmount;
-
+            _healingText.gameObject.SetActive(true);
+            _healingText.OnEnableCustom(healAmount);
         }
         else
         {
             CurrentHealthPoint = MaxHealth;
+            _healingText.gameObject.SetActive(true);
+            _healingText.OnEnableCustom(healAmount);
         }
 
         UpdateHealthPointsSlider();
@@ -78,7 +83,7 @@ public class HealthHandler : MonoBehaviour
             _animator.SetBool("IsDying", true);
             _animator.SetTrigger("Death");
             float randomValue = Random.Range(0, 100);
-            if (randomValue <= 10)
+            if (randomValue <= 20)
             {
                 GetComponent<EnemyUnit>().RewardSpawner.SpawnReward(Camera.main.WorldToScreenPoint(transform.position));
             }
