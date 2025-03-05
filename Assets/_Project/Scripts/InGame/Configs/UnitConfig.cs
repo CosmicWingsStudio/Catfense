@@ -9,6 +9,7 @@ public class UnitConfig : ScriptableObject
     [field: SerializeField] public int Damage { get; set; }
     [field: SerializeField] public float Firerate { get; set; }
     [field: SerializeField] public int Price { get; set; }
+    [field: SerializeField] public TeamEffectsType TeamEffectCollection { get; set; }
     [field: SerializeField] public string PrefabName { get; set; }
     [field: SerializeField] public Sprite UnitSprite { get; set; }
     [field: SerializeField, Tooltip("Range or Melee")] public string UnitAttackType { get; set; }

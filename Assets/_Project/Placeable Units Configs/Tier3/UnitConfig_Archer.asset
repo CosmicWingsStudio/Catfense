@@ -18,6 +18,7 @@ MonoBehaviour:
   <Damage>k__BackingField: 20
   <Firerate>k__BackingField: 4
   <Price>k__BackingField: 22
+  <TeamEffectCollection>k__BackingField: 6
   <PrefabName>k__BackingField: PUnit_Archer
   <UnitSprite>k__BackingField: {fileID: 21300000, guid: 9e893d303ef59984d9481cfdee2a3003, type: 2}
   <UnitAttackType>k__BackingField: "\u0414\u0430\u043B\u044C\u043D\u0438\u0439"

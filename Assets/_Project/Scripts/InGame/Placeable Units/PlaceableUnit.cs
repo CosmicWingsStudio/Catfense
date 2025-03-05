@@ -77,15 +77,18 @@ public class PlaceableUnit : MonoBehaviour
 
     public string Name { get; private set; }
 
+    public TeamEffectsType TeamEffectCollection { get; private set; }
+
     private UnitUpgrader _unitUpgrader;
     private Animator _animator;
 
-    public event Action<bool> OnPlacedStatusChanged;
-    public event Action<bool> OnWaveStatusChanged;
     private int _defaultSellPrice;
     private bool IsIntialised = false;
 
+    public event Action<bool> OnPlacedStatusChanged;
+    public event Action<bool> OnWaveStatusChanged;
     [HideInInspector] public bool OnSaleScreen = false;  
+
 
     public void Initialize(int originalPrice, UnitConfig config)
     {
@@ -94,6 +97,7 @@ public class PlaceableUnit : MonoBehaviour
             _defaultSellPrice = originalPrice / 2;
 
             Name = config.Name;
+            TeamEffectCollection = config.TeamEffectCollection;
 
             DataDisplayer = GetComponent<UnitDataDisplayer>();
             _unitUpgrader = GetComponent<UnitUpgrader>();

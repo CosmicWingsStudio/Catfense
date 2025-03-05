@@ -18,6 +18,7 @@ MonoBehaviour:
   <Damage>k__BackingField: 15
   <Firerate>k__BackingField: 3
   <Price>k__BackingField: 20
+  <TeamEffectCollection>k__BackingField: 3
   <PrefabName>k__BackingField: PUnit_MorozMelee
   <UnitSprite>k__BackingField: {fileID: 21300000, guid: 0fe3821909f05c24694f63e549a71fb9, type: 2}
   <UnitAttackType>k__BackingField: "\u0411\u043B\u0438\u0436\u043D\u0438\u0439"

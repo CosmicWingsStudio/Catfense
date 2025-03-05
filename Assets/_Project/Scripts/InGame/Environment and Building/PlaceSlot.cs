@@ -1,10 +1,14 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlaceSlot : Slot2D
 {
     [SerializeField] private GameObject DropZone;
     [SerializeField, Tooltip("Set only for InFront slots")] private GameObject DefendFxEffect;
+
+    private UnityEvent ItemChangedSignal;
+    private bool IsInititalised = false;
 
     public override GameObject Item
     {
@@ -16,12 +20,23 @@ public class PlaceSlot : Slot2D
                 return null;
         }
     }
+
+    public void Initialize(UnityEvent eventRef)
+    {
+        if(IsInititalised == false)
+        {
+            ItemChangedSignal = eventRef;
+            IsInititalised = true;
+        }
+    }
+
     public override void PlaceItemInSlot(Transform item)
     {
         base.PlaceItemInSlot(item);
         PlaceableUnit unit = item.GetComponent<PlaceableUnit>();
         unit.TurnOnActiveMode();
         unit.IsPlaced = true;
+        ItemChangedSignal.Invoke();
     }
 
     public override void SwapItemWithAnotherItem(Transform item)
@@ -30,6 +45,13 @@ public class PlaceSlot : Slot2D
         PlaceableUnit unit = item.GetComponent<PlaceableUnit>();
         unit.TurnOnActiveMode();
         unit.IsPlaced = true;
+        ItemChangedSignal.Invoke();
+    }
+
+    public override void InformOfTakingItemFromSlot()
+    {
+        base.InformOfTakingItemFromSlot();
+        ItemChangedSignal.Invoke();
     }
 
     public void ShowDropZone()

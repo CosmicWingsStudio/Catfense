@@ -1,6 +1,10 @@
 
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using Zenject;
 
 public class EnvironmentContainerHandler : MonoBehaviour
@@ -11,6 +15,9 @@ public class EnvironmentContainerHandler : MonoBehaviour
     [SerializeField] protected TowerHealthHandler _towerHealthHandler;
     private List<PlaceSlot> AllPlaceSlots = new();
     private SignalBus _signalBus;
+    private TeamEffects _teamEffects;
+    private UnityEvent OnChangedUnitInPlaceSlot = new UnityEvent();
+    private bool IsOnUpdateTeamEffects = false;
 
     [SerializeField] private Transform BuyableTowerPartsFolder;
 
@@ -62,11 +69,19 @@ public class EnvironmentContainerHandler : MonoBehaviour
             if (AllSlots[i].GetComponent<PlaceSlot>())
                 AllPlaceSlots.Add((PlaceSlot)AllSlots[i]);
         }
+
+        OnChangedUnitInPlaceSlot.AddListener(UpdateTeamEffects);
+
+        for (int i = 0; i < PlaceSlots.Count; i++)
+        {
+            PlaceSlots[i].Initialize(OnChangedUnitInPlaceSlot);
+        }
     }
 
-    public void SetZenjectData(SignalBus signalBus)
+    public void SetZenjectData(SignalBus signalBus, TeamEffects te)
     {
         _signalBus = signalBus;
+        _teamEffects = te;
         _signalBus.Subscribe<WaveEndedSignal>(AfterWaveActions);
         _signalBus.Subscribe<WaveStartedSignal>(AfterWaveStartedActions);
 
@@ -228,5 +243,60 @@ public class EnvironmentContainerHandler : MonoBehaviour
                 punit.OnWave = OnWaveStatus;
             }
         }
+    }
+
+    private void UpdateTeamEffects()
+    {
+        if(IsOnUpdateTeamEffects == false)
+        {
+            IsOnUpdateTeamEffects = true;
+            StartCoroutine(UpdateTeamEffectsDelay());
+        }
+    }
+
+    private IEnumerator UpdateTeamEffectsDelay()
+    {
+        yield return new WaitForNextFrameUnit();
+        IsOnUpdateTeamEffects = false;
+        List<TeamEffectsType> teamEffects = new();
+        List<TeamEffectsData> teamEffectsData = new();
+
+        for (int i = 0; i < PlaceSlots.Count; i++)
+        {
+            if (PlaceSlots[i].Item != null)
+            {
+                teamEffects.Add(PlaceSlots[i].Item.GetComponent<PlaceableUnit>().TeamEffectCollection);
+            }
+        }
+
+        for (int i = 0; i < teamEffects.Count; i++)
+        {
+            bool foundEffect = false;
+
+            if(teamEffectsData.Count < 1)
+            {
+                teamEffectsData.Add(new(teamEffects[i]));
+                teamEffectsData[i].AddValue(1);
+                Debug.Log(teamEffectsData[i].Amount);
+            }
+            else
+            {
+                for (int j = 0; j < teamEffectsData.Count; j++)
+                {
+                    if (teamEffects[i] == teamEffectsData[j].EffectType)
+                    {
+                        teamEffectsData[j].AddValue(1);
+                        foundEffect = true;
+                    }
+                }
+                if(foundEffect == false)
+                {
+                    teamEffectsData.Add(new(teamEffects[i]));
+                    teamEffectsData[teamEffectsData.Count - 1].AddValue(1);
+                }
+            }  
+        }
+
+        _teamEffects.UpdateEffects(teamEffectsData);
     }
 }
