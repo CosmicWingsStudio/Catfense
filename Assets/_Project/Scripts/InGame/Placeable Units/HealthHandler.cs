@@ -1,5 +1,6 @@
 
 
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,7 @@ public class HealthHandler : MonoBehaviour
 
     private float _originalMaxHealth;
     protected bool IsDead = false;
+    private bool IsInvincible = false;
 
     protected Slider _healthPointSlider;
     protected ShowDamageText _damageText;
@@ -34,7 +36,7 @@ public class HealthHandler : MonoBehaviour
 
     public virtual void TakeDamage(float dmg)
     {
-        if (IsDead)
+        if (IsDead || IsInvincible)
             return;
 
         if(CurrentHealthPoint - dmg <= 0 == false)
@@ -42,6 +44,7 @@ public class HealthHandler : MonoBehaviour
             CurrentHealthPoint -= dmg;
             if (_damageText != null)
                 _damageText.ShowDamage(dmg);
+
             UpdateHealthPointsSlider();
         }
         else
@@ -73,6 +76,18 @@ public class HealthHandler : MonoBehaviour
         }
 
         UpdateHealthPointsSlider();
+    }
+
+    public void SetInvincibleEffect(float time)
+    {
+        IsInvincible = true;
+        StartCoroutine(DefendEffect(time));
+    }
+
+    private IEnumerator DefendEffect(float time)
+    {
+        yield return new WaitForSeconds(time);
+        IsInvincible = false;
     }
 
     protected virtual void Death()

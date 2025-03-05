@@ -1,8 +1,11 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlaceSlot : Slot2D
 {
     [SerializeField] private GameObject DropZone;
+    [SerializeField, Tooltip("Set only for InFront slots")] private GameObject DefendFxEffect;
+
     public override GameObject Item
     {
         get
@@ -37,5 +40,24 @@ public class PlaceSlot : Slot2D
     public void HideDropZone()
     {
         DropZone.SetActive(false);
+    }
+
+    public bool SetDefendEffect(float time)
+    {
+        if(Item != null)
+        {
+            Item.GetComponent<HealthHandler>().SetInvincibleEffect(time);
+            DefendFxEffect.SetActive(true);
+            StartCoroutine(DefendEffect(time));
+            return true;
+        }
+        else
+            return false;
+    }
+
+    private IEnumerator DefendEffect(float time)
+    {
+        yield return new WaitForSeconds(time);
+        DefendFxEffect.SetActive(false);
     }
 }

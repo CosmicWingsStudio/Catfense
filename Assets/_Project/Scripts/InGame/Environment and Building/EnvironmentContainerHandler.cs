@@ -7,6 +7,7 @@ public class EnvironmentContainerHandler : MonoBehaviour
 {
     [SerializeField] private Transform BenchSlotsFolder;
     [SerializeField] private Transform PlaceSlotsFolder;
+    [SerializeField] private PlaceSlot InFrontSlot;
     [SerializeField] protected TowerHealthHandler _towerHealthHandler;
     private List<PlaceSlot> AllPlaceSlots = new();
     private SignalBus _signalBus;
@@ -181,6 +182,11 @@ public class EnvironmentContainerHandler : MonoBehaviour
     public List<PlaceSlot> GetAllPlaceableSlots()
     {   
         return AllPlaceSlots;
+    }
+
+    public PlaceSlot GetInFrontSlot()
+    {
+        return InFrontSlot;
     }
 
     private void AfterWaveActions()

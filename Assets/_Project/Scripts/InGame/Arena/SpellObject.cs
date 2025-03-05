@@ -10,19 +10,20 @@ public class SpellObject : MonoBehaviour
     private Transform _enemyFolder;
     private bool IsInitialised = false;
 
-    public void Initialize(Transform enemyFolder)
+    public void Initialize(Transform enemyFolder, AudioSource asource)
     {
         if(IsInitialised == false)
         {
-            StartCoroutine(SpellEffect());
+            StartCoroutine(SpellEffect(asource));
             _enemyFolder = enemyFolder;
             IsInitialised = true;
         }       
     }
-    private IEnumerator SpellEffect()
+    private IEnumerator SpellEffect(AudioSource asource)
     {
         yield return new WaitForSeconds(_delay);
         _fxObject.SetActive(true);
+        asource.Play();
         yield return new WaitForSeconds(_delay * 0.5f);
         for (int i = 0; i < _enemyFolder.childCount; i++)
         {
