@@ -235,6 +235,11 @@ public class UnitDragPlacer : MonoBehaviour
         var hit = Physics2D.RaycastAll(mousePos, Vector2.right);
         foreach (var collider in hit)
         {
+            //foreach (var item in hit)
+            //{
+            //    Debug.Log("collider " + item.transform);
+            //}
+
             if (collider.transform.TryGetComponent(out PlaceableUnit pUnit))
             {
                 if (pUnit.OnSaleScreen)

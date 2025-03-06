@@ -10,6 +10,8 @@ public class ActivatingSpellButton : MonoBehaviour
     [SerializeField, Min(1f)] private float _spellCooldown;
     [SerializeField, Min(1f)] private float _spellTime;
 
+    public float BonusCooldownReduce { get; set; }
+
     private PlaceSlot _inFrontSlot;
     private TextMeshProUGUI _cooldownText;
     private Button _button;
@@ -44,7 +46,8 @@ public class ActivatingSpellButton : MonoBehaviour
         {
             IsReady = true;
             _button.interactable = true;
-            _cooldownTimer = _spellCooldown;
+            float cooldownreduce = _spellCooldown * BonusCooldownReduce;
+            _cooldownTimer = _spellCooldown - cooldownreduce;
             _cooldownText.text = string.Empty;
         }
     }

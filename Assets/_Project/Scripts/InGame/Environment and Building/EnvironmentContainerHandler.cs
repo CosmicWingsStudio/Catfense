@@ -18,6 +18,7 @@ public class EnvironmentContainerHandler : MonoBehaviour
     private TeamEffects _teamEffects;
     private UnityEvent OnChangedUnitInPlaceSlot = new UnityEvent();
     private bool IsOnUpdateTeamEffects = false;
+    public float HealingBonus { get; set; }
 
     [SerializeField] private Transform BuyableTowerPartsFolder;
 
@@ -229,7 +230,8 @@ public class EnvironmentContainerHandler : MonoBehaviour
 
         for (int i = 0; i < unitsList.Count; i++)
         {
-            unitsList[i].Health.Heal(unitsList[i].Health.MaxHealth * 0.5f);
+
+            unitsList[i].Health.Heal(unitsList[i].Health.MaxHealth * (0.5f + HealingBonus));
         }
     }
 
@@ -277,7 +279,7 @@ public class EnvironmentContainerHandler : MonoBehaviour
             {
                 teamEffectsData.Add(new(teamEffects[i]));
                 teamEffectsData[i].AddValue(1);
-                Debug.Log(teamEffectsData[i].Amount);
+                
             }
             else
             {

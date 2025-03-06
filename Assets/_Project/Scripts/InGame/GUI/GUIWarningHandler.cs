@@ -3,10 +3,9 @@ using UnityEngine;
 
 public class GUIWarningHandler : MonoBehaviour
 {
-
     [SerializeField] private TextMeshProUGUI _causeText;
     [SerializeField] private float _defaultDisappearDelay = 2.5f;
-
+    
     private GameObject _object;
     private bool IsActive = false;
     private float _delayTimer = 0f;

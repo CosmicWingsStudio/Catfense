@@ -9,6 +9,8 @@ public class SpawningSpellButton : MonoBehaviour
     [SerializeField] private Transform _castPosition;
     [SerializeField, Min(1f)] private float _spellCooldown;
 
+    public float BonusCooldownReduce { get; set; }
+
     private Transform _enemyFolder;
     private TextMeshProUGUI _cooldownText;
     private Button _button;
@@ -43,7 +45,8 @@ public class SpawningSpellButton : MonoBehaviour
         {
             IsReady = true;
             _button.interactable = true;
-            _cooldownTimer = _spellCooldown;
+            float cooldownreduce = _spellCooldown * BonusCooldownReduce;
+            _cooldownTimer = _spellCooldown - cooldownreduce;
             _cooldownText.text = string.Empty; 
         }
     }

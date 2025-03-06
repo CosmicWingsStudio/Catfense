@@ -15,43 +15,42 @@ public class TeamEffects : MonoBehaviour
             {
                 case TeamEffectsType.Pirate:
                     TeamEffectsList[0].gameObject.SetActive(true);
-                    TeamEffectsList[0].Numbers = effects[i].Amount;
+                    TeamEffectsList[0].UpdateEffect(effects[i].Amount);
                     break;
 
                 case TeamEffectsType.Vampire:
                     TeamEffectsList[1].gameObject.SetActive(true);
-                    TeamEffectsList[1].Numbers = effects[i].Amount;
+                    TeamEffectsList[1].UpdateEffect(effects[i].Amount);
                     break;
 
                 case TeamEffectsType.Snow:
                     TeamEffectsList[2].gameObject.SetActive(true);
-                    TeamEffectsList[2].Numbers = effects[i].Amount;
-                    Debug.Log("Snow " + effects[i].Amount);
+                    TeamEffectsList[2].UpdateEffect(effects[i].Amount);
                     break;
 
                 case TeamEffectsType.Alchimist:
                     TeamEffectsList[3].gameObject.SetActive(true);
-                    TeamEffectsList[3].Numbers = effects[i].Amount;
+                    TeamEffectsList[3].UpdateEffect(effects[i].Amount);
                     break;
 
                 case TeamEffectsType.Viking:
                     TeamEffectsList[4].gameObject.SetActive(true);
-                    TeamEffectsList[4].Numbers = effects[i].Amount;
+                    TeamEffectsList[4].UpdateEffect(effects[i].Amount);
                     break;
 
                 case TeamEffectsType.Shooter:
                     TeamEffectsList[5].gameObject.SetActive(true);
-                    TeamEffectsList[5].Numbers = effects[i].Amount;
+                    TeamEffectsList[5].UpdateEffect(effects[i].Amount);
                     break;
 
                 case TeamEffectsType.Magic:
                     TeamEffectsList[6].gameObject.SetActive(true);
-                    TeamEffectsList[6].Numbers = effects[i].Amount;
+                    TeamEffectsList[6].UpdateEffect(effects[i].Amount);
                     break;
 
                 case TeamEffectsType.Aristocratism:
                     TeamEffectsList[7].gameObject.SetActive(true);
-                    TeamEffectsList[7].Numbers = effects[i].Amount;
+                    TeamEffectsList[7].UpdateEffect(effects[i].Amount);
                     break;
             }
         }

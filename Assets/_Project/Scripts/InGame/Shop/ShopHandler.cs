@@ -246,7 +246,7 @@ public class ShopHandler : MonoBehaviour
 
     public void SellUnit(PlaceableUnit pUnit)
     {
-        _walletHandler.AddMoney(pUnit.SellPrice);
+        _walletHandler.AddMoney(pUnit.SellPrice, true);
         pUnit.ParentSlot.InformOfTakingItemFromSlot();
         Destroy(pUnit.gameObject);
     }

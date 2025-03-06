@@ -20,7 +20,7 @@ MonoBehaviour:
   <WavesList>k__BackingField:
   - EnemiesOnWaveList:
     - <PrefabName>k__BackingField: Melee_01
-      <Amount>k__BackingField: 3
+      <Amount>k__BackingField: 4
   - EnemiesOnWaveList:
     - <PrefabName>k__BackingField: Melee_01
       <Amount>k__BackingField: 1

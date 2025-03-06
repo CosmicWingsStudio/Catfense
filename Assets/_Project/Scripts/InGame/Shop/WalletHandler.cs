@@ -22,6 +22,8 @@ public class WalletHandler : MonoBehaviour
 
     public int CurrentMoney { get; private set; }
 
+    public float AdditionalMoneyBonus { get; set; }
+
     private void Start()
     {
         CurrentMoney = _startMoney;
@@ -75,16 +77,25 @@ public class WalletHandler : MonoBehaviour
        
     }
 
-    public void AddMoney(int amount)
+    public void AddMoney(int amount, bool disableAdditionalMoneyBonus = false)
     {
-        CurrentMoney += amount;
+        int NewAmount = amount;
+
+        if (disableAdditionalMoneyBonus == true)
+            CurrentMoney += amount;
+        else
+        {
+            int Bonus = (int)(amount * AdditionalMoneyBonus);
+            NewAmount = amount + Bonus;
+            CurrentMoney += NewAmount;
+        }
         _moneyText.text = CurrentMoney.ToString();
         AddHighlighting = true;
 
         Vector3 newPos = new(_defaultChangedMoneyTextPosition.x + Random.Range(-15, 15),
             _defaultChangedMoneyTextPosition.y);
         _incomeMoneyText.transform.position = newPos;
-        _incomeMoneyText.text = "+" + amount.ToString();
+        _incomeMoneyText.text = "+" + NewAmount.ToString();
         StartCoroutine(IncomeMoneyShow());
     }
 
