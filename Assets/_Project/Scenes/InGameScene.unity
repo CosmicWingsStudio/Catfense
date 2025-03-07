@@ -1299,6 +1299,81 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &95335590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 95335591}
+  - component: {fileID: 95335593}
+  - component: {fileID: 95335592}
+  m_Layer: 0
+  m_Name: snow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &95335591
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95335590}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1507162373}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 132.7, y: -25.568}
+  m_SizeDelta: {x: 17.6624, y: 16.0639}
+  m_Pivot: {x: 4.157893, y: 1.0000008}
+--- !u!114 &95335592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95335590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 5296030215426426226, guid: 2a7ac0458f1c35b46a6a83bde093f6fe, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &95335593
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95335590}
+  m_CullTransparentMesh: 1
 --- !u!1 &106841772
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,7 +1527,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &108260377
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8672,6 +8747,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 755788136}
   m_CullTransparentMesh: 1
+--- !u!1 &769959220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 769959221}
+  - component: {fileID: 769959223}
+  - component: {fileID: 769959222}
+  m_Layer: 0
+  m_Name: snow (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &769959221
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769959220}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1507162373}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 132.7, y: -64.7}
+  m_SizeDelta: {x: 17.6624, y: 16.0639}
+  m_Pivot: {x: 4.157893, y: 1.0000008}
+--- !u!114 &769959222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769959220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 5296030215426426226, guid: 2a7ac0458f1c35b46a6a83bde093f6fe, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &769959223
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769959220}
+  m_CullTransparentMesh: 1
 --- !u!1 &776056206
 GameObject:
   m_ObjectHideFlags: 0
@@ -8682,13 +8832,14 @@ GameObject:
   m_Component:
   - component: {fileID: 776056207}
   - component: {fileID: 776056208}
+  - component: {fileID: 776056209}
   m_Layer: 0
   m_Name: Team Effect Viking
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &776056207
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8724,6 +8875,22 @@ MonoBehaviour:
   _textNumber: {fileID: 238147761}
   _showInfoButton: {fileID: 783678553}
   _infoObject: {fileID: 729145036}
+--- !u!114 &776056209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776056206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8f1a4346504c5499ef3b6a4d57b7cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _step1: 0.25
+  _step2: 0.35
+  _step3: 0.5
+  _env: {fileID: 456565776}
 --- !u!1 &783678551
 GameObject:
   m_ObjectHideFlags: 0
@@ -10470,7 +10637,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &905503416
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13725,13 +13892,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1202235511}
   - component: {fileID: 1202235512}
+  - component: {fileID: 1202235513}
   m_Layer: 0
   m_Name: Team Effect Alchemist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1202235511
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13767,6 +13935,22 @@ MonoBehaviour:
   _textNumber: {fileID: 1634925176}
   _showInfoButton: {fileID: 830428519}
   _infoObject: {fileID: 1463661551}
+--- !u!114 &1202235513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202235510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7c8aa30b5a6323429bbd1b1bae744b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _step1: 0.1
+  _step2: 0.2
+  _step3: 0.3
+  _env: {fileID: 456565776}
 --- !u!1 &1202273596
 GameObject:
   m_ObjectHideFlags: 0
@@ -14692,7 +14876,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1292868785
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15277,7 +15461,7 @@ MonoBehaviour:
   _gameModeSwitcher: {fileID: 267581505}
   _walletHandler: {fileID: 1497381722}
   <DisableEnemySpawn>k__BackingField: 0
-  <EverlastingPreparationTime>k__BackingField: 1
+  <EverlastingPreparationTime>k__BackingField: 0
   <StartMoney>k__BackingField: 99999
 --- !u!1 &1356520352
 GameObject:
@@ -17288,6 +17472,9 @@ RectTransform:
   - {fileID: 692035367}
   - {fileID: 321385589}
   - {fileID: 1501883415}
+  - {fileID: 95335591}
+  - {fileID: 1641790587}
+  - {fileID: 769959221}
   m_Father: {fileID: 935158237}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -17898,13 +18085,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1569668008}
   - component: {fileID: 1569668009}
+  - component: {fileID: 1569668010}
   m_Layer: 0
   m_Name: Team Effect Snow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1569668008
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17940,6 +18128,22 @@ MonoBehaviour:
   _textNumber: {fileID: 1762752964}
   _showInfoButton: {fileID: 1060276972}
   _infoObject: {fileID: 1507162374}
+--- !u!114 &1569668010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569668007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90dc4105ce3842d4ca284bf7fc9c5028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _step1: 0.1
+  _step2: 0.15
+  _step3: 0.25
+  _env: {fileID: 456565776}
 --- !u!1 &1571265320
 GameObject:
   m_ObjectHideFlags: 0
@@ -18088,13 +18292,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1572751180}
   - component: {fileID: 1572751181}
+  - component: {fileID: 1572751182}
   m_Layer: 0
   m_Name: Team Effect Shooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1572751180
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18130,6 +18335,22 @@ MonoBehaviour:
   _textNumber: {fileID: 565300724}
   _showInfoButton: {fileID: 1917835951}
   _infoObject: {fileID: 734069073}
+--- !u!114 &1572751182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572751179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743a51d1c2e92fb428337b06c30cf8a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _step1: 0.05
+  _step2: 0.08
+  _step3: 0.12
+  _env: {fileID: 456565776}
 --- !u!1 &1577135477
 GameObject:
   m_ObjectHideFlags: 0
@@ -18741,7 +18962,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "2 \u044E\u043D\u0438\u0442\u0430 - 25%\n3 \u044E\u043D\u0438\u0442\u0430
-    - 40%\n4 \u044E\u043D\u0438\u0442\u0430 - 65%"
+    - 35%\n4 \u044E\u043D\u0438\u0442\u0430 - 50%"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 48b963b82dd386a49b1fbcafcc856b12, type: 2}
   m_sharedMaterial: {fileID: 3685397154939035694, guid: 48b963b82dd386a49b1fbcafcc856b12, type: 2}
@@ -18819,6 +19040,81 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635905455}
+  m_CullTransparentMesh: 1
+--- !u!1 &1641790586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1641790587}
+  - component: {fileID: 1641790589}
+  - component: {fileID: 1641790588}
+  m_Layer: 0
+  m_Name: snow (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1641790587
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641790586}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1507162373}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 132.7, y: -45}
+  m_SizeDelta: {x: 17.6624, y: 16.0639}
+  m_Pivot: {x: 4.157893, y: 1.0000008}
+--- !u!114 &1641790588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641790586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 5296030215426426226, guid: 2a7ac0458f1c35b46a6a83bde093f6fe, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1641790589
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641790586}
   m_CullTransparentMesh: 1
 --- !u!1 &1644574169
 GameObject:
@@ -21302,13 +21598,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1816788802}
   - component: {fileID: 1816788803}
+  - component: {fileID: 1816788804}
   m_Layer: 0
   m_Name: Team Effect Aristocratism
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1816788802
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21344,6 +21641,22 @@ MonoBehaviour:
   _textNumber: {fileID: 106841774}
   _showInfoButton: {fileID: 416723411}
   _infoObject: {fileID: 1251448098}
+--- !u!114 &1816788804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816788801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e18b5c47d3d1de4cafd562a90d9f3cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _step1: 0.2
+  _step2: 0.25
+  _step3: 0.3
+  _env: {fileID: 456565776}
 --- !u!1 &1821774321
 GameObject:
   m_ObjectHideFlags: 0

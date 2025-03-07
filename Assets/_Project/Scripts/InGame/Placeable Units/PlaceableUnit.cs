@@ -135,7 +135,7 @@ public class PlaceableUnit : MonoBehaviour
             StartCoroutine(SpriteVisibilityDelay());
             IsIntialised = true;
         }
-    } 
+    }
 
     private IEnumerator SpriteVisibilityDelay()
     {

@@ -5,14 +5,19 @@ public class TeamEffect_Vampire : TeamEffect_Unit
     [SerializeField] private EnvironmentHandler _envHandler;
 
     private EnvironmentContainerHandler _envContainer;
+    private bool IsInititalised = false;
 
-    private void Awake()
+    private void Initialize()
     {
         _envContainer = _envHandler.GetEnvironmentContainer();
+        IsInititalised = true;
     }
 
     protected override void ApplyEffect()
     {
+        if(!IsInititalised)
+            Initialize();
+
         switch (_currentNumber)
         {
             case 2:

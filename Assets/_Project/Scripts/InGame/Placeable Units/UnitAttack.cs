@@ -2,13 +2,14 @@ using UnityEngine;
 
 public abstract class UnitAttack : MonoBehaviour
 {
-    private TargetDetector _targetDetector;
-    protected UnitUltimate _unitUltimate;
-    protected AudioSource _audioSource;
 
     [SerializeField] protected AudioClip _attackSoundClip;
     public Transform CurrentTarget { get; set; }
     public Animator Animator { protected get; set; }
+
+    private TargetDetector _targetDetector;
+    protected UnitUltimate _unitUltimate;
+    protected AudioSource _audioSource;
 
     protected bool OnEmpoweredShot = false;
     protected bool OnDoubleShot = false;

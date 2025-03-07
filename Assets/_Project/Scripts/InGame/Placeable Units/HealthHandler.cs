@@ -10,10 +10,17 @@ public class HealthHandler : MonoBehaviour
     public float CurrentHealthPoint { get; protected set; }
 
     [SerializeField] private HealingText _healingText;
+    [SerializeField] private GameObject _reviveFX;
+    [SerializeField] private AudioClip _reviveSound;
 
     private float _originalMaxHealth;
     protected bool IsDead = false;
     private bool IsInvincible = false;
+    private bool CanRevive = false;
+    private bool ReadyToRevive = false;
+    private float _healthAfterRevive = 0f;
+    private float _reviveCooldownTime = 60f;
+    private float _reviveCooldownTimer = 60f;
 
     protected Slider _healthPointSlider;
     protected ShowDamageText _damageText;
@@ -34,6 +41,21 @@ public class HealthHandler : MonoBehaviour
         hpSlider.value = 1f;  
     }
 
+    private void Update()
+    {
+        if (CanRevive && !ReadyToRevive)
+        {
+            if(_reviveCooldownTimer < _reviveCooldownTime)
+                _reviveCooldownTimer += Time.deltaTime;
+            else
+            {
+                ReadyToRevive = true;
+                _reviveCooldownTimer = 0f;
+            }
+        }
+
+    }
+
     public virtual void TakeDamage(float dmg)
     {
         if (IsDead || IsInvincible)
@@ -49,9 +71,16 @@ public class HealthHandler : MonoBehaviour
         }
         else
         {
-            _healthPointSlider.value = 0f;
-            Death();
-            
+            if (CanRevive && ReadyToRevive)
+            {
+                _healthPointSlider.value = 1f;
+                Revive();
+            }
+            else
+            {
+                _healthPointSlider.value = 0f;
+                Death();
+            }   
         }
     }
 
@@ -78,10 +107,30 @@ public class HealthHandler : MonoBehaviour
         UpdateHealthPointsSlider();
     }
 
+
     public void SetInvincibleEffect(float time)
     {
         IsInvincible = true;
         StartCoroutine(DefendEffect(time));
+    }
+
+    public void SetReviveAbility(float hpAfterDeath, bool canRevive)
+    {
+        CanRevive = canRevive;
+        _healthAfterRevive = MaxHealth * hpAfterDeath; 
+    }
+
+    private void Revive()
+    {
+        ReadyToRevive = false;
+        Heal(_healthAfterRevive);
+        var revivefx = Instantiate(_reviveFX, transform);
+        Vector2 newPos = transform.position;
+        newPos.y += 0.65f;
+        revivefx.transform.position = newPos;
+        AudioSource asource = GetComponent<AudioSource>();
+        asource.clip = _reviveSound;
+        asource.Play();
     }
 
     private IEnumerator DefendEffect(float time)

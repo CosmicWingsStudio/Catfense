@@ -34,7 +34,7 @@ public class EnemyRangeUnitAttack : EnemyAttack
             Projectail projectail = Instantiate(Resources.Load<Projectail>(_projectailPrefabPath), transform);
             Vector2 newPos = new(projectail.transform.position.x + _shootPointOffsetX, projectail.transform.position.y + _shootPointOffsetY);
             projectail.transform.position = newPos;
-            projectail.Initialize(Damage, _projectailSpeed, CurrentTarget.transform);
+            projectail.Initialize(Damage, _projectailSpeed, CurrentTarget.transform, 0);
         }
            
     }

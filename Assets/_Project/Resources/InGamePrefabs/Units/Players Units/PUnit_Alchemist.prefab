@@ -1301,6 +1301,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healingText: {fileID: 3941486446671638491}
+  _reviveFX: {fileID: 6855314210357232287, guid: 3d799bb652a624948bc3935294197490, type: 3}
+  _reviveSound: {fileID: 8300000, guid: a05123f2144834248952f94b7c5a8068, type: 3}
 --- !u!114 &5731059271757524440
 MonoBehaviour:
   m_ObjectHideFlags: 0

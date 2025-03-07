@@ -7,6 +7,7 @@ public class Projectail : MonoBehaviour
     [SerializeField, Min(0)] private float AOEDamageX = 1f;
     [SerializeField, Min(0)] private float AOEDamageY = 1f;
     [SerializeField, Tooltip("Can be null")] private GameObject OnHitEffect;
+    private float _slownessOnHit;
     private float _damage;
     private float _projectailSpeed;
     private Transform _targetObject;
@@ -16,13 +17,19 @@ public class Projectail : MonoBehaviour
     private bool hit = false;
     private bool OnNullTarget = false;
 
-    public void Initialize(float damage, float projectailSpeed, Transform target)
+    public void Initialize(float damage, float projectailSpeed, Transform target, float additionalAOE, float slownessEffect = 0f)
     {
         if(IsInitialized)
             return;
 
         _damage = damage;
+        _slownessOnHit = slownessEffect;
         _targetObject = target;
+        if(additionalAOE > 0 && AOEDamage)
+        {
+            AOEDamageX += AOEDamageX * additionalAOE;
+            AOEDamageY += AOEDamageX * additionalAOE;
+        }
 
         if (target.childCount > 0)
             _targetPosition = target.GetChild(0);
@@ -76,6 +83,11 @@ public class Projectail : MonoBehaviour
                                 GameObject onHitEffect = Instantiate(OnHitEffect);
                                 onHitEffect.transform.position = transform.position;
                             }
+                            if (_slownessOnHit > 0)
+                            {
+                                eu.GetComponent<EnemyMovement>().SetSlownessEffect(_slownessOnHit);
+                            }
+
                             hit = true;
 
                             if (AOEDamage == false)
@@ -116,6 +128,11 @@ public class Projectail : MonoBehaviour
                                 GameObject onHitEffect = Instantiate(OnHitEffect);
                                 onHitEffect.transform.position = transform.position;
                             }
+                            if(_slownessOnHit > 0)
+                            {
+                                eu.GetComponent<EnemyMovement>().SetSlownessEffect(_slownessOnHit);
+                            }
+
                             hit = true;  
                         }
                     }
@@ -123,6 +140,11 @@ public class Projectail : MonoBehaviour
                 else
                 {
                     _targetObject.GetComponent<HealthHandler>().TakeDamage(_damage);
+                    if (_slownessOnHit > 0)
+                    {
+                        _targetObject.GetComponent<EnemyMovement>().SetSlownessEffect(_slownessOnHit);
+                    }
+
                     hit = true;
 
                     if (OnHitEffect != null)

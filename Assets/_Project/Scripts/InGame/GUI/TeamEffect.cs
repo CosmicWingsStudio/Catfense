@@ -22,10 +22,16 @@ public class TeamEffect : MonoBehaviour
 
     private TeamEffect_Unit _effect;
 
+    public void EnableEffect()
+    {   
+        gameObject.SetActive(true);    
+    }
+
     private void Awake()
     {
         _showInfoButton.onClick.AddListener(ShowMoreInfo);
         _effect = GetComponent<TeamEffect_Unit>();
+        gameObject.SetActive(false);
     }
 
     private void ShowMoreInfo()
@@ -36,40 +42,15 @@ public class TeamEffect : MonoBehaviour
         _infoObject.transform.position = newPos;
     }
 
-    //private void InititalizeEffect(TeamEffectsType type)
-    //{
-    //    switch (type)
-    //    {
-    //        case TeamEffectsType.Pirate:
-
-    //            break;
-    //        case TeamEffectsType.Vampire:
-    //            break;
-    //        case TeamEffectsType.Snow:
-    //            break;
-    //        case TeamEffectsType.Alchimist:
-    //            break;
-    //        case TeamEffectsType.Viking:
-    //            break;
-    //        case TeamEffectsType.Shooter:
-    //            break;
-    //        case TeamEffectsType.Magic:
-    //            break;
-    //        case TeamEffectsType.Aristocratism:
-    //            break;
-    //        default:
-    //            break;
-    //    }
-    //}
-
-    private void OnDisable()
-    {
+    public void DisableEffect()
+    {  
         Numbers = 0;
         _infoObject.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     public void UpdateEffect(int num)
-    {
+    { 
         Numbers = num;
         _effect.UpdateEffect(Numbers);
     }
