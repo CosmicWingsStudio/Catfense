@@ -29,6 +29,7 @@ public class ShopHandler : MonoBehaviour
     private TextMeshProUGUI _additionalPartsText;
     private TextMeshProUGUI _rerollText;
     private List<ShopSlot> _slotsList = new();
+    private bool IsFirstWave = true;
 
     [Inject]
     private void Initialize(
@@ -51,7 +52,7 @@ public class ShopHandler : MonoBehaviour
         _guiWarningHandler = guiWarningHandler;
         _unitDragPlacer = unitDragPlacer;
 
-        _signalBus.Subscribe<WaveEndedSignal>(FillShopSlotsWithCards);
+        _signalBus.Subscribe<WaveEndedSignal>(WaveEndedUpdate);
 
         for (int i = 0; i < _shopSlotsFolder.childCount; i++)
         {
@@ -111,16 +112,60 @@ public class ShopHandler : MonoBehaviour
 
     private void FillShopSlotsWithCards()
     {
+        if (IsFirstWave)
+        {
+            UnitConfig previousCardConfig = null;
+            bool firstCard = true;
+
+            for (int i = 0; i < _slotsList.Count; i++)
+            {
+                int tier = 3;
+                UnitCard newCard = _cardsFactory.CreateUnitCard(tier);
+                UnitConfig newCardCFG;
+
+                if (firstCard)
+                {
+                    newCardCFG = GetRandomizedCardOutOfTier(tier);
+                    previousCardConfig = newCardCFG;
+                    firstCard = false;
+                }
+                else
+                {
+                    do
+                    {
+                        newCardCFG = GetRandomizedCardOutOfTier(tier);
+                    } while (newCardCFG.PresentiveName == previousCardConfig.PresentiveName);
+
+                    previousCardConfig = newCardCFG;
+                }
+
+                newCard.SetConfig(newCardCFG);
+                _slotsList[i].PlaceCardIntoSlot(newCard.transform);
+
+            }
+        }
+        else
+        {
+            for (int i = 0; i < _slotsList.Count; i++)
+            {
+                int tier = RandomizeCardTier();
+                var newCard = _cardsFactory.CreateUnitCard(tier);
+                newCard.SetConfig(GetRandomizedCardOutOfTier(tier));
+                _slotsList[i].PlaceCardIntoSlot(newCard.transform);
+
+            }
+        }
+        
+    }
+
+    private void WaveEndedUpdate()
+    {
         ClearCardsInSlots();
 
-        for (int i = 0; i < _slotsList.Count; i++)
-        { 
-            int tier = RandomizeCardTier();
-            var newCard = _cardsFactory.CreateUnitCard(tier);
-            newCard.SetConfig(GetRandomizedCardOutOfTier(tier));
-            _slotsList[i].PlaceCardIntoSlot(newCard.transform);
+        if (IsFirstWave)
+            IsFirstWave = false;
 
-        }
+        FillShopSlotsWithCards();
     }
 
     private void ClearCardsInSlots()
@@ -134,7 +179,6 @@ public class ShopHandler : MonoBehaviour
     private int RandomizeCardTier()
     {
         int randomValue = Random.Range(0, 100);
-        
         int tier = 0;
 
         if (randomValue > 100 - _cardsData.T3Weight)
@@ -147,7 +191,6 @@ public class ShopHandler : MonoBehaviour
             tier = 1;
 
         return tier;
-
     }
 
     private UnitConfig GetRandomizedCardOutOfTier(int cardtier)

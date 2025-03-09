@@ -4,12 +4,12 @@ using Zenject;
 public class GameModeSwitcher : MonoBehaviour
 {
     private SignalBus _signalBus;
-    private SceneEnemyFactory _sceneEnemyFabric; //’« Õ¿ƒŒ À» ÃÕ≈ ¡”ƒ≈“ Œ¡–¿Ÿ¿“‹—ﬂ “»œ¿ À¿—“ ›Õ»Ã» «ƒŒ’ » “»œ œ≈–≈ Àﬁ◊»“‹ ÃŒƒ »À»  ¿ ?
+    private SceneEnemyFactory _sceneEnemyFabric;
 
     [SerializeField, Min(1)] private float _prepareTime = 25;
-    [SerializeField, Min(1)] private float _firstRoundAdditionalPrepareTime = 10;
 
     private bool IsPrepareMode;
+    private bool IsFirstWave = true;
     private bool IsPaused = false;
     private bool IsLevelEnded = false;
 
@@ -24,7 +24,7 @@ public class GameModeSwitcher : MonoBehaviour
         _sceneEnemyFabric = sceneEnemyFabric;
 
         IsPrepareMode = true;
-        RemainingTime = _prepareTime + _firstRoundAdditionalPrepareTime;
+        RemainingTime = _prepareTime;
 
         _signalBus.Subscribe<PausedSignal>(() => ProcessPause(true));
         _signalBus.Subscribe<UnpausedSignal>(() => ProcessPause(false));
@@ -32,7 +32,7 @@ public class GameModeSwitcher : MonoBehaviour
 
     private void Update()
     {
-        if (IsPaused || IsLevelEnded || IsEverlastingPreparationTimeByDevTools)
+        if (IsPaused || IsLevelEnded || IsFirstWave || IsEverlastingPreparationTimeByDevTools)
             return;
 
         if (IsPrepareMode)
@@ -94,6 +94,12 @@ public class GameModeSwitcher : MonoBehaviour
                 _checkEnemyListTimer += Time.deltaTime;
 
         }
+    }
+
+    public void StartFirstWave()
+    {
+        SwitchMode(GameMode.WaveMode);
+        IsFirstWave = false;
     }
 }
 

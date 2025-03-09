@@ -7,7 +7,7 @@ public class UnitDragPlacer : MonoBehaviour
 {
     public bool IsDragging
     {
-        get
+        get 
         {
             if (_currentDraggableUnit != null)
                 return true;

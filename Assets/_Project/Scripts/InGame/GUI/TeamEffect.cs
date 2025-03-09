@@ -43,7 +43,10 @@ public class TeamEffect : MonoBehaviour
     }
 
     public void DisableEffect()
-    {  
+    {
+        if (!gameObject.activeSelf)
+            return;
+
         Numbers = 0;
         _infoObject.gameObject.SetActive(false);
         gameObject.SetActive(false);
