@@ -31,6 +31,7 @@ public class InGameSceneInstaller : MonoInstaller
         Container.DeclareSignal<WaveStartedSignal>();
         Container.DeclareSignal<WaveEndedSignal>();
         Container.DeclareSignal<LevelEndedSignal>();
+        Container.DeclareSignal<PRVideoEndedSignal>();
     }
 
     private void BindConfigs()
@@ -63,6 +64,7 @@ public class InGameSceneInstaller : MonoInstaller
         Container.Bind<MusicController>().FromComponentInHierarchy().AsSingle();
         Container.Bind<TeamEffects>().FromComponentInHierarchy().AsSingle();
         Container.Bind<GUI_EndLevelMenu>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<PRManager>().FromComponentInHierarchy().AsSingle();
     }
 
     //private void BindDeveloperTools()

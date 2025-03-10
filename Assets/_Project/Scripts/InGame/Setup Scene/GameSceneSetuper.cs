@@ -26,6 +26,14 @@ public class GameSceneSetuper : IInitializable
         Debug.Log("Setup scene process starts");
         TakeLevelConfigData();
         SetParamsFromLevelConfig();
+        if (LevelDataProviderFromMenuScene.Instance.OnRestart)
+        {
+            LevelDataProviderFromMenuScene.Instance.OnRestart = false;
+        }
+        else
+        {
+            LevelDataProviderFromMenuScene.Instance.RestartLevelDataSaverSO.SetDefaultData();
+        }
     }
 
     private void TakeLevelConfigData()

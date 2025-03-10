@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,27 +7,37 @@ using Zenject;
 
 public class ResultScreenGUIHandler : MonoBehaviour
 {
-    [Inject] private SignalBus _signalBus;
-    [Inject] private ISaveService _saveService;
+    private SignalBus _signalBus;
+    private ISaveService _saveService;
+    private LevelConfig _levelConfig;
     private int _realmIndex;
     private int _levelIndex;
+    private int _additionalMoney = 0;
 
     [Header("Put references")]
-
+    [SerializeField] private RestartLevelDataSaver _restartLevelDataSaverSO;
     [SerializeField] private GameObject _resultScreenObject;
+    [SerializeField] private GameObject _additionalOnLose;
     [SerializeField] private TextMeshProUGUI _resultText;
     [SerializeField] private Button _exitButton;
- 
+    [SerializeField] private Button _restartButton;
+
     [Header("Put string values")]
 
     [SerializeField] private string _winResultInscription = "Уровень пройден";
     [SerializeField] private string _loseResultInscription = "Уровень не пройден";
 
-    private void Start()
+    [Inject]
+    private void Initialize(SignalBus signalBus, ISaveService saveService)
     {
+        _signalBus = signalBus;
+        _saveService = saveService;
+
         _signalBus.Subscribe<LevelEndedSignal>(ShowResultScreen);
+        _signalBus.Subscribe<PRVideoEndedSignal>(() => _additionalMoney = 100);
         _exitButton.onClick.AddListener(() => SceneManager.LoadScene("InMenuScene"));
-    } 
+        _restartButton.onClick.AddListener(RestartLevel);
+    }
     
     public void ShowResultScreen(LevelEndedSignal levelEndedSignal)
     {
@@ -42,6 +53,8 @@ public class ResultScreenGUIHandler : MonoBehaviour
                 break;
             case ResultType.Lose:
                 _resultScreenObject.SetActive(true);
+                _additionalOnLose.SetActive(true);
+                //StartCoroutine(RestartButtonEnableDelay());
                 _resultText.text = _loseResultInscription;
                 SoundMakerGUI.Instance.PlaySound(SoundMakerGUI.Instance.SoundLoseResult);
                 Time.timeScale = 0f;
@@ -54,6 +67,19 @@ public class ResultScreenGUIHandler : MonoBehaviour
     {
         _realmIndex = RealmIndex;
         _levelIndex = LevelIndex;
+    }
+
+    private void RestartLevel()
+    {
+        if (LevelDataProviderFromMenuScene.Instance.LevelDataConfig != null)
+            _levelConfig = LevelDataProviderFromMenuScene.Instance.LevelDataConfig;
+        else if (LevelDataProviderFromMenuScene.Instance.DeveloperToolsConfig != null)
+            _levelConfig = LevelDataProviderFromMenuScene.Instance.DeveloperToolsConfig;
+
+        _restartLevelDataSaverSO.SetData(_additionalMoney, _levelConfig);
+        LevelDataProviderFromMenuScene.Instance.Restart();
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("InGameScene");
     }
 
     private void SaveResult(bool result = true)
@@ -69,6 +95,15 @@ public class ResultScreenGUIHandler : MonoBehaviour
 
         //сохраняем измекненую сэйвДату
         _saveService.SaveData(data);
+    }
+
+    private IEnumerator RestartButtonEnableDelay()
+    {
+        _restartButton.interactable = false;
+        Time.timeScale = 1f;
+        yield return new WaitForSeconds(1.5f);
+        _restartButton.interactable = true;
+        Time.timeScale = 0;
     }
 
 }

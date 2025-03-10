@@ -5,6 +5,7 @@ using Zenject;
 
 public class WalletHandler : MonoBehaviour
 {
+    [SerializeField] private RestartLevelDataSaver _restartLevelDataSaver;
     [SerializeField] private TextMeshProUGUI _moneyText;
     [SerializeField] private TextMeshProUGUI _incomeMoneyText;
     [SerializeField] private TextMeshProUGUI _outcomeMoneyText;
@@ -28,6 +29,13 @@ public class WalletHandler : MonoBehaviour
     private void Start()
     {
         CurrentMoney = _startMoney;
+
+        if (_restartLevelDataSaver.OnRestart)
+        {
+            CurrentMoney += _restartLevelDataSaver.AdditionalMoney;
+            _restartLevelDataSaver.AdditionalMoney = 0;
+        }
+       
         _moneyText.text = CurrentMoney.ToString();
         _defaultFontSize = _moneyText.fontSize;
         _defaultTextColor = _moneyText.color;
