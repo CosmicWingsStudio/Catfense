@@ -26,6 +26,7 @@ public class ResultScreenGUIHandler : MonoBehaviour
 
     [SerializeField] private string _winResultInscription = "Уровень пройден";
     [SerializeField] private string _loseResultInscription = "Уровень не пройден";
+    [SerializeField] private bool IsTrainingLevel = false;
 
     [Inject]
     private void Initialize(SignalBus signalBus, ISaveService saveService)
@@ -41,6 +42,12 @@ public class ResultScreenGUIHandler : MonoBehaviour
     
     public void ShowResultScreen(LevelEndedSignal levelEndedSignal)
     {
+        if (IsTrainingLevel)
+        {
+            SoundMakerGUI.Instance.PlaySound(SoundMakerGUI.Instance.SoundWinResult);
+            return;
+        }
+
         switch (levelEndedSignal.ResultType)
         {
             case ResultType.Win:

@@ -31,6 +31,8 @@ public class ShopHandler : MonoBehaviour
     private List<ShopSlot> _slotsList = new();
     private bool IsFirstWave = true;
 
+    public bool SellingDisable = false;
+
     [Inject]
     private void Initialize(
         CardsFactory cardsFactory,
@@ -232,7 +234,7 @@ public class ShopHandler : MonoBehaviour
                     if (i + 1 >= listRef.Count)
                     {
                         _buyAdditionalPartsButton.enabled = false;
-                        _buyAdditionalPartsButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Не доступно";
+                        _buyAdditionalPartsButton.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "-";
                     }
 
                     listRef.RemoveAt(i);
@@ -269,8 +271,11 @@ public class ShopHandler : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(1))
         {
+            if (SellingDisable)
+                return;
+
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            var hit = Physics2D.RaycastAll(mousePos, Vector2.right);
+            var hit = Physics2D.RaycastAll(mousePos, Vector2.zero);
             foreach (var collider in hit)
             {
                 if (collider.transform.TryGetComponent(out PlaceableUnit pUnit))

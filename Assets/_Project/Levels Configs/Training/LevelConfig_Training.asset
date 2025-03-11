@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16cf7bc810468e444bb6cd64f18eba1e, type: 3}
+  m_Name: LevelConfig_Training
+  m_EditorClassIdentifier: 
+  <BackGround>k__BackingField: {fileID: 21300000, guid: 33c715ff2830e6d4488038a87e192a11, type: 3}
+  <EnvironmentPrefabName>k__BackingField: Env_01
+  <RealmIndex>k__BackingField: 0
+  <LevelIndex>k__BackingField: 0
+  <DifficultyLevel>k__BackingField: 1
+  <WavesList>k__BackingField:
+  - EnemiesOnWaveList:
+    - <PrefabName>k__BackingField: Melee_01
+      <Amount>k__BackingField: 2
+    - <PrefabName>k__BackingField: Range_01
+      <Amount>k__BackingField: 1
+  - EnemiesOnWaveList:
+    - <PrefabName>k__BackingField: Melee_01
+      <Amount>k__BackingField: 1
+    - <PrefabName>k__BackingField: Range_01
+      <Amount>k__BackingField: 1
+    - <PrefabName>k__BackingField: Boss_03
+      <Amount>k__BackingField: 1
+  <MusicClips>k__BackingField:
+  - {fileID: 8300000, guid: dfd3a1ffc0a426f45b02c5b3c7b31a37, type: 3}

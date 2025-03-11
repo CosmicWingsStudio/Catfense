@@ -6,6 +6,7 @@ public class InGameSceneInstaller : MonoInstaller
     [SerializeField] private UnityEngine.UI.Image _backGroundImage;
     [SerializeField] private PrefabsPathsToFoldersProvider _prefabsDataConfig;
     [SerializeField] private Transform _mainCanvas;
+    [SerializeField] private bool IsTraining = false;
 
     [Header("Reward Orbs")]
     [SerializeField] private Reward _rewardObject;
@@ -19,6 +20,8 @@ public class InGameSceneInstaller : MonoInstaller
         BindFactories();
         BindHandlers();
         BindSaveServices();
+        if(IsTraining)
+            Container.Bind<TrainingManager>().FromComponentInHierarchy().AsSingle();
         //BindDeveloperTools();
     }
 
