@@ -10,6 +10,7 @@ public class PreparationPhaseGUIHandler : MonoBehaviour
     [SerializeField] private GameObject _guiPreparationFirstWave;
     [SerializeField] private Button _startFirstWaveButton;
     [SerializeField] private TextMeshProUGUI _preparationTimerText;
+    [SerializeField] private int _requiredAmountOfUnits = 1;
 
     private bool IsPrepareMode;
     private bool IsFirstWaveEnded = false;
@@ -54,11 +55,16 @@ public class PreparationPhaseGUIHandler : MonoBehaviour
     private bool CheckStartWaveConditions()
     {
         _environmentContainer = _environmentHandler.GetEnvironmentContainer();
+        int amount = 0;
 
         for (int i = 0; i < _environmentContainer.PlaceSlots.Count; i++)
         {
             if (_environmentContainer.PlaceSlots[i].Item != null)
-                return true;
+            {
+                amount++;
+                if(amount == _requiredAmountOfUnits)
+                    return true;
+            }
         }
 
         return false;

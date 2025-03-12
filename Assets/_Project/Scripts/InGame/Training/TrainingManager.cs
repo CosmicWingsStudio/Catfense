@@ -77,7 +77,7 @@ public class TrainingManager : MonoBehaviour
         _shopHandler.SellingDisable = true;
         DisableAllButtons();
 
-        _signalBus.Subscribe<LevelEndedSignal>(HandleLevelEnd);
+        _signalBus.Subscribe<LevelEndedSignal>(ctx => HandleLevelEnd(ctx.ResultType));
 
         _triggerButton0.onClick.AddListener(CompleteCurrentStep);
         _triggerButton1.onClick.AddListener(CompleteCurrentStep);
@@ -254,17 +254,26 @@ public class TrainingManager : MonoBehaviour
         if (check)
         {
             Steps[CurrentStep] = true;
+            if(CurrentStep == 9)
+                SceneManager.LoadScene("InMenuScene");
+
             if (CurrentStep + 1 <= Steps.Count)
                 CurrentStep++;
-            else
-                SceneManager.LoadScene("InMenuScene");
         }    
     }
 
-    private void HandleLevelEnd()
+    private void HandleLevelEnd(ResultType result)
     {
-        IsReadyToFinish = true;
-        _unitDragPlacer.IsDisabledBySellScreen = true;
+        if(result == ResultType.Win)
+        {
+            IsReadyToFinish = true;
+            _unitDragPlacer.IsDisabledBySellScreen = true;
+        }
+        else
+        {
+            SceneManager.LoadScene("InGameTrainingScene");
+        }
+        
     }
 
     private void DisableAllButtons()

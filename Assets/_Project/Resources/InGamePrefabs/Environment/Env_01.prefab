@@ -14910,7 +14910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c35b15dd53b654a8c48c887a944b19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Health>k__BackingField: 500
+  <Health>k__BackingField: 250
   <HealthPointsSlider>k__BackingField: {fileID: 4553624731396201696}
 --- !u!114 &2522536053195695984
 MonoBehaviour:
@@ -14925,6 +14925,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healingText: {fileID: 0}
+  _reviveFX: {fileID: 0}
+  _reviveSound: {fileID: 0}
 --- !u!50 &476476457896730145
 Rigidbody2D:
   serializedVersion: 5

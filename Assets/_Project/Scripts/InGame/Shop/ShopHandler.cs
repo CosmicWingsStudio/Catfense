@@ -114,6 +114,10 @@ public class ShopHandler : MonoBehaviour
 
     private void FillShopSlotsWithCards()
     {
+        int rangeUnits = 0;
+        int meleeUnits = 0;
+        int gapIter = _slotsList.Count - 1;
+
         if (IsFirstWave)
         {
             UnitConfig previousCardConfig = null;
@@ -129,7 +133,42 @@ public class ShopHandler : MonoBehaviour
                 {
                     newCardCFG = GetRandomizedCardOutOfTier(tier);
                     previousCardConfig = newCardCFG;
-                    firstCard = false;
+                    firstCard = false;    
+                    if(newCardCFG.UnitAttackType == "Дальний")
+                        rangeUnits++;
+                    else
+                        meleeUnits++;
+
+                }
+                else if(i == gapIter)
+                {
+                    if(rangeUnits == 0)
+                    {
+                        do
+                        {
+                            newCardCFG = GetRandomizedCardOutOfTier(tier);
+                        } while (newCardCFG.UnitAttackType == "Дальний");
+
+                        previousCardConfig = newCardCFG;
+                    }
+                    else if(meleeUnits == 0)
+                    {
+                        do
+                        {
+                            newCardCFG = GetRandomizedCardOutOfTier(tier);
+                        } while (newCardCFG.UnitAttackType == "Ближний");
+
+                        previousCardConfig = newCardCFG;
+                    }
+                    else
+                    {
+                        do
+                        {
+                            newCardCFG = GetRandomizedCardOutOfTier(tier);
+                        } while (newCardCFG.PresentiveName == previousCardConfig.PresentiveName);
+
+                        previousCardConfig = newCardCFG;
+                    }
                 }
                 else
                 {
@@ -139,6 +178,10 @@ public class ShopHandler : MonoBehaviour
                     } while (newCardCFG.PresentiveName == previousCardConfig.PresentiveName);
 
                     previousCardConfig = newCardCFG;
+                    if (newCardCFG.UnitAttackType == "Дальний")
+                        rangeUnits++;
+                    else
+                        meleeUnits++;
                 }
 
                 newCard.SetConfig(newCardCFG);
