@@ -7,7 +7,7 @@ using UnityEngine;
 public class EnemyUnit : MonoBehaviour
 {
     [Header("Unit parameters")]
-    [SerializeField] private int _healthPoints;  
+    [SerializeField] private float _healthPoints;  
 
     public HealthHandler unitHealth { get; private set; }
     public EnemyAttack unitAttack { get; private set; }
@@ -83,9 +83,9 @@ public class EnemyUnit : MonoBehaviour
     private void ApplyLevelDifficulty(float difficulty)
     {
         float newHp = _healthPoints * difficulty;
-        _healthPoints = (int)newHp;
+        _healthPoints += newHp;
 
-        unitAttack.Damage *= difficulty;
+        unitAttack.Damage += unitAttack.Damage * difficulty;
         unitHealth.SetHealthParams(_healthPoints, DataDisplayer._hpSlider);
     }
 

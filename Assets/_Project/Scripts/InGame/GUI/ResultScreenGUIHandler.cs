@@ -51,8 +51,15 @@ public class ResultScreenGUIHandler : MonoBehaviour
         switch (levelEndedSignal.ResultType)
         {
             case ResultType.Win:
-                Debug.Log("SAVE RESULT IS OFF");
-                //SaveResult();
+                try
+                {
+                    SaveResult();
+                }
+                catch (System.Exception)
+                {
+                    Debug.LogError("SAVE RESULT IS FAILED");
+                    throw;
+                }
                 _resultScreenObject.SetActive(true);
                 _resultText.text = _winResultInscription;
                 SoundMakerGUI.Instance.PlaySound(SoundMakerGUI.Instance.SoundWinResult);

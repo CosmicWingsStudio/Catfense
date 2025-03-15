@@ -9,11 +9,11 @@ public class WalletHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _moneyText;
     [SerializeField] private TextMeshProUGUI _incomeMoneyText;
     [SerializeField] private TextMeshProUGUI _outcomeMoneyText;
-    [SerializeField] private int _startMoney = 50;
-    [SerializeField] private int _moneyPerWave = 50;
     [SerializeField] private float _moneyHighlightingTime = 0.90f;
-    [Zenject.Inject] private SignalBus _signalBus;
+    [Inject] private SignalBus _signalBus;
 
+    private int _startMoney;
+    private int _moneyPerWave;
     private Vector3 _defaultChangedOutcomeMoneyTextPosition;
     private Vector3 _defaultChangedIncomeMoneyTextPosition;
     private float _defaultFontSize;
@@ -21,27 +21,36 @@ public class WalletHandler : MonoBehaviour
     private bool AddHighlighting = false;
     private bool ReduceHighlighting = false;
     private bool IsHighlightingFinished = false;
+    private bool IsInitialised = false;
 
     public int CurrentMoney { get; private set; }
 
     public float AdditionalMoneyBonus { get; set; }
 
-    private void Start()
+    public void Initialize(int startMoney, int moneyFromWaveEnd)
     {
-        CurrentMoney = _startMoney;
-
-        if (_restartLevelDataSaver.OnRestart)
+        if(IsInitialised == false)
         {
-            CurrentMoney += _restartLevelDataSaver.AdditionalMoney;
-            _restartLevelDataSaver.AdditionalMoney = 0;
+            IsInitialised = true;
+
+            _startMoney = startMoney;
+            _moneyPerWave = moneyFromWaveEnd;
+
+            CurrentMoney = _startMoney;
+
+            if (_restartLevelDataSaver.OnRestart)
+            {
+                CurrentMoney += _restartLevelDataSaver.AdditionalMoney;
+                _restartLevelDataSaver.AdditionalMoney = 0;
+            }
+
+            _moneyText.text = CurrentMoney.ToString();
+            _defaultFontSize = _moneyText.fontSize;
+            _defaultTextColor = _moneyText.color;
+            _signalBus.Subscribe<WaveEndedSignal>(GetAfterWaveMoney);
+            _defaultChangedOutcomeMoneyTextPosition = _outcomeMoneyText.transform.position;
+            _defaultChangedIncomeMoneyTextPosition = _incomeMoneyText.transform.position;
         }
-       
-        _moneyText.text = CurrentMoney.ToString();
-        _defaultFontSize = _moneyText.fontSize;
-        _defaultTextColor = _moneyText.color;
-        _signalBus.Subscribe<WaveEndedSignal>(GetAfterWaveMoney);
-        _defaultChangedOutcomeMoneyTextPosition = _outcomeMoneyText.transform.position;
-        _defaultChangedIncomeMoneyTextPosition = _incomeMoneyText.transform.position;
     }
 
     private void Update()

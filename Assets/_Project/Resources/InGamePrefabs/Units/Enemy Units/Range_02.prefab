@@ -440,6 +440,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healingText: {fileID: 0}
+  _reviveFX: {fileID: 0}
+  _reviveSound: {fileID: 0}
 --- !u!114 &4732266332050348474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,7 +467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb558b74d2806349a3c7d278a4674a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthPoints: 50
+  _healthPoints: 70
   IsInitialised: 0
 --- !u!114 &316508995868284286
 MonoBehaviour:
@@ -480,7 +482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSizeX: 1
-  _detectionSizeY: 7
+  _detectionSizeY: 15
 --- !u!114 &844865362701785908
 MonoBehaviour:
   m_ObjectHideFlags: 0

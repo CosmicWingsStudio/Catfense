@@ -4,7 +4,7 @@ using Zenject;
 
 public class SceneEnemyFactory : MonoBehaviour
 {
-    [SerializeField, Min(0.5f)] private float _enemySpawnDelay = 1.5f; 
+    [SerializeField, Min(0.5f)] private float _enemySpawnDelay = 2.25f; 
 
     private Transform _enemySpawnPoint;
     private SignalBus _signalBus;
@@ -18,6 +18,8 @@ public class SceneEnemyFactory : MonoBehaviour
     private int _currentWave = 1;
     private float _enemySpawnDelayTimer = 0f;
     private float _difficultyLevel = 1f;
+    private float _difficultyScale = 0.1f;
+    private float _currentDifficultyLevel = 0f;
     private float _enemySpawnDelayRandomised;
 
     private bool IsReadyToProduceUnits = false;
@@ -39,10 +41,13 @@ public class SceneEnemyFactory : MonoBehaviour
         _signalBus.Subscribe<UnpausedSignal>(() => IsPaused = false);
     }
 
-    public void SetConfigData(List<LevelWave> wavesList, int wavesAmount, Transform enemySpawnPoint, float difficultyLevel)
+    public void SetConfigData(List<LevelWave> wavesList, int wavesAmount, Transform enemySpawnPoint,
+        float difficultyLevel, float difficultyScale)
     {
         _wavesList = new();
         _difficultyLevel = difficultyLevel;
+        _currentDifficultyLevel = difficultyLevel;
+        _difficultyScale = difficultyScale;
 
         for (int i = 0; i < wavesList.Count; i++)
         {
@@ -112,7 +117,7 @@ public class SceneEnemyFactory : MonoBehaviour
     private EnemyUnit Produce(string PathToPrefab)
     {
         EnemyUnit enemy = Instantiate(Resources.Load<EnemyUnit>(PathToPrefab), _enemySpawnPoint);
-        enemy.Initialize(_difficultyLevel, _rewardSpawner);
+        enemy.Initialize(_currentDifficultyLevel, _rewardSpawner);
         return enemy;
     }
 
@@ -157,6 +162,7 @@ public class SceneEnemyFactory : MonoBehaviour
     {
         IsReadyToProduceUnits = true;
         _enemySpawnDelayTimer = _enemySpawnDelay;
+        _currentDifficultyLevel = _difficultyLevel + (_difficultyLevel * _difficultyScale); 
         _currentWaveData = _wavesList[_currentWave - 1].EnemiesOnWaveList;
         if (_currentWave == _wavesAmount)
             IsLastWave = true;

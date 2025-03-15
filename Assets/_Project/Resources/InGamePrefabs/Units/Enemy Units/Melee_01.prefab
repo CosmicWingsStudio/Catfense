@@ -1086,6 +1086,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healingText: {fileID: 0}
+  _reviveFX: {fileID: 0}
+  _reviveSound: {fileID: 0}
 --- !u!114 &7778371810473434479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1112,7 +1114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _firerate: 4
-  Damage: 10
+  Damage: 15
 --- !u!114 &4728568723783202890
 MonoBehaviour:
   m_ObjectHideFlags: 0

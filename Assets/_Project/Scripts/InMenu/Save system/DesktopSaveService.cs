@@ -14,10 +14,17 @@ public class DesktopSaveService : ISaveService
 
     public SavedData LoadData()
     {
-        //типа дата поток хуёк тут из файла в данные(тип сэйвдейты) преобразуется
         string path = GetSaveDataPath();
         SavedData data;
-        if(!File.Exists(path))
+        if (File.Exists(path))
+        {
+            string stringData = File.ReadAllText(path);
+            if(stringData == string.Empty)
+            {
+                SaveData();
+            }
+        }
+        else
         {
             CreateSaveFile(); 
             SaveData();   

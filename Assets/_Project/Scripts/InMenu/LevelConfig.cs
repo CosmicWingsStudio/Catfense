@@ -18,8 +18,16 @@ public class LevelConfig : ScriptableObject
     [field: SerializeField]
     public int LevelIndex { get; private set; }
 
-    [field: SerializeField]
+    [field: SerializeField, Range(0.1f, 10.0f)]
     public float DifficultyLevel { get; private set; }
+
+    [field: SerializeField]
+    public int StartMoney { get; private set; }
+    [field: SerializeField]
+    public int MoneyPerWave { get; private set; }
+
+    [field: SerializeField, Range(0.1f, 0.9f)]
+    public float DifficultyLevelScale { get; private set; }
 
     public int WavesAmount { get => WavesList.Count; }
 

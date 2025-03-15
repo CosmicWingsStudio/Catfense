@@ -1281,7 +1281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSizeX: 15
-  _detectionSizeY: 18
+  _detectionSizeY: 24
 --- !u!114 &2249428726452111981
 MonoBehaviour:
   m_ObjectHideFlags: 0

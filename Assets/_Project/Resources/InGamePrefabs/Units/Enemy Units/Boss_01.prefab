@@ -321,7 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb558b74d2806349a3c7d278a4674a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthPoints: 100
+  _healthPoints: 300
   IsInitialised: 0
 --- !u!114 &8570338214876548563
 MonoBehaviour:
@@ -349,6 +349,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healingText: {fileID: 0}
+  _reviveFX: {fileID: 0}
+  _reviveSound: {fileID: 0}
 --- !u!114 &2626368810553634636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,7 +377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _firerate: 6
-  Damage: 20
+  Damage: 30
 --- !u!114 &6580999046168428394
 MonoBehaviour:
   m_ObjectHideFlags: 0

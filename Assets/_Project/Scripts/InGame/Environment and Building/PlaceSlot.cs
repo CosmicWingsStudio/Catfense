@@ -77,6 +77,14 @@ public class PlaceSlot : Slot2D
             return false;
     }
 
+    public void UpdateSlotAfterWave()
+    {
+        if(Item == null)
+            ChangeColliderState(true);
+        else
+            ChangeColliderState(false);
+    }
+
     private IEnumerator DefendEffect(float time)
     {
         yield return new WaitForSeconds(time);

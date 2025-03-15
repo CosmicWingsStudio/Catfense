@@ -4,6 +4,7 @@ using UnityEngine;
 public class UnitUpgrader : MonoBehaviour
 {
     private int _currentUpgradeLevel = 0;
+    private float _scaleMultiplier = 0f;
     private UnitDataDisplayer _displayer;
     private PlaceableUnit _placeableUnit;
 
@@ -26,9 +27,11 @@ public class UnitUpgrader : MonoBehaviour
     public void UpgradeUnit()
     {
         _currentUpgradeLevel++;
+        _scaleMultiplier += 0.25f;
         _displayer.ShowUnitUpgrade();
-        _placeableUnit.unitAttackHandler.UpgradeStats(_currentUpgradeLevel);
-        _placeableUnit.Health.UpgradeStats(_currentUpgradeLevel);
+        _placeableUnit.unitAttackHandler.UpgradeStats(_scaleMultiplier);
+        _placeableUnit.Health.UpgradeStats(_scaleMultiplier);
+
         FxSpawner.Instance.SpawnUpgradeEffect(transform.position);
         SoundMakerGUI.Instance.PlaySoundInSubAudioSource(SoundMakerGUI.Instance.SoundUpgradeUnit);
     }

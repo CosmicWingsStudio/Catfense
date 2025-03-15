@@ -207,13 +207,14 @@ public class EnvironmentContainerHandler : MonoBehaviour
 
     private void AfterWaveActions()
     {
+        UpdateSlots();
         HealUnits();
+        UpdateTeamEffects();
         ChangeStatusToPlacedUnits(false);
     }
 
     private void AfterWaveStartedActions()
     {
-        HealUnits();
         ChangeStatusToPlacedUnits(true);
     }
 
@@ -253,6 +254,16 @@ public class EnvironmentContainerHandler : MonoBehaviour
         {
             IsOnUpdateTeamEffects = true;
             StartCoroutine(UpdateTeamEffectsDelay());
+        }
+    }
+
+    private void UpdateSlots()
+    {
+        var slots = GetAllPlaceableSlots();
+        for (int i = 0; i < slots.Count; i++)
+        {
+            if (slots[i].isActiveAndEnabled)
+                slots[i].UpdateSlotAfterWave();
         }
     }
 

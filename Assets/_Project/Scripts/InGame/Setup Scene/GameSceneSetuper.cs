@@ -7,14 +7,16 @@ public class GameSceneSetuper : IInitializable
     private EnvironmentHandler _environmentHandler;
     private SceneEnemyFactory _sceneEnemyFactory;
     private MusicController _musicController;
+    private WalletHandler _wallet;
 
     public GameSceneSetuper(BackGroundHandler bgh, EnvironmentHandler eh,
-        SceneEnemyFactory fp, MusicController mc)
+        SceneEnemyFactory fp, MusicController mc, WalletHandler wallet)
     {
         _backGroundHandler = bgh;
         _environmentHandler = eh;
         _sceneEnemyFactory = fp;
         _musicController = mc;
+        _wallet = wallet;
     }
 
     private LevelConfig LevelDataConfig;
@@ -58,6 +60,7 @@ public class GameSceneSetuper : IInitializable
             SetEnvironment();
             FillFactoryWithData();
             SetAudioClips();
+            _wallet.Initialize(LevelDataConfig.StartMoney, LevelDataConfig.MoneyPerWave);
         }  
         else
             Debug.LogError("LevelConfig is missing");
@@ -143,7 +146,7 @@ public class GameSceneSetuper : IInitializable
 
             Transform enemySpawnPoint = _environmentHandler.GetEnemySpawnPoint();
             _sceneEnemyFactory.SetConfigData(LevelDataConfig.WavesList, LevelDataConfig.WavesAmount,
-                enemySpawnPoint, LevelDataConfig.DifficultyLevel);
+                enemySpawnPoint, LevelDataConfig.DifficultyLevel, LevelDataConfig.DifficultyLevelScale);
             Debug.Log("WavesCfg is installed");
         }
      

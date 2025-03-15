@@ -30,7 +30,7 @@ public class ShopHandler : MonoBehaviour
     private TextMeshProUGUI _rerollText;
     private List<ShopSlot> _slotsList = new();
     private bool IsFirstWave = true;
-
+   
     public bool SellingDisable = false;
 
     [Inject]
@@ -147,7 +147,7 @@ public class ShopHandler : MonoBehaviour
                         do
                         {
                             newCardCFG = GetRandomizedCardOutOfTier(tier);
-                        } while (newCardCFG.UnitAttackType == "Дальний");
+                        } while (newCardCFG.UnitAttackType != "Дальний");
 
                         previousCardConfig = newCardCFG;
                     }
@@ -156,7 +156,7 @@ public class ShopHandler : MonoBehaviour
                         do
                         {
                             newCardCFG = GetRandomizedCardOutOfTier(tier);
-                        } while (newCardCFG.UnitAttackType == "Ближний");
+                        } while (newCardCFG.UnitAttackType != "Ближний");
 
                         previousCardConfig = newCardCFG;
                     }

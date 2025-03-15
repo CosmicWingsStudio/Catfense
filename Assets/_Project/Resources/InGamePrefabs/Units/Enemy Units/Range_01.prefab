@@ -1668,7 +1668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb558b74d2806349a3c7d278a4674a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthPoints: 50
+  _healthPoints: 40
   IsInitialised: 0
 --- !u!114 &4682061311781664107
 MonoBehaviour:
@@ -1683,6 +1683,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healingText: {fileID: 0}
+  _reviveFX: {fileID: 0}
+  _reviveSound: {fileID: 0}
 --- !u!114 &8708390529855948354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1722,7 +1724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _firerate: 4
-  Damage: 8
+  Damage: 13
   _projectailPrefabPath: InGamePrefabs/Projectails/Steel knife
   _projectailSpeed: 5
   _shootPointOffsetX: -1

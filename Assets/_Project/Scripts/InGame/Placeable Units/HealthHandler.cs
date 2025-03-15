@@ -26,7 +26,7 @@ public class HealthHandler : MonoBehaviour
     protected ShowDamageText _damageText;
     private Animator _animator;
 
-    public void SetHealthParams(int maxHealth, Slider hpSlider)
+    public void SetHealthParams(float maxHealth, Slider hpSlider)
     {
         MaxHealth = maxHealth;
         _originalMaxHealth = MaxHealth;
@@ -179,9 +179,9 @@ public class HealthHandler : MonoBehaviour
             _healthPointSlider.value = 0f;
     }
 
-    public void UpgradeStats(int multiplier)
+    public void UpgradeStats(float multiplier)
     {
-        MaxHealth += multiplier * (_originalMaxHealth / 10);
+        MaxHealth += _originalMaxHealth * multiplier;
         CurrentHealthPoint = MaxHealth;
         UpdateHealthPointsSlider();
     }

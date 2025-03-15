@@ -6756,7 +6756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab314cab51d483142a0215bfced73ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemySpawnDelay: 1.5
+  _enemySpawnDelay: 2.25
 --- !u!114 &543340490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8900,7 +8900,7 @@ MonoBehaviour:
   _spellPrefab: {fileID: 6260076954754140685, guid: eb7df05de08a42b49a2ad4e4e117be12, type: 3}
   _envHandler: {fileID: 456565776}
   _castPosition: {fileID: 666652468}
-  _spellCooldown: 5
+  _spellCooldown: 50
 --- !u!82 &707658349
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11627,9 +11627,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16309a92ff012654a81c6fee721d25ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _step1: 0.1
-  _step2: 0.2
-  _step3: 0.3
+  _step1: 0.2
+  _step2: 0.35
+  _step3: 0.5
   _spellButton1: {fileID: 707658348}
   _spellButton2: {fileID: 1556443686}
 --- !u!1 &921362192
@@ -17166,7 +17166,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1349917512
 Transform:
   m_ObjectHideFlags: 0
@@ -17214,7 +17214,7 @@ MonoBehaviour:
   _walletHandler: {fileID: 1497381722}
   <DisableEnemySpawn>k__BackingField: 0
   <EverlastingPreparationTime>k__BackingField: 0
-  <StartMoney>k__BackingField: 900
+  <StartMoney>k__BackingField: 0
 --- !u!1 &1356520352
 GameObject:
   m_ObjectHideFlags: 0
@@ -17669,6 +17669,7 @@ MonoBehaviour:
   _backGroundImage: {fileID: 1897475848}
   _prefabsDataConfig: {fileID: 11400000, guid: 66c08cb90641de14db7b36abb1d71e2f, type: 2}
   _mainCanvas: {fileID: 208569124}
+  IsTraining: 0
   _rewardObject: {fileID: 5392603458825828788, guid: 74a372517a73b364bbfe159b1c6c86bb, type: 3}
   _moneyTextPosition: {fileID: 1772208906}
 --- !u!114 &1414669613
@@ -18371,6 +18372,7 @@ MonoBehaviour:
   _guiPreparationFirstWave: {fileID: 2040432344}
   _startFirstWaveButton: {fileID: 1239767716}
   _preparationTimerText: {fileID: 863245485}
+  _requiredAmountOfUnits: 1
 --- !u!114 &1470489830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18392,6 +18394,7 @@ MonoBehaviour:
   _winResultInscription: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C \u043F\u0440\u043E\u0439\u0434\u0435\u043D"
   _loseResultInscription: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C \u043D\u0435
     \u043F\u0440\u043E\u0439\u0434\u0435\u043D"
+  IsTrainingLevel: 0
 --- !u!114 &1470489831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18780,6 +18783,7 @@ MonoBehaviour:
   _additionalPartPrice: 100
   _rerollPrice: 20
   _constantAdditionalPartsPurchaseText: 
+  SellingDisable: 0
 --- !u!114 &1497381722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18796,8 +18800,6 @@ MonoBehaviour:
   _moneyText: {fileID: 1772208907}
   _incomeMoneyText: {fileID: 1106593667}
   _outcomeMoneyText: {fileID: 1863680931}
-  _startMoney: 50
-  _moneyPerWave: 50
   _moneyHighlightingTime: 0.75
 --- !u!1 &1501400407
 GameObject:
@@ -20007,7 +20009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _envHandler: {fileID: 456565776}
-  _spellCooldown: 10
+  _spellCooldown: 25
   _spellTime: 5
 --- !u!82 &1556443687
 AudioSource:
@@ -23520,7 +23522,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 884.8, y: -249.90001}
+  m_AnchoredPosition: {x: 898.2, y: -249.90001}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1772208907

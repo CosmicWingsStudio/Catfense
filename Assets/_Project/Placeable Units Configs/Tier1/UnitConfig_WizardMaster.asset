@@ -16,12 +16,12 @@ MonoBehaviour:
     \u043C\u0430\u0441\u0442\u0435\u0440"
   <PresentiveName>k__BackingField: "\u0412\u043E\u043B\u0448\u0435\u0431\u043D\u0438\u043A"
   <HealthPoints>k__BackingField: 100
-  <Damage>k__BackingField: 42
-  <Firerate>k__BackingField: 4
-  <Price>k__BackingField: 100
+  <Damage>k__BackingField: 40
+  <Firerate>k__BackingField: 5
+  <Price>k__BackingField: 125
   <TeamEffectCollection>k__BackingField: 7
   <PrefabName>k__BackingField: PUnit_WizardMaster
   <UnitSprite>k__BackingField: {fileID: 21300000, guid: 5ba68e84ccb0aef47aeeae70e08537ba, type: 2}
   <UnitAttackType>k__BackingField: "\u0414\u0430\u043B\u044C\u043D\u0438\u0439"
   <ProjectailPrefabPath>k__BackingField: InGamePrefabs/Projectails/Purple bullet
-  <ProjectailSpeed>k__BackingField: 6.5
+  <ProjectailSpeed>k__BackingField: 7

@@ -93,10 +93,9 @@ public abstract class UnitAttack : MonoBehaviour
         Animator.SetBool("IdleActive", true);
     }
 
-    public void UpgradeStats(int multiplier)
+    public void UpgradeStats(float multiplier)
     {
-        _damage += multiplier * (_originalDamage / 10);
-        _firerate -= multiplier * (_originalFirerate / 10);
+        _damage += _originalDamage * multiplier;
     }
 
     public void TurnOffAttackMode()
