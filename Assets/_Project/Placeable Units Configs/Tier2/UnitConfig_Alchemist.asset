@@ -16,7 +16,7 @@ MonoBehaviour:
   <PresentiveName>k__BackingField: "\u0410\u043B\u0445\u0438\u043C\u0438\u043A"
   <HealthPoints>k__BackingField: 75
   <Damage>k__BackingField: 20
-  <Firerate>k__BackingField: 7
+  <Firerate>k__BackingField: 8
   <Price>k__BackingField: 80
   <TeamEffectCollection>k__BackingField: 4
   <PrefabName>k__BackingField: PUnit_Alchemist

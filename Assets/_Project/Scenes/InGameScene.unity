@@ -17215,7 +17215,7 @@ MonoBehaviour:
   _walletHandler: {fileID: 1497381722}
   <DisableEnemySpawn>k__BackingField: 0
   <EverlastingPreparationTime>k__BackingField: 0
-  <StartMoney>k__BackingField: 0
+  <StartMoney>k__BackingField: 5555
 --- !u!1 &1356520352
 GameObject:
   m_ObjectHideFlags: 0

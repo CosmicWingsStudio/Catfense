@@ -151,8 +151,10 @@ public class EnvironmentContainerHandler : MonoBehaviour
 
     public bool TryToUpgrade(string checkUnitName, int currentLevel)
     {
-        int UnitsNumber = 1;
+        int UnitsNumber = 0;
         int firstItem = 0;
+        bool IsFirstItemFound = false;
+        int secondUnit = 0;
 
         for (int i = 0; i < AllSlots.Count; i++)
         {
@@ -163,7 +165,9 @@ public class EnvironmentContainerHandler : MonoBehaviour
                 if (UnitsNumber + 1 == 3)
                 {
                     punit.ParentSlot.InformOfTakingItemFromSlot();
+                    AllSlots[secondUnit].Item.GetComponent<PlaceableUnit>().ParentSlot.InformOfTakingItemFromSlot();
                     Destroy(AllSlots[i].Item);
+                    Destroy(AllSlots[secondUnit].Item);
 
                     PlaceableUnit curItem = AllSlots[firstItem].Item.GetComponent<PlaceableUnit>();
                     curItem.SendRequestForUpgrade();
@@ -174,7 +178,14 @@ public class EnvironmentContainerHandler : MonoBehaviour
                 else
                 {
                     UnitsNumber++;
-                    firstItem = i;
+
+                    if (!IsFirstItemFound)
+                    {
+                        firstItem = i;
+                        IsFirstItemFound = true;
+                    }
+                    else
+                        secondUnit = i;
                 }
             }
         }

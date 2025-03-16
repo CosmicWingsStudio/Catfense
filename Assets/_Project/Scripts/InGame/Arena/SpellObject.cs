@@ -14,7 +14,7 @@ public class SpellObject : MonoBehaviour
     {
         if(IsInitialised == false)
         {
-            _damage += additionalDamage;
+            _damage += _damage * additionalDamage;
             StartCoroutine(SpellEffect(asource));
             _enemyFolder = enemyFolder;
             IsInitialised = true;

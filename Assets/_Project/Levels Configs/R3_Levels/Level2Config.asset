@@ -10,71 +10,61 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16cf7bc810468e444bb6cd64f18eba1e, type: 3}
-  m_Name: Level3Config
+  m_Name: Level2Config
   m_EditorClassIdentifier: 
-  <BackGround>k__BackingField: {fileID: 21300000, guid: 4ca4094eabb2d994c8d1dbf5e4779408, type: 3}
-  <EnvironmentPrefabName>k__BackingField: Env_02
-  <RealmIndex>k__BackingField: 2
-  <LevelIndex>k__BackingField: 3
-  <DifficultyLevel>k__BackingField: 0.3
-  <StartMoney>k__BackingField: 60
-  <MoneyPerWave>k__BackingField: 85
-  <DifficultyLevelScale>k__BackingField: 0.1
+  <BackGround>k__BackingField: {fileID: 21300000, guid: b9690e78dc7343249ac000f8e7057637, type: 3}
+  <EnvironmentPrefabName>k__BackingField: Env_03
+  <RealmIndex>k__BackingField: 3
+  <LevelIndex>k__BackingField: 2
+  <DifficultyLevel>k__BackingField: 0.2
+  <StartMoney>k__BackingField: 65
+  <MoneyPerWave>k__BackingField: 75
+  <DifficultyLevelScale>k__BackingField: 0.12
   <WavesList>k__BackingField:
   - EnemiesOnWaveList:
-    - <PrefabName>k__BackingField: Melee_01
-      <Amount>k__BackingField: 1
-    - <PrefabName>k__BackingField: Range_01
+    - <PrefabName>k__BackingField: Melee_02
       <Amount>k__BackingField: 5
   - EnemiesOnWaveList:
-    - <PrefabName>k__BackingField: Melee_01
-      <Amount>k__BackingField: 3
-    - <PrefabName>k__BackingField: Range_01
-      <Amount>k__BackingField: 2
-    - <PrefabName>k__BackingField: Melee_03
-      <Amount>k__BackingField: 2
-  - EnemiesOnWaveList:
     - <PrefabName>k__BackingField: Melee_02
-      <Amount>k__BackingField: 3
-    - <PrefabName>k__BackingField: Range_01
-      <Amount>k__BackingField: 2
-    - <PrefabName>k__BackingField: Melee_02
-      <Amount>k__BackingField: 2
-    - <PrefabName>k__BackingField: Melee_03
-      <Amount>k__BackingField: 1
-  - EnemiesOnWaveList:
-    - <PrefabName>k__BackingField: Melee_01
-      <Amount>k__BackingField: 8
-    - <PrefabName>k__BackingField: Range_01
-      <Amount>k__BackingField: 3
-    - <PrefabName>k__BackingField: Melee_02
-      <Amount>k__BackingField: 3
-    - <PrefabName>k__BackingField: Range_01
-      <Amount>k__BackingField: 2
-    - <PrefabName>k__BackingField: Melee_03
-      <Amount>k__BackingField: 1
-  - EnemiesOnWaveList:
-    - <PrefabName>k__BackingField: Melee_01
       <Amount>k__BackingField: 5
     - <PrefabName>k__BackingField: Range_01
+      <Amount>k__BackingField: 1
+    - <PrefabName>k__BackingField: Melee_01
+      <Amount>k__BackingField: 1
+  - EnemiesOnWaveList:
+    - <PrefabName>k__BackingField: Melee_02
+      <Amount>k__BackingField: 3
+    - <PrefabName>k__BackingField: Range_01
+      <Amount>k__BackingField: 3
+    - <PrefabName>k__BackingField: Melee_01
+      <Amount>k__BackingField: 1
+  - EnemiesOnWaveList:
+    - <PrefabName>k__BackingField: Melee_03
+      <Amount>k__BackingField: 3
+    - <PrefabName>k__BackingField: Range_01
       <Amount>k__BackingField: 2
+    - <PrefabName>k__BackingField: Melee_02
+      <Amount>k__BackingField: 5
+    - <PrefabName>k__BackingField: Range_01
+      <Amount>k__BackingField: 1
+  - EnemiesOnWaveList:
     - <PrefabName>k__BackingField: Melee_02
       <Amount>k__BackingField: 6
     - <PrefabName>k__BackingField: Range_01
       <Amount>k__BackingField: 3
     - <PrefabName>k__BackingField: Melee_03
+      <Amount>k__BackingField: 4
+    - <PrefabName>k__BackingField: Range_01
       <Amount>k__BackingField: 2
   - EnemiesOnWaveList:
     - <PrefabName>k__BackingField: Melee_02
-      <Amount>k__BackingField: 8
-    - <PrefabName>k__BackingField: Range_01
-      <Amount>k__BackingField: 5
-    - <PrefabName>k__BackingField: Melee_03
-      <Amount>k__BackingField: 4
+      <Amount>k__BackingField: 6
     - <PrefabName>k__BackingField: Boss_04
       <Amount>k__BackingField: 1
-    - <PrefabName>k__BackingField: Melee_01
-      <Amount>k__BackingField: 3
+    - <PrefabName>k__BackingField: Range_01
+      <Amount>k__BackingField: 4
+    - <PrefabName>k__BackingField: Melee_03
+      <Amount>k__BackingField: 2
   <MusicClips>k__BackingField:
   - {fileID: 8300000, guid: c1b5ef22f5159374b87924c41f75e149, type: 3}
   - {fileID: 8300000, guid: fc4e319dd7c48f6479c50c3ed451e048, type: 3}

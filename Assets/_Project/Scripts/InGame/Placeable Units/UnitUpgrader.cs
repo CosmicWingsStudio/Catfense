@@ -27,7 +27,7 @@ public class UnitUpgrader : MonoBehaviour
     public void UpgradeUnit()
     {
         _currentUpgradeLevel++;
-        _scaleMultiplier += 0.25f;
+        _scaleMultiplier += 0.5f;
         _displayer.ShowUnitUpgrade();
         _placeableUnit.unitAttackHandler.UpgradeStats(_scaleMultiplier);
         _placeableUnit.Health.UpgradeStats(_scaleMultiplier);

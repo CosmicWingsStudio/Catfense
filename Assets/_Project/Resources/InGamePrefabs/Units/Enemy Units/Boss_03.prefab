@@ -1668,7 +1668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb558b74d2806349a3c7d278a4674a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthPoints: 300
+  _healthPoints: 350
   IsInitialised: 0
 --- !u!114 &4169996439109842617
 MonoBehaviour:
@@ -1710,7 +1710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c0ad69846691640ab80332288c9645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _firerate: 4
+  _firerate: 6
   Damage: 25
 --- !u!114 &3861541344108203372
 MonoBehaviour:

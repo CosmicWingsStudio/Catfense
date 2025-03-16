@@ -1335,7 +1335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb558b74d2806349a3c7d278a4674a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthPoints: 350
+  _healthPoints: 450
   IsInitialised: 0
 --- !u!114 &6492510078019739728
 MonoBehaviour:
@@ -1376,8 +1376,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b359645d7105f3f45851a69815c3f845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _firerate: 4
-  Damage: 20
+  _firerate: 6
+  Damage: 25
   _projectailPrefabPath: InGamePrefabs/Projectails/Purple bullet
   _projectailSpeed: 5
   _shootPointOffsetX: -0.25

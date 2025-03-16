@@ -46,14 +46,15 @@ public class SpawningSpellButton : MonoBehaviour
         {
             IsReady = true;
             _button.interactable = true;
-            float cooldownreduce = _spellCooldown * BonusCooldownReduce;
-            _cooldownTimer = _spellCooldown - cooldownreduce;
             _cooldownText.text = string.Empty; 
         }
     }
 
     private void SpellAction()
     {
+        float cooldownreduce = _spellCooldown * BonusCooldownReduce;
+        _cooldownTimer = _spellCooldown - cooldownreduce;
+
         IsReady = false;
         _button.interactable = false;
         SpellObject spellObject = Instantiate(_spellPrefab);
