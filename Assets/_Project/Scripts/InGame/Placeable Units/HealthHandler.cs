@@ -15,7 +15,7 @@ public class HealthHandler : MonoBehaviour
 
     private float _originalMaxHealth;
     protected bool IsDead = false;
-    private bool IsInvincible = false;
+    protected bool IsInvincible = false;
     private bool CanRevive = false;
     private bool ReadyToRevive = false;
     private float _healthAfterRevive = 0f;
@@ -65,7 +65,7 @@ public class HealthHandler : MonoBehaviour
         {
             CurrentHealthPoint -= dmg;
             if (_damageText != null)
-                _damageText.ShowDamage(dmg);
+                _damageText.ShowDamage((int)dmg);
 
             UpdateHealthPointsSlider();
         }
@@ -133,7 +133,7 @@ public class HealthHandler : MonoBehaviour
         asource.Play();
     }
 
-    private IEnumerator DefendEffect(float time)
+    protected virtual IEnumerator DefendEffect(float time)
     {
         yield return new WaitForSeconds(time);
         IsInvincible = false;

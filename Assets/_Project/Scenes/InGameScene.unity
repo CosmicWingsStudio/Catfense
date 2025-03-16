@@ -1219,8 +1219,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 29
-  m_fontSizeBase: 29
+  m_fontSize: 24.5
+  m_fontSizeBase: 24.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1637,9 +1637,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec30438f386fc34e952138dda7fa951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _step1: 0.1
-  _step2: 0.2
-  _step3: 0.3
+  _step1: 0.2
+  _step2: 0.35
+  _step3: 0.5
   _wallet: {fileID: 1497381722}
 --- !u!1 &113061226
 GameObject:
@@ -2062,8 +2062,8 @@ RectTransform:
   m_GameObject: {fileID: 171686393}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.27, y: 1.27, z: 1.27}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 750353041}
   - {fileID: 500537592}
@@ -2300,16 +2300,16 @@ RectTransform:
   - {fileID: 275369664}
   - {fileID: 945853403}
   - {fileID: 1270935435}
-  - {fileID: 2143225064}
   - {fileID: 466374872}
   - {fileID: 1128536028}
   - {fileID: 1202273597}
-  - {fileID: 1326133937}
   - {fileID: 2040750650}
-  - {fileID: 465941986}
   - {fileID: 1705339626}
   - {fileID: 1669193191}
+  - {fileID: 465941986}
+  - {fileID: 1326133937}
   - {fileID: 381243885}
+  - {fileID: 2143225064}
   - {fileID: 1899716601}
   m_Father: {fileID: 2124950562}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6273,8 +6273,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.8934007, y: 3.4325}
-  m_SizeDelta: {x: 249.5577, y: 144.4268}
+  m_AnchoredPosition: {x: 4.8934007, y: -1.4992}
+  m_SizeDelta: {x: 249.5577, y: 154.2901}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &500537593
 MonoBehaviour:
@@ -6757,6 +6757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemySpawnDelay: 2.25
+  CurrentWave: 1
 --- !u!114 &543340490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9325,8 +9326,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.7718, y: 2.3859}
-  m_SizeDelta: {x: 99.253, y: 31.4938}
+  m_AnchoredPosition: {x: 4.7718, y: -2.6172}
+  m_SizeDelta: {x: 99.253, y: 40.4738}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &750353042
 MonoBehaviour:
@@ -15455,9 +15456,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7c8aa30b5a6323429bbd1b1bae744b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _step1: 0.1
-  _step2: 0.2
-  _step3: 0.3
+  _step1: 0.25
+  _step2: 0.5
+  _step3: 0.75
   _env: {fileID: 456565776}
 --- !u!1 &1202273596
 GameObject:
@@ -17166,7 +17167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1349917512
 Transform:
   m_ObjectHideFlags: 0
@@ -18372,6 +18373,7 @@ MonoBehaviour:
   _guiPreparationFirstWave: {fileID: 2040432344}
   _startFirstWaveButton: {fileID: 1239767716}
   _preparationTimerText: {fileID: 863245485}
+  _preparationMainBodyText: {fileID: 1754512820}
   _requiredAmountOfUnits: 1
 --- !u!114 &1470489830
 MonoBehaviour:
@@ -20173,8 +20175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90dc4105ce3842d4ca284bf7fc9c5028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _step1: 0.1
-  _step2: 0.15
+  _step1: 0.12
+  _step2: 0.18
   _step3: 0.25
   _env: {fileID: 456565776}
 --- !u!1 &1570079137
@@ -23135,8 +23137,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0414\u043E \u043D\u0430\u0447\u0430\u043B\u0430 \u043D\u043E\u0432\u043E\u0439
-    \u0432\u043E\u043B\u043D\u044B \u043E\u0441\u0442\u0430\u043B\u043E\u0441\u044C:"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 57c3108312a9af549977ea4e61ddf412, type: 2}
   m_sharedMaterial: {fileID: -5679309567203450686, guid: 57c3108312a9af549977ea4e61ddf412, type: 2}
@@ -24199,9 +24200,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e18b5c47d3d1de4cafd562a90d9f3cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _step1: 0.2
-  _step2: 0.25
-  _step3: 0.3
+  _step1: 0.25
+  _step2: 0.35
+  _step3: 0.45
   _env: {fileID: 456565776}
 --- !u!1 &1821774321
 GameObject:

@@ -1724,7 +1724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _firerate: 4
-  Damage: 13
+  Damage: 8
   _projectailPrefabPath: InGamePrefabs/Projectails/Steel knife
   _projectailSpeed: 5
   _shootPointOffsetX: -1

@@ -86,7 +86,8 @@ public class InGameSceneInstaller : MonoInstaller
 
     private void BindSaveServices()
     {
-        DesktopSaveService desktopSaveService = new (null);
+        DesktopSaveService desktopSaveService = new(null); 
+        Debug.Log("DESKTOP SERVICE INITILISED");
         //Container.Bind<ISaveService>().To<DesktopSaveService>().FromInstance(desktopSaveService).AsSingle();
         Container.BindInterfacesAndSelfTo<DesktopSaveService>().FromInstance(desktopSaveService).AsSingle();
     }

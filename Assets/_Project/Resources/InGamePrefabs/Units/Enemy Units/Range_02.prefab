@@ -509,7 +509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _firerate: 4
-  Damage: 8
+  Damage: 10
   _projectailPrefabPath: InGamePrefabs/Projectails/Purple bullet
   _projectailSpeed: 6
   _shootPointOffsetX: -0.25

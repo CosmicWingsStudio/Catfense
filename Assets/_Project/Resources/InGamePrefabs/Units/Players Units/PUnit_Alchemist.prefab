@@ -1330,7 +1330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TextData: {fileID: 11400000, guid: 641ce88d26ca5a845a76328eb7934339, type: 2}
-  _offsetY: 0
+  _offsetY: 2
 --- !u!114 &3549628374946263467
 MonoBehaviour:
   m_ObjectHideFlags: 0

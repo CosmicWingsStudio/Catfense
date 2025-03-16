@@ -1268,7 +1268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionSizeX: 3
-  _detectionSizeY: 3
+  _detectionSizeY: 4
 --- !u!114 &2249428726452111981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1282,7 +1282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TextData: {fileID: 11400000, guid: 641ce88d26ca5a845a76328eb7934339, type: 2}
-  _offsetY: 0
+  _offsetY: 2
 --- !u!114 &5492821414909606612
 MonoBehaviour:
   m_ObjectHideFlags: 0

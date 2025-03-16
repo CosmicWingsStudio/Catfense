@@ -53,6 +53,8 @@ public class RealmLevelsHandler : MonoBehaviour
         return new RealmSavedData(levelData);
     }
 
+    public List<RealmLevel> GetLevels() => RealmLevels;
+
     private void FillWithLevelsSlots()
     {
         if (LevelsFolderForExtraction != null)

@@ -36,7 +36,7 @@ public class ResultScreenGUIHandler : MonoBehaviour
 
         _signalBus.Subscribe<LevelEndedSignal>(ShowResultScreen);
         _signalBus.Subscribe<PRVideoEndedSignal>(() => _additionalMoney = 100);
-        _exitButton.onClick.AddListener(() => SceneManager.LoadScene("InMenuScene"));
+        _exitButton.onClick.AddListener(LeaveScene);
         _restartButton.onClick.AddListener(RestartLevel);
     }
     
@@ -66,6 +66,8 @@ public class ResultScreenGUIHandler : MonoBehaviour
                 Time.timeScale = 0f;
                 break;
             case ResultType.Lose:
+                SaveResult();
+                Debug.LogError("SAVE RESULT ON LOSE");
                 _resultScreenObject.SetActive(true);
                 _additionalOnLose.SetActive(true);
                 //StartCoroutine(RestartButtonEnableDelay());
@@ -109,6 +111,12 @@ public class ResultScreenGUIHandler : MonoBehaviour
 
         //сохраняем измекненую сэйвДату
         _saveService.SaveData(data);
+    }
+
+    private void LeaveScene()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("InMenuScene");
     }
 
     private IEnumerator RestartButtonEnableDelay()

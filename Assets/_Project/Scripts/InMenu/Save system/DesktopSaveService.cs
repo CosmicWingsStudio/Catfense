@@ -41,16 +41,19 @@ public class DesktopSaveService : ISaveService
 
     public void SaveData()
     {
-        //типа дата поток хуёк тут в файл преобразуется
-        SavedData savedData;
-        
-        if (RealmsDataHandler.IsInitialized == true)
-            savedData = new(RealmsDataHandler.GetDataFromRealmHandlers());
-        else
+        SavedData savedData = null;
+        if (RealmsDataHandler != null)
         {
-            RealmsDataHandler.InitializeWithDefaultData();
-            savedData = new(RealmsDataHandler.GetDataFromRealmHandlers());
+            if (RealmsDataHandler.IsInitialized == true)
+                savedData = new(RealmsDataHandler.GetDataFromRealmHandlers());
+            else
+            {
+                RealmsDataHandler.InitializeWithDefaultData();
+                savedData = new(RealmsDataHandler.GetDataFromRealmHandlers());
+            }
         }
+        else
+            return;
 
         string path = GetSaveDataPath();
         string json = JsonConvert.SerializeObject(savedData);
@@ -80,7 +83,6 @@ public class DesktopSaveService : ISaveService
     public void SetData(SavedData savedData)
     {
         //типа готовый объект его поля суем куда надо
-        UnityEngine.Debug.Log(savedData.Username);
         RealmsDataHandler.Initialize(savedData);
     }
 

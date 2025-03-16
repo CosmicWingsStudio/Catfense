@@ -11,14 +11,17 @@ public class TeamEffect_Magic : TeamEffect_Unit
         {
             case 2:
                 _spellButton1.BonusCooldownReduce = _step1;
+                _spellButton1.BonusDamage = _step1 * 0.5f;
                 _spellButton2.BonusCooldownReduce = _step1;
                 break;
             case 3:
                 _spellButton1.BonusCooldownReduce = _step2;
+                _spellButton1.BonusDamage = _step1 * 1f;
                 _spellButton2.BonusCooldownReduce = _step2;
                 break;
             case 4:
                 _spellButton1.BonusCooldownReduce = _step3;
+                _spellButton1.BonusDamage = _step1 * 1.5f;
                 _spellButton2.BonusCooldownReduce = _step3;
                 break;
             default:

@@ -10,6 +10,7 @@ public class PreparationPhaseGUIHandler : MonoBehaviour
     [SerializeField] private GameObject _guiPreparationFirstWave;
     [SerializeField] private Button _startFirstWaveButton;
     [SerializeField] private TextMeshProUGUI _preparationTimerText;
+    [SerializeField] private TextMeshProUGUI _preparationMainBodyText;
     [SerializeField] private int _requiredAmountOfUnits = 1;
 
     private bool IsPrepareMode;
@@ -18,13 +19,16 @@ public class PreparationPhaseGUIHandler : MonoBehaviour
     private SignalBus _signalBus;
     private EnvironmentHandler _environmentHandler;
     private EnvironmentContainerHandler _environmentContainer;
+    private SceneEnemyFactory _sceneEnemyFactory;
 
     [Inject]
-    private void Initialize(GameModeSwitcher gameModeSwitcher, SignalBus signalBus, EnvironmentHandler envHadler)
+    private void Initialize(GameModeSwitcher gameModeSwitcher, SignalBus signalBus,
+        EnvironmentHandler envHadler, SceneEnemyFactory sceneEnemyFactory)
     {
         _gameModeSwitcher = gameModeSwitcher;
         _signalBus = signalBus;
         _environmentHandler = envHadler;
+        _sceneEnemyFactory = sceneEnemyFactory;
 
         IsPrepareMode = true;
         _guiPreparationFirstWave.SetActive(true);
@@ -83,6 +87,7 @@ public class PreparationPhaseGUIHandler : MonoBehaviour
         else
         {
             _guiPreparationTimer.SetActive(true);
+            _preparationMainBodyText.text = "До начала " + _sceneEnemyFactory.CurrentWave + " волны осталось:";
             IsPrepareMode = true;
         }
     }
@@ -90,6 +95,7 @@ public class PreparationPhaseGUIHandler : MonoBehaviour
     private void ActionAfterFirstWave()
     {
         _guiPreparationTimer.SetActive(true);
+        _preparationMainBodyText.text = "До начала " + _sceneEnemyFactory.CurrentWave + " волны осталось:";
         IsFirstWaveEnded = true;
         IsPrepareMode = true;
     }

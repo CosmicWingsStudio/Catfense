@@ -1,8 +1,12 @@
 
+using System.Collections;
+using UnityEngine;
 using Zenject;
+using static UnityEditor.Progress;
 
 public class TowerHealthHandler : HealthHandler
 {
+    [SerializeField] private Transform _defendEffect;
     private SignalBus _signalBus;
     protected Tower _tower;
 
@@ -43,5 +47,19 @@ public class TowerHealthHandler : HealthHandler
     public override void DeathAnimationPoint()
     {
         _signalBus.Fire(new LevelEndedSignal(ResultType.Lose));
+    }
+
+    public void SetDefendEffect(float time)
+    {
+        SetInvincibleEffect(time);
+        _defendEffect.gameObject.SetActive(true);
+        StartCoroutine(DefendEffect(time));  
+    }
+
+    protected override IEnumerator DefendEffect(float time)
+    {
+        yield return new WaitForSeconds(time);
+        IsInvincible = false;
+        _defendEffect.gameObject.SetActive(false);
     }
 }

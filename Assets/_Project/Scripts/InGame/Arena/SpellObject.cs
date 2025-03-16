@@ -10,10 +10,11 @@ public class SpellObject : MonoBehaviour
     private Transform _enemyFolder;
     private bool IsInitialised = false;
 
-    public void Initialize(Transform enemyFolder, AudioSource asource)
+    public void Initialize(Transform enemyFolder, AudioSource asource, float additionalDamage)
     {
         if(IsInitialised == false)
         {
+            _damage += additionalDamage;
             StartCoroutine(SpellEffect(asource));
             _enemyFolder = enemyFolder;
             IsInitialised = true;

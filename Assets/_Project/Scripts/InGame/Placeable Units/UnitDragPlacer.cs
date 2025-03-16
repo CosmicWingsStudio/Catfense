@@ -238,7 +238,6 @@ public class UnitDragPlacer : MonoBehaviour
         var hit = Physics2D.RaycastAll(mousePos, Vector2.zero);
         foreach (var collider in hit)
         {
-
             if (collider.transform.TryGetComponent(out PlaceableUnit pUnit))
             {
                 if (pUnit.OnSaleScreen)
@@ -256,7 +255,7 @@ public class UnitDragPlacer : MonoBehaviour
     private bool VerifyUnit()
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        var hit = Physics2D.RaycastAll(mousePos, Vector2.right);
+        var hit = Physics2D.RaycastAll(mousePos, Vector2.zero);
         foreach (var collider in hit)
         {
             if (collider.transform.GetComponent<PlaceableUnit>())

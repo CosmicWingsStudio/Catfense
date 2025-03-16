@@ -10,6 +10,7 @@ public class SpawningSpellButton : MonoBehaviour
     [SerializeField, Min(1f)] private float _spellCooldown;
 
     public float BonusCooldownReduce { get; set; }
+    public float BonusDamage { get; set; }
 
     private Transform _enemyFolder;
     private TextMeshProUGUI _cooldownText;
@@ -57,6 +58,6 @@ public class SpawningSpellButton : MonoBehaviour
         _button.interactable = false;
         SpellObject spellObject = Instantiate(_spellPrefab);
         spellObject.transform.position = _castPosition.position;
-        spellObject.Initialize(_enemyFolder, _audioSource);
+        spellObject.Initialize(_enemyFolder, _audioSource, BonusDamage);
     }
 }

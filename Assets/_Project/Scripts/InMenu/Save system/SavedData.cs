@@ -4,12 +4,9 @@ using System;
 [Serializable]
 public class SavedData
 {
-    public string Username { get; set; }
     public RealmSavedData[] RealmsData;
-
-    public SavedData(RealmSavedData[] realmsData, string username = "QWERTY")
+    public SavedData(RealmSavedData[] realmsData)
     {
-        Username = username;
         RealmsData = realmsData;
     }
 }

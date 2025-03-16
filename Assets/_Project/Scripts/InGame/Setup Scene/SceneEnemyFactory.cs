@@ -15,7 +15,6 @@ public class SceneEnemyFactory : MonoBehaviour
     private List<LevelWaveEnemyInfo> _currentWaveData;
 
     private int _wavesAmount;
-    private int _currentWave = 1;
     private float _enemySpawnDelayTimer = 0f;
     private float _difficultyLevel = 1f;
     private float _difficultyScale = 0.1f;
@@ -27,6 +26,8 @@ public class SceneEnemyFactory : MonoBehaviour
     public bool AllEnemyOnTheWaveIsSpawned { get; private set; } = false;
     public bool IsLastWave { get; private set; } = false;
     public bool IsSpawnDisabledByDevTools { get; set; } = false;
+
+    [HideInInspector] public int CurrentWave = 1;
 
     [Inject]
     private void Initialize(SignalBus signalBus, PrefabsPathsToFoldersProvider prefabsPathsProvider, RewardSpawner rewardSpawner)
@@ -154,17 +155,20 @@ public class SceneEnemyFactory : MonoBehaviour
         IsReadyToProduceUnits = false;
         AllEnemyOnTheWaveIsSpawned = false;
         _enemyOnTheWave.Clear();
-        if (_currentWave + 1 <= _wavesAmount) 
-            _currentWave++;    
+        if (CurrentWave + 1 <= _wavesAmount) 
+            CurrentWave++;    
     }
 
     private void HandleWaveStartsSignal()
     {
         IsReadyToProduceUnits = true;
         _enemySpawnDelayTimer = _enemySpawnDelay;
-        _currentDifficultyLevel = _difficultyLevel + (_difficultyLevel * _difficultyScale); 
-        _currentWaveData = _wavesList[_currentWave - 1].EnemiesOnWaveList;
-        if (_currentWave == _wavesAmount)
+
+        if(CurrentWave != 1)
+            _currentDifficultyLevel = _difficultyLevel + (_difficultyLevel * _difficultyScale); 
+
+        _currentWaveData = _wavesList[CurrentWave - 1].EnemiesOnWaveList;
+        if (CurrentWave == _wavesAmount)
             IsLastWave = true;
     }
 

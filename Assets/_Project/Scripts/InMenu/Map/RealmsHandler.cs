@@ -9,7 +9,7 @@ public class RealmsHandler : MonoBehaviour
     [Header("Autofills with realms. Do not touch")]
     [SerializeField] private List<Realm> Realms;
 
-    private void Start()
+    public void Initialize()
     {
         FillWithRealms();
         ProcessSavedLevelsData();
@@ -40,6 +40,13 @@ public class RealmsHandler : MonoBehaviour
     {
         //RealmsData
         //делаем тут какие реламы у нас Комплитед, а какие нет на основе сэйв дэйты
+        for (int i = 0; i < Realms.Count; i++)
+        {
+            var levels = Realms[i].realmLevelsHandler.GetLevels();
+            if (levels[levels.Count - 1].IsCompleted == true)
+                Realms[i].IsCompleted = true;
+
+        }
     }
 
     private void ChangeAvailableStatusForRealm()
@@ -48,7 +55,7 @@ public class RealmsHandler : MonoBehaviour
         {
             if (i == 0)
                 Realms[i].MakeRealmAvailable();
-            else if (Realms[i - 1].IsCompleted || Realms[i].IsCompleted)
+            else if (Realms[i-1].IsCompleted)
                 Realms[i].MakeRealmAvailable();
         }
     }

@@ -13,6 +13,7 @@ public class ActivatingSpellButton : MonoBehaviour
     public float BonusCooldownReduce { get; set; }
 
     private PlaceSlot _inFrontSlot;
+    private TowerHealthHandler _towerHealth;
     private TextMeshProUGUI _cooldownText;
     private Button _button;
     private AudioSource _audioSource;
@@ -27,6 +28,7 @@ public class ActivatingSpellButton : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
         _cooldownTimer = _spellCooldown;
         _inFrontSlot = _envHandler.GetEnvironmentContainer().GetInFrontSlot();
+        _towerHealth = _envHandler.GetEnvironmentContainer().GetTower();
 
         _button.onClick.AddListener(SpellAction);
     }
@@ -56,6 +58,14 @@ public class ActivatingSpellButton : MonoBehaviour
     {
         if (_inFrontSlot.SetDefendEffect(_spellTime))
         {
+            IsReady = false;
+            _button.interactable = false;
+            _audioSource.Play();
+        }
+        else
+        {
+            _towerHealth.SetDefendEffect(_spellTime);
+
             IsReady = false;
             _button.interactable = false;
             _audioSource.Play();

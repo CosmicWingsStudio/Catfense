@@ -1445,8 +1445,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 29
-  m_fontSizeBase: 29
+  m_fontSize: 24.5
+  m_fontSizeBase: 24.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2713,8 +2713,8 @@ RectTransform:
   m_GameObject: {fileID: 171686393}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.39, y: 1.39, z: 1.39}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 750353041}
   - {fileID: 500537592}
@@ -3026,17 +3026,17 @@ RectTransform:
   - {fileID: 275369664}
   - {fileID: 945853403}
   - {fileID: 1270935435}
-  - {fileID: 2143225064}
   - {fileID: 466374872}
   - {fileID: 1128536028}
   - {fileID: 1202273597}
-  - {fileID: 1326133937}
   - {fileID: 2040750650}
-  - {fileID: 465941986}
   - {fileID: 1705339626}
   - {fileID: 1669193191}
+  - {fileID: 465941986}
+  - {fileID: 1326133937}
   - {fileID: 381243885}
   - {fileID: 745509427}
+  - {fileID: 2143225064}
   - {fileID: 1899716601}
   m_Father: {fileID: 2124950562}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -26057,8 +26057,6 @@ MonoBehaviour:
   _moneyText: {fileID: 1772208907}
   _incomeMoneyText: {fileID: 1106593667}
   _outcomeMoneyText: {fileID: 1863680931}
-  _startMoney: 50
-  _moneyPerWave: 50
   _moneyHighlightingTime: 0.75
 --- !u!1 &1501400407
 GameObject:

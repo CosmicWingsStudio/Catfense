@@ -17,6 +17,8 @@ MonoBehaviour:
   <RealmIndex>k__BackingField: 0
   <LevelIndex>k__BackingField: 0
   <DifficultyLevel>k__BackingField: 0.1
+  <StartMoney>k__BackingField: 50
+  <MoneyPerWave>k__BackingField: 50
   <DifficultyLevelScale>k__BackingField: 0.15
   <WavesList>k__BackingField:
   - EnemiesOnWaveList:

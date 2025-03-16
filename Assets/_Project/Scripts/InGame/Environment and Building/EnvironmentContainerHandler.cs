@@ -205,6 +205,11 @@ public class EnvironmentContainerHandler : MonoBehaviour
         return InFrontSlot;
     }
 
+    public TowerHealthHandler GetTower()
+    {
+        return _towerHealthHandler;
+    }
+
     private void AfterWaveActions()
     {
         UpdateSlots();

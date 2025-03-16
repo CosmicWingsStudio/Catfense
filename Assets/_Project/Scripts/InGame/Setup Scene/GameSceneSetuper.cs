@@ -8,15 +8,18 @@ public class GameSceneSetuper : IInitializable
     private SceneEnemyFactory _sceneEnemyFactory;
     private MusicController _musicController;
     private WalletHandler _wallet;
+    private ResultScreenGUIHandler _resultScreenGUIHandler;
 
     public GameSceneSetuper(BackGroundHandler bgh, EnvironmentHandler eh,
-        SceneEnemyFactory fp, MusicController mc, WalletHandler wallet)
+        SceneEnemyFactory fp, MusicController mc, WalletHandler wallet,
+        ResultScreenGUIHandler rs)
     {
         _backGroundHandler = bgh;
         _environmentHandler = eh;
         _sceneEnemyFactory = fp;
         _musicController = mc;
         _wallet = wallet;
+        _resultScreenGUIHandler = rs;
     }
 
     private LevelConfig LevelDataConfig;
@@ -61,6 +64,7 @@ public class GameSceneSetuper : IInitializable
             FillFactoryWithData();
             SetAudioClips();
             _wallet.Initialize(LevelDataConfig.StartMoney, LevelDataConfig.MoneyPerWave);
+            _resultScreenGUIHandler.SetLevelData(LevelDataConfig.RealmIndex, LevelDataConfig.LevelIndex);
         }  
         else
             Debug.LogError("LevelConfig is missing");

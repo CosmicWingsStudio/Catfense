@@ -1891,7 +1891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _firerate: 4
-  Damage: 15
+  Damage: 12.5
 --- !u!114 &4821791960787692851
 MonoBehaviour:
   m_ObjectHideFlags: 0

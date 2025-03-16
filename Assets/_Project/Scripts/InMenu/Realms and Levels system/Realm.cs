@@ -17,6 +17,8 @@ public class Realm : MonoBehaviour
     [SerializeField] private GameObject DisablePanel;
     [SerializeField] private Toggle IsCompletedToggle;
 
+    public RealmLevelsHandler realmLevelsHandler;
+
     private void Awake()
     {
         OpenRealmButton.enabled = false;
