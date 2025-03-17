@@ -1,9 +1,20 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TeamEffects : MonoBehaviour
 {
     [SerializeField] private List<TeamEffect> TeamEffectsList = new List<TeamEffect>();
+    [SerializeField] private Button _hideEffectsMenu;
+    [SerializeField] private GameObject _effectsMenu;
+    private bool MenuIsHidden = false;
+
+    private void Awake()
+    {
+        if(_hideEffectsMenu != null)
+            _hideEffectsMenu.onClick.AddListener(HandleMenu);
+    }
 
     public void UpdateEffects(List<TeamEffectsData> effects)
     {
@@ -61,6 +72,28 @@ public class TeamEffects : MonoBehaviour
         {
             TeamEffectsList[i].DisableEffect();
         }
+    }
+
+    private void HandleMenu()
+    {
+        if (MenuIsHidden)
+            ShowMenu();
+        else
+            HideMenu();
+    }
+
+    private void HideMenu()
+    {
+        MenuIsHidden = true;
+        _effectsMenu.SetActive(false);
+        _hideEffectsMenu.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Открыть";
+    }
+
+    private void ShowMenu()
+    {
+        MenuIsHidden = false;
+        _effectsMenu.SetActive(true);
+        _hideEffectsMenu.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Скрыть";
     }
 }
 

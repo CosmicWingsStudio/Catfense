@@ -1240,6 +1240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 392bb5933e564754e899b636d9e3eb24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _upgradeLevelScale: 0.35
 --- !u!114 &7471905356658531342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1252,7 +1253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4644a42476c274fbde1c1bc0817848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackSoundClip: {fileID: 8300000, guid: 2728ebe46b01e1b48a33bc0007013994, type: 3}
+  _attackSoundClip: {fileID: 8300000, guid: aa22356074434ed40881f7db37e2763b, type: 3}
 --- !u!114 &2789637093930833404
 MonoBehaviour:
   m_ObjectHideFlags: 0
