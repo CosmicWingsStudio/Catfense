@@ -18783,7 +18783,7 @@ MonoBehaviour:
   _buyAdditionalPartsButton: {fileID: 1823118578}
   _buyRerollButton: {fileID: 1527994289}
   _additionalPartPrice: 100
-  _rerollPrice: 20
+  _rerollPrice: 10
   _constantAdditionalPartsPurchaseText: 
   SellingDisable: 0
 --- !u!114 &1497381722

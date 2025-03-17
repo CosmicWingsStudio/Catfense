@@ -14,6 +14,7 @@ public class WalletHandler : MonoBehaviour
 
     private int _startMoney;
     private int _moneyPerWave;
+    private float _moneyPerWaveModifire;
     private Vector3 _defaultChangedOutcomeMoneyTextPosition;
     private Vector3 _defaultChangedIncomeMoneyTextPosition;
     private float _defaultFontSize;
@@ -27,7 +28,7 @@ public class WalletHandler : MonoBehaviour
 
     public float AdditionalMoneyBonus { get; set; }
 
-    public void Initialize(int startMoney, int moneyFromWaveEnd)
+    public void Initialize(int startMoney, int moneyFromWaveEnd, float moneyPerWaveModifire)
     {
         if(IsInitialised == false)
         {
@@ -35,6 +36,7 @@ public class WalletHandler : MonoBehaviour
 
             _startMoney = startMoney;
             _moneyPerWave = moneyFromWaveEnd;
+            _moneyPerWaveModifire = moneyPerWaveModifire;
 
             CurrentMoney = _startMoney;
 
@@ -120,7 +122,8 @@ public class WalletHandler : MonoBehaviour
 
     private void GetAfterWaveMoney()
     {
-        AddMoney(_moneyPerWave);
+        int newSum = _moneyPerWave + (int)(_moneyPerWave * _moneyPerWaveModifire);
+        AddMoney(newSum);
     }
 
     private IEnumerator IncomeMoneyShow()

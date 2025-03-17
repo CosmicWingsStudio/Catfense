@@ -10,6 +10,7 @@ public class MeleeUnitAttack : UnitAttack
     {
         _firerate = config.Firerate;
         _damage = config.Damage;
+        _originalFirerate = _firerate;
         _originalDamage = _damage;
     }
 

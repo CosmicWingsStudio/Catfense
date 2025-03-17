@@ -632,7 +632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _firerate: 6
-  Damage: 32
+  Damage: 35
 --- !u!114 &183298295789174902
 MonoBehaviour:
   m_ObjectHideFlags: 0

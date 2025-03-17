@@ -22,7 +22,7 @@ public class EnemyUnit : MonoBehaviour
     private GameObject _moveBlocker;
     private bool isRangeUnit;
  
-    public void Initialize(float difficulty, RewardSpawner rs)
+    public void Initialize(float difficulty, RewardSpawner rs, float movementModifire)
     {
         if (!IsInitialised)
         {
@@ -36,6 +36,7 @@ public class EnemyUnit : MonoBehaviour
             if (GetComponent<EnemyRangeUnitAttack>())
                 isRangeUnit = true;
 
+            _enemyMovement.ApplySpeedModifire(movementModifire);
             ApplyLevelDifficulty(difficulty);   
         }
     }

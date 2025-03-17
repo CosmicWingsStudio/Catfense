@@ -181,7 +181,8 @@ public class HealthHandler : MonoBehaviour
 
     public void UpgradeStats(float multiplier)
     {
-        MaxHealth += _originalMaxHealth * multiplier;
+        float newMultiplier = multiplier + (multiplier * 0.25f);
+        MaxHealth += _originalMaxHealth * newMultiplier;
         CurrentHealthPoint = MaxHealth;
         UpdateHealthPointsSlider();
     }

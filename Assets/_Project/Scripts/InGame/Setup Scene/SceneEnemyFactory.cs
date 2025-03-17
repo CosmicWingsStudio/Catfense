@@ -18,6 +18,7 @@ public class SceneEnemyFactory : MonoBehaviour
     private float _enemySpawnDelayTimer = 0f;
     private float _difficultyLevel = 1f;
     private float _difficultyScale = 0.1f;
+    private float _movementModifire = 0f;
     private float _currentDifficultyLevel = 0f;
     private float _enemySpawnDelayRandomised;
 
@@ -43,10 +44,11 @@ public class SceneEnemyFactory : MonoBehaviour
     }
 
     public void SetConfigData(List<LevelWave> wavesList, int wavesAmount, Transform enemySpawnPoint,
-        float difficultyLevel, float difficultyScale)
+        float difficultyLevel, float difficultyScale, float movementModifire)
     {
         _wavesList = new();
         _difficultyLevel = difficultyLevel;
+        _movementModifire = movementModifire;
         _currentDifficultyLevel = difficultyLevel;
         _difficultyScale = difficultyScale;
 
@@ -118,7 +120,7 @@ public class SceneEnemyFactory : MonoBehaviour
     private EnemyUnit Produce(string PathToPrefab)
     {
         EnemyUnit enemy = Instantiate(Resources.Load<EnemyUnit>(PathToPrefab), _enemySpawnPoint);
-        enemy.Initialize(_currentDifficultyLevel, _rewardSpawner);
+        enemy.Initialize(_currentDifficultyLevel, _rewardSpawner, _movementModifire);
         return enemy;
     }
 

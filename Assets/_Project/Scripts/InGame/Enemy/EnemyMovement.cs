@@ -11,6 +11,7 @@ public class EnemyMovement : MonoBehaviour
     private float _slownessEffectValue = 0f;
     private float _defaultSlownessDecayTime = 5f;
     private float _slownessDecayTimer = 0f;
+    private float _speedModifire = 0f;
 
     private void Update()
     {
@@ -31,7 +32,7 @@ public class EnemyMovement : MonoBehaviour
         
         
         Vector2 vec2 = transform.position;
-        float defaultSpeed = 0.6f;
+        float defaultSpeed = 0.6f + _speedModifire;
         float speed = defaultSpeed - _slownessEffectValue;
         vec2.x += -Time.deltaTime * speed;
         transform.position = vec2;
@@ -44,5 +45,9 @@ public class EnemyMovement : MonoBehaviour
         _slownessEffectValue = coeffOfSlowness;
         _slownessIcon.SetActive(true);
     }
+
+    public void ApplySpeedModifire(float speedModifire) => _speedModifire = speedModifire;
+
+
 
 }

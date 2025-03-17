@@ -3,6 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(UnitDataDisplayer))]
 public class UnitUpgrader : MonoBehaviour
 {
+    [SerializeField] protected float _upgradeLevelScale = 0.35f;
+
     private int _currentUpgradeLevel = 0;
     private float _scaleMultiplier = 0f;
     private UnitDataDisplayer _displayer;
@@ -27,7 +29,7 @@ public class UnitUpgrader : MonoBehaviour
     public void UpgradeUnit()
     {
         _currentUpgradeLevel++;
-        _scaleMultiplier += 0.5f;
+        _scaleMultiplier += _upgradeLevelScale;
         _displayer.ShowUnitUpgrade();
         _placeableUnit.unitAttackHandler.UpgradeStats(_scaleMultiplier);
         _placeableUnit.Health.UpgradeStats(_scaleMultiplier);

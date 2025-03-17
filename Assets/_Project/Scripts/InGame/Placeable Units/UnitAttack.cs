@@ -39,7 +39,7 @@ public abstract class UnitAttack : MonoBehaviour
         _firerate = firerate;
         _damage = damage;
         _originalFirerate = _firerate;
-        _originalDamage = damage;
+        _originalDamage = _damage;
     }
 
     public virtual void SetData(float firerate, int damage, float projectailSpeed, string projectailPrefabPath)

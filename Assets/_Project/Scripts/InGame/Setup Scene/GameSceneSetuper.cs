@@ -63,7 +63,7 @@ public class GameSceneSetuper : IInitializable
             SetEnvironment();
             FillFactoryWithData();
             SetAudioClips();
-            _wallet.Initialize(LevelDataConfig.StartMoney, LevelDataConfig.MoneyPerWave);
+            _wallet.Initialize(LevelDataConfig.StartMoney, LevelDataConfig.MoneyPerWave, LevelDataConfig.MoneyPerWaveModifire);
             _resultScreenGUIHandler.SetLevelData(LevelDataConfig.RealmIndex, LevelDataConfig.LevelIndex);
         }  
         else
@@ -150,7 +150,8 @@ public class GameSceneSetuper : IInitializable
 
             Transform enemySpawnPoint = _environmentHandler.GetEnemySpawnPoint();
             _sceneEnemyFactory.SetConfigData(LevelDataConfig.WavesList, LevelDataConfig.WavesAmount,
-                enemySpawnPoint, LevelDataConfig.DifficultyLevel, LevelDataConfig.DifficultyLevelScale);
+                enemySpawnPoint, LevelDataConfig.DifficultyLevel,
+                LevelDataConfig.DifficultyLevelScale, LevelDataConfig.MovementModifire);
             Debug.Log("WavesCfg is installed");
         }
      

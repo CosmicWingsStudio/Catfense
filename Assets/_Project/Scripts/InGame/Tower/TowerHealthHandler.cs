@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 using Zenject;
-using static UnityEditor.Progress;
+
 
 public class TowerHealthHandler : HealthHandler
 {
@@ -24,7 +24,7 @@ public class TowerHealthHandler : HealthHandler
 
     public override void TakeDamage(float dmg)
     {
-        if (IsDead)
+        if (IsDead || IsInvincible)
             return;
 
         if (CurrentHealthPoint - dmg <= 0 == false)
@@ -53,7 +53,6 @@ public class TowerHealthHandler : HealthHandler
     {
         SetInvincibleEffect(time);
         _defendEffect.gameObject.SetActive(true);
-        StartCoroutine(DefendEffect(time));  
     }
 
     protected override IEnumerator DefendEffect(float time)

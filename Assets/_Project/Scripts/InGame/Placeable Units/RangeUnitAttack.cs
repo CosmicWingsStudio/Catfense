@@ -16,6 +16,8 @@ public class RangeUnitAttack : UnitAttack
     {
         _firerate = config.Firerate;
         _damage = config.Damage;
+        _originalFirerate = _firerate;
+        _originalDamage = _damage;
         _projectailSpeed = config.ProjectailSpeed;
 
         if (config.ProjectailPrefabPath == string.Empty == false)
@@ -28,7 +30,8 @@ public class RangeUnitAttack : UnitAttack
     {
         _firerate = firerate;
         _damage = damage;
-        _originalDamage = damage;
+        _originalFirerate = _firerate;
+        _originalDamage = _damage;
         _projectailSpeed = projectailSpeed;
         _projectailPrefabPath = projectailPrefabPath;
     }
