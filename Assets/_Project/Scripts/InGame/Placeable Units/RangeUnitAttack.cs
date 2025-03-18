@@ -89,8 +89,13 @@ public class RangeUnitAttack : UnitAttack
     private IEnumerator DoubleShotDelay()
     {
         yield return new WaitForSeconds(0.25f);
-        Projectail nextprojectail = Instantiate(Resources.Load<Projectail>(_projectailPrefabPath), transform);
-        nextprojectail.Initialize((_damage * 0.5f) + _additionalDamageBonus, _projectailSpeed, CurrentTarget.transform, _additionalAOEBonus);
+        if(CurrentTarget != null)
+        {
+            Projectail nextprojectail = Instantiate(Resources.Load<Projectail>(_projectailPrefabPath), transform);
+            nextprojectail.Initialize((_damage * 0.5f) + _additionalDamageBonus,
+                _projectailSpeed, CurrentTarget.transform, _additionalAOEBonus);
+        }
+        
     }
  
 }

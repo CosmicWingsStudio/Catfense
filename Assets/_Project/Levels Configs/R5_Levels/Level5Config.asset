@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16cf7bc810468e444bb6cd64f18eba1e, type: 3}
   m_Name: Level5Config
   m_EditorClassIdentifier: 
-  <BackGround>k__BackingField: {fileID: 21300000, guid: de102d655444b4e40bc2c084ceb79e87, type: 3}
-  <EnvironmentPrefabName>k__BackingField: Env_05
-  <RealmIndex>k__BackingField: 4
+  <BackGround>k__BackingField: {fileID: 21300000, guid: 6baf9cbaf7213b947ab115babe5955cc, type: 3}
+  <EnvironmentPrefabName>k__BackingField: Env_06
+  <RealmIndex>k__BackingField: 5
   <LevelIndex>k__BackingField: 5
   <DifficultyLevel>k__BackingField: 0.22
   <StartMoney>k__BackingField: 50

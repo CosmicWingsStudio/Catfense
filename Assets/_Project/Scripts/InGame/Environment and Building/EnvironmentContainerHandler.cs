@@ -151,44 +151,82 @@ public class EnvironmentContainerHandler : MonoBehaviour
 
     public bool TryToUpgrade(string checkUnitName, int currentLevel)
     {
+        if (currentLevel == 3)
+            return false;
+
         int UnitsNumber = 0;
         int firstItem = 0;
         bool IsFirstItemFound = false;
         int secondUnit = 0;
 
-        for (int i = 0; i < AllSlots.Count; i++)
+        if(currentLevel != 2)
         {
-            if (AllSlots[i].Item != null && AllSlots[i].Item.TryGetComponent(out PlaceableUnit punit)
-                && punit.Name == checkUnitName && punit.GetCurrentUnitLevel() == currentLevel)
+            for (int i = 0; i < AllSlots.Count; i++)
             {
-
-                if (UnitsNumber + 1 == 3)
+                if (AllSlots[i].Item != null && AllSlots[i].Item.TryGetComponent(out PlaceableUnit punit)
+                    && punit.Name == checkUnitName && punit.GetCurrentUnitLevel() == currentLevel)
                 {
-                    punit.ParentSlot.InformOfTakingItemFromSlot();
-                    AllSlots[secondUnit].Item.GetComponent<PlaceableUnit>().ParentSlot.InformOfTakingItemFromSlot();
-                    Destroy(AllSlots[i].Item);
-                    Destroy(AllSlots[secondUnit].Item);
 
-                    PlaceableUnit curItem = AllSlots[firstItem].Item.GetComponent<PlaceableUnit>();
-                    curItem.SendRequestForUpgrade();
-                    if(curItem.GetCurrentUnitLevel() < curItem.GetMaxUpgradeLevel())
-                        TryToUpgrade(curItem.Name, curItem.GetCurrentUnitLevel());
-                    return true;
-                }
-                else
-                {
-                    UnitsNumber++;
-
-                    if (!IsFirstItemFound)
+                    if (UnitsNumber + 1 == 3)
                     {
-                        firstItem = i;
-                        IsFirstItemFound = true;
+                        punit.ParentSlot.InformOfTakingItemFromSlot();
+                        AllSlots[secondUnit].Item.GetComponent<PlaceableUnit>().ParentSlot.InformOfTakingItemFromSlot();
+                        Destroy(AllSlots[i].Item);
+                        Destroy(AllSlots[secondUnit].Item);
+
+                        PlaceableUnit curItem = AllSlots[firstItem].Item.GetComponent<PlaceableUnit>();
+                        curItem.SendRequestForUpgrade();
+                        if (curItem.GetCurrentUnitLevel() < curItem.GetMaxUpgradeLevel())
+                            TryToUpgrade(curItem.Name, curItem.GetCurrentUnitLevel());
+                        return true;
                     }
                     else
-                        secondUnit = i;
+                    {
+                        UnitsNumber++;
+
+                        if (!IsFirstItemFound)
+                        {
+                            firstItem = i;
+                            IsFirstItemFound = true;
+                        }
+                        else
+                            secondUnit = i;
+                    }
                 }
             }
         }
+        else
+        {
+            for (int i = 0; i < AllSlots.Count; i++)
+            {
+                if (AllSlots[i].Item != null && AllSlots[i].Item.TryGetComponent(out PlaceableUnit punit)
+                    && punit.Name == checkUnitName && punit.GetCurrentUnitLevel() == currentLevel)
+                {
+
+                    if (UnitsNumber + 1 == 2)
+                    {
+                        punit.ParentSlot.InformOfTakingItemFromSlot();   
+                        Destroy(AllSlots[i].Item);
+
+                        PlaceableUnit curItem = AllSlots[firstItem].Item.GetComponent<PlaceableUnit>();
+                        curItem.SendRequestForUpgrade();
+                        if (curItem.GetCurrentUnitLevel() < curItem.GetMaxUpgradeLevel())
+                            TryToUpgrade(curItem.Name, curItem.GetCurrentUnitLevel());
+                        return true;
+                    }
+                    else
+                    {
+                        UnitsNumber++;
+                        if (!IsFirstItemFound)
+                        {
+                            firstItem = i;
+                            IsFirstItemFound = true;
+                        }
+                    }
+                }
+            }
+        }
+   
 
         return false;
     }
