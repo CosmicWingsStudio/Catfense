@@ -16,7 +16,7 @@ MonoBehaviour:
     \u0443\u0447\u0435\u043D\u0438\u043A"
   <PresentiveName>k__BackingField: "\u0412\u043E\u043B\u0448\u0435\u0431\u043D\u0438\u043A"
   <HealthPoints>k__BackingField: 50
-  <Damage>k__BackingField: 25
+  <Damage>k__BackingField: 20
   <Firerate>k__BackingField: 5
   <Price>k__BackingField: 25
   <TeamEffectCollection>k__BackingField: 7

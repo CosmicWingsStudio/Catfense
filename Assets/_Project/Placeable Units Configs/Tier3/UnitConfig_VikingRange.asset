@@ -17,7 +17,7 @@ MonoBehaviour:
   <PresentiveName>k__BackingField: "\u0412\u0438\u043A\u0438\u043D\u0433"
   <HealthPoints>k__BackingField: 50
   <Damage>k__BackingField: 20
-  <Firerate>k__BackingField: 4.5
+  <Firerate>k__BackingField: 5
   <Price>k__BackingField: 20
   <TeamEffectCollection>k__BackingField: 5
   <PrefabName>k__BackingField: PUnit_VikingRange

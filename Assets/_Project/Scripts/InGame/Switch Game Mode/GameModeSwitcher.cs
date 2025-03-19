@@ -101,6 +101,11 @@ public class GameModeSwitcher : MonoBehaviour
         SwitchMode(GameMode.WaveMode);
         IsFirstWave = false;
     }
+
+    public void SetPreparationTime(int newtime)
+    {
+        _prepareTime = newtime;
+    }
 }
 
 public enum GameMode

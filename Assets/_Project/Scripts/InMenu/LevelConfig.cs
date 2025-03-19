@@ -36,6 +36,9 @@ public class LevelConfig : ScriptableObject
     [field: SerializeField, Range(-0.2f, 0.2f)]
     public float MovementModifire { get; private set; }
 
+    [field: SerializeField]
+    public int PreparationTime { get; private set; } = 15;
+
     public int WavesAmount { get => WavesList.Count; }
 
     [field: SerializeField]

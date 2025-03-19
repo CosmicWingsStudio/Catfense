@@ -14,7 +14,8 @@ public class SceneEnemyFactory : MonoBehaviour
     private List<LevelWave> _wavesList;
     private List<LevelWaveEnemyInfo> _currentWaveData;
 
-    private int _wavesAmount;
+    public int WavesAmount { private set; get; }
+
     private float _enemySpawnDelayTimer = 0f;
     private float _difficultyLevel = 1f;
     private float _difficultyScale = 0.1f;
@@ -64,7 +65,7 @@ public class SceneEnemyFactory : MonoBehaviour
             _wavesList.Add(new LevelWave(lwei));
         }
 
-        _wavesAmount = wavesAmount;
+        WavesAmount = wavesAmount;
         _enemySpawnPoint = enemySpawnPoint;
 
         _currentWaveData = _wavesList[0].EnemiesOnWaveList;
@@ -157,7 +158,7 @@ public class SceneEnemyFactory : MonoBehaviour
         IsReadyToProduceUnits = false;
         AllEnemyOnTheWaveIsSpawned = false;
         _enemyOnTheWave.Clear();
-        if (CurrentWave + 1 <= _wavesAmount) 
+        if (CurrentWave + 1 <= WavesAmount) 
             CurrentWave++;    
     }
 
@@ -167,10 +168,13 @@ public class SceneEnemyFactory : MonoBehaviour
         _enemySpawnDelayTimer = _enemySpawnDelay;
 
         if(CurrentWave != 1)
-            _currentDifficultyLevel = _difficultyLevel + (_difficultyLevel * _difficultyScale); 
+        {
+            _currentDifficultyLevel = _difficultyLevel + (_difficultyLevel * _difficultyScale);
+            _movementModifire += 0.0025f;
+        }
 
         _currentWaveData = _wavesList[CurrentWave - 1].EnemiesOnWaveList;
-        if (CurrentWave == _wavesAmount)
+        if (CurrentWave == WavesAmount)
             IsLastWave = true;
     }
 

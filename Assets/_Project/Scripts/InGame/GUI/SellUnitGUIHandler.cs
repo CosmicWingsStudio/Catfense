@@ -40,7 +40,9 @@ public class SellUnitGUIHandler : MonoBehaviour, IPointerExitHandler, IPointerEn
 
     private void SendSellRequest()
     {
-        _shopHandler.SellUnit(_currentUnit);
+        if(_currentUnit != null)
+            _shopHandler.SellUnit(_currentUnit);
+
         CloseSellUnitScreen();
     }
 

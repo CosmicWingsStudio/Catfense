@@ -55,6 +55,11 @@ public class RealmsHandler : MonoBehaviour
         {
             if (i == 0)
                 Realms[i].MakeRealmAvailable();
+            else if(i == 5)
+            {
+                if (Realms[2].IsAvaliable)
+                    Realms[i].MakeRealmAvailable();
+            }
             else if (Realms[i-1].IsCompleted)
                 Realms[i].MakeRealmAvailable();
         }

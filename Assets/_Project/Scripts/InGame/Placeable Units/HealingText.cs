@@ -14,7 +14,7 @@ public class HealingText : MonoBehaviour
         gameObject.SetActive(false); 
     }
 
-    public void OnEnableCustom(float healAmount)
+    public void OnEnableCustom(int healAmount)
     {
         StopCoroutine(FloatingAnimation());
         transform.position = RandomizeStartPosition();

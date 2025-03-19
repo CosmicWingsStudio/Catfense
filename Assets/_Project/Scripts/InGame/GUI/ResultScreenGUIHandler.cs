@@ -10,6 +10,7 @@ public class ResultScreenGUIHandler : MonoBehaviour
     private SignalBus _signalBus;
     private ISaveService _saveService;
     private LevelConfig _levelConfig;
+    private SceneEnemyFactory _enemyFactory;
     private int _realmIndex;
     private int _levelIndex;
     private int _additionalMoney = 0;
@@ -19,6 +20,7 @@ public class ResultScreenGUIHandler : MonoBehaviour
     [SerializeField] private GameObject _resultScreenObject;
     [SerializeField] private GameObject _additionalOnLose;
     [SerializeField] private TextMeshProUGUI _resultText;
+    [SerializeField] private TextMeshProUGUI _currentWaveText;
     [SerializeField] private Button _exitButton;
     [SerializeField] private Button _restartButton;
 
@@ -29,10 +31,11 @@ public class ResultScreenGUIHandler : MonoBehaviour
     [SerializeField] private bool IsTrainingLevel = false;
 
     [Inject]
-    private void Initialize(SignalBus signalBus, ISaveService saveService)
+    private void Initialize(SignalBus signalBus, ISaveService saveService, SceneEnemyFactory enemyFactory)
     {
         _signalBus = signalBus;
         _saveService = saveService;
+        _enemyFactory = enemyFactory;
 
         _signalBus.Subscribe<LevelEndedSignal>(ShowResultScreen);
         _signalBus.Subscribe<PRVideoEndedSignal>(() => _additionalMoney = 100);
@@ -70,6 +73,7 @@ public class ResultScreenGUIHandler : MonoBehaviour
                 Debug.LogError("SAVE RESULT ON LOSE");
                 _resultScreenObject.SetActive(true);
                 _additionalOnLose.SetActive(true);
+                _currentWaveText.text = "Вы остановились на " + _enemyFactory.CurrentWave.ToString() + " волне";
                 //StartCoroutine(RestartButtonEnableDelay());
                 _resultText.text = _loseResultInscription;
                 SoundMakerGUI.Instance.PlaySound(SoundMakerGUI.Instance.SoundLoseResult);
@@ -100,16 +104,15 @@ public class ResultScreenGUIHandler : MonoBehaviour
 
     private void SaveResult(bool result = true)
     {
-        //получаем сэйвДату из файлика
-        SavedData data = _saveService.LoadData();
+        if (_realmIndex == 6) return;
 
-        //вносим изменения по индексу
+        SavedData data = _saveService.LoadData();
+        
         if(_realmIndex != 0 && _levelIndex != 0)
             data.RealmsData[_realmIndex - 1].LevelsData[_levelIndex - 1] = result;
         else
             data.RealmsData[_realmIndex].LevelsData[_levelIndex] = result;
 
-        //сохраняем измекненую сэйвДату
         _saveService.SaveData(data);
     }
 

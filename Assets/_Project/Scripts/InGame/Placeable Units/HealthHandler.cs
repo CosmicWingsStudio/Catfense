@@ -95,13 +95,13 @@ public class HealthHandler : MonoBehaviour
         {
             CurrentHealthPoint += healAmount;
             _healingText.gameObject.SetActive(true);
-            _healingText.OnEnableCustom(healAmount);
+            _healingText.OnEnableCustom((int)healAmount);
         }
         else
         {
             CurrentHealthPoint = MaxHealth;
             _healingText.gameObject.SetActive(true);
-            _healingText.OnEnableCustom(healAmount);
+            _healingText.OnEnableCustom((int)healAmount);
         }
 
         UpdateHealthPointsSlider();

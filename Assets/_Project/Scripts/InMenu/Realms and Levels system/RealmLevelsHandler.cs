@@ -37,6 +37,8 @@ public class RealmLevelsHandler : MonoBehaviour
     {
         for (int i = 0; i < RealmLevels.Count; i++)
         {
+            if (i == 5) return;
+
             RealmLevels[i].IsCompleted = realmData.LevelsData[i];
         }
     }
