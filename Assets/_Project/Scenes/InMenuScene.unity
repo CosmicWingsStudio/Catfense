@@ -516,9 +516,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsAvaliable: 0
+  IsADWatched: 0
+  _realmNumber: 1
   OpenRealmButton: {fileID: 748818422}
+  ObjectToOpen: {fileID: 290693797}
+  HasADVideo: 0
   DisablePanel: {fileID: 126646076}
   IsCompletedToggle: {fileID: 234177459}
+  adManager: {fileID: 339636811}
   realmLevelsHandler: {fileID: 1800639930}
 --- !u!1 &23980593
 GameObject:
@@ -6612,7 +6617,7 @@ GameObject:
   - component: {fileID: 339636810}
   - component: {fileID: 339636811}
   m_Layer: 0
-  m_Name: PR
+  m_Name: AD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6645,7 +6650,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4108d45ad45db98498e7d5894f01590c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startPRVideo: {fileID: 888993507}
+  _startADVideoForUnlockRealm: {fileID: 888993507}
+  _adPanel: {fileID: 1776330140}
+  _startADVideoForAdditionalGold: {fileID: 0}
+  _adVideo: {fileID: 2794279138225824940, guid: e1f13553fa5a69646aa90a82d1a51bf6, type: 3}
 --- !u!1 &347031076
 GameObject:
   m_ObjectHideFlags: 0
@@ -6658,7 +6666,6 @@ GameObject:
   - component: {fileID: 347031082}
   - component: {fileID: 347031081}
   - component: {fileID: 347031080}
-  - component: {fileID: 347031079}
   - component: {fileID: 347031078}
   m_Layer: 0
   m_Name: Open Realm Menu Button
@@ -6701,19 +6708,6 @@ MonoBehaviour:
   _defaultClick: 1
   _purchaseClick: 0
   _buildClick: 0
---- !u!114 &347031079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 347031076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deb0ef9cabe0c9748acf930a76835771, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _objectToEnable: {fileID: 1722492565}
 --- !u!114 &347031080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10055,9 +10049,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsAvaliable: 0
+  IsADWatched: 0
+  _realmNumber: 6
   OpenRealmButton: {fileID: 878910169}
+  ObjectToOpen: {fileID: 2001265090}
+  HasADVideo: 0
   DisablePanel: {fileID: 1672095363}
   IsCompletedToggle: {fileID: 1696853744}
+  adManager: {fileID: 339636811}
   realmLevelsHandler: {fileID: 432441250}
 --- !u!1 &509799985
 GameObject:
@@ -12412,9 +12411,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsAvaliable: 0
+  IsADWatched: 0
+  _realmNumber: 2
   OpenRealmButton: {fileID: 1308091238}
+  ObjectToOpen: {fileID: 1820951052}
+  HasADVideo: 0
   DisablePanel: {fileID: 336203742}
   IsCompletedToggle: {fileID: 247285903}
+  adManager: {fileID: 339636811}
   realmLevelsHandler: {fileID: 432441250}
 --- !u!1 &609241798
 GameObject:
@@ -12682,7 +12686,7 @@ MonoBehaviour:
     \u0438\u043D\u0442\u0435\u0433\u0440\u0430\u0446\u0438\u044E"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 57c3108312a9af549977ea4e61ddf412, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: -5679309567203450686, guid: 57c3108312a9af549977ea4e61ddf412, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -12747,7 +12751,7 @@ MonoBehaviour:
   m_margin: {x: -23.147095, y: -67.88068, z: -21.766357, w: -31.134705}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &610573727
@@ -16971,7 +16975,6 @@ GameObject:
   - component: {fileID: 748818424}
   - component: {fileID: 748818423}
   - component: {fileID: 748818422}
-  - component: {fileID: 748818421}
   - component: {fileID: 748818425}
   m_Layer: 0
   m_Name: Open Realm Menu Button
@@ -16999,19 +17002,6 @@ RectTransform:
   m_AnchoredPosition: {x: 504.2, y: 298.3}
   m_SizeDelta: {x: 132.9257, y: 127.3926}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &748818421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 748818419}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deb0ef9cabe0c9748acf930a76835771, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _objectToEnable: {fileID: 290693797}
 --- !u!114 &748818422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20597,7 +20587,6 @@ GameObject:
   - component: {fileID: 878910171}
   - component: {fileID: 878910170}
   - component: {fileID: 878910169}
-  - component: {fileID: 878910168}
   - component: {fileID: 878910167}
   m_Layer: 0
   m_Name: Open Realm Menu Button
@@ -20641,19 +20630,6 @@ MonoBehaviour:
   _defaultClick: 1
   _purchaseClick: 0
   _buildClick: 0
---- !u!114 &878910168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 878910165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deb0ef9cabe0c9748acf930a76835771, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _objectToEnable: {fileID: 2001265090}
 --- !u!114 &878910169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23030,9 +23006,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsAvaliable: 0
+  IsADWatched: 0
+  _realmNumber: 4
   OpenRealmButton: {fileID: 1449972670}
+  ObjectToOpen: {fileID: 1144531827}
+  HasADVideo: 1
   DisablePanel: {fileID: 901097308}
   IsCompletedToggle: {fileID: 1325077120}
+  adManager: {fileID: 339636811}
   realmLevelsHandler: {fileID: 1319523575}
 --- !u!1 &976661583
 GameObject:
@@ -27307,9 +27288,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsAvaliable: 0
+  IsADWatched: 0
+  _realmNumber: 3
   OpenRealmButton: {fileID: 1966410161}
+  ObjectToOpen: {fileID: 451406879}
+  HasADVideo: 1
   DisablePanel: {fileID: 1188173526}
   IsCompletedToggle: {fileID: 596107183}
+  adManager: {fileID: 339636811}
   realmLevelsHandler: {fileID: 1579541305}
 --- !u!1 &1144531827
 GameObject:
@@ -29873,7 +29859,6 @@ GameObject:
   - component: {fileID: 1308091240}
   - component: {fileID: 1308091239}
   - component: {fileID: 1308091238}
-  - component: {fileID: 1308091237}
   - component: {fileID: 1308091241}
   m_Layer: 0
   m_Name: Open Realm Menu Button
@@ -29901,19 +29886,6 @@ RectTransform:
   m_AnchoredPosition: {x: 174.7, y: 159.3}
   m_SizeDelta: {x: 132.9257, y: 127.3926}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1308091237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308091235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deb0ef9cabe0c9748acf930a76835771, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _objectToEnable: {fileID: 1820951052}
 --- !u!114 &1308091238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33181,7 +33153,6 @@ GameObject:
   - component: {fileID: 1449972672}
   - component: {fileID: 1449972671}
   - component: {fileID: 1449972670}
-  - component: {fileID: 1449972669}
   - component: {fileID: 1449972668}
   m_Layer: 0
   m_Name: Open Realm Menu Button
@@ -33224,19 +33195,6 @@ MonoBehaviour:
   _defaultClick: 1
   _purchaseClick: 0
   _buildClick: 0
---- !u!114 &1449972669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1449972666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deb0ef9cabe0c9748acf930a76835771, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _objectToEnable: {fileID: 1144531827}
 --- !u!114 &1449972670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40636,9 +40594,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsAvaliable: 0
+  IsADWatched: 0
+  _realmNumber: 5
   OpenRealmButton: {fileID: 347031080}
+  ObjectToOpen: {fileID: 1722492565}
+  HasADVideo: 1
   DisablePanel: {fileID: 1941750707}
   IsCompletedToggle: {fileID: 18590961}
+  adManager: {fileID: 339636811}
   realmLevelsHandler: {fileID: 2054991440}
 --- !u!1 &1720838707
 GameObject:
@@ -41583,7 +41546,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1776330141}
   m_Layer: 0
-  m_Name: PR Panel
+  m_Name: AD Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46193,7 +46156,6 @@ GameObject:
   - component: {fileID: 1966410163}
   - component: {fileID: 1966410162}
   - component: {fileID: 1966410161}
-  - component: {fileID: 1966410160}
   - component: {fileID: 1966410159}
   m_Layer: 0
   m_Name: Open Realm Menu Button
@@ -46236,19 +46198,6 @@ MonoBehaviour:
   _defaultClick: 1
   _purchaseClick: 0
   _buildClick: 0
---- !u!114 &1966410160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1966410157}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deb0ef9cabe0c9748acf930a76835771, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _objectToEnable: {fileID: 451406879}
 --- !u!114 &1966410161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49047,7 +48996,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2110642627}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 339636811}
+        m_TargetAssemblyTypeName: ADManager, Assembly-CSharp
+        m_MethodName: CloseADPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2110642627
 MonoBehaviour:
   m_ObjectHideFlags: 0

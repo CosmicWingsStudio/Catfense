@@ -38,7 +38,7 @@ public class ResultScreenGUIHandler : MonoBehaviour
         _enemyFactory = enemyFactory;
 
         _signalBus.Subscribe<LevelEndedSignal>(ShowResultScreen);
-        _signalBus.Subscribe<PRVideoEndedSignal>(() => _additionalMoney = 100);
+        _signalBus.Subscribe<ADVideoEndedSignal>(() => _additionalMoney = 100);
         _exitButton.onClick.AddListener(LeaveScene);
         _restartButton.onClick.AddListener(RestartLevel);
     }

@@ -38,8 +38,6 @@ public class RealmsHandler : MonoBehaviour
 
     private void ProcessSavedLevelsData()
     {
-        //RealmsData
-        //делаем тут какие реламы у нас Комплитед, а какие нет на основе сэйв дэйты
         for (int i = 0; i < Realms.Count; i++)
         {
             var levels = Realms[i].realmLevelsHandler.GetLevels();
@@ -63,5 +61,10 @@ public class RealmsHandler : MonoBehaviour
             else if (Realms[i-1].IsCompleted)
                 Realms[i].MakeRealmAvailable();
         }
+    }
+
+    public List<Realm> GetRealms()
+    {
+        return Realms;
     }
 }

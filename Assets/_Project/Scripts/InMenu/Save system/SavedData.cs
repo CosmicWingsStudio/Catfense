@@ -5,10 +5,12 @@ using System;
 public class SavedData
 {
     public RealmSavedData[] RealmsData;
-    public SavedData(RealmSavedData[] realmsData)
+    public RealmADWatchedSavedData RealmsADWatchedData;
+    public SavedData(RealmSavedData[] realmsData, RealmADWatchedSavedData realmsADWatchedData)
     {
         RealmsData = realmsData;
-    }
+        RealmsADWatchedData = realmsADWatchedData;
+    }  
 }
 
 [Serializable]
@@ -18,6 +20,17 @@ public struct RealmSavedData
     public RealmSavedData(bool[] levelsData)
     {
         LevelsData = levelsData;
+    }
+
+}
+
+[Serializable]
+public struct RealmADWatchedSavedData
+{
+    public bool[] RealmsADWatchedData;
+    public RealmADWatchedSavedData(bool[] adWatchedData)
+    {
+        RealmsADWatchedData = adWatchedData;
     }
 
 }

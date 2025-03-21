@@ -18,6 +18,8 @@ public class InMenuSceneInstaller : MonoInstaller
 
         Container.DeclareSignal<PausedSignal>();
         Container.DeclareSignal<UnpausedSignal>();
+        Container.DeclareSignal<ADVideoStartedSignal>();
+        Container.DeclareSignal<ADVideoEndedSignal>();
     }
 
     private void BindHandlers()

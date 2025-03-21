@@ -12,17 +12,23 @@ public class Realm : MonoBehaviour
 
 
     [ReadOnly] public bool IsAvaliable = false;
-
+    public bool IsADWatched = false;
+    [SerializeField] private int _realmNumber = 0;
     [SerializeField] private Button OpenRealmButton;
+    [SerializeField] private GameObject ObjectToOpen;
+    [SerializeField] private bool HasADVideo = false;
     [SerializeField] private GameObject DisablePanel;
     [SerializeField] private Toggle IsCompletedToggle;
+    [SerializeField] private ADManager adManager;
 
     public RealmLevelsHandler realmLevelsHandler;
 
     private void Awake()
     {
+        OpenRealmButton.onClick.AddListener(OpenRealmPanel);
         OpenRealmButton.enabled = false;
         IsCompletedToggle.isOn = IsCompleted;
+
     }
     public void MakeRealmAvailable()
     {
@@ -35,5 +41,15 @@ public class Realm : MonoBehaviour
     {
         _isCompleted = true;
         IsCompletedToggle.isOn = _isCompleted;
+    }
+
+    private void OpenRealmPanel()
+    {
+        if(HasADVideo == true && IsADWatched == false)
+        {
+            adManager.ShowADPanelFromRealmButton(_realmNumber, transform);
+        }
+        else
+            ObjectToOpen.SetActive(true);
     }
 }

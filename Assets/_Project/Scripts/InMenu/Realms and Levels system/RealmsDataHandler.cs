@@ -6,6 +6,8 @@ public class RealmsDataHandler : MonoBehaviour
 {
     [SerializeField] private RealmLevelsHandler[] RealmHandlers;
     [Inject] readonly ISaveService saveService;
+    [Inject] readonly RealmsHandler realmsHandler;
+
     public bool IsInitialized { get; private set; } = false;
 
     public void Initialize(SavedData savedData)
@@ -13,6 +15,14 @@ public class RealmsDataHandler : MonoBehaviour
         for (int i = 0; i < RealmHandlers.Length; i++)
         {
             RealmHandlers[i].Initialize(savedData.RealmsData[i]);
+            
+        }
+
+        var realms = realmsHandler.GetRealms();
+
+        for (int i = 0; i < realms.Count; i++)
+        {
+            realms[i].IsADWatched = savedData.RealmsADWatchedData.RealmsADWatchedData[i];
         }
 
         IsInitialized = true;
@@ -40,12 +50,21 @@ public class RealmsDataHandler : MonoBehaviour
         return realmSavedData;
     }
 
-    private void Update()
+    public RealmADWatchedSavedData GetADWatchedStatus()
     {
-        if(Input.GetKeyDown(KeyCode.S))
+        var realms = realmsHandler.GetRealms();
+        bool[] statuses = new bool[realms.Count];
+
+        if(realms.Count == 0)
         {
-            saveService.SaveData();
+            return new RealmADWatchedSavedData(new bool [6] { false, false, false, false, false, false });
         }
-        
+
+        for (int i = 0; i < realms.Count; i++)
+        {
+            statuses[i] = realms[i].IsADWatched;
+        }
+
+        return new RealmADWatchedSavedData(statuses);
     }
 }
