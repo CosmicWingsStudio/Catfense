@@ -18,13 +18,7 @@ public class RealmsDataHandler : MonoBehaviour
             
         }
 
-        var realms = realmsHandler.GetRealms();
-
-        for (int i = 0; i < realms.Count; i++)
-        {
-            realms[i].IsADWatched = savedData.RealmsADWatchedData.RealmsADWatchedData[i];
-        }
-
+        realmsHandler.SetData(savedData.RealmsADWatchedData);
         IsInitialized = true;
     }
 

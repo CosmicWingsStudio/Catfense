@@ -12,14 +12,14 @@ public class Realm : MonoBehaviour
 
 
     [ReadOnly] public bool IsAvaliable = false;
-    public bool IsADWatched = false;
+    [ReadOnly] public bool IsADWatched = false;
     [SerializeField] private int _realmNumber = 0;
     [SerializeField] private Button OpenRealmButton;
     [SerializeField] private GameObject ObjectToOpen;
     [SerializeField] private bool HasADVideo = false;
     [SerializeField] private GameObject DisablePanel;
     [SerializeField] private Toggle IsCompletedToggle;
-    [SerializeField] private ADManager adManager;
+    [SerializeField] private ADManagerForMenu adManager;
 
     public RealmLevelsHandler realmLevelsHandler;
 

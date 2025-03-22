@@ -50,6 +50,7 @@ public class DesktopSaveService : ISaveService
     public void SaveData()
     {
         SavedData savedData = null;
+
         if (RealmsDataHandler != null)
         {
             if (RealmsDataHandler.IsInitialized == true)
@@ -97,7 +98,6 @@ public class DesktopSaveService : ISaveService
 
     public void SetData(SavedData savedData)
     {
-        //типа готовый объект его поля суем куда надо
         RealmsDataHandler.Initialize(savedData);
     }
 

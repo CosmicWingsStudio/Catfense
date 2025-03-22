@@ -38,7 +38,7 @@ public class ResultScreenGUIHandler : MonoBehaviour
         _enemyFactory = enemyFactory;
 
         _signalBus.Subscribe<LevelEndedSignal>(ShowResultScreen);
-        _signalBus.Subscribe<ADVideoEndedSignal>(() => _additionalMoney = 100);
+        _signalBus.Subscribe<ADVideoEndedSignal>(RestartLevelAfterWatchingAD);
         _exitButton.onClick.AddListener(LeaveScene);
         _restartButton.onClick.AddListener(RestartLevel);
     }
@@ -87,6 +87,12 @@ public class ResultScreenGUIHandler : MonoBehaviour
     {
         _realmIndex = RealmIndex;
         _levelIndex = LevelIndex;
+    }
+
+    private void RestartLevelAfterWatchingAD()
+    {
+        _additionalMoney = 100;
+        RestartLevel();
     }
 
     private void RestartLevel()

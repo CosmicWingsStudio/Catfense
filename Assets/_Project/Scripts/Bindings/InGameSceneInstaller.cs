@@ -68,7 +68,7 @@ public class InGameSceneInstaller : MonoInstaller
         Container.Bind<MusicController>().FromComponentInHierarchy().AsSingle();
         Container.Bind<TeamEffects>().FromComponentInHierarchy().AsSingle();
         Container.Bind<GUI_EndLevelMenu>().FromComponentInHierarchy().AsSingle();
-        Container.Bind<ADManager>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<ADManagerForGame>().FromComponentInHierarchy().AsSingle();
     }
 
     //private void BindDeveloperTools()

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor.Overlays;
 using UnityEngine;
 
 public class RealmsHandler : MonoBehaviour
@@ -9,9 +10,12 @@ public class RealmsHandler : MonoBehaviour
     [Header("Autofills with realms. Do not touch")]
     [SerializeField] private List<Realm> Realms;
 
+    private RealmADWatchedSavedData _loadedData;
+
     public void Initialize()
     {
         FillWithRealms();
+        FillWithLoadedData();
         ProcessSavedLevelsData();
         ChangeAvailableStatusForRealm();
     }
@@ -63,8 +67,21 @@ public class RealmsHandler : MonoBehaviour
         }
     }
 
+    private void FillWithLoadedData()
+    {
+        for (int i = 0; i < Realms.Count; i++)
+        {
+            Realms[i].IsADWatched = _loadedData.RealmsADWatchedData[i];
+        }
+    }
+
     public List<Realm> GetRealms()
     {
         return Realms;
+    }
+
+    public void SetData(RealmADWatchedSavedData data)
+    {
+        _loadedData = data;
     }
 }
