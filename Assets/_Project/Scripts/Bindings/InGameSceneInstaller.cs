@@ -97,7 +97,7 @@ public class InGameSceneInstaller : MonoInstaller
     {
         Container.Bind<PlaceableUnitsFactory>().FromComponentInHierarchy().AsSingle();
         Container.Bind<CardsFactory>().FromComponentInHierarchy().AsSingle();
-        RewardSpawner rs = new(_moneyTextPosition.position, _rewardObject, _mainCanvas);
+        RewardSpawner rs = new(_moneyTextPosition, _rewardObject, _mainCanvas);
         Container.Bind<RewardSpawner>().FromInstance(rs).AsSingle();
         Container.QueueForInject(rs);
         //Container.BindInstance(rs).AsSingle();

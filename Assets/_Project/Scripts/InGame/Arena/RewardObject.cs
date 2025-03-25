@@ -9,7 +9,7 @@ public class RewardObject : MonoBehaviour, IPointerDownHandler
     [SerializeField] private TMPro.TextMeshProUGUI _moneyValueText;
     
     private WalletHandler _walletHandler;
-    private Vector2 _moneyTextPosition;
+    private Transform _moneyTextPosition;
     private Image _image;
     private Animator _animator;
     private bool IsInititalised = false;
@@ -20,7 +20,7 @@ public class RewardObject : MonoBehaviour, IPointerDownHandler
     [SerializeField] private float _fadeAwayTime = 1.75f;
     private float _fadeAwayTimer = 0f;
 
-    public void Initialize(WalletHandler wallet, Vector2 moneyTextPos, float moneyValue)
+    public void Initialize(WalletHandler wallet, Transform moneyTextPos, float moneyValue)
     {
         if (!IsInititalised)
         {
@@ -55,14 +55,14 @@ public class RewardObject : MonoBehaviour, IPointerDownHandler
             newColor.a -= Time.deltaTime;
             _image.color = newColor;
             _moneyValueText.alpha -= Time.deltaTime;
-            if (tposv2.magnitude + 1 >= _moneyTextPosition.magnitude)
+            if (tposv2.magnitude + 1 >= _moneyTextPosition.position.magnitude)
             {
                 _walletHandler.AddMoney((int)_moneyValue);
                 Destroy(gameObject);
                 OnDestroy = true;
             }
             else
-                transform.position = Vector3.Lerp(transform.position, _moneyTextPosition, 5 * Time.deltaTime);
+                transform.position = Vector3.Lerp(transform.position, _moneyTextPosition.position, 5 * Time.deltaTime);
         }
     }
 

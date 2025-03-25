@@ -45,6 +45,7 @@ public class ADManagerForMenu : MonoBehaviour
     {
         _adPanel.gameObject.SetActive(false);
         _signalBus.Fire(new ADVideoStartedSignal(_currentIndex));
+        PauseDuringAD();
         ADObject ad = Instantiate(_adVideo).GetComponent<ADObject>();
         ad.Initialize(_signalBus);
     }
@@ -56,5 +57,10 @@ public class ADManagerForMenu : MonoBehaviour
         //do save method
         _saveService.SaveData();
 
+    }
+
+    private void PauseDuringAD()
+    {
+        _signalBus.Fire<PausedSignal>();
     }
 }

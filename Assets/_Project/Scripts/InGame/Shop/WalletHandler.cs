@@ -15,8 +15,6 @@ public class WalletHandler : MonoBehaviour
     private int _startMoney;
     private int _moneyPerWave;
     private float _moneyPerWaveModifire;
-    private Vector3 _defaultChangedOutcomeMoneyTextPosition;
-    private Vector3 _defaultChangedIncomeMoneyTextPosition;
     private float _defaultFontSize;
     private Color _defaultTextColor;
     private bool AddHighlighting = false;
@@ -50,8 +48,6 @@ public class WalletHandler : MonoBehaviour
             _defaultFontSize = _moneyText.fontSize;
             _defaultTextColor = _moneyText.color;
             _signalBus.Subscribe<WaveEndedSignal>(GetAfterWaveMoney);
-            _defaultChangedOutcomeMoneyTextPosition = _outcomeMoneyText.transform.position;
-            _defaultChangedIncomeMoneyTextPosition = _incomeMoneyText.transform.position;
         }
     }
 
@@ -77,8 +73,8 @@ public class WalletHandler : MonoBehaviour
         _moneyText.text = CurrentMoney.ToString();
         ReduceHighlighting = true;
 
-        Vector3 newPos = new(_defaultChangedOutcomeMoneyTextPosition.x + Random.Range(-15, 15),
-           _defaultChangedOutcomeMoneyTextPosition.y);
+        Vector3 newPos = new(_outcomeMoneyText.transform.position.x + Random.Range(-15, 15),
+           _outcomeMoneyText.transform.position.y);
         _outcomeMoneyText.transform.position = newPos;
         _outcomeMoneyText.text = "-" + amount.ToString();
         StartCoroutine(OutcomeMoneyShow());
@@ -113,8 +109,8 @@ public class WalletHandler : MonoBehaviour
         _moneyText.text = CurrentMoney.ToString();
         AddHighlighting = true;
 
-        Vector3 newPos = new(_defaultChangedIncomeMoneyTextPosition.x + Random.Range(-15, 15),
-            _defaultChangedIncomeMoneyTextPosition.y);
+        Vector3 newPos = new(_incomeMoneyText.transform.position.x + Random.Range(-15, 15),
+            _incomeMoneyText.transform.position.y);
         _incomeMoneyText.transform.position = newPos;
         _incomeMoneyText.text = "+" + NewAmount.ToString();
         StartCoroutine(IncomeMoneyShow());

@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class RewardSpawner
 {
-    public RewardSpawner(Vector2 moneyTextPosition, Reward rewardPrefab, Transform canvasObject)
+    public RewardSpawner(Transform moneyTextPosition, Reward rewardPrefab, Transform canvasObject)
     {
         _rewardPrefab = rewardPrefab;
         _moneyTextPosition = moneyTextPosition;
         _canvasObject = canvasObject;
     }
 
-    private Vector2 _moneyTextPosition;
+    private Transform _moneyTextPosition;
     private Reward _rewardPrefab;
     private Animator _animator;
     [Zenject.Inject] private WalletHandler _walletHanler;

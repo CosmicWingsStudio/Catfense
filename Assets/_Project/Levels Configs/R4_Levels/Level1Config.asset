@@ -22,6 +22,7 @@ MonoBehaviour:
   <MoneyPerWaveModifire>k__BackingField: 0.25
   <DifficultyLevelScale>k__BackingField: 0.2
   <MovementModifire>k__BackingField: 0.1
+  <PreparationTime>k__BackingField: 15
   <WavesList>k__BackingField:
   - EnemiesOnWaveList:
     - <PrefabName>k__BackingField: Range_02
@@ -90,9 +91,4 @@ MonoBehaviour:
     - <PrefabName>k__BackingField: Boss_02
       <Amount>k__BackingField: 1
   <MusicClips>k__BackingField:
-  - {fileID: 8300000, guid: c1b5ef22f5159374b87924c41f75e149, type: 3}
-  - {fileID: 8300000, guid: fc4e319dd7c48f6479c50c3ed451e048, type: 3}
-  - {fileID: 8300000, guid: dfd3a1ffc0a426f45b02c5b3c7b31a37, type: 3}
-  - {fileID: 8300000, guid: 1ab63ac3a4c92164bbf291b43c3f15a2, type: 3}
-  - {fileID: 8300000, guid: b70a0f96fa9ece64283a3120e20da9e1, type: 3}
-  - {fileID: 8300000, guid: f0cdc5b056ca5ab4b9ea3ca5bd407b81, type: 3}
+  - {fileID: 8300000, guid: 598660a38c18b6a41b078e7e081db37c, type: 3}

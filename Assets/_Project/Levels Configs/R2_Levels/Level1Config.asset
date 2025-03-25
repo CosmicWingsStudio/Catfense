@@ -19,7 +19,10 @@ MonoBehaviour:
   <DifficultyLevel>k__BackingField: 0.1
   <StartMoney>k__BackingField: 75
   <MoneyPerWave>k__BackingField: 75
+  <MoneyPerWaveModifire>k__BackingField: 0.1
   <DifficultyLevelScale>k__BackingField: 0.13
+  <MovementModifire>k__BackingField: 0
+  <PreparationTime>k__BackingField: 15
   <WavesList>k__BackingField:
   - EnemiesOnWaveList:
     - <PrefabName>k__BackingField: Melee_02
@@ -76,9 +79,6 @@ MonoBehaviour:
     - <PrefabName>k__BackingField: Melee_03
       <Amount>k__BackingField: 2
   <MusicClips>k__BackingField:
-  - {fileID: 8300000, guid: c1b5ef22f5159374b87924c41f75e149, type: 3}
-  - {fileID: 8300000, guid: fc4e319dd7c48f6479c50c3ed451e048, type: 3}
-  - {fileID: 8300000, guid: dfd3a1ffc0a426f45b02c5b3c7b31a37, type: 3}
+  - {fileID: 8300000, guid: 068969d7013aa9042b6d9593038ab5ac, type: 3}
   - {fileID: 8300000, guid: 1ab63ac3a4c92164bbf291b43c3f15a2, type: 3}
-  - {fileID: 8300000, guid: b70a0f96fa9ece64283a3120e20da9e1, type: 3}
-  - {fileID: 8300000, guid: f0cdc5b056ca5ab4b9ea3ca5bd407b81, type: 3}
+  - {fileID: 8300000, guid: c6eac278147816e4e85529d34ba7e9b3, type: 3}
