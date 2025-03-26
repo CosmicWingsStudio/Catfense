@@ -21,7 +21,9 @@ public abstract class UnitAttack : MonoBehaviour
     protected float _fireRateCounter = 0f;
     protected float _damage;
     protected float _originalDamage;
-    
+    private int _attackTrigger = Animator.StringToHash("Shoot");
+    private int _idleState = Animator.StringToHash("IdleActive");
+
     private void Awake()
     {
         _targetDetector = GetComponent<TargetDetector>();
@@ -69,7 +71,7 @@ public abstract class UnitAttack : MonoBehaviour
     protected void Attack()
     {
         InAnimation = true;
-        Animator.SetTrigger("Shoot");
+        Animator.SetTrigger(_attackTrigger);
     }
 
     public virtual void AttackAnimationPoint()
@@ -80,7 +82,7 @@ public abstract class UnitAttack : MonoBehaviour
 
     public virtual void SetCurrentTarget(Transform target)
     {
-        Animator.SetBool("IdleActive", false);
+        Animator.SetBool(_idleState, false);
         CurrentTarget = target;
         _fireRateCounter = _firerate;
         IsAttacking = true;
@@ -90,7 +92,7 @@ public abstract class UnitAttack : MonoBehaviour
     {
         CurrentTarget = null;
         IsAttacking = false;
-        Animator.SetBool("IdleActive", true);
+        Animator.SetBool(_idleState, true);
     }
 
     public void UpgradeStats(float multiplier)

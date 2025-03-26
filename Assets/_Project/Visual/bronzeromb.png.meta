@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bronzeromb_0: -2143001085197767047
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

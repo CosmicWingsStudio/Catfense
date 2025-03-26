@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      violetRomb_0: -4427645877686487997
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -19,7 +19,7 @@ MonoBehaviour:
   <DifficultyLevel>k__BackingField: 0.26
   <StartMoney>k__BackingField: 100
   <MoneyPerWave>k__BackingField: 85
-  <MoneyPerWaveModifire>k__BackingField: 0.2
+  <MoneyPerWaveModifire>k__BackingField: 0.222
   <DifficultyLevelScale>k__BackingField: 0.45
   <MovementModifire>k__BackingField: 0.06
   <PreparationTime>k__BackingField: 15

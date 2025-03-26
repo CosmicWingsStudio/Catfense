@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      FrozeIcon_0: 5296030215426426226
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -195,9 +195,8 @@ GameObject:
   - component: {fileID: 67349274348956325}
   - component: {fileID: 67349274348956324}
   - component: {fileID: 8547487747907151123}
-  - component: {fileID: 67349274348956312}
   m_Layer: 0
-  m_Name: CFXR4 Rain Falling
+  m_Name: Rain Falling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5073,22 +5072,6 @@ MonoBehaviour:
     shakesDelay: 0
   animatedLights: []
   fadeOutReference: {fileID: 0}
---- !u!114 &67349274348956312
-MonoBehaviour:
-  m_ObjectHideFlags: 16
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 67349274348956314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 403cb51292a8b3c4c870cccfc0e68659, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 1
-  particlesPerUnit: 1
-  maxEmissionRate: 10000
-  density: 353.99997
 --- !u!1 &96213857304348059
 GameObject:
   m_ObjectHideFlags: 0
@@ -5666,7 +5649,7 @@ Transform:
   m_GameObject: {fileID: 514985483312634473}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.22, y: 0.24799997, z: 0}
+  m_LocalPosition: {x: 4.22, y: 0.412, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18812,7 +18795,7 @@ Transform:
   m_GameObject: {fileID: 3991409235173696313}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.438, z: 0}
+  m_LocalPosition: {x: 0, y: -0.602, z: 0}
   m_LocalScale: {x: 1, y: 0.087299995, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20009,7 +19992,7 @@ Transform:
   m_GameObject: {fileID: 5087593986679056146}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.02, y: 0.234, z: 0}
+  m_LocalPosition: {x: 1.02, y: 0.43499997, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -20743,7 +20726,7 @@ Transform:
   m_GameObject: {fileID: 5682512628007182238}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.438, z: 0}
+  m_LocalPosition: {x: 0, y: -0.602, z: 0}
   m_LocalScale: {x: 1, y: 0.09, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -32417,7 +32400,7 @@ Transform:
   m_GameObject: {fileID: 7455402230601575969}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.77, y: 0.24199998, z: 0}
+  m_LocalPosition: {x: -1.77, y: 0.443, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -32953,7 +32936,7 @@ Transform:
   m_GameObject: {fileID: 7875154457179969486}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.438, z: 0}
+  m_LocalPosition: {x: 0, y: -0.548, z: 0}
   m_LocalScale: {x: 1, y: 0.087299995, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

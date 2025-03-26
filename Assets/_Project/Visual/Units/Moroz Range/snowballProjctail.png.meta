@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      snowballProjctail_0: -421456471252125255
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

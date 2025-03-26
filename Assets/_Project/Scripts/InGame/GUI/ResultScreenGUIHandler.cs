@@ -69,8 +69,6 @@ public class ResultScreenGUIHandler : MonoBehaviour
                 Time.timeScale = 0f;
                 break;
             case ResultType.Lose:
-                SaveResult();
-                Debug.LogError("SAVE RESULT ON LOSE");
                 _resultScreenObject.SetActive(true);
                 _additionalOnLose.SetActive(true);
                 _currentWaveText.text = "Вы остановились на " + _enemyFactory.CurrentWave.ToString() + " волне";

@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Troll_02_1_ATTACK_003_0: 5673259846564372200
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

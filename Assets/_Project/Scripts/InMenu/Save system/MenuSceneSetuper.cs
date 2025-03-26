@@ -8,6 +8,7 @@ public class MenuSceneSetuper : MonoBehaviour
 
     private void Start()
     {
+        Application.targetFrameRate = 100;
         saveService.SetData(saveService.LoadData());
         realmsHandler.Initialize();
         //Debug.Log(saveService.GetSaveDataPath());

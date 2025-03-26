@@ -95,6 +95,21 @@ MonoBehaviour:
       <Amount>k__BackingField: 3
     - <PrefabName>k__BackingField: Melee_03
       <Amount>k__BackingField: 2
+  - EnemiesOnWaveList:
+    - <PrefabName>k__BackingField: Melee_02
+      <Amount>k__BackingField: 6
+    - <PrefabName>k__BackingField: Melee_03
+      <Amount>k__BackingField: 6
+    - <PrefabName>k__BackingField: Range_01
+      <Amount>k__BackingField: 5
+    - <PrefabName>k__BackingField: Boss_04
+      <Amount>k__BackingField: 1
+    - <PrefabName>k__BackingField: Melee_02
+      <Amount>k__BackingField: 3
+    - <PrefabName>k__BackingField: Melee_03
+      <Amount>k__BackingField: 2
+    - <PrefabName>k__BackingField: Boss_03
+      <Amount>k__BackingField: 1
   <MusicClips>k__BackingField:
   - {fileID: 8300000, guid: 068969d7013aa9042b6d9593038ab5ac, type: 3}
   - {fileID: 8300000, guid: 1ab63ac3a4c92164bbf291b43c3f15a2, type: 3}

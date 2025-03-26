@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      abstract_antique_backdrop_background_board_brown_building_carpentry-1269040_0: -7194346083314876064
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      projectailColba_0: -6841240987187514724
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

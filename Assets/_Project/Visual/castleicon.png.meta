@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      castleicon_0: 7743854387608758486
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

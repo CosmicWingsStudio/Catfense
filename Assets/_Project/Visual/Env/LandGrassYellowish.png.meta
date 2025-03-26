@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      LandGrassYellowish_0: 1681077629339389989
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

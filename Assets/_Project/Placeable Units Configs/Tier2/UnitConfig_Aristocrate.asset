@@ -16,7 +16,7 @@ MonoBehaviour:
   <PresentiveName>k__BackingField: "\u0410\u0440\u0438\u0441\u0442\u043E\u043A\u0440\u0430\u0442"
   <HealthPoints>k__BackingField: 22
   <Damage>k__BackingField: 40
-  <Firerate>k__BackingField: 5
+  <Firerate>k__BackingField: 6.25
   <Price>k__BackingField: 85
   <TeamEffectCollection>k__BackingField: 8
   <PrefabName>k__BackingField: PUnit_Aristocrate
