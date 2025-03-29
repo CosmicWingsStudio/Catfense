@@ -12,6 +12,7 @@ public class MeleeUnitAttack : UnitAttack
         _damage = config.Damage;
         _originalFirerate = _firerate;
         _originalDamage = _damage;
+        _fireRateCounter = _firerate;
     }
 
     public override void AttackAnimationPoint()

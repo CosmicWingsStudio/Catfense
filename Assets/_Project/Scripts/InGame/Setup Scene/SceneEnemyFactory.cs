@@ -81,6 +81,7 @@ public class SceneEnemyFactory : MonoBehaviour
             {
                 if (_currentWaveData.Count != 0)
                 {
+                    Debug.Log("Current dificulty = " + _currentDifficultyLevel);
                     for (int i = 0; i < _currentWaveData.Count; i++)
                     {
                         if (_currentWaveData[i].Amount > 0)
@@ -169,7 +170,7 @@ public class SceneEnemyFactory : MonoBehaviour
 
         if(CurrentWave != 1)
         {
-            _currentDifficultyLevel = _difficultyLevel + (_difficultyLevel * _difficultyScale);
+            _currentDifficultyLevel += _difficultyLevel * _difficultyScale;
             _movementModifire += 0.0025f;
         }
 

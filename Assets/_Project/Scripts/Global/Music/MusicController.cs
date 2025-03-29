@@ -15,7 +15,7 @@ public class MusicController : MonoBehaviour
     private List<AudioClip> _currentMusicPlaylist = new();
     private AudioClip _currentAudioClip;
     private AudioSource _audioSource;
-    private bool IsPaused = false;
+    private bool IsPaused = false; 
     private bool IsInitialized = false;
     private float _cooldownTime = 1f;
     private float _cooldownTimer = 0f;
@@ -72,13 +72,11 @@ public class MusicController : MonoBehaviour
     private void PlayMusic()
     {
         if (_currentMusicPlaylist.Count < 1)
-            FillCurrentPlaylist();
-        
+            FillCurrentPlaylist(); 
         int randomisedIter = RandomizeMusic();
         _currentAudioClip = _currentMusicPlaylist[randomisedIter];
         _audioSource.clip = _currentAudioClip;
         _audioSource.Play();
-
         _currentMusicPlaylist.RemoveAt(randomisedIter);
     }
 

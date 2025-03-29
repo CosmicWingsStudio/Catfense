@@ -19,6 +19,7 @@ public class RangeUnitAttack : UnitAttack
         _originalFirerate = _firerate;
         _originalDamage = _damage;
         _projectailSpeed = config.ProjectailSpeed;
+        _fireRateCounter = _firerate;
 
         if (config.ProjectailPrefabPath == string.Empty == false)
             _projectailPrefabPath = config.ProjectailPrefabPath;
@@ -34,6 +35,7 @@ public class RangeUnitAttack : UnitAttack
         _originalDamage = _damage;
         _projectailSpeed = projectailSpeed;
         _projectailPrefabPath = projectailPrefabPath;
+        _fireRateCounter = _firerate;
     }
 
     public override void AttackAnimationPoint()

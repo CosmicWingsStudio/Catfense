@@ -42,6 +42,7 @@ public abstract class UnitAttack : MonoBehaviour
         _damage = damage;
         _originalFirerate = _firerate;
         _originalDamage = _damage;
+        _fireRateCounter = _firerate;
     }
 
     public virtual void SetData(float firerate, int damage, float projectailSpeed, string projectailPrefabPath)
@@ -84,7 +85,6 @@ public abstract class UnitAttack : MonoBehaviour
     {
         Animator.SetBool(_idleState, false);
         CurrentTarget = target;
-        _fireRateCounter = _firerate;
         IsAttacking = true;
     }
 

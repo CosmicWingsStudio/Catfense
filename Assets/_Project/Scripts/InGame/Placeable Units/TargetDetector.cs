@@ -7,7 +7,6 @@ public class TargetDetector : MonoBehaviour
     [SerializeField] private float _detectionSizeY;
 
     protected UnitAttack _attackHandler;
-    private Collider2D[] m_buffer = new Collider2D[16];
     public bool IsStoped { get; set; } = false;
 
     private void Start()
@@ -20,11 +19,6 @@ public class TargetDetector : MonoBehaviour
         if (IsStoped)
             return;
 
-        //var colliders = Physics2D.OverlapBoxAll(transform.position, new Vector2(_detectionSizeX, _detectionSizeY), 90);
-        //for (int i = 0; i < colliders.Length; i++)
-        //{
-        //    AnalyzeDetectedCollider(colliders[i]);
-        //}
         if(_attackHandler.CurrentTarget == null)
             FindClosestTarget();
     }
@@ -71,33 +65,5 @@ public class TargetDetector : MonoBehaviour
             _attackHandler.SetCurrentTarget(closestEnemy.transform);
     }
 
-    public void FindClosestTarget2()
-    {
-        int iter = Physics2D.OverlapBoxNonAlloc(transform.position, new Vector2(_detectionSizeX, _detectionSizeY), 90, m_buffer);
-        EnemyUnit closestEnemy = null;
-        Vector2 closestEnemyVector = Vector2.zero;
-
-        for (int i = 0; i < iter; i++)
-        {
-            if (m_buffer[i].TryGetComponent(out EnemyUnit enemy))
-            {
-                if (closestEnemy != null)
-                {
-                    Vector2 newVec = enemy.transform.position - transform.position;
-                    if (newVec.sqrMagnitude < closestEnemyVector.sqrMagnitude)
-                    {
-                        closestEnemy = enemy;
-                        closestEnemyVector = newVec;
-                    }
-                }
-                else
-                {
-                    closestEnemy = enemy;
-                    closestEnemyVector = enemy.transform.position - transform.position;
-                }
-            }
-        }
-        if (closestEnemy != null)
-            _attackHandler.SetCurrentTarget(closestEnemy.transform);
-    }
+    
 }

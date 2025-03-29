@@ -30,19 +30,19 @@ public class DesktopSaveService : ISaveService
             SaveData();   
         }
 
-        //using (StreamReader streamReader = new StreamReader(path))
-        //{
-        //    string EncryptedJson = streamReader.ReadToEnd();
-        //    string DecryptedJson = EncryptionDecryption(EncryptedJson);
-        //    data = JsonConvert.DeserializeObject<SavedData>(DecryptedJson);
-        //}
-        UnityEngine.Debug.LogError("!NOT USING ENCRYPRION!");
-
         using (StreamReader streamReader = new StreamReader(path))
         {
-            string json = streamReader.ReadToEnd();
-            data = JsonConvert.DeserializeObject<SavedData>(json);
+            string EncryptedJson = streamReader.ReadToEnd();
+            string DecryptedJson = EncryptionDecryption(EncryptedJson);
+            data = JsonConvert.DeserializeObject<SavedData>(DecryptedJson);
         }
+        //UnityEngine.Debug.LogError("!NOT USING ENCRYPRION!");
+
+        //using (StreamReader streamReader = new StreamReader(path))
+        //{
+        //    string json = streamReader.ReadToEnd();
+        //    data = JsonConvert.DeserializeObject<SavedData>(json);
+        //}
         
         return data;
     }
@@ -73,16 +73,16 @@ public class DesktopSaveService : ISaveService
             CreateSaveFile();
         }
 
-        //using (StreamWriter streamWriter = new StreamWriter(path))
-        //{
-        //    streamWriter.Write(encryptedJson);
-        //}
-        UnityEngine.Debug.LogError("!NOT USING ENCRYPTION!");
-
         using (StreamWriter streamWriter = new StreamWriter(path))
         {
-            streamWriter.Write(json);
+            streamWriter.Write(encryptedJson);
         }
+        //UnityEngine.Debug.LogError("!NOT USING ENCRYPTION!");
+
+        //using (StreamWriter streamWriter = new StreamWriter(path))
+        //{
+        //    streamWriter.Write(json);
+        //}
     }
 
     public void SaveData(SavedData savedData)

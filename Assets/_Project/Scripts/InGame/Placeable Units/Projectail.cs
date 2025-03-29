@@ -70,33 +70,7 @@ public class Projectail : MonoBehaviour
                     transform.right = newDir;
                 }
 
-                if ((int)transform.position.y * 100 == (int)_lastPosition.y * 100 && (int)transform.position.x * 100 == (int)_lastPosition.x * 100)
-                {
-                    var colliders = Physics2D.OverlapBoxAll(transform.position, new Vector2(3, 3), 90);
-                    for (int i = 0; i < colliders.Length; i++)
-                    {
-                        if (colliders[i].transform.TryGetComponent(out EnemyUnit eu))
-                        {
-                            eu.GetComponent<HealthHandler>().TakeDamage(_damage);
-                            if (OnHitEffect != null)
-                            {
-                                GameObject onHitEffect = Instantiate(OnHitEffect);
-                                onHitEffect.transform.position = transform.position;
-                            }
-                            if (_slownessOnHit > 0)
-                            {
-                                eu.GetComponent<EnemyMovement>().SetSlownessEffect(_slownessOnHit);
-                            }
-
-                            hit = true;
-
-                            if (AOEDamage == false)
-                                break;
-                        }
-                    }
-
-                    Destroy(gameObject);
-                }
+                MakeHitIfTargetIsNull();
 
                 return;
             }
@@ -111,7 +85,8 @@ public class Projectail : MonoBehaviour
                 transform.right = newDir;
             }
       
-            if (OnNullTarget) return;
+            if (OnNullTarget)
+                MakeHitIfTargetIsNull();
 
             if ((int)transform.position.y * 100 == (int)_targetPosition.position.y * 100 && (int)transform.position.x * 100 == (int)_targetPosition.position.x * 100)
             {
@@ -163,6 +138,37 @@ public class Projectail : MonoBehaviour
         }
                 
     }
+
+    private void MakeHitIfTargetIsNull()
+    {
+        if ((int)transform.position.y * 100 == (int)_lastPosition.y * 100 && (int)transform.position.x * 100 == (int)_lastPosition.x * 100)
+        {
+            var colliders = Physics2D.OverlapBoxAll(transform.position, new Vector2(2, 2), 90);
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                if (colliders[i].transform.TryGetComponent(out EnemyUnit eu))
+                {
+                    eu.GetComponent<HealthHandler>().TakeDamage(_damage);
+                    if (OnHitEffect != null)
+                    {
+                        GameObject onHitEffect = Instantiate(OnHitEffect);
+                        onHitEffect.transform.position = transform.position;
+                    }
+                    if (_slownessOnHit > 0)
+                    {
+                        eu.GetComponent<EnemyMovement>().SetSlownessEffect(_slownessOnHit);
+                    }
+
+                    hit = true;
+
+                    if (AOEDamage == false)
+                        break;
+                }
+            }
+
+            Destroy(gameObject);
+        }
+    } 
 
     private void OnValidate()
     {

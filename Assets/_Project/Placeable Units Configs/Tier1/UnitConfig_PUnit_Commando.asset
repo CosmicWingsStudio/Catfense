@@ -15,9 +15,9 @@ MonoBehaviour:
   <Name>k__BackingField: "\u041A\u043E\u043C\u043C\u0430\u043D\u0434\u043E"
   <PresentiveName>k__BackingField: "\u041A\u043E\u043C\u043C\u0430\u043D\u0434\u043E"
   <HealthPoints>k__BackingField: 100
-  <Damage>k__BackingField: 30
+  <Damage>k__BackingField: 25
   <Firerate>k__BackingField: 2.5
-  <Price>k__BackingField: 125
+  <Price>k__BackingField: 130
   <TeamEffectCollection>k__BackingField: 6
   <PrefabName>k__BackingField: PUnit_Commando
   <UnitSprite>k__BackingField: {fileID: 21300000, guid: 286e1602ea2f0a6488f1fd9d8ae0517e, type: 2}

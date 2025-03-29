@@ -16,12 +16,12 @@ MonoBehaviour:
   <EnvironmentPrefabName>k__BackingField: Env_02
   <RealmIndex>k__BackingField: 2
   <LevelIndex>k__BackingField: 3
-  <DifficultyLevel>k__BackingField: 0.28
+  <DifficultyLevel>k__BackingField: 0.2
   <StartMoney>k__BackingField: 60
-  <MoneyPerWave>k__BackingField: 85
-  <MoneyPerWaveModifire>k__BackingField: 0.1
-  <DifficultyLevelScale>k__BackingField: 0.15
-  <MovementModifire>k__BackingField: 0
+  <MoneyPerWave>k__BackingField: 80
+  <MoneyPerWaveModifire>k__BackingField: 0.15
+  <DifficultyLevelScale>k__BackingField: 0.5
+  <MovementModifire>k__BackingField: -0.04
   <PreparationTime>k__BackingField: 15
   <WavesList>k__BackingField:
   - EnemiesOnWaveList:
@@ -83,12 +83,12 @@ MonoBehaviour:
       <Amount>k__BackingField: 8
     - <PrefabName>k__BackingField: Range_01
       <Amount>k__BackingField: 5
-    - <PrefabName>k__BackingField: Boss_02
+    - <PrefabName>k__BackingField: Boss_04
       <Amount>k__BackingField: 1
     - <PrefabName>k__BackingField: Melee_02
-      <Amount>k__BackingField: 7
+      <Amount>k__BackingField: 6
     - <PrefabName>k__BackingField: Melee_03
-      <Amount>k__BackingField: 5
+      <Amount>k__BackingField: 4
   <MusicClips>k__BackingField:
   - {fileID: 8300000, guid: 068969d7013aa9042b6d9593038ab5ac, type: 3}
   - {fileID: 8300000, guid: 1ab63ac3a4c92164bbf291b43c3f15a2, type: 3}

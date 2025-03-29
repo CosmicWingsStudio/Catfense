@@ -16,12 +16,12 @@ MonoBehaviour:
   <EnvironmentPrefabName>k__BackingField: Env_03
   <RealmIndex>k__BackingField: 3
   <LevelIndex>k__BackingField: 3
-  <DifficultyLevel>k__BackingField: 0.17
-  <StartMoney>k__BackingField: 60
-  <MoneyPerWave>k__BackingField: 85
-  <MoneyPerWaveModifire>k__BackingField: 0.1
-  <DifficultyLevelScale>k__BackingField: 0.115
-  <MovementModifire>k__BackingField: -0.108
+  <DifficultyLevel>k__BackingField: 0.2
+  <StartMoney>k__BackingField: 70
+  <MoneyPerWave>k__BackingField: 100
+  <MoneyPerWaveModifire>k__BackingField: 0.25
+  <DifficultyLevelScale>k__BackingField: 0.32
+  <MovementModifire>k__BackingField: -0.126
   <PreparationTime>k__BackingField: 15
   <WavesList>k__BackingField:
   - EnemiesOnWaveList:

@@ -45,7 +45,7 @@ public abstract class Slot2D : MonoBehaviour
     public virtual void SwapItemWithAnotherItem(Transform item)
     {
         item.SetParent(transform);
-        item.localPosition = Vector2.zero;
+        item.localPosition = new(0, _defaultOffsetY);
     }
 
     public virtual void InformOfTakingItemFromSlot()

@@ -16,12 +16,12 @@ MonoBehaviour:
   <EnvironmentPrefabName>k__BackingField: Env_06
   <RealmIndex>k__BackingField: 5
   <LevelIndex>k__BackingField: 3
-  <DifficultyLevel>k__BackingField: 0.25
+  <DifficultyLevel>k__BackingField: 0.15
   <StartMoney>k__BackingField: 50
-  <MoneyPerWave>k__BackingField: 70
-  <MoneyPerWaveModifire>k__BackingField: 0.1
-  <DifficultyLevelScale>k__BackingField: 0.382
-  <MovementModifire>k__BackingField: 0.075
+  <MoneyPerWave>k__BackingField: 50
+  <MoneyPerWaveModifire>k__BackingField: 0.2
+  <DifficultyLevelScale>k__BackingField: 0.4
+  <MovementModifire>k__BackingField: 0.04
   <PreparationTime>k__BackingField: 15
   <WavesList>k__BackingField:
   - EnemiesOnWaveList:
@@ -69,33 +69,31 @@ MonoBehaviour:
     - <PrefabName>k__BackingField: Boss_02
       <Amount>k__BackingField: 1
     - <PrefabName>k__BackingField: Range_02
-      <Amount>k__BackingField: 4
+      <Amount>k__BackingField: 3
     - <PrefabName>k__BackingField: Melee_03
       <Amount>k__BackingField: 4
     - <PrefabName>k__BackingField: Range_02
-      <Amount>k__BackingField: 4
+      <Amount>k__BackingField: 3
   - EnemiesOnWaveList:
     - <PrefabName>k__BackingField: Range_02
-      <Amount>k__BackingField: 8
+      <Amount>k__BackingField: 6
     - <PrefabName>k__BackingField: Boss_02
       <Amount>k__BackingField: 1
     - <PrefabName>k__BackingField: Melee_03
-      <Amount>k__BackingField: 10
-    - <PrefabName>k__BackingField: Boss_04
-      <Amount>k__BackingField: 1
+      <Amount>k__BackingField: 8
     - <PrefabName>k__BackingField: Range_02
-      <Amount>k__BackingField: 5
+      <Amount>k__BackingField: 4
   - EnemiesOnWaveList:
     - <PrefabName>k__BackingField: Melee_01
-      <Amount>k__BackingField: 12
+      <Amount>k__BackingField: 6
     - <PrefabName>k__BackingField: Boss_03
       <Amount>k__BackingField: 1
     - <PrefabName>k__BackingField: Melee_01
-      <Amount>k__BackingField: 10
+      <Amount>k__BackingField: 5
     - <PrefabName>k__BackingField: Boss_03
       <Amount>k__BackingField: 1
     - <PrefabName>k__BackingField: Melee_01
-      <Amount>k__BackingField: 10
+      <Amount>k__BackingField: 5
     - <PrefabName>k__BackingField: Boss_03
       <Amount>k__BackingField: 1
   <MusicClips>k__BackingField:

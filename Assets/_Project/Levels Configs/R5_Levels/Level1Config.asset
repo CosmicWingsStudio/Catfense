@@ -16,12 +16,12 @@ MonoBehaviour:
   <EnvironmentPrefabName>k__BackingField: Env_06
   <RealmIndex>k__BackingField: 5
   <LevelIndex>k__BackingField: 1
-  <DifficultyLevel>k__BackingField: 0.26
+  <DifficultyLevel>k__BackingField: 0.25
   <StartMoney>k__BackingField: 125
-  <MoneyPerWave>k__BackingField: 75
-  <MoneyPerWaveModifire>k__BackingField: 0.1
-  <DifficultyLevelScale>k__BackingField: 0.33
-  <MovementModifire>k__BackingField: -0.071
+  <MoneyPerWave>k__BackingField: 100
+  <MoneyPerWaveModifire>k__BackingField: 0.25
+  <DifficultyLevelScale>k__BackingField: 0.15
+  <MovementModifire>k__BackingField: -0.064
   <PreparationTime>k__BackingField: 15
   <WavesList>k__BackingField:
   - EnemiesOnWaveList:
@@ -33,13 +33,13 @@ MonoBehaviour:
       <Amount>k__BackingField: 3
   - EnemiesOnWaveList:
     - <PrefabName>k__BackingField: Melee_02
-      <Amount>k__BackingField: 7
-    - <PrefabName>k__BackingField: Range_01
-      <Amount>k__BackingField: 4
-    - <PrefabName>k__BackingField: Melee_02
-      <Amount>k__BackingField: 5
+      <Amount>k__BackingField: 6
     - <PrefabName>k__BackingField: Range_01
       <Amount>k__BackingField: 3
+    - <PrefabName>k__BackingField: Melee_02
+      <Amount>k__BackingField: 4
+    - <PrefabName>k__BackingField: Range_01
+      <Amount>k__BackingField: 2
   - EnemiesOnWaveList:
     - <PrefabName>k__BackingField: Melee_01
       <Amount>k__BackingField: 4
@@ -54,6 +54,8 @@ MonoBehaviour:
       <Amount>k__BackingField: 3
     - <PrefabName>k__BackingField: Melee_01
       <Amount>k__BackingField: 3
+    - <PrefabName>k__BackingField: Melee_01
+      <Amount>k__BackingField: 5
   - EnemiesOnWaveList:
     - <PrefabName>k__BackingField: Melee_03
       <Amount>k__BackingField: 10

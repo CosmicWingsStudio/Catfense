@@ -16,45 +16,45 @@ MonoBehaviour:
   <EnvironmentPrefabName>k__BackingField: Env_05
   <RealmIndex>k__BackingField: 4
   <LevelIndex>k__BackingField: 3
-  <DifficultyLevel>k__BackingField: 0.2
+  <DifficultyLevel>k__BackingField: 0.25
   <StartMoney>k__BackingField: 150
-  <MoneyPerWave>k__BackingField: 50
-  <MoneyPerWaveModifire>k__BackingField: 0.1
-  <DifficultyLevelScale>k__BackingField: 0.268
-  <MovementModifire>k__BackingField: 0.132
+  <MoneyPerWave>k__BackingField: 75
+  <MoneyPerWaveModifire>k__BackingField: 0.2
+  <DifficultyLevelScale>k__BackingField: 0.3
+  <MovementModifire>k__BackingField: 0.068
   <PreparationTime>k__BackingField: 15
   <WavesList>k__BackingField:
   - EnemiesOnWaveList:
     - <PrefabName>k__BackingField: Range_02
-      <Amount>k__BackingField: 5
+      <Amount>k__BackingField: 4
     - <PrefabName>k__BackingField: Melee_01
-      <Amount>k__BackingField: 7
+      <Amount>k__BackingField: 5
     - <PrefabName>k__BackingField: Range_02
       <Amount>k__BackingField: 3
   - EnemiesOnWaveList:
     - <PrefabName>k__BackingField: Range_02
-      <Amount>k__BackingField: 6
-    - <PrefabName>k__BackingField: Melee_01
-      <Amount>k__BackingField: 8
-    - <PrefabName>k__BackingField: Range_02
       <Amount>k__BackingField: 5
+    - <PrefabName>k__BackingField: Melee_01
+      <Amount>k__BackingField: 6
+    - <PrefabName>k__BackingField: Range_02
+      <Amount>k__BackingField: 4
   - EnemiesOnWaveList:
     - <PrefabName>k__BackingField: Melee_01
-      <Amount>k__BackingField: 10
+      <Amount>k__BackingField: 8
     - <PrefabName>k__BackingField: Boss_02
       <Amount>k__BackingField: 1
     - <PrefabName>k__BackingField: Range_02
-      <Amount>k__BackingField: 7
-  - EnemiesOnWaveList:
-    - <PrefabName>k__BackingField: Range_02
-      <Amount>k__BackingField: 10
-    - <PrefabName>k__BackingField: Melee_01
-      <Amount>k__BackingField: 8
-    - <PrefabName>k__BackingField: Range_02
       <Amount>k__BackingField: 5
   - EnemiesOnWaveList:
     - <PrefabName>k__BackingField: Range_02
-      <Amount>k__BackingField: 12
+      <Amount>k__BackingField: 9
+    - <PrefabName>k__BackingField: Melee_01
+      <Amount>k__BackingField: 5
+    - <PrefabName>k__BackingField: Range_02
+      <Amount>k__BackingField: 4
+  - EnemiesOnWaveList:
+    - <PrefabName>k__BackingField: Range_02
+      <Amount>k__BackingField: 10
     - <PrefabName>k__BackingField: Melee_01
       <Amount>k__BackingField: 5
     - <PrefabName>k__BackingField: Range_02
