@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2a7ac0458f1c35b46a6a83bde093f6fe
+guid: 73d7975e45d29ad4a9af7d4e8a2c17ac
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5296030215426426226
-    second: FrozeIcon_0
+      213: 4262864055654151219
+    second: FrozeIcon256_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FrozeIcon_0
+      name: FrozeIcon256_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2829
-        height: 3000
+        x: 11
+        y: 4
+        width: 234
+        height: 248
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2754a3edb674f7940800000000000000
-      internalID: 5296030215426426226
+      spriteID: 334fb03e54cb82b30800000000000000
+      internalID: 4262864055654151219
       vertices: []
       indices: 
       edges: []
@@ -164,7 +164,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      FrozeIcon_0: 5296030215426426226
+      FrozeIcon256_0: 4262864055654151219
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
