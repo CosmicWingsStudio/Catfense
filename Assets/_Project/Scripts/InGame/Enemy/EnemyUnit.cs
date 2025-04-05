@@ -84,8 +84,6 @@ public class EnemyUnit : MonoBehaviour
     private void ApplyLevelDifficulty(float difficulty)
     {
         float newHp = _healthPoints * difficulty;
-        Debug.Log(_healthPoints + " "+ difficulty);
-        Debug.Log("newhp= " + newHp);
         _healthPoints += newHp;
 
         unitAttack.Damage += unitAttack.Damage * difficulty;

@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using YG;
 using Zenject;
 
 public class ResultScreenGUIHandler : MonoBehaviour
@@ -109,15 +110,13 @@ public class ResultScreenGUIHandler : MonoBehaviour
     private void SaveResult(bool result = true)
     {
         if (_realmIndex == 6) return;
-
-        SavedData data = _saveService.LoadData();
         
         if(_realmIndex != 0 && _levelIndex != 0)
-            data.RealmsData[_realmIndex - 1].LevelsData[_levelIndex - 1] = result;
+            YandexGame.savesData.SavedData.RealmsData[_realmIndex - 1].LevelsData[_levelIndex - 1] = result;
         else
-            data.RealmsData[_realmIndex].LevelsData[_levelIndex] = result;
+            YandexGame.savesData.SavedData.RealmsData[_realmIndex].LevelsData[_levelIndex] = result;
 
-        _saveService.SaveData(data);
+        _saveService.SaveData(YandexGame.savesData);
     }
 
     private void LeaveScene()

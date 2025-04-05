@@ -31,10 +31,8 @@ public class InMenuSceneInstaller : MonoInstaller
 
     private void BindSaveServices()
     {
-        DesktopSaveService desktopSaveService = new(_realmsDataHandler);
-        Debug.Log("DESKTOP SERVICE INITILISED");
-        //Container.Bind<ISaveService>().To<DesktopSaveService>().FromInstance(desktopSaveService).AsSingle();
-        Container.BindInterfacesAndSelfTo<DesktopSaveService>().FromInstance(desktopSaveService).AsSingle();
+        YandexGamesSaveService ygSaveService = new(_realmsDataHandler);
+        Container.BindInterfacesAndSelfTo<YandexGamesSaveService>().FromInstance(ygSaveService).AsSingle();
     }
 
 }

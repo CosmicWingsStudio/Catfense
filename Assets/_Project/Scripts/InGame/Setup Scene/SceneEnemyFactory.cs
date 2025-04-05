@@ -81,7 +81,6 @@ public class SceneEnemyFactory : MonoBehaviour
             {
                 if (_currentWaveData.Count != 0)
                 {
-                    Debug.Log("Current dificulty = " + _currentDifficultyLevel);
                     for (int i = 0; i < _currentWaveData.Count; i++)
                     {
                         if (_currentWaveData[i].Amount > 0)

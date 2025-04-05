@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using YG;
 using Zenject;
 
 public class RealmsDataHandler : MonoBehaviour
@@ -10,15 +11,15 @@ public class RealmsDataHandler : MonoBehaviour
 
     public bool IsInitialized { get; private set; } = false;
 
-    public void Initialize(SavedData savedData)
+    public void Initialize(SavesYG savedData)
     {
         for (int i = 0; i < RealmHandlers.Length; i++)
         {
-            RealmHandlers[i].Initialize(savedData.RealmsData[i]);
+            RealmHandlers[i].Initialize(savedData.SavedData.RealmsData[i]);
             
         }
 
-        realmsHandler.SetData(savedData.RealmsADWatchedData);
+        realmsHandler.SetData(savedData.SavedData.RealmsADWatchedData);
         IsInitialized = true;
     }
 

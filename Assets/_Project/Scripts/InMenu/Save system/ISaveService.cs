@@ -1,10 +1,11 @@
 using UnityEngine;
+using YG;
 
 public interface ISaveService
 {
-    SavedData LoadData();
-    void SaveData(SavedData savedData) { }
+    SavesYG LoadData();
+    void SaveData(SavesYG savedData) { }
     void SaveData() { }
-    void SetData(SavedData savedData);
+    void SetData(SavesYG savedData);
     string GetSaveDataPath();
 }
