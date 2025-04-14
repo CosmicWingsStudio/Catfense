@@ -13,6 +13,7 @@ public class LevelDataProviderFromMenuScene : MonoBehaviour
     public LevelConfig DeveloperToolsConfig { get; private set; }
 
     public bool OnRestart = false;
+    public bool IsGRAReady = false;
 
 
     private void Awake()

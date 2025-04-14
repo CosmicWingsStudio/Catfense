@@ -27,7 +27,9 @@ public class Realm : MonoBehaviour
     {
         OpenRealmButton.onClick.AddListener(OpenRealmPanel);
         OpenRealmButton.enabled = false;
-        IsCompletedToggle.isOn = IsCompleted;
+
+        if(IsCompletedToggle != null)
+            IsCompletedToggle.isOn = IsCompleted;
 
     }
     public void MakeRealmAvailable()
@@ -40,7 +42,8 @@ public class Realm : MonoBehaviour
     public void MakeRealmCompleted()
     {
         _isCompleted = true;
-        IsCompletedToggle.isOn = _isCompleted;
+        if (IsCompletedToggle != null)
+            IsCompletedToggle.isOn = _isCompleted;
     }
 
     private void OpenRealmPanel()

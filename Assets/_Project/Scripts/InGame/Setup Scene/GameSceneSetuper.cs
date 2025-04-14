@@ -1,4 +1,5 @@
 using UnityEngine;
+using YG;
 using Zenject;
 
 public class GameSceneSetuper : IInitializable
@@ -40,7 +41,7 @@ public class GameSceneSetuper : IInitializable
         else
         {
             LevelDataProviderFromMenuScene.Instance.RestartLevelDataSaverSO.SetDefaultData();
-        }
+        }  
     }
 
     private void TakeLevelConfigData()

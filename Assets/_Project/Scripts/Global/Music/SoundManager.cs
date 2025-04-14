@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using YG;
 
 public class SoundManager : MonoBehaviour
 {
@@ -10,10 +11,13 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private Slider _unitVolumeSlider;
 
     [SerializeField] private AudioMixer _audioMixer;
+    [SerializeField] private bool IsMenuVersion = false;
 
     private float _beforeSavingTreshold = 3f;
     private float _beforeSavingTresholdTimer;
     private bool VolumeDataTouched = false;
+    private bool IsUnfocused = false;
+    private VolumeSettings _hashedVolumeSettings;
 
     private void Update()
     {
@@ -37,44 +41,104 @@ public class SoundManager : MonoBehaviour
         _musicVolumeSlider.onValueChanged.AddListener(value => SetMusicVolume(value));
         _masterVolumeSlider.onValueChanged.AddListener(value => SetMasterVolume(value));
         _unitVolumeSlider.onValueChanged.AddListener(value => SetUnitVolume(value));
+        
     }
 
-    private void LoadSavedPrefs()
+    private void OnApplicationFocus(bool focus)
     {
-        try
+        if (!focus)
         {
-            VolumeSettings savedVS = JsonUtility.FromJson<VolumeSettings>(PlayerPrefs.GetString("VolumeSettings"));
+            if(IsUnfocused == false)
+            {
 
-            _musicVolumeSlider.value = savedVS.MusicVolume;
-            _guiVolumeSlider.value = savedVS.GUIVolume;
-            _masterVolumeSlider.value = savedVS.MasterVolume;
-            _unitVolumeSlider.value = savedVS.UnitVolume;
+                VolumeSettings vlm = TempSoundSettings.Instance.VolumeSettings;
+                _hashedVolumeSettings = new(vlm.MusicVolume, vlm.GUIVolume, vlm.MasterVolume, vlm.UnitVolume);
+                IsUnfocused = true;
+
+                TempSoundSettings.Instance.UpdateVolumeSettings(0f,
+                0f,
+                0f,
+                0f);
+
+                VolumeSettings vs = TempSoundSettings.Instance.VolumeSettings;
+
+                _musicVolumeSlider.value = vs.MusicVolume;
+                _guiVolumeSlider.value = vs.GUIVolume;
+                _masterVolumeSlider.value = vs.MasterVolume;
+                _unitVolumeSlider.value = vs.UnitVolume;
+
+                _audioMixer.SetFloat("musicVolume", Mathf.Log10(_musicVolumeSlider.value) * 20);
+                _audioMixer.SetFloat("guiVolume", Mathf.Log10(_guiVolumeSlider.value) * 20);
+                _audioMixer.SetFloat("masterVolume", Mathf.Log10(_masterVolumeSlider.value) * 20);
+                _audioMixer.SetFloat("unitVolume", Mathf.Log10(_unitVolumeSlider.value) * 20);
+            }
+            
+
+        }
+        else if(focus && IsUnfocused)
+        {
+
+            IsUnfocused = false;
+            TempSoundSettings.Instance.UpdateVolumeSettings(_hashedVolumeSettings.MusicVolume, _hashedVolumeSettings.GUIVolume,
+            _hashedVolumeSettings.MasterVolume,
+            _hashedVolumeSettings.UnitVolume);
+
+            VolumeSettings vs = _hashedVolumeSettings;
+
+            _musicVolumeSlider.value = vs.MusicVolume;
+            _guiVolumeSlider.value = vs.GUIVolume;
+            _masterVolumeSlider.value = vs.MasterVolume;
+            _unitVolumeSlider.value = vs.UnitVolume;
 
             _audioMixer.SetFloat("musicVolume", Mathf.Log10(_musicVolumeSlider.value) * 20);
             _audioMixer.SetFloat("guiVolume", Mathf.Log10(_guiVolumeSlider.value) * 20);
             _audioMixer.SetFloat("masterVolume", Mathf.Log10(_masterVolumeSlider.value) * 20);
             _audioMixer.SetFloat("unitVolume", Mathf.Log10(_unitVolumeSlider.value) * 20);
         }
-        catch (System.Exception)
-        {
-            SavePrefs();
-        }
-           
+    }
+
+    private void LoadSavedPrefs()
+    {
+        //try
+        //{
+        //    VolumeSettings savedVS = JsonUtility.FromJson<VolumeSettings>(PlayerPrefs.GetString("VolumeSettings"));
+
+        //    _musicVolumeSlider.value = savedVS.MusicVolume;
+        //    _guiVolumeSlider.value = savedVS.GUIVolume;
+        //    _masterVolumeSlider.value = savedVS.MasterVolume;
+        //    _unitVolumeSlider.value = savedVS.UnitVolume;
+
+        //    _audioMixer.SetFloat("musicVolume", Mathf.Log10(_musicVolumeSlider.value) * 20);
+        //    _audioMixer.SetFloat("guiVolume", Mathf.Log10(_guiVolumeSlider.value) * 20);
+        //    _audioMixer.SetFloat("masterVolume", Mathf.Log10(_masterVolumeSlider.value) * 20);
+        //    _audioMixer.SetFloat("unitVolume", Mathf.Log10(_unitVolumeSlider.value) * 20);
+        //}
+        //catch (System.Exception)
+        //{
+        //    SavePrefs();
+        //}
+
+        VolumeSettings vs = TempSoundSettings.Instance.VolumeSettings;
+
+        _musicVolumeSlider.value = vs.MusicVolume;
+        _guiVolumeSlider.value = vs.GUIVolume;
+        _masterVolumeSlider.value = vs.MasterVolume;
+        _unitVolumeSlider.value = vs.UnitVolume;
+
+        _audioMixer.SetFloat("musicVolume", Mathf.Log10(_musicVolumeSlider.value) * 20);
+        _audioMixer.SetFloat("guiVolume", Mathf.Log10(_guiVolumeSlider.value) * 20);
+        _audioMixer.SetFloat("masterVolume", Mathf.Log10(_masterVolumeSlider.value) * 20);
+        _audioMixer.SetFloat("unitVolume", Mathf.Log10(_unitVolumeSlider.value) * 20);
+
     }
 
     private void SavePrefs()
     {
-        VolumeSettings vs = new
-        (
-             _musicVolumeSlider.value,
+        TempSoundSettings.Instance.UpdateVolumeSettings(_musicVolumeSlider.value,
              _guiVolumeSlider.value,
              _masterVolumeSlider.value,
-             _unitVolumeSlider.value
-             
-        );
-
-        PlayerPrefs.SetString("VolumeSettings", JsonUtility.ToJson(vs));
-        PlayerPrefs.Save();
+             _unitVolumeSlider.value);
+       
     }
 
     private void SetGUIVolume(float guiVolume)

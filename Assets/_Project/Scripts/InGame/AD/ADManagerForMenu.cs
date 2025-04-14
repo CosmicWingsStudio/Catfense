@@ -1,9 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 using Zenject;
 
 public class ADManagerForMenu : MonoBehaviour
 {
+    private const int GetMoneyAdId = 2;
+
     [SerializeField] private Button _startADVideoForUnlockRealm;
     [SerializeField] private GameObject _adPanel;
     [SerializeField] private GameObject _adVideo;
@@ -24,8 +27,7 @@ public class ADManagerForMenu : MonoBehaviour
     private void Start()
     {
         _startADVideoForUnlockRealm.onClick.AddListener(StartWatchingAD);
-
-        _signalBus.Subscribe<ADVideoEndedSignal>(UnlockRealm);
+        YandexGame.RewardVideoEvent += UnlockRealm;
     }
 
     public void ShowADPanelFromRealmButton(int realmIndex, Transform pos)
@@ -44,17 +46,16 @@ public class ADManagerForMenu : MonoBehaviour
     private void StartWatchingAD()
     {
         _adPanel.gameObject.SetActive(false);
-        _signalBus.Fire(new ADVideoStartedSignal(_currentIndex));
         PauseDuringAD();
-        ADObject ad = Instantiate(_adVideo).GetComponent<ADObject>();
-        ad.Initialize(_signalBus);
+        YandexGame.RewVideoShow(GetMoneyAdId);
     }
 
-    private void UnlockRealm()
+    private void UnlockRealm(int id)
     {
-        //change field in THE REALM
+        if (id != GetMoneyAdId)
+            return;
+
         _realmsHandler.GetRealms()[_currentIndex - 1].IsADWatched = true;
-        //do save method
         _saveService.SaveData();
 
     }
@@ -62,5 +63,10 @@ public class ADManagerForMenu : MonoBehaviour
     private void PauseDuringAD()
     {
         _signalBus.Fire<PausedSignal>();
+    }
+
+    private void OnDisable()
+    {
+        YandexGame.RewardVideoEvent -= UnlockRealm;
     }
 }

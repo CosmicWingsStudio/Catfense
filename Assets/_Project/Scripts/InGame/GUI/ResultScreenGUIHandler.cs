@@ -67,6 +67,12 @@ public class ResultScreenGUIHandler : MonoBehaviour
                 _resultScreenObject.SetActive(true);
                 _resultText.text = _winResultInscription;
                 SoundMakerGUI.Instance.PlaySound(SoundMakerGUI.Instance.SoundWinResult);
+
+                if(_levelIndex == 4 && _realmIndex == 2)
+                {
+                    YandexGame.ReviewShow(true);
+                }
+
                 Time.timeScale = 0f;
                 break;
             case ResultType.Lose:
@@ -133,7 +139,6 @@ public class ResultScreenGUIHandler : MonoBehaviour
         _restartButton.interactable = true;
         Time.timeScale = 0;
     }
-
 }
 
 public enum ResultType

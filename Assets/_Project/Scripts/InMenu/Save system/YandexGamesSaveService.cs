@@ -1,5 +1,4 @@
-using Newtonsoft.Json;
-using System.IO;
+
 using UnityEngine;
 using YG;
 
@@ -15,6 +14,7 @@ public class YandexGamesSaveService : ISaveService
 
     public SavesYG LoadData()
     {
+        Debug.Log(YandexGame.savesData.SavedData);
         if (YandexGame.savesData.SavedData == null)
         {
             SavedData savedData;
@@ -45,13 +45,14 @@ public class YandexGamesSaveService : ISaveService
 
         YandexGame.savesData.SavedData = savedData;
         YandexGame.SaveProgress();
-        
+        YandexGame.SaveCloud();
     }
 
     public void SaveData(SavesYG savedData)
     {
         YandexGame.savesData.SavedData = savedData.SavedData;
         YandexGame.SaveProgress();
+        YandexGame.SaveCloud();
     }
 
     public void SetData(SavesYG savedData)
@@ -59,10 +60,10 @@ public class YandexGamesSaveService : ISaveService
         RealmsDataHandler.Initialize(savedData);
     }
 
-    private void CreateSaveFile()
-    {
-        File.Create(GetSaveDataPath()).Dispose();
-    }
+    //private void CreateSaveFile()
+    //{
+    //    File.Create(GetSaveDataPath()).Dispose();
+    //}
 
     public string GetSaveDataPath()
     {

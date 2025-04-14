@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using YG;
 using Zenject;
 
 [RequireComponent(typeof(AudioSource))]
@@ -95,6 +96,7 @@ public class MusicController : MonoBehaviour
 
     private void Pause()
     {
+
         if (_audioSource.isPlaying)
         {
             _audioSource.Pause();
